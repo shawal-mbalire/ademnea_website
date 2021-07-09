@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/*Route::get('/', function () {
+    return view('home');
 });
 
-Route::get('/main', function() {
 
-    return view('main');
-});
+Route::get('/next', function () {
+    return view('next');
+});*/
+
+//Auth::routes();
+
+
+//Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/master', 'App\Http\Controllers\HomeController@master')->name('master');
+
+//Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/test', 'HomeController@test')->name('test');
+//Route::get('/about', 'TestController@about')->name('about');
+
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//According to Laravel 8, routes should be declared this way
+
+//Route::get('/home', [HomeController::class, 'index'])->name('home');

@@ -4947,7 +4947,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: rgba(255, 255, 255)
+    color: #e6ffe6
 }
 
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
@@ -7308,7 +7308,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
 
 .d-block {
     display: block !important;
-    color: #194d33 !important
+    color: #0c2719 !important
 }
 
 .d-table {
@@ -13340,7 +13340,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 [class*=sidebar-dark] .brand-link {
-    border-bottom: 1px solid #4b545c
+    /*border-bottom: 1px solid #4b545c*/
 }
 
 [class*=sidebar-dark] .brand-link, [class*=sidebar-dark] .brand-link .pushmenu {
@@ -13376,9 +13376,9 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 .brand-link .brand-image {
     float: left;
     line-height: .8;
-    margin-left: .8rem;
-    margin-right: .5rem;
-    margin-top: -3pxpx;
+    margin-left: 3.8rem;
+    margin-right: 3.8rem;
+    margin-top: 6px;
     max-height: 33px;
     width: auto
 }
@@ -13522,7 +13522,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 .nav-sidebar .nav-link > .right:nth-child(2), .nav-sidebar .nav-link > p > .right:nth-child(2) {
-    right: 2.2rem
+    right: 1.3rem
 }
 
 .nav-sidebar .menu-open > .nav-treeview {
@@ -13609,7 +13609,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
     display: none;
     left: 0;
     position: fixed;
-    right: 0;
+    right: 0;5rem
     top: 0;
     z-index: 1037
 }
@@ -13705,7 +13705,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 [class*=sidebar-dark-] {
-    background-color: #bfff80
+    background-color: #fff
 }
 
 [class*=sidebar-dark-] .user-panel a:hover {
@@ -13755,7 +13755,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 [class*=sidebar-dark-] .sidebar a {
-    color: #c2c7d0
+    color: #10100a
 }
 
 [class*=sidebar-dark-] .sidebar a:focus, [class*=sidebar-dark-] .sidebar a:hover {
@@ -13763,7 +13763,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link {
-    color: #003300
+    color: #0a0a0f
 }
 
 [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link:focus, [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link:hover {
@@ -13785,8 +13785,14 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 }
 
 .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
-    background-color: #26734d;
-    color: #fff
+    background-color: /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,0c5b42+22,1e8447+65,06d641+100 */
+    background: rgb(0,0,0); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgb(0,0,0) 0%, rgb(12,91,66) 22%, rgb(30,132,71) 65%, rgb(6,214,65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgb(0,0,0) 0%,rgb(12,91,66) 22%,rgb(30,132,71) 65%,rgb(6,214,65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgb(0,0,0) 0%,rgb(12,91,66) 22%,rgb(30,132,71) 65%,rgb(6,214,65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#06d641',GradientType=1 ); /* IE6-9 */
+;
+    color: #fafafc
 }
 
 .sidebar-dark-primary .nav-sidebar.nav-legacy > .nav-item > .nav-link.active, .sidebar-light-primary .nav-sidebar.nav-legacy > .nav-item > .nav-link.active {
@@ -18435,7 +18441,13 @@ body.text-sm .control-sidebar {
 }
 
 .navbar-white {
-    background-color: #26734d;
+    background-color: /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,0c5b42+24,42aa47+47,012b2b+100,037c2e+100 */
+    background: rgb(0,0,0); /* Old browsers */
+    background: -moz-linear-gradient(left,  rgb(0,0,0) 0%, rgb(12,91,66) 24%, rgb(66,170,71) 47%, rgb(1,43,43) 100%, rgb(3,124,46) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgb(0,0,0) 0%,rgb(12,91,66) 24%,rgb(66,170,71) 47%,rgb(1,43,43) 100%,rgb(3,124,46) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgb(0,0,0) 0%,rgb(12,91,66) 24%,rgb(66,170,71) 47%,rgb(1,43,43) 100%,rgb(3,124,46) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#037c2e',GradientType=1 ); /* IE6-9 */
+;
     color: #99ff33;
 }
 
@@ -43179,7 +43191,7 @@ blockquote.quote-gray-dark h1, blockquote.quote-gray-dark h2, blockquote.quote-g
 }
 
 .elevation-3 {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .19), 0 6px 6px rgba(0, 0, 0, .23) !important
+    box-shadow: 0 25px 15px rgba(0, 0, 0, .3), 0 0px 6px rgba(0, 0, 0, 2) !important
 }
 
 .elevation-4 {

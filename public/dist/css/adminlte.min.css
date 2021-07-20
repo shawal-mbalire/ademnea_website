@@ -330,6 +330,25 @@ template {
     display: none !important
 }
 
+
+
+#nav-bars {
+
+    position: fixed; /* Make it stick/fixed */
+    width: 100%; /* Full width */
+    transition: top 0.3s; /* Transition effect when sliding down (and up) */
+}
+
+
+.sidebar li .submenu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 0rem;
+    padding-right: 0rem;
+
+}
+
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     margin-bottom: .5rem;
     font-family: inherit;
@@ -4912,7 +4931,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .navbar-expand .navbar-nav .nav-link {
     padding-right: 1rem;
-    padding-left: 1rem
+    padding-left: 2rem
 }
 
 .navbar-expand > .container, .navbar-expand > .container-fluid, .navbar-expand > .container-lg, .navbar-expand > .container-md, .navbar-expand > .container-sm, .navbar-expand > .container-xl {
@@ -13735,9 +13754,18 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
     color: #c2c7d0
 }
 
-[class*=sidebar-dark-] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*=sidebar-dark-] .nav-sidebar > .nav-item:hover > .nav-link, [class*=sidebar-dark-] .nav-sidebar > .nav-item > .nav-link:focus {
-    background-color: rgba(255, 255, 255, .1);
-    color: #fff
+[class*=sidebar-dark-] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*=sidebar-dark-] .nav-sidebar > .nav-link, [class*=sidebar-dark-] .nav-sidebar > .nav-item > .nav-link {
+    background-color: linear-gradient(to right, rgb(0,0,0) 0%,rgb(12,91,66) 22%,rgb(30,132,71) 65%,rgb(6,214,65) 100%);
+    background-color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(to right, rgb(0, 0, 0) 0%, rgb(12, 91, 66) 22%, rgb(30, 132, 71) 65%, rgb(6, 214, 65) 100%);
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto auto;
+    color: #fafafc
 }
 
 [class*=sidebar-dark-] .nav-sidebar > .nav-item > .nav-link.active {
@@ -13768,7 +13796,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link:focus, [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link:hover {
     background-color: rgba(255, 255, 255, .1);
-    color: #fff
+    color: #00994d
 }
 
 [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link.active, [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link.active:focus, [class*=sidebar-dark-] .nav-treeview > .nav-item > .nav-link.active:hover {
@@ -15743,7 +15771,12 @@ body.text-sm .control-sidebar {
     border-left: .3em solid;
     float: right;
     margin-left: .5rem;
-    margin-top: .5rem
+    margin-top: .5rem;
+
+    list-style: none;
+    list-style-type: none;
+    list-style-image: none;
+    list-style-position: outside;
 }
 
 .dropdown-submenu > .dropdown-menu {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdEMNEA | @Page Title</title>
+    <title>AdEMNEA | @yield('page title')</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -407,12 +407,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">@Page Title</h1>
+                        <h1 class="m-0">@yield('page title')</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">@Page Title</li>
+                            <li class="breadcrumb-item active">@yield('page title')</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -422,9 +422,13 @@
 
         <!-- Main content -->
 
+
+        @yield('content')
+
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

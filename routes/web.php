@@ -14,21 +14,13 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('home');
-});
-
-
-Route::get('/next', function () {
-    return view('next');
-});*/
 
 //Auth::routes();
 
-
-//Route::get('/', 'HomeController@index')->name('home');
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
-Route::get('/master', 'App\Http\Controllers\HomeController@master')->name('master');
+
+Route::get('/next', 'App\Http\Controllers\HomeController@next')->name('next');
+
 
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/test', 'HomeController@test')->name('test');

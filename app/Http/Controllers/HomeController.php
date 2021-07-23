@@ -24,12 +24,17 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('master');
+        return view('layouts/master');
     }
 
     public function master()
     {
-        return view('master');
+        return view('layouts/master');
+    }
+
+    public function next()
+    {
+        return view('next');
     }
 
 

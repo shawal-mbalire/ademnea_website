@@ -16,11 +16,17 @@ use App\Http\Controllers\HomeController;
 
 
 //Auth::routes();
+Route::get('/home', 'App\Http\Controllers\HomeController@home')->name('home');
 
-Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/login', 'App\Http\Controllers\HomeController@login')->name('login');
+
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('index');
 
 Route::get('/next', 'App\Http\Controllers\HomeController@next')->name('next');
 
+Route::get('/newsletter', 'App\Http\Controllers\HomeController@newsletter')->name('newsletter');
+
+Route::get('/teams', 'App\Http\Controllers\HomeController@teams')->name('teams');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/test', 'HomeController@test')->name('test');

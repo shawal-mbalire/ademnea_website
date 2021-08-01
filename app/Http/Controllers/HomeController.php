@@ -22,6 +22,17 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+
+    public function home()
+    {
+        return view('home');
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+
     public function index()
     {
         return view('layouts/master');
@@ -37,5 +48,14 @@ class HomeController extends Controller
         return view('next');
     }
 
+    public function newsletter()
+    {
+       return view('newsletter');
+    }
+
+    public function teams()
+    {
+        return view('teams');
+    }
 
 }

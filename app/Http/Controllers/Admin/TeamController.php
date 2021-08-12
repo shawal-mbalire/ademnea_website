@@ -50,8 +50,18 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+            'name'=>'required|max:255',
+            'title'=>'required|max:255',
+            'description'=>'required',
+            'image'=>'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $newImageName);
         $requestData = $request->all();
+        $requestData['image_path'] = $newImageName;
+
         
         Team::create($requestData);
 

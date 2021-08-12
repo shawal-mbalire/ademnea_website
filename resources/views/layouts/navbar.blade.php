@@ -18,7 +18,7 @@
     <div class="navbar-menu-wrapper d-flex align-items-top">
       <ul class="navbar-nav">
         <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-          <h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">{{Auth::user()->name}}</span></h1>
+          <h1 class="welcome-text" id="greetings"></h1>
           <h3 class="welcome-sub-text"></h3>
         </li>
       </ul>
@@ -162,7 +162,7 @@
               <p class="mb-1 mt-3 font-weight-semibold">{{Auth::user()->name}}</p>
               <p class="fw-light text-muted mb-0">{{Auth::user()->email}}</p>
             </div>
-            
+
             <a class="dropdown-item" href="/logout"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
           </div>
         </li>
@@ -173,3 +173,16 @@
       </button>
     </div>
   </nav>
+
+<script>
+    const time = new Date().getHours();
+    let greeting;
+    if (time < 12) {
+        greeting = "Good morning, "+"<b>{{ucfirst(Auth::user()->name)}}".fontcolor( "Black" );
+    } else if (time < 17) {
+        greeting = "Good afternoon, "+ "<b>{{ucfirst(Auth::user()->name)}}".fontcolor( "Black" );
+    } else {
+        greeting = "Good evening, "+ "<b>{{ucfirst(Auth::user()->name)}}".fontcolor( "Black" );
+    }
+    document.getElementById("greetings").innerHTML = greeting;
+</script>

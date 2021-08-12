@@ -91,10 +91,11 @@
                                 </div>
                                 <div class="row m-t-25 text-left">
                                     <div class="col-12">
-                                       
+                                <!--
                                         <div class="forgot-phone text-right float-right">
                                             <a href="/register" class="text-right f-w-600"> I dont have an account</a>
                                         </div>
+    -->
                                     </div>
                                 </div>
                             </div>

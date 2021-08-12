@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             // 'firstName' => 'Allan',
             'email' => 'admin@admin.com',
-            // 'photo' => 'images/avatar/1.png',
+            //'photo' => 'images/avatar/1.png',
             // 'phoneNumber' => '0755555555',
             'password'=>bcrypt("admin..123")
         ]);

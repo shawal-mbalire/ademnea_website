@@ -101,12 +101,14 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
+        $request->image->move(public_path('images'), $newImageName);
         
         $requestData = $request->all();
                 if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')
-                ->store('uploads', 'public');
+            $requestData['image'] = $newImageName;
         }
+
 
         $gallery = Gallery::findOrFail($id);
         $gallery->update($requestData);

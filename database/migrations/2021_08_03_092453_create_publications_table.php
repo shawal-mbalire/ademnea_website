@@ -18,6 +18,7 @@ class CreatePublicationsTable extends Migration
             $table->string('name')->nullable();
             $table->string('title')->nullable();
             $table->string('publisher')->nullable();
+            $table->string('year')->nullable();
             $table->string('attachment')->nullable();
             });
     }

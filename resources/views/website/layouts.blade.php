@@ -57,6 +57,10 @@
         @include('website.featured_services')
         <!-- End Featured Services Section -->
 
+        <!-- ======= Gallery Section ======= -->
+        @include('website.gallery')
+        <!-- End Gallery Section -->
+
         <!-- ======= About Us Section ======= -->
         @include('website.about_us')
         <!-- End About Us Section -->

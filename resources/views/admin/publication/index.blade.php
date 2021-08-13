@@ -28,14 +28,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Name</th><th>Title</th><th>Publisher</th><th>Actions</th>
+                                        <th>#</th><th>Name</th><th>Title</th><th>Publisher</th><th>Year of Publication</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($publication as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->title }}</td><td>{{ $item->publisher }}</td>
+                                        <td>{{ $item->name }}</td><td>{{ $item->title }}</td><td>{{ $item->publisher }}</td><td>{{ $item->year }}</td>
                                         <td>
                                             <a href="{{ url('/admin/publication/' . $item->id) }}" title="View Publication"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/publication/' . $item->id . '/edit') }}" title="Edit Publication"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -34,7 +34,6 @@ class WorkPackage extends Model
         'deliverables',
         'interdependances',
         'potentail_innovetions',
-
     ];
 
     

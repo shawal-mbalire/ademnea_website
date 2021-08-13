@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+    .card{
+        /* background-color: #449d5b; */
+    }
+</style>
 <div class="content-wrapper">
     <div class="row">
       <div class="col-sm-12">
-                <div class="card">
+                <div class="card" >
                     <div class="card-header">Publication {{ $publication->id }}</div>
                     <div class="card-body">
 
@@ -25,7 +31,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $publication->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $publication->name }} </td></tr><tr><th> Title </th><td> {{ $publication->title }} </td></tr><tr><th> Publisher </th><td> {{ $publication->publisher }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $publication->name }} </td></tr><tr><th> Title </th><td> {{ $publication->title }} </td></tr><tr><th> Publisher </th><td> {{ $publication->publisher }} </td></tr><tr><th> Year of Publication </th><td> {{ $publication->year }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

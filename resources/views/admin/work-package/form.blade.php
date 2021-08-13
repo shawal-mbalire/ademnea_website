@@ -1,14 +1,19 @@
 <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
     <label for="name" class="control-label">{{ 'Name' }}</label>
     <input class="form-control" name="name" type="text" id="name" value="{{ isset($workpackage->name) ? $workpackage->name : ''}}" required >
+    <input class="form-control" name="name" type="text" id="name" value="{{ isset($workpackage->name) ? $workpackage->name : ''}}" required>
     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('abbreviation') ? 'has-error' : ''}}">
     <label for="abbreviation" class="control-label">{{ 'Abbreviation' }}</label>
-    <input class="form-control" name="abbreviation" type="text" id="abbreviation" value="{{ isset($workpackage->abbreviation) ? $workpackage->abbreviation : ''}}" required >
+    <input class="form-control" name="abbreviation" type="text" id="abbreviation" value="{{ isset($workpackage->abbreviation) ? $workpackage->abbreviation : ''}}" required>
     {!! $errors->first('abbreviation', '<p class="help-block">:message</p>') !!}
 </div>
-
+<div class="form-group {{ $errors->has('purpose') ? 'has-error' : ''}}">
+    <label for="purpose" class="control-label">{{ 'Purpose' }}</label>
+    <textarea class="form-control" rows="5" name="purpose" type="textarea" id="purpose" required>{{ isset($workpackage->purpose) ? $workpackage->purpose : ''}}</textarea>
+    {!! $errors->first('purpose', '<p class="help-block">:message</p>') !!}
+</div>
 <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
     <label for="description" class="control-label">{{ 'Description' }}</label>
     <textarea class="form-control" rows="5" name="description" type="textarea" id="description" required>{{ isset($workpackage->description) ? $workpackage->description : ''}}</textarea>
@@ -38,6 +43,12 @@
     <label for="potential_innovetion" class="control-label">{{ 'Potential_innovetions' }}</label>
     <textarea class="form-control" rows="5" name="potential_innovetion" type="textarea" id="purpose" required>{{ isset($workpackage->purpose) ? $workpackage->purpose : ''}}</textarea>
     {!! $errors->first('potential_innovetions', '<p class="help-block">:message</p>') !!}
+</div>
+
+<div class="form-group {{ $errors->has('activity') ? 'has-error' : ''}}">
+    <label for="activity" class="control-label">{{ 'Attach activity' }}</label>
+    <input class="form-control" name="activity" type="file" id="activity" value="{{ isset($workpackage->activity) ? $workpackage->activity : ''}}" required>
+    {!! $errors->first('activity', '<p class="help-block">:message</p>') !!}
 </div>
 
 

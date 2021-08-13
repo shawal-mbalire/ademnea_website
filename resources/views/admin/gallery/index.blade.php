@@ -8,7 +8,7 @@
                     <div class="card-header">Gallery</div>
                     <div class="card-body">
                         <a href="{{ url('/admin/gallery/create') }}" class="btn btn-success btn-sm" title="Add New Gallery">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add Photos
                         </a>
 
                         <form method="GET" action="{{ url('/admin/gallery') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
@@ -28,14 +28,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Title</th><th>Description</th><th>Image</th><th>Actions</th>
+                                        <th>ID</th><th>Title</th><th>Image description</th><th>Image</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($gallery as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->title }}</td><td>{{ $item->description }}</td><td>{{ $item->image }}</td>
+                                        <td>{{ $item->title }}</td><td>{{ $item->description }}</td><td><img src="{{asset('images/' . $item->image)}}" alt=""></td>
                                         <td>
                                             <a href="{{ url('/admin/gallery/' . $item->id) }}" title="View Gallery"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/gallery/' . $item->id . '/edit') }}" title="Edit Gallery"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -25,6 +25,7 @@ class PublicationController extends Controller
                 ->orWhere('title', 'LIKE', "%$keyword%")
                 ->orWhere('publisher', 'LIKE', "%$keyword%")
                 ->orWhere('attachment', 'LIKE', "%$keyword%")
+                ->orWhere('year', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $publication = Publication::latest()->paginate($perPage);

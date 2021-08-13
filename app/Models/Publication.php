@@ -25,7 +25,13 @@ class Publication extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'title', 'publisher', 'attachment'];
+    protected $fillable = [
+        'name', 
+        'title', 
+        'publisher', 
+        'year',
+        'attachment'
+    ];
 
     
 }

@@ -18,7 +18,7 @@
         @enderror
 </div>
 <div class="form-group">
-    <label for="description" class="control-label">{{ 'Description' }}</label>
+    <label for="description" class="control-label">{{ 'Research Interests' }}</label>
     <textarea class="form-control @error('description') is-invalid @enderror" value="{{old('description')}}" rows="5" name="description" type="textarea" id="description" >{{ isset($team->description) ? $team->description : ''}}</textarea>
     @error('description')
         <div class="invalid-feedback mt-2 text-sm">
@@ -27,7 +27,7 @@
         @enderror
 </div>
 <div class="form-group">
-    <label for="image" class="control-label">{{ 'image' }}</label>
+    <label for="image" class="control-label">{{ 'Image' }}(jpg, peg & png only allowed)</label>
     <input class="form-control @error('image') is-invalid @enderror" name="image" type="file" id="image">
     @error('image')
         <div class="invalid-feedback mt-2 text-sm">

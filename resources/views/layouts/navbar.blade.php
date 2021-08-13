@@ -176,6 +176,8 @@
   </nav>
 
 <script>
+// getting the current time
+// const time = new Date().getTime();
     const time = new Date().getHours();
     let greeting;
     if (time < 12) {

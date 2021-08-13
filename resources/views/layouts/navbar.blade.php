@@ -183,7 +183,7 @@
     if (time < 12) {
         greeting = "Good morning, "+"<b>{{ucfirst(Auth::user()->name)}}".fontcolor( "Black" );
     } else if (time < 17) {
-        greeting = "Good afternoon, "+ "<b>{{ucfirst(Auth::user()->name)}}".fontcolor( "Black" );
+        greeting = "Good day, "+ "<b>{{ucfirst(Auth::user()->name)}}".fontcolor( "Black" );
     } else {
         greeting = "Good evening, "+ "<b>{{ucfirst(Auth::user()->name)}}".fontcolor( "Black" );
     }

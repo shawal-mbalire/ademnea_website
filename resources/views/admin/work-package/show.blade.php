@@ -11,7 +11,7 @@
                         <a href="{{ url('/admin/work-package') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <a href="{{ url('/admin/work-package/' . $workpackage->id . '/edit') }}" title="Edit WorkPackage"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                        <form method="POST" action="{{ url('admin/workpackage' . '/' . $workpackage->id) }}" accept-charset="UTF-8" style="display:inline">
+                        <form method="POST" action="{{ url('/admin/work-package' . '/' . $workpackage->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-danger btn-sm" title="Delete WorkPackage" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
@@ -25,7 +25,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $workpackage->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $workpackage->name }} </td></tr><tr><th> Abbreviation </th><td> {{ $workpackage->abbreviation }} </td></tr><tr><th> Purpose </th><td> {{ $workpackage->purpose }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $workpackage->name }} </td></tr><tr><th> Abbreviation </th><td> {{ $workpackage->abbreviation }} </td></tr><tr><th> Purpose </th><td> {{ $workpackage->purpose }} </td></tr><tr><th> Description </th><td> {{ $workpackage->description }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

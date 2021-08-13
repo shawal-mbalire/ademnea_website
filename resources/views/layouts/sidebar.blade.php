@@ -1,5 +1,10 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
+<style>
+.active a, a:hover{
+    background-color: green !important;
+}
+</style>
+<nav class="sidebar sidebar-offcanvas navbar-dark bg-dark" id="sidebar">
+    <ul class="nav flex-column mb-auto">
         {{-- <li class="nav-item">
             <a class="nav-link" href="/dashboard">
                 <i class="mdi mdi-grid-large menu-icon"></i>
@@ -14,35 +19,38 @@
         </li> --}}
         <li class="nav-item">
             <a class="nav-link" href="/admin/team">
-                <i class="mdi mdi-account-multiple-outline menu-icon"></i>
-                <span class="menu-title">Team</span>
+                <i class="mdi mdi-account-multiple-outline menu-icon text-light"></i>
+                <span class="menu-title text-light">Team</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/admin/work-package">
-                <i class="mdi mdi-package menu-icon"></i>
-                <span class="menu-title">Work Package</span>
+                <i class="mdi mdi-package menu-icon text-light"></i>
+                <span class="menu-title text-light">Work Package</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/users">
-                <i class="mdi mdi-grid-large menu-icon"></i>
-                <span class="menu-title">User Management</span>
-            <a class="nav-link" href="/admin/publication">
-                <i class="mdi mdi-file-document-box menu-icon"></i>
-                <span class="menu-title">Publications</span>
+                <i class="mdi mdi-newspaper menu-icon text-light"></i>
+                <span class="menu-title text-light">User Management</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/admin/newsletter">
-                <i class="mdi mdi-newspaper menu-icon"></i>
-                <span class="menu-title">Newsletter</span>
+                <i class="mdi mdi-newspaper menu-icon text-light"></i>
+                <span class="menu-title text-light">Newsletter</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/publication">
+                <i class="mdi mdi-newspaper menu-icon text-light"></i>
+                <span class="menu-title text-light">Publicartion</span>
             </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/admin/gallery">
-                <i class="mdi mdi-google-photos menu-icon"></i>
-                <span class="menu-title">Gallery</span>
+                <i class="mdi mdi-google-photos menu-icon text-light"></i>
+                <span class="menu-title text-light">Gallery</span>
             </a>
         </li>
         

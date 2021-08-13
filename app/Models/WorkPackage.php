@@ -25,7 +25,17 @@ class WorkPackage extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'abbreviation', 'purpose', 'description'];
+    protected $fillable = [
+        'name', 
+        'abbreviation',
+        'description', 
+        'task', 
+        'partners',
+        'deliverables',
+        'interdependances',
+        'potentail_innovetions',
+
+    ];
 
     
 }

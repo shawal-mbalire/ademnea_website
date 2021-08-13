@@ -28,14 +28,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Name</th><th>Abbreviation</th><th>Purpose</th><th>description</th><th>Action</th>
+                                        <th>#</th><th>Name</th><th>Abbreviation</th><th>Descrption</th><th>Tasks</th><th>Partners</th><th>Deliverables</th><th>Interdependances</th><th>Potential_innovetions</th><th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($workpackage as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->abbreviation }}</td><td>{{ $item->purpose }}</td><td>{{ $item->description }}</td>
+                                        <td>{{ $item->name }}</td><td>{{ $item->abbreviation }}</td><td>{{ $item->description }}</td><td>{{ $item->task }}</td><td>{{ $item->partners }}</td><td>{{ $item->deliverables }}</td><td>{{ $item->interdependances }}</td><td>{{ $item->potential_innovetions }}</td>
                                         <td>
                                             <a href="{{ url('/admin/work-package/' . $item->id) }}" title="View WorkPackage"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/work-package/' . $item->id . '/edit') }}" title="Edit WorkPackage"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

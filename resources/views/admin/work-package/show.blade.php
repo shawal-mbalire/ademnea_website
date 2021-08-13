@@ -25,7 +25,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $workpackage->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $workpackage->name }} </td></tr><tr><th> Abbreviation </th><td> {{ $workpackage->abbreviation }} </td></tr><tr><th> Purpose </th><td> {{ $workpackage->purpose }} </td></tr><tr><th> Description </th><td> {{ $workpackage->description }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $workpackage->name }} </td></tr><tr><th> Abbreviation </th><td> {{ $workpackage->abbreviation }} </td></tr><tr><th> Description </th><td> {{ $workpackage->description }} </td></tr><tr><th> Tasks </th><td> {{ $workpackage->task }} </td></tr><tr><th> Partners </th><td> {{ $workpackage->partners }} </td></tr><tr><th> Deliverables </th><td> {{ $workpackage->deliverables }} </td></tr><tr><th> Interdependances </th><td> {{ $workpackage->interdependances }} </td></tr><tr><th> Potential_innovetions </th><td> {{ $workpackage->potential_innovetions }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

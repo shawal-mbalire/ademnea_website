@@ -8,15 +8,36 @@
     <input class="form-control" name="abbreviation" type="text" id="abbreviation" value="{{ isset($workpackage->abbreviation) ? $workpackage->abbreviation : ''}}" required >
     {!! $errors->first('abbreviation', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('purpose') ? 'has-error' : ''}}">
-    <label for="purpose" class="control-label">{{ 'Purpose' }}</label>
-    <textarea class="form-control" rows="5" name="purpose" type="textarea" id="purpose" required>{{ isset($workpackage->purpose) ? $workpackage->purpose : ''}}</textarea>
-    {!! $errors->first('purpose', '<p class="help-block">:message</p>') !!}
-</div>
+
 <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
     <label for="description" class="control-label">{{ 'Description' }}</label>
     <textarea class="form-control" rows="5" name="description" type="textarea" id="description" required>{{ isset($workpackage->description) ? $workpackage->description : ''}}</textarea>
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
+</div>
+<div class="form-group {{ $errors->has('task') ? 'has-error' : ''}}">
+    <label for="task" class="control-label">{{ 'Tasks' }}</label>
+    <textarea class="form-control" rows="5" name="task" type="textarea" id="purpose" required>{{ isset($workpackage->purpose) ? $workpackage->purpose : ''}}</textarea>
+    {!! $errors->first('task', '<p class="help-block">:message</p>') !!}
+</div>
+<div class="form-group {{ $errors->has('partners') ? 'has-error' : ''}}">
+    <label for="partners" class="control-label">{{ 'Partners' }}</label>
+    <textarea class="form-control" rows="5" name="partner" type="textarea" id="purpose" required>{{ isset($workpackage->purpose) ? $workpackage->purpose : ''}}</textarea>
+    {!! $errors->first('partners', '<p class="help-block">:message</p>') !!}
+</div>
+<div class="form-group {{ $errors->has('deliverables') ? 'has-error' : ''}}">
+    <label for="deliverables" class="control-label">{{ 'Deliverables' }}</label>
+    <textarea class="form-control" rows="5" name="deliverables" type="textarea" id="purpose" required>{{ isset($workpackage->purpose) ? $workpackage->purpose : ''}}</textarea>
+    {!! $errors->first('deliverables', '<p class="help-block">:message</p>') !!}
+</div>
+<div class="form-group {{ $errors->has('interdependances') ? 'has-error' : ''}}">
+    <label for="interdependances" class="control-label">{{ 'Interdependances' }}</label>
+    <textarea class="form-control" rows="5" name="interdependances" type="textarea" id="purpose" required>{{ isset($workpackage->purpose) ? $workpackage->purpose : ''}}</textarea>
+    {!! $errors->first('interdependances', '<p class="help-block">:message</p>') !!}
+</div>
+<div class="form-group {{ $errors->has('potential_innovetion') ? 'has-error' : ''}}">
+    <label for="potential_innovetion" class="control-label">{{ 'Potential_innovetions' }}</label>
+    <textarea class="form-control" rows="5" name="potential_innovetion" type="textarea" id="purpose" required>{{ isset($workpackage->purpose) ? $workpackage->purpose : ''}}</textarea>
+    {!! $errors->first('potential_innovetions', '<p class="help-block">:message</p>') !!}
 </div>
 
 

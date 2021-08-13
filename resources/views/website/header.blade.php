@@ -10,11 +10,15 @@
             <ul>
                 <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                 <li class="dropdown"><a href="#"><span>Work Packages</span> <i class="bi bi-chevron-down"></i></a>
+                    
+                        
+                    
                     <ul>
-                        <li><a href="#">WP1</a></li>
-                        <li><a href="#">WP2</a></li>
-                        <li><a href="#">WP3</a></li>
+                        @foreach ($workpackages as $workpackage)
+                        <li><a href="#">{{ $workpackage->abbreviation }}</a></li>
+                        @endforeach
                     </ul>
+                    
                 </li>
                 <li class="dropdown"><a href="#"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>

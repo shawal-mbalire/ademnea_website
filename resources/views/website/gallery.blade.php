@@ -6,7 +6,7 @@
 }
 </style>
 
-<section id="about" class="about">
+<section id="gallery" class="gallery">
     <div class="container">
 
         <div class="section-title">

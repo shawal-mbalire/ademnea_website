@@ -22,7 +22,7 @@
       <!-- Favicon icon -->
 
       <link rel="icon" href="{{asset('/files/assets/images/favicon.ico')}}" type="image/x-icon">
-      <!-- Google font-->     
+      <!-- Google font-->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
       <!-- Required Fremwork -->
       <link rel="stylesheet" type="text/css" href="{{asset('files/bower_components/bootstrap/css/bootstrap.min.css')}}">
@@ -82,11 +82,11 @@
                                     <span class="form-bar"></span>
                                     <label class="float-label">Password</label>
                                 </div>
-                                
+
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
                                         <button type="submit" class="btn btn-success btn-md btn-block waves-effect text-center m-b-20" >LOGIN</button>
-                                        
+
                                     </div>
                                 </div>
                                 <div class="row m-t-25 text-left">
@@ -108,7 +108,6 @@
                 <!-- end of col-sm-12 -->
             </div>
             <!-- end of row -->
-        </div>
         <!-- end of container-fluid -->
     </section>
 

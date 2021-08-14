@@ -155,7 +155,7 @@
         </li> --}}
         <li class="nav-item dropdown d-none d-lg-block user-dropdown">
           <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="text-light fw-bold">{{Auth::user()->name}}</span>
+            <span class="text-light fw-bold" style = "text-transform:capitalize";>{{Auth::user()->name}}</span>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <div class="dropdown-header text-center">
               <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">

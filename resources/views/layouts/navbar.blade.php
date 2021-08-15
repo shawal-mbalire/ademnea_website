@@ -15,7 +15,7 @@
         </a>
       </div>
     </div>
-    <div class="navbar-menu-wrapper navbar-dark d-flex align-items-top" style="background:green;">
+    <div class="navbar-menu-wrapper navbar-dark d-flex align-items-top" style="background: green;">
       <ul class="navbar-nav">
         <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
           <h1 class="welcome-text text-light" id="greetings"></h1>

@@ -33,7 +33,9 @@ class WorkPackage extends Model
         'partners',
         'deliverables',
         'interdependances',
-        'potentail_innovetions',
+        'potential_innovetions',
+        'image_path'
+
     ];
 
     

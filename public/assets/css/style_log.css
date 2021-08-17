@@ -229,6 +229,18 @@ iframe {
   background-color: #fff;
   margin: 0 auto;
 }
+.login100-form-logo-img{
+    border-radius: 20%;
+}
+
+.login100-form-logo-img a{
+    font-size: 12px;
+    text-shadow: 0.3px 0.4px #000000;
+    text-decoration:none;
+    color: green;
+    text-align: center;
+    height: 20px;
+}
 
 .login100-form-title {
   font-family: Poppins-Medium;

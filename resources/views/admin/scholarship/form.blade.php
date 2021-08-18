@@ -2,7 +2,7 @@
     <label for="category" class="control-label">{{ 'Category' }}</label>
     <input class="form-control @error('category') is-invalid @enderror" value="{{old('category')}}" name="category" type="text" id="category" value="{{ isset($scholarship->category) ? $scholarship->category : ''}}" >
     @error('category')
-        <div class="invalid-feedback text-sm alert">
+        <div class="invalid-feedback text-sm">
             {{ $message }}
         </div>
         @enderror

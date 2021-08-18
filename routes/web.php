@@ -19,7 +19,7 @@ use App\Http\Controllers\AuthController;
 Route::get('register', [AuthController::class, 'registerForm'])->name('registerForm');//
 Route::post('register', [AuthController::class, 'register'])->name('auth.register');
 Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
-Route::post('login', [AuthController::class, 'index'])->name('auth.login');
+Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('password/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('password/reset', [AuthController::class, 'passwordReset']);
 Route::middleware('auth:web')->group(function () {

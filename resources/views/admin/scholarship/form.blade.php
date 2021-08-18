@@ -55,7 +55,7 @@
 </div>
 <div class="form-group">
     <label for="positions" class="control-label">{{ 'Number Of Positions' }}</label>
-    <input class="form-control @error('positions') is-invalid @enderror" value="{{old('positions')}}" name="positions" type="text" id="positions" value="{{ isset($scholarship->positions) ? $scholarship->positions : ''}}" >
+    <input class="form-control @error('positions') is-invalid @enderror" value="{{old('positions')}}" name="positions" type="number" id="positions" value="{{ isset($scholarship->positions) ? $scholarship->positions : ''}}" >
     @error('positions')
         <div class="invalid-feedback mt-2 text-sm">
             {{ $message }}

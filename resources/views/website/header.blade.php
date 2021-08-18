@@ -20,14 +20,14 @@
                     </ul>
                     
                 </li>
-                <li class="dropdown"><a href="#"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a href="#scholarship"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#">Masters</a></li>
-                        <li><a href="#">PhD</a></li>
+                        <li><a href="#scholarship">Masters</a></li>
+                        <li><a href="#scholarship">PhD</a></li>
                     </ul>
                 </li>
 
-                <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+                <li><a class="nav-link scrollto" href="#gallery" >Gallery</a></li>
                 <li><a class="nav-link scrollto" href="#about">About</a></li>
                 <li><a class="nav-link scrollto" href="#team">Team</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>

@@ -47,55 +47,39 @@
     @include('website.header')
     <!-- End Header -->
 
-    <!-- ======= Hero Section ======= -->
-    @include('website.hero_section')
-    <!-- End Hero -->
+
 
     <main id="main">
-
-        <!-- ======= Featured Services Section ======= -->
-        @include('website.featured_services')
-        <!-- End Featured Services Section -->
-
         <!-- ======= Scholarship Section ======= -->
-        @include('website.scholarship')
+        <section id="scholarship" class="about">
+    <div class="container">
+     @if($scholarships->count())
+        <div class="section-title">
+            <h2>call for scholarships</h2>
+            </div>
+            <div class="row no-gutters">
+            @foreach($scholarships as $scholarship)
+            <div class="col-lg-6 col-md-6">
+                <div class="icon-box">
+                <h4 class="title">{{$scholarship->topic}}</h4>
+                    <p class="description">Scholarship category: {{$scholarship->category}}</p>
+                    <p class="description"> {{$scholarship->positions}}</p>
+                    <p class="description">{{$scholarship->task}}</p>
+                    <p class="description"> {{$scholarship->deliverables}}</p>
+                    <p class="description">{{$scholarship->task}}</p>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @else
+        <p>There are currently no scholarships</p>
+        @endif
+    </div>
+</section>
+
         <!-- End Scholarship Section -->
 
-        <!-- ======= Gallery Section ======= -->
-        @include('website.gallery')
-        <!-- End Gallery Section -->
-
-        <!-- ======= About Us Section ======= -->
-        @include('website.about_us')
-        <!-- End About Us Section -->
-
-        <!-- ======= Why Us Section ======= -->
-        @include('website.why_us')
-        <!-- End Why Us Section -->
-
-        <!-- ======= Our Clients Section ======= -->
-        @include('website.our_clients')
-        <!-- End Our Clients Section -->
-
-        <!-- ======= Services Section ======= -->
-        {{-- @include('website.services') --}}
-        <!-- End Services Section -->
-
-        <!-- ======= Cta Section ======= -->
-        {{-- @include('website.cta') --}}
-        <!-- End Cta Section -->
-
-        <!-- ======= Portfolio Section ======= -->
-        {{-- @include('website.portfolio') --}}
-        <!-- End Portfolio Section -->
-
-        <!-- ======= Team Section ======= -->
-        @include('website.team')
-        <!-- End Team Section -->
-
-        <!-- ======= Contact Section ======= -->
-        @include('website.contact')
-        <!-- End Contact Section -->
+       
 
     </main><!-- End #main -->
 

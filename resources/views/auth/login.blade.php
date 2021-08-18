@@ -35,13 +35,13 @@
                 <form class="login100-form validate-form" method="POST" action="{{route('auth.login')}}" >
                     @csrf
                     <span class="login100-form-logo">
-						<style>
-                          img {
-                              border-radius: 20%;
-                          }
-                        </style>
-						<a href="/" ><img src="{{ asset('dash/AdEMNEA_logo.png' ) }}" alt="AdEMNEA_logo" width="100" height="30"></a>
-					</span>
+						<div class="login100-form-logo-img">
+                            <figure>
+						        <a href="/" ><img src="{{ asset('dash/AdEMNEA_logo.png' ) }}" alt="AdEMNEA_logo" width="100" height="30"></a>
+                                <a href="/"><figcaption><b>To Home</b></figcaption></a>
+                            </figure>
+                        </div>
+                    </span>
 
                     <span class="login100-form-title p-b-34 p-t-27">
 						Log in

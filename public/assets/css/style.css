@@ -13,6 +13,10 @@ body {
   color: #444444;
 }
 
+.navbar.logo-home
+ img {
+     border-radius: 70%;
+ }
 
 
 

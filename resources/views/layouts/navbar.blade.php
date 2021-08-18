@@ -6,14 +6,14 @@
           <span class="icon-menu"></span>
         </button>
       </div>
-      <div class="bg-light">
-        <a class="navbar-brand brand-logo" href="/admin/team">
-          <img src="{{asset('dash/logo2.png')}}" alt="logo" width="300" height="400">
-        </a>
-        <a class="navbar-brand brand-logo-mini" href="/admin/team">
-          <img src="{{asset('dash/icon.png')}}" alt="logo" />
-        </a>
-      </div>
+        <span class="login100-form-logo">
+						<style>
+                          img {
+                              border-radius: 70%;
+                          }
+                        </style>
+						<a href="/" ><img src="{{ asset('dash/AdEMNEA_logo.png' ) }}" alt="AdEMNEA_logo" width="120" height="40"></a>
+					</span>
     </div>
     <div class="navbar-menu-wrapper navbar-dark d-flex align-items-top" style="background: green;">
       <ul class="navbar-nav">

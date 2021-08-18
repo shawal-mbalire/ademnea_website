@@ -6,30 +6,49 @@
 }
 </style>
 
-<section id="gallery" class="gallery">
+<section id="team" class="team">
     <div class="container">
 
         <div class="section-title">
             <h2>Gallery</h2>
         </div>
-        
-        @foreach($gallery as $item)
-        <div>
-        {{$item -> title}}
+
+        @if($gallery->count())
+            <div class="row">
+                @foreach($gallery as $item)
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                        <div class="member">
+                            <img src="{{asset('gallery/' .$item->image_url)}}" alt="No image">
+                            <span>{{$item->title}}</span>
+                            <p>{{$item->description}}</p>
+
+                        </div>
+                    </div>
+                @endforeach
+                @else
+                    <p style="text-align:center; font-style: italic; color:grey;">[Gallery will be updated soon!]</p>
+                @endif
+
+            </div>
         </div>
 
-        <div>
-        <img src="{{asset('images/' . $item->image)}}" alt="" id="displayImage">
-        </div>
+{{--        @foreach($gallery as $item)--}}
+{{--        <div>--}}
+{{--            {{$item -> title}}--}}
+{{--        </div>--}}
 
-        <div>
-        {{$item -> description}}
-        </div>
-        <br>
-        <br>
-        
-        @endforeach
-        </div>
+{{--        <div>--}}
+{{--        <img src="{{asset('images/' . $item->image)}}" alt="" id="displayImage">--}}
+{{--        </div>--}}
+
+{{--        <div>--}}
+{{--        {{$item -> description}}--}}
+{{--        </div>--}}
+{{--        <br>--}}
+{{--        <br>--}}
+
+{{--        @endforeach--}}
+{{--        </div>--}}
 
     </div>
 </section>

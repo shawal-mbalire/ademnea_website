@@ -2,21 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    <?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class Task extends Model
-{
-     /**
+    /**
      * The database table used by the model.
      *
      * @var string
@@ -35,29 +25,17 @@ class Task extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 
-        'number',
-        'duration',
-        'description',
-        'potential_innovetions',
-        'deliverables',
-        'interdependances',
-        'resource requirements',
+    protected $fillable = ['name', 'duration', 'description', 'partners', 'potential_innovations', 'deliverables', 'interdependance', 'resource_requirements'];
+
+
+         /**
+         * Get the workpackage that owns the task
+         *
+         * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+         */
+        public function workpackage()
+        {
+            return $this->belongsTo(WorkPackage::class,);
+        }
     
-
-
-    ];
-
-       /**
-        * Get all of the tasks for the task
-        *
-        * @return \Illuminate\Database\Eloquent\Relations\HasMany
-        */
-       public function tasks()
-       {
-           return $this->hasMany(Task::class);
-       }
-
-
 }

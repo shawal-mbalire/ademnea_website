@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Task;
 
 class WorkPackage extends Model
 {
@@ -41,9 +42,9 @@ class WorkPackage extends Model
          *
          * @return \Illuminate\Database\Eloquent\Relations\HasMany
          */
-        public function comments(): HasMany
+        public function task()
         {
-            return $this->hasMany(Comment::class, 'foreign_key', 'local_key');
+            return $this->hasMany(Task::class);
         }
     
 

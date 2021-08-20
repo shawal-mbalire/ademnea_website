@@ -18,11 +18,7 @@ class CreateWorkPackagesTable extends Migration
             $table->string('name')->nullable();
             $table->string('abbreviation')->nullable();
             $table->text('description')->nullable();
-            $table->text('task')->nullable();
-            $table->text('partners')->nullable();
-            $table->text('deliverables')->nullable();
-            $table->text('interdependances')->nullable();
-            $table->text('potential_innovetions')->nullable();
+           
             });
     }
 

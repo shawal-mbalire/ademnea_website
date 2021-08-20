@@ -21,9 +21,10 @@ class WebsiteController extends Controller
         [
             'gallery' => $gallery
         ]
-    );
+    ); 
 
     }
 
+   
 
 }

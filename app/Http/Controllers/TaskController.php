@@ -1,46 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests;
-
-use App\Models\WorkPackage;
 use Illuminate\Http\Request;
 
-class WorkPackageController extends Controller
+class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index(Request $request)
+    public function index()
     {
-        $keyword = $request->get('search');
-        $perPage = 25;
-
-        if (!empty($keyword)) {
-            $workpackage = WorkPackage::where('name', 'LIKE', "%$keyword%")
-                ->orWhere('abbreviation', 'LIKE', "%$keyword%")
-                ->orWhere('description', 'LIKE', "%$keyword%")
-                
-                ->latest()->paginate($perPage);
-        } else {
-            $workpackage = WorkPackage::latest()->paginate($perPage);
-        }
-
-        return view('admin.work-package.index', compact('workpackage'));
+        $task = Category::whereNull('task_id')->get();
+        return view('tasks', compact('tasks'));
     }
 
-    /**
+     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\View\View
      */
     public function create()
     {
-        return view('admin.work-package.create');
+        return view('admin.tasks.create');
     }
 
     /**
@@ -57,7 +36,7 @@ class WorkPackageController extends Controller
         
         WorkPackage::create($requestData);
 
-        return redirect('admin/work-package')->with('flash_message', 'WorkPackage added!');
+        return redirect('admin/tasks')->with('flash_message', 'Task added!');
     }
 
     /**
@@ -71,7 +50,7 @@ class WorkPackageController extends Controller
     {
         $workpackage = WorkPackage::findOrFail($id);
 
-        return view('admin.work-package.show', compact('workpackage'));
+        return view('admin.tasks.show', compact('task'));
     }
 
     /**
@@ -85,7 +64,7 @@ class WorkPackageController extends Controller
     {
         $workpackage = WorkPackage::findOrFail($id);
 
-        return view('admin.work-package.edit', compact('workpackage'));
+        return view('admin.tasks.edit', compact('tasks'));
     }
 
     /**
@@ -104,7 +83,7 @@ class WorkPackageController extends Controller
         $workpackage = WorkPackage::findOrFail($id);
         $workpackage->update($requestData);
 
-        return redirect('admin/work-package')->with('flash_message', 'WorkPackage updated!');
+        return redirect('admin/tasks')->with('flash_message', 'Task updated!');
     }
 
     /**
@@ -118,6 +97,6 @@ class WorkPackageController extends Controller
     {
         WorkPackage::destroy($id);
 
-        return redirect('admin/work-package')->with('flash_message', 'WorkPackage deleted!');
+        return redirect('admin/tasks')->with('flash_message', 'A Task deleted!');
     }
 }

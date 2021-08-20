@@ -29,14 +29,23 @@ class WorkPackage extends Model
         'name', 
         'abbreviation',
         'description', 
-        'task', 
-        'partners',
-        'deliverables',
-        'interdependances',
-        'potential_innovetions',
-        'image_path'
+    
+
 
     ];
+
+
+
+        /**
+         * Get all of the comments for the WorkPackage
+         *
+         * @return \Illuminate\Database\Eloquent\Relations\HasMany
+         */
+        public function comments(): HasMany
+        {
+            return $this->hasMany(Comment::class, 'foreign_key', 'local_key');
+        }
+    
 
     
 }

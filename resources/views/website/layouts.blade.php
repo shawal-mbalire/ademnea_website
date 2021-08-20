@@ -57,6 +57,10 @@
         @include('website.featured_services')
         <!-- End Featured Services Section -->
 
+        <!-- ======= Scholarship Section ======= -->
+        @include('website.scholarship')
+        <!-- End Scholarship Section -->
+
         <!-- ======= Gallery Section ======= -->
         @include('website.gallery')
         <!-- End Gallery Section -->

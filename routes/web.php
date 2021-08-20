@@ -28,6 +28,7 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/blog', 'App\Http\Controllers\Admin\BlogController');
     Route::resource('admin/tasks', 'App\Http\Controllers\TaskController');
     Route::resource('admin/work-package', 'App\Http\Controllers\Admin\WorkPackageController');
+    Route::resource('admin/scholarship', 'App\Http\Controllers\Admin\ScholarshipsController');
     Route::resource('admin/team', 'App\Http\Controllers\Admin\TeamController');
     Route::resource('admin/publication', 'App\Http\Controllers\Admin\PublicationController');
     Route::resource('admin/newsletter', 'App\Http\Controllers\Admin\NewsletterController');
@@ -37,6 +38,8 @@ Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('
 Route::get('workpackages', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
 Route::get('tasks', 'TaskController@index');
 
+
+Route::get('/scholarship', [App\Http\Controllers\ScholarshipsController::class, 'index'])->name('scholarship');
 
 
 

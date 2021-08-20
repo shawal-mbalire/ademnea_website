@@ -11,11 +11,9 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-6 order-1 order-lg-2"   >
-                <img src="assets/img/about.jpg" class="img-fluid" alt="">
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                <h3>Project Overview</h3>
+
+            <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <h3 style="text-align: center">Project Overview</h3>
                 <div style="text-align: justify;text-justify: inter-word;">
                     The AdEMNEA project will design, develop, and deploy a flexible network of data gathering and
                     monitoring stations for meteorological data as well as a wide variety of data including audio,

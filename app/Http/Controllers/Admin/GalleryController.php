@@ -23,7 +23,7 @@ class GalleryController extends Controller
         if (!empty($keyword)) {
             $gallery = Gallery::where('title', 'LIKE', "%$keyword%")
                 ->orWhere('description', 'LIKE', "%$keyword%")
-                ->orWhere('image', 'LIKE', "%$keyword%")
+                ->orWhere('image_url', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $gallery = Gallery::latest()->paginate($perPage);
@@ -51,16 +51,30 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        
+
+//        $requestData = $request->all();
+//                if ($request->hasFile('image')) {
+//            $requestData['image'] = $request->file('image')
+//                ->store('uploads', 'public');
+//        }
+
+
+
+        $this->validate($request, [
+            'title'=>'required|max:255',
+            'description'=>'required',
+            'image_url'=>'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        $newImageName = time() . '-' . $request->title . '.' . $request->image_url->extension();
+        $request->image_url->move(public_path('gallery'), $newImageName);
         $requestData = $request->all();
-                if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')
-                ->store('uploads', 'public');
-        }
+        $requestData['image_url'] = $newImageName;
+
 
         Gallery::create($requestData);
 
-        return redirect('admin/gallery')->with('flash_message', 'Gallery added!');
+        return redirect('admin/gallery')->with('flash_message', 'Photo Added to Gallery!');
     }
 
     /**
@@ -101,9 +115,9 @@ class GalleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
-        $request->image->move(public_path('images'), $newImageName);
-        
+        $newImageName = time() . '-' . $request->title . '.' . $request->image_url->extension();
+        $request->image_url->move(public_path('gallery'), $newImageName);
+
         $requestData = $request->all();
                 if ($request->hasFile('image')) {
             $requestData['image'] = $newImageName;

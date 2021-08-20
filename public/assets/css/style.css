@@ -13,6 +13,10 @@ body {
   color: #444444;
 }
 
+.navbar.logo-home
+ img {
+     border-radius: 70%;
+ }
 
 
 
@@ -62,6 +66,17 @@ h1, h2, h3, h4, h5, h6 {
   visibility: visible;
   opacity: 1;
 }
+/**Gallery Carousel**/
+#owl-demo .item {
+    margin: 3px;
+}
+
+#owl-demo .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 
 /*--------------------------------------------------------------
 # Top Bar

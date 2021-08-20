@@ -53,6 +53,12 @@
                 <span class="menu-title text-light">Gallery</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/scholarship">
+                <i class="mdi mdi-school menu-icon text-light"></i>
+                <span class="menu-title text-light">Scholarship</span>
+            </a>
+        </li>
         
         {{-- <li class="nav-item nav-category">UI Elements</li> --}}
         

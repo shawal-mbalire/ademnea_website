@@ -18,7 +18,11 @@ class WebsiteController extends Controller
             'teams'=>$teams,
             'workpackages'=>$workpackages,
             'gallery' => $gallery
-        ]);
+        ]
+    ); 
 
     }
+
+   
+
 }

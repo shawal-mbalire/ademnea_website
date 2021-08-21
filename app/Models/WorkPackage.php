@@ -30,16 +30,23 @@ class WorkPackage extends Model
         'name', 
         'abbreviation',
         'description', 
-        'task', 
-        'partners',
-        'deliverables',
-        'interdependances',
-        'potential_innovetions',
-        'image_path'
+    
+
 
     ];
 
-    public function task(){
-        $this->hasMany(Task::class);
-    }
+
+
+        /**
+         * Get all of the comments for the WorkPackage
+         *
+         * @return \Illuminate\Database\Eloquent\Relations\HasMany
+         */
+        public function task()
+        {
+            return $this->hasMany(Task::class);
+        }
+    
+
+    
 }

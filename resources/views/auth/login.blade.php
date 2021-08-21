@@ -32,57 +32,59 @@
     <div class="limiter">
         <div class="container-login100" >
             <div class="wrap-login100">
-                <form class="login100-form validate-form" method="POST" action="{{route('auth.login')}}" >
-                    @csrf
-                    <span class="login100-form-logo">
-						<div class="login100-form-logo-img">
-                            <figure>
-						        <a href="/" ><img src="{{ asset('dash/AdEMNEA_logo.png' ) }}" alt="AdEMNEA_logo" width="100" height="30"></a>
-                                <a href="/"><figcaption><b>To Home</b></figcaption></a>
-                            </figure>
+                <div class="jumbotron">
+                    <form class="login100-form validate-form" method="POST" action="{{route('auth.login')}}" >
+                        @csrf
+                        <span class="login100-form-logo">
+                            <div class="login100-form-logo-img">
+                                <figure>
+                                    <a href="/" ><img src="{{ asset('dash/AdEMNEA_logo.png' ) }}" alt="AdEMNEA_logo" width="100" height="30"></a>
+                                    <a href="/"><figcaption><b>To Home</b></figcaption></a>
+                                </figure>
+                            </div>
+                        </span>
+
+                        <span class="login100-form-title p-b-34 p-t-27">
+                            Log in
+                        </span>
+                        <div class="row m-b-20">
+                            <div class="col-md-12">
+                                @if($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                        <div class="alert alert-danger background-danger">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <i class="icofont icofont-close-line-circled text-white"></i>
+                                            </button>
+                                            <strong>{{$error}}</strong>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
                         </div>
-                    </span>
-
-                    <span class="login100-form-title p-b-34 p-t-27">
-						Log in
-					</span>
-                    <div class="row m-b-20">
-                        <div class="col-md-12">
-                            @if($errors->any())
-                                @foreach ($errors->all() as $error)
-                                    <div class="alert alert-danger background-danger">
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <i class="icofont icofont-close-line-circled text-white"></i>
-                                        </button>
-                                        <strong>{{$error}}</strong>
-                                    </div>
-                                @endforeach
-                            @endif
+                        <div class="wrap-input100 validate-input" data-validate = "Enter email">
+                            <input class="input100" type="text" name="email" placeholder="Email" required>
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
-                    </div>
-                    <div class="wrap-input100 validate-input" data-validate = "Enter email">
-                        <input class="input100" type="text" name="email" placeholder="Email" required>
-                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                    </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <input class="input100" type="password" name="password" placeholder="Password" required>
-                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                    </div>
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <input class="input100" type="password" name="password" placeholder="Password" required>
+                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        </div>
 
-                    <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                        <label class="label-checkbox100" for="ckb1">
-                            Remember me
-                        </label>
-                    </div>
+                        <div class="contact100-form-checkbox">
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <label class="label-checkbox100" for="ckb1">
+                                Remember me
+                            </label>
+                        </div>
 
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
-                </form>
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

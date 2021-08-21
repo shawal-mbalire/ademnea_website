@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\WorkPackage;
 
 class Task extends Model
 {
@@ -35,7 +36,7 @@ class Task extends Model
          */
         public function workpackage()
         {
-            return $this->belongsTo(WorkPackage::class,);
+            return $this->belongsTo(WorkPackage::class);
         }
     
 }

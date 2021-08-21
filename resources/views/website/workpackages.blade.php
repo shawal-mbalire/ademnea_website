@@ -72,6 +72,7 @@
        </div>
 
 </section>
+
         <!-- ======= Featured Services Section ======= -->
         @include('website.featured_services')
         <!-- End Featured Services Section -->

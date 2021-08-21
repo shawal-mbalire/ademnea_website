@@ -10,11 +10,7 @@
 </div>
 <div class="form-group {{ $errors->has('image') ? 'has-error' : ''}}">
     <label for="image" class="control-label">{{ 'Image' }}</label>
-<<<<<<< HEAD
     <input class="form-control" name="images[]" type="file" id="image" value="{{ isset($gallery->image) ? $gallery->image : ''}}" multiple>
-=======
-    <input class="form-control" name="image_url" type="file" id="image_url" value="{{ isset($gallery->image_url) ? $gallery->image_url : ''}}" >
->>>>>>> 4051d7d150947e084a02399343c6723eaf131cdf
     {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
 </div>
 

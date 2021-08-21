@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\Team;
+use App\Models\Task;
 use Illuminate\Http\Request;
+
 
 class TeamController extends Controller
 {
@@ -16,13 +18,13 @@ class TeamController extends Controller
      * @return \Illuminate\View\View
      */
     public function index(Request $request)
-    {
+    {        
         $keyword = $request->get('search');
         $perPage = 25;
 
         if (!empty($keyword)) {
             $team = Team::where('name', 'LIKE', "%$keyword%")
-                ->orWhere('title', 'LIKE', "%$keyword%")
+                ->orWhere('description', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $team = Team::latest()->paginate($perPage);
@@ -38,6 +40,7 @@ class TeamController extends Controller
      */
     public function create()
     {
+
         return view('admin.team.create');
     }
 
@@ -77,6 +80,7 @@ class TeamController extends Controller
      */
     public function show($id)
     {
+       
         $team = Team::findOrFail($id);
 
         return view('admin.team.show', compact('team'));

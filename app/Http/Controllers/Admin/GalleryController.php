@@ -17,6 +17,7 @@ class GalleryController extends Controller
      */
     public function index(Request $request)
     {
+        
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -53,10 +54,16 @@ class GalleryController extends Controller
     {
         
         $requestData = $request->all();
-                if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')
-                ->store('uploads', 'public');
+        if($files=$request->file('images')){
+            foreach($files as $file){
+                $name=$file->getClientOriginalName();
+                $file->move('image',$name);
+                $images[]=$name;
+            }
         }
+
+        $requestData['image'] = implode("|",$images);
+      
 
         Gallery::create($requestData);
 

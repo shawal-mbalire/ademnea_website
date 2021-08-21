@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Task;
 
 class WorkPackage extends Model
 {
@@ -38,5 +39,7 @@ class WorkPackage extends Model
 
     ];
 
-    
+    public function task(){
+        $this->hasMany(Task::class);
+    }
 }

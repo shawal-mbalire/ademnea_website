@@ -14,8 +14,6 @@ use App\Http\Controllers\AuthController;
 */
 
 
-
-
 Route::get('register', [AuthController::class, 'registerForm'])->name('registerForm');//
 Route::post('register', [AuthController::class, 'register'])->name('auth.register');
 Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
@@ -36,8 +34,4 @@ Route::middleware('auth:web')->group(function () {
 Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
 
 Route::get('/scholarship', [App\Http\Controllers\ScholarshipsController::class, 'index'])->name('scholarship');
-
-
-
-
-
+Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');

@@ -26,7 +26,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $gallery->id }}</td>
                                     </tr>
-                                    <tr><th> Title </th><td> {{ $gallery->title }} </td></tr><tr><th>Image Description </th><td> {{ $gallery->description }} </td></tr><tr><th> Image </th><td> <img src="{{asset('images/' . $gallery->image)}}" alt=""> </td></tr>
+                                    <tr><th> Title </th><td> {{ $gallery->title }} </td></tr><tr><th>Image Description </th><td> {{ $gallery->description }} </td></tr><tr><th> Image </th><td> <img src="{{asset('image/' . $team->image_path)}}" alt=""></td></tr>
                                 </tbody>
                             </table>
                         </div>

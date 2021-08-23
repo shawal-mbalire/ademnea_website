@@ -9,14 +9,19 @@
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('image') ? 'has-error' : ''}}">
-    <label for="image" class="control-label">{{ 'Image' }}</label>
-    <input class="form-control" name="image" type="file" id="image" value="{{ isset($newsletter->image) ? $newsletter->image : ''}}" required>
+<label for="image" class="control-label">{{ 'Image' }}( only jpg, peg & png allowed)</label>
+    <input class="form-control image_file"  name="image" type="file" id="image" value="{{ isset($newsletter->image) ? $newsletter->image : ''}}" required>
     {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('attachment') ? 'has-error' : ''}}">
-    <label for="attachment" class="control-label">{{ 'Attachment' }}</label>
-    <input class="form-control" name="attachment" type="file" id="attachment" value="{{ isset($newsletter->attachment) ? $newsletter->attachment : ''}}" required>
-    {!! $errors->first('attachment', '<p class="help-block">:message</p>') !!}
+<div class="form-group  {{ $errors->has('attachment') ? 'has-error' : ''}}">
+
+    <label for="attachment" class="control-label">{{ 'Attachment' }}(only pdf allowed)</label>
+    <input class="form-control pdf_file @error('attachment') is-invalid @enderror" name="attachment" type="file" id="attachment" value="{{ isset($newsletter->attachment) ? $newsletter->attachment : ''}}" required>
+    @error('attachment')
+        <div class="invalid-feedback mt-2 text-sm">
+            {{ $message }}
+        </div>
+        @enderror
 </div>
 
 

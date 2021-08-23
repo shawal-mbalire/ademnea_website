@@ -308,6 +308,8 @@
   <!-- container-scroller -->
 
   @include('layouts.scripts')
+
+  @yield("page_scripts")
 </body>
 
 

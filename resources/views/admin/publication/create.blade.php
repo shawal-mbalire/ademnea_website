@@ -31,4 +31,7 @@
             </div>
         </div>
     </div>
+    @endsection
+@section("page_scripts")
+
 @endsection

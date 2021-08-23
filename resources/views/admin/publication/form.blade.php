@@ -23,8 +23,8 @@
 </div>
 
 <div class="form-group {{ $errors->has('attachment') ? 'has-error' : ''}}">
-    <label for="attachment" class="control-label">{{ 'Attachment' }}</label>
-    <input class="form-control" name="attachment" type="file" id="attachment" value="{{ isset($publication->attachment) ? $publication->attachment : ''}}" required>
+    <label for="attachment" class="control-label">{{ 'Attachment' }}(only pdf allowed)</label>
+    <input class="form-control pdf_file" name="attachment" type="file" id="attachment" value="{{ isset($publication->attachment) ? $publication->attachment : ''}}" required>
     {!! $errors->first('attachment', '<p class="help-block">:message</p>') !!}
 </div>
 

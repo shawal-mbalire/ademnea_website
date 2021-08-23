@@ -34,7 +34,7 @@ class TaskController extends Controller
         
         $requestData = $request->all();
         
-        WorkPackage::create($requestData);
+        Task::create($requestData);
 
         return redirect('admin/tasks')->with('flash_message', 'Task added!');
     }
@@ -48,7 +48,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        $workpackage = WorkPackage::findOrFail($id);
+        $task = Task::findOrFail($id);
 
         return view('admin.tasks.show', compact('task'));
     }
@@ -62,7 +62,7 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        $workpackage = WorkPackage::findOrFail($id);
+        $task = Task::findOrFail($id);
 
         return view('admin.tasks.edit', compact('tasks'));
     }
@@ -80,8 +80,8 @@ class TaskController extends Controller
         
         $requestData = $request->all();
         
-        $workpackage = WorkPackage::findOrFail($id);
-        $workpackage->update($requestData);
+        $task = Task::findOrFail($id);
+        $task->update($requestData);
 
         return redirect('admin/tasks')->with('flash_message', 'Task updated!');
     }
@@ -95,7 +95,7 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        WorkPackage::destroy($id);
+        Task::destroy($id);
 
         return redirect('admin/tasks')->with('flash_message', 'A Task deleted!');
     }

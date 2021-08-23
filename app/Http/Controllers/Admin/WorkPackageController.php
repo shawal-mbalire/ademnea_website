@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\WorkPackage;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class WorkPackageController extends Controller
@@ -29,8 +30,10 @@ class WorkPackageController extends Controller
         } else {
             $workpackage = WorkPackage::latest()->paginate($perPage);
         }
-
-        return view('admin.work-package.index', compact('workpackage'));
+       $tasks=Task::get();
+        return view('admin.work-package.index', compact('workpackage'), [
+            'tasks'=>$tasks
+        ]);
     }
 
     /**

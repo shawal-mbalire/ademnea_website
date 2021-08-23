@@ -39,7 +39,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Name</th><th>Abbreviation</th><th>Description</th><th>Task</th>
+                                        <th>#</th><th>Name</th><th>Abbreviation</th><th>Description</th><th>Task</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,7 +48,20 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td>
                                          <td>{{ $item->abbreviation }}</td>
-                                        <td>{{ $item->description }}</td><td>
+                                        <td>{{ $item->description }}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                  Dropdown button
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    @foreach ($tasks as $task)
+                                                  <li><a href="{{ url('/admin/tasks/' . $task->id) }}" title="View a task">{{ $task->id }}.{{ $task->name }}</a></li>
+                                                  @endforeach
+                                                </ul>
+                                              </div>
+                                        </td>
+                                        <td>
                                             <a href="{{ url('/admin/work-package/' . $item->id) }}" title="View WorkPackage"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/work-package/' . $item->id . '/edit') }}" title="Edit WorkPackage"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                                             <a href="{{ url('/admin/tasks/create') }}" class="btn btn-success btn-sm" title="Attach Activity">

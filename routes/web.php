@@ -30,13 +30,13 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/team', 'App\Http\Controllers\Admin\TeamController');
     Route::resource('admin/publication', 'App\Http\Controllers\Admin\PublicationController');
     Route::resource('admin/newsletter', 'App\Http\Controllers\Admin\NewsletterController');
-    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');
+    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');    
 });
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);
 Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
 Route::get('workpackages', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
-Route::get('tasks', 'TaskController@index');
+
 
 
 Route::get('/scholarship', [App\Http\Controllers\ScholarshipsController::class, 'index'])->name('scholarship');

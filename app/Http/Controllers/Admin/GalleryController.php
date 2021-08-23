@@ -24,7 +24,7 @@ class GalleryController extends Controller
         if (!empty($keyword)) {
             $gallery = Gallery::where('title', 'LIKE', "%$keyword%")
                 ->orWhere('description', 'LIKE', "%$keyword%")
-                ->orWhere('image_url', 'LIKE', "%$keyword%")
+                ->orWhere('image', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $gallery = Gallery::latest()->paginate($perPage);
@@ -61,11 +61,11 @@ class GalleryController extends Controller
 
 
 
-        $this->validate($request, [
-            'title'=>'required|max:255',
-            'description'=>'required',
-            'image_url'=>'mimes:jpg,png,jpeg|max:5048'
-        ]);
+        // $this->validate($request, [
+        //     'title'=>'required|max:255',
+        //     'description'=>'required',
+        //     'image_url'=>'mimes:jpg,png,jpeg|max:5048'
+        // ]);
         $requestData = $request->all();
         $input=$request->all();
         $images=array();

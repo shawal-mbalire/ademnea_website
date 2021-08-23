@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use Validator;
 use App\Models\Publication;
 use Illuminate\Http\Request;
 
@@ -53,9 +53,24 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:publications|min:5|max:255',
+            'title' => 'required|unique:publications|min:5|max:255',
+            'publisher' => 'required',
+            'year' => 'required',
+           'attachment'=> 'required|mimes:pdf'
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        
+        // dd($request->all());
         
         $requestData = $request->all();
-                if ($request->hasFile('attachment')) {
+        if ($request->hasFile('attachment')) {
             $requestData['attachment'] = $request->file('attachment')
                 ->store('uploads', 'public');
         }

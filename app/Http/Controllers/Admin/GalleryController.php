@@ -24,7 +24,7 @@ class GalleryController extends Controller
         if (!empty($keyword)) {
             $gallery = Gallery::where('title', 'LIKE', "%$keyword%")
                 ->orWhere('description', 'LIKE', "%$keyword%")
-                ->orWhere('image_url', 'LIKE', "%$keyword%")
+                ->orWhere('image', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $gallery = Gallery::latest()->paginate($perPage);
@@ -61,15 +61,14 @@ class GalleryController extends Controller
 
 
 
-        $this->validate($request, [
-            'title'=>'required|max:255',
-            'description'=>'required',
-            'image_url'=>'required|mimes:jpg,png,jpeg|max:5048'
-        ]);
-
-        $newImageName = time() . '-' . $request->title . '.' . $request->image_url->extension();
-        $request->image_url->move(public_path('gallery'), $newImageName);
+        // $this->validate($request, [
+        //     'title'=>'required|max:255',
+        //     'description'=>'required',
+        //     'image_url'=>'mimes:jpg,png,jpeg|max:5048'
+        // ]);
         $requestData = $request->all();
+        $input=$request->all();
+        $images=array();
         if($files=$request->file('images')){
             foreach($files as $file){
                 $name=$file->getClientOriginalName();
@@ -77,11 +76,19 @@ class GalleryController extends Controller
                 $images[]=$name;
             }
         }
-
-        $requestData['image'] = implode("|",$images);
+        /*Insert your data*/
+    
+        Gallery::insert( [
+            'image'=>implode("|",$images),
+            'description' =>$input['description'],
+            'title' =>$input['title'],
+            'created_at'=>now(),
+            'updated_at'=>now()
+            //you can put other insertion here
+        ]);
       
 
-        Gallery::create($requestData);
+        //Gallery::create($requestData);
 
         return redirect('admin/gallery')->with('flash_message', 'Photo Added to Gallery!');
     }

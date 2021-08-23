@@ -10,20 +10,19 @@ use App\Models\Gallery;
 class WebsiteController extends Controller
 {
     public function index(){
+        $gallery = Gallery::get();
         $teams = Team::get();
         $workpackages = WorkPackage::get();
-        $gallery = Gallery::get();
+        
         return view('website.layouts', [
             'teams'=>$teams,
             'workpackages'=>$workpackages,
-        ],
-
-        [
             'gallery' => $gallery
         ]
-    );
+    ); 
 
     }
 
+   
 
 }

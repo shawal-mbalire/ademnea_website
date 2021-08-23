@@ -24,11 +24,7 @@ class WorkPackageController extends Controller
             $workpackage = WorkPackage::where('name', 'LIKE', "%$keyword%")
                 ->orWhere('abbreviation', 'LIKE', "%$keyword%")
                 ->orWhere('description', 'LIKE', "%$keyword%")
-                ->orWhere('task', 'LIKE', "%$keyword%")
-                ->orWhere('partners', 'LIKE', "%$keyword%")
-                ->orWhere('deliverables', 'LIKE', "%$keyword%")
-                ->orWhere('interdependances', 'LIKE', "%$keyword%")
-                ->orWhere('potential_innovetions', 'LIKE', "%$keyword%")
+                
                 ->latest()->paginate($perPage);
         } else {
             $workpackage = WorkPackage::latest()->paginate($perPage);

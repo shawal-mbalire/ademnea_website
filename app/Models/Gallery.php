@@ -27,5 +27,5 @@ class Gallery extends Model
      */
     protected $fillable = ['title', 'description', 'image'];
 
-    
+
 }

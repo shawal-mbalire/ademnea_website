@@ -29,6 +29,8 @@
 
                 <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
                 <li><a class="nav-link scrollto" href="#about">About</a></li>
+                <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li>
+                <li><a class="nav-link scrollto" href="/displaypublication">Publications</a></li>
                 <li><a class="nav-link scrollto" href="#team">Team</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 <li><a class="nav-link scrollto" href="login">Login</a></li>

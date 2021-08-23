@@ -32,6 +32,8 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/newsletter', 'App\Http\Controllers\Admin\NewsletterController');
     Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');
 });
+Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
+Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);
 Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
 
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use Validator;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
@@ -41,7 +41,10 @@ class NewsletterController extends Controller
     public function create()
     {
         return view('admin.newsletter.create');
+
+        
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -52,6 +55,20 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:newsletters|min:5|max:255',
+            'description' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
+           'attachment'=> 'required|mimes:pdf'
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        
+        // dd($request->all());
         
         $requestData = $request->all();
                 if ($request->hasFile('image')) {

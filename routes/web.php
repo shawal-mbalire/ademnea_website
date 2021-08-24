@@ -35,7 +35,7 @@ Route::middleware('auth:web')->group(function () {
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);
 Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
-Route::get('workpackages', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
+Route::get('workpackages/{id}', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
 
 
 

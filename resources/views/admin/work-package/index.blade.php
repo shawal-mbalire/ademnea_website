@@ -56,7 +56,7 @@
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                     @foreach ($tasks as $task)
-                                                  <li><a href="{{ url('/admin/tasks/' . $task->id) }}" title="View a task">{{ $task->id }}.{{ $task->name }}</a></li>
+                                                  <li><a href="{{ url('/admin/tasks/' . $task->id) }}" title="View a task" class="text-decoration-none">{{ $task->id }}.{{ $task->name }}</a></li>
                                                   @endforeach
                                                 </ul>
                                               </div>

@@ -15,7 +15,7 @@
                     
                     <ul>
                         @foreach ($workpackages as $workpackage)
-                        <li><a href= "/workpackages">{{ $workpackage->abbreviation }}</a></li>
+                        <li><a href= "/workpackages/{{ $workpackage->id }}">{{ $workpackage->abbreviation }}</a></li>
                         @endforeach
                     </ul>
                     

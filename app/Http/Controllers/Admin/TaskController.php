@@ -50,7 +50,7 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
 
-        return view('admin.task.show', compact('task'));
+        return view('admin.tasks.show', compact('task'));
     }
 
     /**

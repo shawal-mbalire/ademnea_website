@@ -9,7 +9,7 @@
                 <div class="row">
                   <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Blog</div>
+                    <div class="card-header">Task</div>
                     <div class="card-body">
                         <a href="{{ url('/admin/blog/create') }}" class="btn btn-success btn-sm" title="Add New Blog">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
@@ -32,17 +32,17 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Title</th><th>Content</th><th>Category</th><th>Actions</th>
+                                        <th>#</th><th>Name</th><th>Durtion</th><th>Descrition of work</th><th>Partner</th><th>Potential innovetion</th><th>Deliverables</th><th>Interdependances</th><th>Resource requirments</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($blog as $item)
+                                @foreach($task as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->title }}</td><td>{{ $item->content }}</td><td>{{ $item->category }}</td>
+                                        <td>{{ $item->name }}</td><td>{{ $item->duration }}</td><td>{{ $item->descrition }}</td><td>{{ $item->partner }}</td><td>{{ $item->potential_innovetion }}</td><td>{{ $item->deliverebles }}</td><td>{{ $item->interdependance }}</td><td>{{ $item->resource_requirement }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/blog/' . $item->id) }}" title="View Blog"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/blog/' . $item->id . '/edit') }}" title="Edit Blog"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/task/' . $item->id) }}" title="View Task"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/admin/task/' . $item->id . '/edit') }}" title="Edit Task"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
                                             <form method="POST" action="{{ url('/admin/blog' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
@@ -54,7 +54,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $blog->appends(['search' => Request::get('search')])->render() !!} </div>
+                            <div class="pagination-wrapper"> {!! $task->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
 
                     </div>

@@ -27,8 +27,16 @@
                     </ul>
                 </li>
 
+                <li class="dropdown"><a href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/displaynewsletter">Newsletters</a></li>
+                        <li><a href="/displaypublication">Publications</a></li>
+                    </ul>
+                </li>
+
                 <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
                 <li><a class="nav-link scrollto" href="#about">About</a></li>
+<<<<<<< HEAD
                 <!-- <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li> -->
                 <!-- <li><a class="nav-link scrollto" href="/displaypublication">Publications</a></li> -->
                 
@@ -39,14 +47,11 @@
                     </ul>
                 </li>
                 
+=======
+>>>>>>> 922d64b17577ec5160900428dbe73a10132eb18f
                 <li><a class="nav-link scrollto" href="#team">Team</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 <li><a class="nav-link scrollto" href="login">Login</a></li>
-                <li><a class="nav-link scrollto" href="/#gallery">Gallery</a></li>
-                <li><a class="nav-link scrollto" href="/#about">About</a></li>
-                <li><a class="nav-link scrollto" href="/#team">Team</a></li>
-                <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
-                <li><a class="nav-link scrollto" href="/login">Login</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

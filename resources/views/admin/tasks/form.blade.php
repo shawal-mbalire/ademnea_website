@@ -17,17 +17,18 @@
 
 
 
-<div class="form-group {{ $errors->has('parters') ? 'has-error' : ''}}">
+<div class="form-group {{ $errors->has('partners') ? 'has-error' : ''}}">
     <label for="partners" class="control-label">{{ 'Partners' }}</label>
     <textarea class="form-control" rows="5" name="partners" type="textarea" id="partners" required>{{ isset($task->partners) ? $task->partners : ''}}</textarea>
     {!! $errors->first('partners', '<p class="help-block">:message</p>') !!}
 </div>
 
-<div class="form-group {{ $errors->has('potential_innoventions') ? 'has-error' : ''}}">
-    <label for="potential_innovetions" class="control-label">{{ 'Potential innoventions' }}</label>
-    <textarea class="form-control" rows="5" name="potential_innoventions" type="textarea" id="potential_innovention" required>{{ isset($task->potential_innovetion) ? $task->potential_innovetion : ''}}</textarea>
-    {!! $errors->first('potential-innovetions', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('potential_innovations') ? 'has-error' : ''}}">
+    <label for="potential_innovations" class="control-label">{{ 'Potential Innovations' }}</label>
+    <textarea class="form-control" rows="5" name="potential_innovations" type="textarea" id="potential_innovations" required>{{ isset($task->potential_innovations) ? $task->potential_innovations : ''}}</textarea>
+    {!! $errors->first('potential_innovations', '<p class="help-block">:message</p>') !!}
 </div>
+
 
 <div class="form-group {{ $errors->has('deliverables') ? 'has-error' : ''}}">
     <label for="deliverables" class="control-label">{{ 'Deliverables' }}</label>
@@ -35,10 +36,10 @@
     {!! $errors->first('deliverables', '<p class="help-block">:message</p>') !!}
 </div>
 
-<div class="form-group {{ $errors->has('interdependace') ? 'has-error' : ''}}">
-    <label for="interdependaces" class="control-label">{{ 'Interdependace' }}</label>
-    <textarea class="form-control" rows="5" name="description" type="textarea" id="interdependace" required>{{ isset($task->interdependaces) ? $task->interdependaces : ''}}</textarea>
-    {!! $errors->first('interdependace', '<p class="help-block">:message</p>') !!}
+<div class="form-group {{ $errors->has('interdependence') ? 'has-error' : ''}}">
+    <label for="interdependence" class="control-label">{{ 'Interdependence' }}</label>
+    <textarea class="form-control" rows="5" name="interdependence" type="textarea" id="interdependence" required>{{ isset($task->interdependence) ? $task->interdependence : ''}}</textarea>
+    {!! $errors->first('interdependence', '<p class="help-block">:message</p>') !!}
 </div>
 
 <div class="form-group {{ $errors->has('resource_requirements') ? 'has-error' : ''}}">

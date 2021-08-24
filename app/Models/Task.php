@@ -26,17 +26,6 @@ class Task extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'duration', 'description', 'partners', 'potential_innovations', 'deliverables', 'interdependance', 'resource_requirements'];
-
-
-         /**
-         * Get the workpackage that owns the task
-         *
-         * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-         */
-        public function workpackage()
-        {
-            return $this->belongsTo(WorkPackage::class);
-        }
+    protected $fillable = ['name', 'duration', 'description', 'partners', 'potential_innovations', 'deliverables', 'interdependence', 'resource_requirements'];
     
 }

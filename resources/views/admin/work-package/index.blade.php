@@ -64,9 +64,7 @@
                                         <td>
                                             <a href="{{ url('/admin/work-package/' . $item->id) }}" title="View WorkPackage"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/work-package/' . $item->id . '/edit') }}" title="Edit WorkPackage"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                            <a href="{{ url('/admin/tasks/create') }}" class="btn btn-success btn-sm" title="Attach Activity">
-                                                <i class="fa fa-plus" aria-hidden="true"></i> Add Task
-                                            </a>
+                                            <a href="{{ url('/admin/tasks/create') }}" class="btn btn-success btn-sm" title="Attach Activity"><i class="fa fa-plus" aria-hidden="true"></i> Add Task</a>
                                             <form method="POST" action="{{ url('/admin/work-package' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}

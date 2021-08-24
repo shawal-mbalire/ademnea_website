@@ -24,7 +24,7 @@ Route::middleware('auth:web')->group(function () {
     Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('admin/blog', 'App\Http\Controllers\Admin\BlogController');
-    Route::resource('admin/tasks', 'App\Http\Controllers\TaskController');
+    Route::resource('admin/tasks', 'App\Http\Controllers\Admin\TaskController');
     Route::resource('admin/work-package', 'App\Http\Controllers\Admin\WorkPackageController');
     Route::resource('admin/scholarship', 'App\Http\Controllers\Admin\ScholarshipsController');
     Route::resource('admin/team', 'App\Http\Controllers\Admin\TeamController');

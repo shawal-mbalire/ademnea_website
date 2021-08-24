@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
+
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index()
-    {
-        $task = Category::whereNull('task_id')->get();
-        return view('tasks', compact('tasks'));
-    }
-
-     /**
+    
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\View\View
@@ -31,12 +30,13 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        
+          
         $requestData = $request->all();
+
         
         Task::create($requestData);
 
-        return redirect('admin/tasks')->with('flash_message', 'Task added!');
+        return redirect('admin/work-package')->with('flash_message', 'Task added!');
     }
 
     /**
@@ -50,7 +50,7 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
 
-        return view('admin.tasks.show', compact('task'));
+        return view('admin.task.show', compact('task'));
     }
 
     /**
@@ -64,7 +64,7 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
 
-        return view('admin.tasks.edit', compact('tasks'));
+        return view('admin.task.edit', compact('task'));
     }
 
     /**
@@ -83,7 +83,7 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->update($requestData);
 
-        return redirect('admin/tasks')->with('flash_message', 'Task updated!');
+        return redirect('admin/task')->with('flash_message', 'Task updated!');
     }
 
     /**
@@ -97,6 +97,6 @@ class TaskController extends Controller
     {
         Task::destroy($id);
 
-        return redirect('admin/tasks')->with('flash_message', 'A Task deleted!');
+        return redirect('admin/task')->with('flash_message', 'Task deleted!');
     }
 }

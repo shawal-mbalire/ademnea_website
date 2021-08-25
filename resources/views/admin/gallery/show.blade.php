@@ -8,7 +8,7 @@
                     <div class="card-header">Gallery {{ $gallery->id }}</div>
                     <div class="card-body">
 
-                    
+
                         <a href="{{ url('/admin/gallery') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <a href="{{ url('/admin/gallery/' . $gallery->id . '/edit') }}" title="Edit Gallery"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
@@ -26,7 +26,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $gallery->id }}</td>
                                     </tr>
-                                    <tr><th> Title </th><td> {{ $gallery->title }} </td></tr><tr><th>Image Description </th><td> {{ $gallery->description }} </td></tr><tr><th> Image </th><td> <img src="{{asset('image/' . $team->image_path)}}" alt=""></td></tr>
+                                    <tr><th> Title </th><td> {{ $gallery->title }} </td></tr><tr><th>Image Description </th><td> {{ $gallery->description }} </td></tr><tr><th> Image </th><td> <img src="{{asset('image/' . $gallery->image_path)}}" alt=""></td></tr>
                                 </tbody>
                             </table>
                         </div>

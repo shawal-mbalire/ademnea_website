@@ -1,21 +1,56 @@
+<style>
+  .image1{
+    width: 25rem;
+    height: 25rem;
+    border-radius: 5px;
+    border-color: white;
+    border-style: solid;
+      border-width: 10px;
+  }
+
+  /*.box{*/
+  /*  border: none;*/
+  /*}*/
+
+  .container1{
+    text-align: center;
+
+    display: flex;
+  }
+
+  .space{
+    width: 10px;
+  }
+</style>
+
 <section id="gallery" class="gallery">
-    <div class="container">
+  <div class="container">
       <div class="section-title">
         <h2>Gallery</h2>
       </div>
-  
-  <div class="row p-3">
+
+  <div class="container1">
   @foreach($gallery as $item)
-  <div class="card col-sm-11 p-3 m-3 bg-success" style="width: 18rem; height: 30rem">
-      <img src="{{asset('image/' . explode('|', $item->image)[0])}}" class="card-img-top w-100 h-50" alt="gallery description">
-  <div class="card-body bg-light">
+
+  <div>
+
+  <div class="title">
     <h5 class="card-title">{{$item -> title}}</h5>
-    <p class="card-text">{{$item -> description}}</p>
-    <a href="/gallery" class="btn btn-success">Full gallery</a>
   </div>
-</div>
+
+  <div class="box">
+  <img
+      src="{{asset('image/' . explode('|', $item->image)[0])}}"  alt="gallery description" class="image1"
+      >
+  </div>
+  <a href="/gallery">View Album</a>
+  </div>
+
+  <div class="space"></div>
+  <br>
 @endforeach
-</div>    
+
+<!-- close container1 -->
 </div>
 </div>
 </section>

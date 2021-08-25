@@ -11738,20 +11738,20 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 
 .btn-danger {
   color: #000;
-  background-color: #F95F53;
-  border-color: #F95F53;
+  background-color: #5cb874;
+  border-color: #5cb874;
 }
 
 .btn-danger:hover {
   color: #000;
-  background-color: #fa776d;
-  border-color: #fa6f64;
+  background-color: #5cb874;
+  border-color: #5cb874;
 }
 
 .btn-check:focus + .btn-danger, .btn-danger:focus {
   color: #000;
-  background-color: #fa776d;
-  border-color: #fa6f64;
+  background-color: #5cb874;
+  border-color: #5cb874;
   box-shadow: 0 0 0 0.25rem rgba(212, 81, 71, 0.5);
 }
 
@@ -11759,8 +11759,8 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 .btn-check:active + .btn-danger, .btn-danger:active, .btn-danger.active,
 .show > .btn-danger.dropdown-toggle {
   color: #000;
-  background-color: #fa7f75;
-  border-color: #fa6f64;
+  background-color: #5cb874;
+  border-color: #5cb874;
 }
 
 .btn-check:checked + .btn-danger:focus,
@@ -11771,8 +11771,8 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 
 .btn-danger:disabled, .btn-danger.disabled {
   color: #000;
-  background-color: #F95F53;
-  border-color: #F95F53;
+  background-color: #5cb874;
+  border-color: #5cb874;
 }
 
 .btn-light {
@@ -11854,14 +11854,14 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 }
 
 .btn-outline-primary {
-  color: #1F3BB3;
-  border-color: #1F3BB3;
+  color: #5cb874;
+  border-color: #5cb874;
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #1F3BB3;
-  border-color: #1F3BB3;
+  background-color: #5cb874;
+  border-color: #5cb874;
 }
 
 .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
@@ -11871,8 +11871,8 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 .btn-check:checked + .btn-outline-primary,
 .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
   color: #fff;
-  background-color: #1F3BB3;
-  border-color: #1F3BB3;
+  background-color: #5cb874;
+  border-color: #5cb874;
 }
 
 .btn-check:checked + .btn-outline-primary:focus,
@@ -11881,7 +11881,7 @@ fieldset:disabled .swal2-modal .swal2-buttonswrapper .swal2-styled,
 }
 
 .btn-outline-primary:disabled, .btn-outline-primary.disabled {
-  color: #1F3BB3;
+  color: #5cb874;
   background-color: transparent;
 }
 

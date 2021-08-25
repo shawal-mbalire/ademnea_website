@@ -25,7 +25,13 @@
                                     <tr>
                                         <th>ID</th><td>{{ $task->id }}</td>
                                     </tr>
-                                    <tr><th> Title </th><td> {{ $task->title }} </td></tr><tr><th> Content </th><td> {{ $blog->content }} </td></tr><tr><th> Category </th><td> {{ $blog->category }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $task->name }} </td></tr>
+                                    <tr><th> Duration </th><td> {{ $task->duration }} </td></tr>
+                                    <tr><th> Description </th><td> {{ $task->description }} </td></tr>
+                                    <tr><th> Partners </th><td> {{ $task->partners }} </td></tr>
+                                    <tr><th> Potential Innovations </th><td> {{ $task->potential_innovations }} </td></tr>
+                                    <tr><th> Deliverables </th><td> {{ $task->deliverables }} </td></tr>
+                                    <tr><th> Interdependence </th><td> {{ $task->interdependence }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

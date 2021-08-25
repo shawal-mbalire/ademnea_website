@@ -9,10 +9,7 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="/">Home</a></li>
-                <li class="dropdown"><a href="/#"><span>Work Packages</span> <i class="bi bi-chevron-down"></i></a>
-                    
-                        
-                    
+                <li class="nav-link scrollto dropdown"><a href="/#"><span>Work Packages</span> <i class="bi bi-chevron-down"></i></a>                    
                     <ul>
                         @foreach ($workpackages as $workpackage)
                         <li><a href= "/workpackages">{{ $workpackage->abbreviation }}</a></li>
@@ -20,14 +17,14 @@
                     </ul>
                     
                 </li>
-                <li class="dropdown"><a href="#scholarship"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a href="/#scholarship" class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="#scholarship">Masters</a></li>
                         <li><a href="#scholarship">PhD</a></li>
                     </ul>
                 </li>
 
-                <li class="dropdown"><a href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="nav-link scrollto dropdown"><a class="nav-link"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="/displaynewsletter">Newsletters</a></li>
                         <li><a href="/displaypublication">Publications</a></li>

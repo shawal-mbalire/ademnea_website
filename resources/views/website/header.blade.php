@@ -12,27 +12,29 @@
                 <li class="nav-link scrollto dropdown"><a href="/#"><span>Work Packages</span> <i class="bi bi-chevron-down"></i></a>                    
                     <ul>
                         @foreach ($workpackages as $workpackage)
-                        <li><a href= "/workpackages">{{ $workpackage->abbreviation }}</a></li>
+                        <li><a href= "/workpackages/{{ $workpackage->id }}">{{ $workpackage->abbreviation }}</a></li>
                         @endforeach
                     </ul>
                     
                 </li>
-                <li class="dropdown"><a href="/#scholarship" class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown scrollto dropdown"><a href="/#scholarship" class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="#scholarship">Masters</a></li>
-                        <li><a href="#scholarship">PhD</a></li>
+                        <li><a href="/mastersscholarship">Masters</a></li>
+                        <li><a href="/phdscholarship">PhD</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-link scrollto dropdown"><a class="nav-link"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a href="/"><span>News & Events</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="/displaynewsletter">Newsletters</a></li>
-                        <li><a href="/displaypublication">Publications</a></li>
+                    <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li>
+                    <li><a class="nav-link scrollto" href="/displaypublication">Publications</a></li>   
                     </ul>
                 </li>
 
                 <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
                 <li><a class="nav-link scrollto" href="#about">About</a></li>
+                <!-- <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li> -->
+                <!-- <li><a class="nav-link scrollto" href="/displaypublication">Publications</a></li> -->                
                 <li><a class="nav-link scrollto" href="#team">Team</a></li>
                 <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 <li><a class="nav-link scrollto" href="login">Login</a></li>

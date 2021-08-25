@@ -35,9 +35,12 @@ Route::middleware('auth:web')->group(function () {
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);
 Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
-Route::get('workpackages', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
+Route::get('workpackages/{id}', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
 
 
 
+Route::get('/scholarship', [App\Http\Controllers\ScholarshipsController::class, 'index'])->name('scholarship');
+Route::get('/mastersscholarship', [App\Http\Controllers\Admin\MastersController::class, 'index'])->name('mastersscholarship');
+Route::get('/phdscholarship', [App\Http\Controllers\Admin\PhdController::class, 'index'])->name('phdscholarship');
 Route::get('/scholarship', [App\Http\Controllers\ScholarshipsController::class, 'index'])->name('scholarship');
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');

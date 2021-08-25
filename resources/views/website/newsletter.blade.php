@@ -59,7 +59,7 @@
 
 <div class="container">
 <div class="card card-default"> 
-        <div class="card-header"><h2 class="text-center">AdeMNEA Newsletter</h2></div>
+        <div class="card-header"><h2 class="text-center">AdeMNEA Newsletters</h2></div>
             <div class="card body">
                 <table class="table">
                     <thead>

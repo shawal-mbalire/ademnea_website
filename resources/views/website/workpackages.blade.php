@@ -91,12 +91,14 @@
                                     
                                     <td>
                                     @foreach ($tasks as $task)
+                                    @if($task->work_package_id === $item->id)
                                         <tr>
                                             <td>{{ $task->id }}.{{ $task->name }}</td>
                                             <td>{{ $task->description }}</td>
                                             <td>{{ $task->partners }}</td>
                                             <td>{{ $task->deliverables }}</td>
                                         </tr>
+                                        @endif
                                     @endforeach 
                                 </td>
                                 </tr>

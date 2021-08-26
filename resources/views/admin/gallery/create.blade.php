@@ -1,5 +1,40 @@
 @extends('layouts.app')
 
+<style>
+    .button1{
+        background-color: lightseagreen;
+        color: white;
+        height: 34px;
+        width: 75px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button2{
+        background-color: mediumseagreen;
+        color: white;
+        height: 34px;
+        width: 75px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button3{
+        background-color: seagreen;
+        color: white;
+        height: 34px;
+        width: 75px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+</style>
+
 @section('content')
 <div class="content-wrapper">
     <div class="row">
@@ -7,7 +42,7 @@
                 <div class="card">
                     <div class="card-header">Create New Gallery</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/gallery') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/gallery') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 

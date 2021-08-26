@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 
 use App\Models\Task;
+use App\Models\WorkPackage;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -16,9 +17,10 @@ class TaskController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function create($id)
     {
-        return view('admin.tasks.create');
+        $workpackage = WorkPackage::findOrFail($id);
+        return view('admin.tasks.create', compact('workpackage'));
     }
 
     /**

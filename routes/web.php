@@ -44,3 +44,4 @@ Route::get('/mastersscholarship', [App\Http\Controllers\Admin\MastersController:
 Route::get('/phdscholarship', [App\Http\Controllers\Admin\PhdController::class, 'index'])->name('phdscholarship');
 Route::get('/scholarship', [App\Http\Controllers\ScholarshipsController::class, 'index'])->name('scholarship');
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
+Route::get('/admin/tasks/create/{id}', [App\Http\Controllers\Admin\TaskController::class, 'create']);

@@ -3,6 +3,11 @@
     <input class="form-control" name="name" type="text" id="name" value="{{ isset($tasm->name) ? $task->name : ''}}" required >
        {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
 </div>
+<div class="form-group {{ $errors->has('work_package_id') ? 'has-error' : ''}}" hidden>
+    <label for="work_package_id" class="control-label">{{ 'Work Package ID' }}</label>
+    <input class="form-control" name="work_package_id" type="text" id="work_package_id" value="{{$workpackage->id}}" required>
+    {!! $errors->first('work_package_id', '<p class="help-block">:message</p>') !!}
+</div>
 <div class="form-group {{ $errors->has('duration') ? 'has-error' : ''}}">
     <label for="duration" class="control-label">{{ 'Duration' }}</label>
     <input class="form-control" name="duration" type="text" id="duration" value="{{ isset($tast->duration) ? $task->duration : ''}}" required>
@@ -41,7 +46,6 @@
     <textarea class="form-control" rows="5" name="interdependence" type="textarea" id="interdependence" required>{{ isset($task->interdependence) ? $task->interdependence : ''}}</textarea>
     {!! $errors->first('interdependence', '<p class="help-block">:message</p>') !!}
 </div>
-
 <div class="form-group {{ $errors->has('resource_requirements') ? 'has-error' : ''}}">
     <label for="resource_requirements" class="control-label">{{ 'Resource requirements' }}</label>
     <textarea class="form-control" rows="5" name="resource_requirements" type="textarea" id="resource_requirements" required>{{ isset($task->resource_requirements) ? $task->resource_requirements : ''}}</textarea>

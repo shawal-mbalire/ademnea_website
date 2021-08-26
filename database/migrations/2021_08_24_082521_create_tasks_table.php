@@ -23,6 +23,7 @@ class CreateTasksTable extends Migration
             $table->String('deliverables')->nullable();
             $table->String('interdependence')->nullable();
             $table->String('resource_requirements')->nullable();
+            $table->integer('work_package_id')->nullable();
             $table->timestamps();
         });
     }

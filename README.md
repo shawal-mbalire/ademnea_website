@@ -1,7 +1,7 @@
 <p align="center"><a href="https://ademnea.com" target="_blank"><img src="{{asset('dash/logo2.png')}}" width="400"></a></p>
 
 
-### About AdEMNEA
+# About AdEMNEA
 Adaptive Environmental Monitoring Networks for East Africa (AdEMNEA) Project is a
 combined research and capacity development project funded by the Norwegian Agency for
 Development Cooperation, (Norad) under the Norwegian Programme for Capacity Development
@@ -71,7 +71,7 @@ pollination and pest control for further dissemination in WP4
 Disbursements; Task 4.3 Procurement; Task 4.4 Monitoring and Reporting; and Task 4.5 Project
 outputs Dissemination
 
-### Team Profiles
+# Team Profiles
 
 ## DR. JULIANNE SANSA-OTIM
 Dr. Sansa-Otim is a resourceful scientist who takes pride and initiative in going above set

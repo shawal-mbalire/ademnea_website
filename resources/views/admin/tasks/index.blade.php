@@ -77,14 +77,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Name</th><th>Durtion</th><th>Descrition of work</th><th>Partner</th><th>Potential innovetion</th><th>Deliverables</th><th>Interdependances</th><th>Resource requirments</th>
+                                        <th>#</th><th>Name</th><th>Team Leader</th><th>Durtion</th><th>Descrition of work</th><th>Partner</th><th>Potential innovetion</th><th>Deliverables</th><th>Interdependances</th><th>Resource requirments</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($task as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->duration }}</td><td>{{ $item->descrition }}</td><td>{{ $item->partners }}</td><td>{{ $item->potential_innovetion }}</td><td>{{ $item->deliverebles }}</td><td>{{ $item->interdependence }}</td><td>{{ $item->resource_requirements }}</td>
+                                        <td>{{ $item->name }}</td><td>{{ $item->team_leader }}</td><td>{{ $item->duration }}</td><td>{{ $item->descrition }}</td><td>{{ $item->partners }}</td><td>{{ $item->potential_innovetion }}</td><td>{{ $item->deliverebles }}</td><td>{{ $item->interdependence }}</td><td>{{ $item->resource_requirements }}</td>
                                         <td>
                                             <a href="{{ url('/admin/tasks/' . $item->id) }}" title="View Task"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/tasks/' . $item->id . '/edit') }}" title="Edit Task"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

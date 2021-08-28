@@ -70,7 +70,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $task->id }}</td>
                                     </tr>      
-                                    <tr><th> Task Name </th><td> {{ $task->name }} </td></tr><tr><th> Duration </th><td> {{ $task->duration }} </td></tr><tr><th> Description </th><td> {{ $task->description }} </td></tr><tr><th> Partners </th><td> {{ $task->partners }} </td></tr><tr><th> Potential Innovetions </th><td> {{ $task->potential_innovetion }} </td></tr><tr><th> Deliverables </th><td> {{ $task->deliverebles }} </td></tr><tr><th> Interdependances </th><td> {{ $task->interdependance }} </td></tr><tr><th> Resource Rquirement </th><td> {{ $task->resource_requirements }} </td></tr>
+                                    <tr><th> Task Name </th><td> {{ $task->name }} </td></tr><tr><th> Team leader </th><td> {{ $task->team_leader }} </td></tr><tr><th> Duration </th><td> {{ $task->duration }} </td></tr><tr><th> Description </th><td> {{ $task->description }} </td></tr><tr><th> Partners </th><td> {{ $task->partners }} </td></tr><tr><th> Potential Innovetions </th><td> {{ $task->potential_innovations }} </td></tr><tr><th> Deliverables </th><td> {{ $task->deliverables }} </td></tr><tr><th> Interdependances </th><td> {{ $task->interdependence }} </td></tr><tr><th> Resource Rquirement </th><td> {{ $task->resource_requirements }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

@@ -50,7 +50,7 @@
     <div class="row">
       <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Create New Task</div>
+                    <div class="card-header">Create New Task for {{ $workpackage->name }}</div>
                     <div class="card-body">
                         <a href="{{ url('/admin/work-package') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />

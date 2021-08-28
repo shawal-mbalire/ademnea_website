@@ -80,6 +80,7 @@
                             <thead>
                                 <th>Work Package</th>
                                 <th>Task</th>
+                                <th>Team Leader</th>
                                  <th>Description</th> 
                                 <th>Partners</th>
                                 <th>Delivarables</th>
@@ -94,6 +95,7 @@
                                     @if($task->work_package_id === $item->id)
                                         <tr>
                                             <td>{{ $task->id }}.{{ $task->name }}</td>
+                                            <td>{{ $task->team_leader }}</td>
                                             <td>{{ $task->description }}</td>
                                             <td>{{ $task->partners }}</td>
                                             <td>{{ $task->deliverables }}</td>

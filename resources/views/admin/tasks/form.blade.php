@@ -49,6 +49,11 @@
     <input class="form-control" name="name" type="text" id="name" value="{{ isset($tasm->name) ? $task->name : ''}}" required >
        {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
 </div>
+<div class="form-group {{ $errors->has('team_leader') ? 'has-error' : ''}}">
+    <label for="name" class="control-label">{{ 'Team Leader' }}</label>
+    <input class="form-control" name="team_leader" type="text" id="team_leader" value="{{ isset($task->team_leader) ? $task->team_leader : ''}}" required >
+       {!! $errors->first('team_leader', '<p class="help-block">:message</p>') !!}
+</div>
 <div class="form-group {{ $errors->has('work_package_id') ? 'has-error' : ''}}" hidden>
     <label for="work_package_id" class="control-label">{{ 'Work Package ID' }}</label>
     <input class="form-control" name="work_package_id" type="text" id="work_package_id" value="{{$workpackage->id}}" required>

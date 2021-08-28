@@ -83,8 +83,8 @@
 
                         <br/>
                         <br/>
-                        <div class="table-responsive">
-                            <table class="table">
+                        <div class="table-responsive" >
+                            <table>
                                 <thead>
                                     <tr>
                                         <th>#</th><th>Name</th><th>Abbreviation</th><th>Description</th><th>Task</th><th>Actions</th>
@@ -93,9 +93,10 @@
                                 <tbody>
                                 @foreach($workpackage as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->id }}</td>
+                                        <!--<td>{{ $loop->iteration }}</td>-->
                                         <td>{{ $item->name }}</td>
-                                         <td>{{ $item->abbreviation }}</td>
+                                        <td>{{ $item->abbreviation }}</td>
                                         <td>{{ $item->description }}</td>
                                         <td>
                                             <div class="dropdown">

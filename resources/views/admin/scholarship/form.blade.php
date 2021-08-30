@@ -1,6 +1,55 @@
+<style>
+    .button1{
+        background-color: lightseagreen;
+        color: white;
+        height: 34px;
+        width: 75px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button2{
+        background-color: mediumseagreen;
+        color: white;
+        height: 34px;
+        width: 75px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button3{
+        background-color: seagreen;
+        color: white;
+        height: 34px;
+        width: 85px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button4{
+        background-color: lightseagreen;
+        color: white;
+        height: 40px;
+        width: 100px;
+        border-radius: 5px;
+        border-color: lightseagreen;
+        shadow: none;
+        font-weight: bold
+    }
+</style>
+
 <div class="form-group">
     <label for="category" class="control-label">{{ 'Category' }}</label>
-    <input class="form-control @error('category') is-invalid @enderror" value="{{old('category')}}" name="category" type="text" id="category" value="{{ isset($scholarship->category) ? $scholarship->category : ''}}" >
+    <select class="form-select @error('category') is-invalid @enderror" value="{{old('category')}}" name="category" id="category" value="{{ isset($scholarship->category) ? $scholarship->category : ''}}">
+  <option value="masters">Masters</option>
+  <option value="phd">Phd</option>
+</select>
     @error('category')
         <div class="invalid-feedback text-sm">
             {{ $message }}
@@ -28,7 +77,7 @@
 </div>
 <div class="form-group">
     <label for="deliverables" class="control-label">{{ 'Deliverables' }}</label>
-    <textarea class="form-control @error('deliverables') is-invalid @enderror" value="{{old('deliverables')}}" rows="5" name="deliverables" type="textarea" id="deliverables" >{{ isset($scholarship->deliverables) ? $scholarship->deliverables : ''}}</textarea>
+    <textarea class="form-control @error('deliverables') is-invalid @enderror" rows="5" name="deliverables" type="textarea" id="deliverables" >{{old('deliverables')}}{{ isset($scholarship->deliverables) ? $scholarship->deliverables : ''}}</textarea>
     @error('deliverables')
         <div class="invalid-feedback mt-2 text-sm">
             {{ $message }}
@@ -46,7 +95,7 @@
 </div>
 <div class="form-group">
     <label for="instructions" class="control-label">{{ 'Instructions' }}</label>
-    <textarea class="form-control @error('instructions') is-invalid @enderror" value="{{old('instructions')}}" rows="5" name="instructions" type="textarea" id="instructions" >{{ isset($scholarship->instructions) ? $scholarship->instructions : ''}}</textarea>
+    <textarea class="form-control @error('instructions') is-invalid @enderror" rows="5" name="instructions" type="textarea" id="instructions" >{{old('instructions')}}{{ isset($scholarship->instructions) ? $scholarship->instructions : ''}}</textarea>
     @error('instructions')
         <div class="invalid-feedback mt-2 text-sm">
             {{ $message }}
@@ -64,5 +113,5 @@
 </div>
 
 <div class="form-group">
-    <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
+    <input class="button4" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
 </div>

@@ -26,6 +26,6 @@ class Task extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'duration', 'description', 'partners', 'potential_innovations', 'deliverables', 'interdependence', 'resource_requirements'];
+    protected $fillable = ['name','team_leader', 'duration', 'description', 'partners', 'work_package_id', 'potential_innovations', 'deliverables', 'interdependence', 'resource_requirements'];
     
 }

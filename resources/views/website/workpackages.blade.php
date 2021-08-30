@@ -53,23 +53,63 @@
 
     <main id="main">
         <div class="carousel-inner" role="listbox">
-        @foreach ($workpackages as $workpackage)
+        
         
         <!-- Slide 1 -->
         <div class="carousel-item active">
            <div class="carousel-container">
                <div class="container">
+                   @foreach ($workpackages as $workpackage)
                    <h2 class="animate__animated animate__fadeInDown text-center">{{ $workpackage->name }}</h2>
                    <p class="animate__animated animate__fadeInUp text-center">
                        {{ $workpackage->description }}
                    </p>
-                   <a href="#featured_services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                       More</a>
+                   @endforeach 
+                  <!-- <a href="#featured_services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
+                       More</a>-->       
                </div>
            </div>
        </div>
-       @endforeach            
+                  
        </div>
+       <div class="container">
+        <div class="card card-default"> 
+                <div class="card-header"><h2 class="text-center">AdeMNEA WORKPACKAGES</h2></div>
+                    <div class="card body">
+                        <table class="table">
+                            <thead>
+                                <th>Work Package</th>
+                                <th>Task</th>
+                                <th>Team Leader</th>
+                                 <th>Description</th> 
+                                <th>Partners</th>
+                                <th>Delivarables</th>
+                            </thead>
+                            <tbody>
+                                @foreach($workpackages as $item)
+                                <tr>
+                                    <td rowspan="{{ $tasks->count() }}">{{$item -> abbreviation}}</td>
+                                    
+                                    <td>
+                                    @foreach ($tasks as $task)
+                                    @if($task->work_package_id === $item->id)
+                                        <tr>
+                                            <td>{{ $task->id }}.{{ $task->name }}</td>
+                                            <td>{{ $task->team_leader }}</td>
+                                            <td>{{ $task->description }}</td>
+                                            <td>{{ $task->partners }}</td>
+                                            <td>{{ $task->deliverables }}</td>
+                                        </tr>
+                                        @endif
+                                    @endforeach 
+                                </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+        </div>
+        </div>
 
 </section>
 

@@ -51,13 +51,13 @@ class ScholarshipsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'category'=>'required|max:255',
-            'task'=>'required|max:255',
-            'topic'=>'required|max:255',
-            'deliverables'=>'required',
-            'competence'=>'required|max:255',
-            'instructions'=>'required',
-            'positions'=>'required',
+            'category'=>'required|max:2000',
+            'task'=>'required|max:2000',
+            'topic'=>'required|max:2000',
+            'deliverables'=>'required|max:2000',
+            'competence'=>'required|max:2000',
+            'instructions'=>'required|max:2000',
+            'positions'=>'required|max:2000',
         ]);
 
     

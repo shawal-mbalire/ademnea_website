@@ -17,7 +17,7 @@ class CreateWorkPackagesTable extends Migration
             $table->timestamps();
             $table->string('name')->nullable();
             $table->string('abbreviation')->nullable();
-            $table->text('description')->nullable();
+            $table->longText('description')->nullable()->default('text');
            
             });
     }

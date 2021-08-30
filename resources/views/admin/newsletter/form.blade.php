@@ -1,3 +1,49 @@
+<style>
+    .button1{
+        background-color: lightseagreen;
+        color: white;
+        height: 34px;
+        width: 75px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button2{
+        background-color: mediumseagreen;
+        color: white;
+        height: 34px;
+        width: 75px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button3{
+        background-color: seagreen;
+        color: white;
+        height: 34px;
+        width: 85px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button4{
+        background-color: lightseagreen;
+        color: white;
+        height: 40px;
+        width: 100px;
+        border-radius: 5px;
+        border-color: lightseagreen;
+        shadow: none;
+        font-weight: bold
+    }
+</style>
+
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
     <label for="title" class="control-label">{{ 'Title' }}</label>
     <input class="form-control" name="title" type="text" id="title" value="{{ isset($newsletter->title) ? $newsletter->title : ''}}" required>
@@ -26,7 +72,7 @@
 
 
 <div class="form-group">
-    <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
+    <input class="button4" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
 </div>
 
 

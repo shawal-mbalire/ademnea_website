@@ -18,15 +18,32 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
     <style>
-        #collapseExample.collapse:not(.show) {
-        display: block;
-        height: 3rem;
+      #collapseExample.collapse:not(.show) {
+        display: flex;
+        height: 13rem;
         overflow: hidden;
-        }
+      }
 
-        #collapseExample.collapsing {
+      #collapseExample.collapsing {
         height: 3rem;
-        }
+      }
+
+    .box{
+   border: none;
+  }
+
+  .image1{
+    width: 23rem;
+    height: 23rem;
+    border-radius: 8px;
+    border-color: green;
+    border-style: solid;
+    border-color: white;
+      border-width: 10px;
+    top: 5px;
+  }
+
+
     </style>
     @include('website.links')
 
@@ -50,21 +67,25 @@
 
 
     <main id="main">
-        <!-- ======= Scholarship Section ======= -->
-        <section id="gallery" class="gallery">
+        <!-- ======= Album Section ======= -->
+    <section id="gallery" class="gallery">
     <div class="container">
       <div class="section-title">
         <h2>Gallery</h2>
       </div>
+
+  <div class="container1">
   @foreach($gallery as $item)
   <div class="h4 text-center">
      {{$item -> title}}
-    </div>
-    <div class="row">
+  </div>
+
+    <div class="box">
       @foreach(explode("|", $item->image) as $image)
-      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0 bg-success card card-body" style="width: 18rem;">
-        <img src="{{asset('image/' . $image)}}" class="shadow-1-strong rounded mb-4" alt="" />
-      </div>
+      <!-- <span class="col-lg-4 col-md-12 mb-4 mb-lg-0 bg-success card card-body" style="width: 18rem;"> -->
+        <span class="imageBox">
+        <img src="{{asset('image/' . $image)}}" class="image1" onclick="enlargeImg()" id="img1" alt="" />
+      </span>
       @endforeach
     </div>
     <div class="text-center">
@@ -73,13 +94,13 @@
     <br>
     <br>
     @endforeach
-</div>
+    </div>
 </div>
 </section>
 
         <!-- End Scholarship Section -->
 
-       
+
 
     </main><!-- End #main -->
 
@@ -91,6 +112,15 @@
             class="bi bi-arrow-up-short"></i></a>
 
     @include('website.scripts')
+
+    <script>
+      img = document.getElementById("img1");
+
+      function enlargeImg(){
+        img.style.transform = "scale(1.5)";
+        img.style.transition = "transform 0.25s ease";
+      }
+    </script>
 
 </body>
 

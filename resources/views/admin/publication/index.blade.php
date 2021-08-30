@@ -1,5 +1,50 @@
 @extends('layouts.app')
 
+<style>
+    .button1{
+        background-color: lightseagreen;
+        color: white;
+        height: 34px;
+        width: 75px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button2{
+        background-color: mediumseagreen;
+        color: white;
+        height: 34px;
+        width: 75px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button3{
+        background-color: seagreen;
+        color: white;
+        height: 34px;
+        width: 85px;
+        border-radius: 15px;
+        border-color: green;
+        shadow: none;
+        font-weight: bold;
+    }
+
+    .button4{
+        background-color: lightseagreen;
+        color: white;
+        height: 40px;
+        width: 100px;
+        border-radius: 5px;
+        border-color: lightseagreen;
+        shadow: none;
+        font-weight: bold
+    }
+</style>
 @section('content')
 <div class="content-wrapper">
     <div class="row">
@@ -37,13 +82,13 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td><td>{{ $item->title }}</td><td>{{ $item->publisher }}</td><td>{{ $item->year }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/publication/' . $item->id) }}" title="View Publication"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/publication/' . $item->id . '/edit') }}" title="Edit Publication"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/publication/' . $item->id) }}" title="View Publication"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/admin/publication/' . $item->id . '/edit') }}" title="Edit Publication"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
                                             <form method="POST" action="{{ url('/admin/publication' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Publication" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="button3" title="Delete Publication" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                         </td>
                                     </tr>

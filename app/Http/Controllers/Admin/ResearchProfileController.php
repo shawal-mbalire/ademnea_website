@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use App\Models\WorkPackage;
 use App\Models\Scholarship;
+
+use App\Models\ResearchProfile;
 use Illuminate\Http\Request;
 
-class ScholarshipsController extends Controller
+class ResearchProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,14 +23,14 @@ class ScholarshipsController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $scholarship = Scholarship::where('category', 'LIKE', "%$keyword%")
-                ->orWhere('task', 'LIKE', "%$keyword%")
+            $profile = ResearchProfile::where('category', 'LIKE', "%$keyword%")
+                ->orWhere('description', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
-            $scholarship = Scholarship::latest()->paginate($perPage);
+            $profile = ResearchProfile::latest()->paginate($perPage);
         }
 
-        return view('admin.scholarship.index', compact('scholarship'));
+        return view('admin.research-profile.index', compact('profile'));
     }
 
     /**
@@ -38,7 +40,7 @@ class ScholarshipsController extends Controller
      */
     public function create()
     {
-        return view('admin.scholarship.create');
+        return view('admin.research-profile.create');
     }
 
     /**
@@ -52,16 +54,16 @@ class ScholarshipsController extends Controller
     {
         $this->validate($request, [
             'category'=>'required|max:2000',
-            'instructions'=>'required'
+            'description'=>'required'
         ]);
 
     
         $requestData = $request->all();
 
         
-        Scholarship::create($requestData);
+        ResearchProfile::create($requestData);
 
-        return redirect('admin/scholarship')->with('flash_message', 'Scholarship added!');
+        return redirect('admin/research-profile')->with('flash_message', 'research-profile added!');
     }
 
     /**
@@ -73,9 +75,9 @@ class ScholarshipsController extends Controller
      */
     public function show($id)
     {
-        $scholarship = Scholarship::findOrFail($id);
+        $profile = ResearchProfile::findOrFail($id);
 
-        return view('admin.scholarship.show', compact('scholarship'));
+        return view('admin.research-profile.show', compact('profile'));
     }
 
     /**
@@ -87,9 +89,9 @@ class ScholarshipsController extends Controller
      */
     public function edit($id)
     {
-        $scholarship = Scholarship::findOrFail($id);
+        $profile = ResearchProfile::findOrFail($id);
 
-        return view('admin.scholarship.edit', compact('scholarship'));
+        return view('admin.research-profile.edit', compact('profile'));
     }
 
     /**
@@ -105,10 +107,10 @@ class ScholarshipsController extends Controller
         
         $requestData = $request->all();
         
-        $scholarship = Scholarship::findOrFail($id);
-        $scholarship->update($requestData);
+        $profile = ResearchProfile::findOrFail($id);
+        $profile->update($requestData);
 
-        return redirect('admin/scholarship')->with('flash_message', 'Scholarship updated!');
+        return redirect('admin/research-profile')->with('flash_message', 'research-profile updated!');
     }
 
     /**
@@ -120,8 +122,33 @@ class ScholarshipsController extends Controller
      */
     public function destroy($id)
     {
-        Scholarship::destroy($id);
+        ResearchProfile::destroy($id);
 
-        return redirect('admin/scholarship')->with('flash_message', 'Scholarship deleted!');
+        return redirect('admin/research-profile')->with('flash_message', 'research-profile deleted!');
+    }
+
+
+    public function masters(){
+        $workpackages = WorkPackage::get();
+        $profile = ResearchProfile::get()->where('category', 'masters');
+
+        return view('website.mastersprofile',
+        [
+            'workpackages'=>$workpackages,
+            'profile'=>$profile        
+        ]
+    );
+    }
+
+    public function phd(){
+        $workpackages = WorkPackage::get();
+        $profile = ResearchProfile::get()->where('category', 'phd');
+
+        return view('website.phdprofile',
+        [
+            'workpackages'=>$workpackages,
+            'profile'=>$profile            
+        ]
+    );
     }
 }

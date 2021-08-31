@@ -53,19 +53,19 @@
         <!-- ======= Scholarship Section ======= -->
         <section id="scholarship" class="about">
     <div class="container">
-     @if($scholarships->count())
+     @if($profile->count())
         <div class="section-title">
-            <h2>call for scholarships</h2>
+            <h2>Masters Research Profiles</h2>
             </div>
-            @foreach($scholarships as $scholarship)
+            @foreach($profile as $item)
             <div class="container justify-content-start highlight">
                 <div class="icon-box">
-                    <p class="description">{!! $scholarship->instructions !!}</p>
+                    <p class="description">{!! $item->description !!}</p>
                 </div>
             </div>
             @endforeach
         @else
-        <p>There are currently no scholarships</p>
+        <p>There are currently no profiles</p>
         @endif
     </div>
 </section>

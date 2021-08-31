@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScholarshipsTable extends Migration
+class CreateResearchProfileTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateScholarshipsTable extends Migration
      */
     public function up()
     {
-        Schema::create('scholarships', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create('research_profile', function (Blueprint $table) {
+            $table->id();
             $table->string('category')->nullable();
-            $table->text('instructions')->nullable();
-            $table->string('country')->nullable();
-            });
+            $table->text('description')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -29,6 +28,6 @@ class CreateScholarshipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('scholarships');
+        Schema::dropIfExists('research_profile');
     }
 }

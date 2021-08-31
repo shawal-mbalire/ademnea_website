@@ -30,7 +30,8 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/team', 'App\Http\Controllers\Admin\TeamController');
     Route::resource('admin/publication', 'App\Http\Controllers\Admin\PublicationController');
     Route::resource('admin/newsletter', 'App\Http\Controllers\Admin\NewsletterController');
-    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');    
+    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');   
+    Route::resource('admin/research-profile', 'App\Http\Controllers\Admin\ResearchProfileController'); 
 });
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);
@@ -38,10 +39,16 @@ Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('
 Route::get('workpackages/{id}', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
 
 
+Route::get('/mastersscholarship-uganda', [App\Http\Controllers\Admin\MastersController::class, 'uganda'])->name('mastersscholarship-uganda');
+Route::get('/mastersscholarship-sudan', [App\Http\Controllers\Admin\MastersController::class, 'sudan'])->name('mastersscholarship-sudan');
+Route::get('/mastersscholarship-tanzania', [App\Http\Controllers\Admin\MastersController::class, 'tanzania'])->name('mastersscholarship-tanzania');
 
-Route::get('/scholarship', [App\Http\Controllers\ScholarshipsController::class, 'index'])->name('scholarship');
-Route::get('/mastersscholarship', [App\Http\Controllers\Admin\MastersController::class, 'index'])->name('mastersscholarship');
-Route::get('/phdscholarship', [App\Http\Controllers\Admin\PhdController::class, 'index'])->name('phdscholarship');
-Route::get('/scholarship', [App\Http\Controllers\ScholarshipsController::class, 'index'])->name('scholarship');
+Route::get('/phdscholarship-uganda', [App\Http\Controllers\Admin\PhdController::class, 'uganda'])->name('phdscholarship-uganda');
+Route::get('/phdscholarship-sudan', [App\Http\Controllers\Admin\PhdController::class, 'sudan'])->name('phdscholarship-sudan');
+Route::get('/phdscholarship-tanzania', [App\Http\Controllers\Admin\PhdController::class, 'tanzania'])->name('phdscholarship-tanzania');
+
+Route::get('/mastersprofile', [App\Http\Controllers\Admin\ResearchProfileController::class, 'masters'])->name('mastersprofile');
+Route::get('/phdprofile', [App\Http\Controllers\Admin\ResearchProfileController::class, 'phd'])->name('phdprofile');
+
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
 Route::get('/admin/tasks/create/{id}', [App\Http\Controllers\Admin\TaskController::class, 'create']);

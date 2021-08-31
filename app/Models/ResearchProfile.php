@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Scholarship extends Model
+class ResearchProfile extends Model
 {
-    /**
+     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'scholarships';
+    protected $table = 'research_profile';
 
     /**
     * The database primary key value.
@@ -25,7 +26,7 @@ class Scholarship extends Model
      *
      * @var array
      */
-    protected $fillable = ['category', 'task', 'topic', 'deliverables', 'competence', 'instructions', 'positions', 'country'];
+    protected $fillable = ['description','category'];
 
     
 }

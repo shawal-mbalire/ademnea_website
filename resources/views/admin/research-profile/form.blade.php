@@ -46,7 +46,7 @@
 
 <div class="form-group">
     <label for="category" class="control-label">{{ 'Category' }}</label>
-    <select class="form-select @error('category') is-invalid @enderror" value="{{old('category')}}" name="category" id="category" value="{{ isset($scholarship->category) ? $scholarship->category : ''}}">
+    <select class="form-select @error('category') is-invalid @enderror" value="{{old('category')}}" name="category" id="category" value="{{ isset($profile->category) ? $profile->category : ''}}">
   <option value="masters">Masters</option>
   <option value="phd">Phd</option>
 </select>
@@ -58,24 +58,9 @@
 </div>
 
 <div class="form-group">
-    <label for="country" class="control-label">{{ 'country' }}</label>
-    <select class="form-select @error('country') is-invalid @enderror" value="{{old('country')}}" name="country" id="country" value="{{ isset($scholarship->country) ? $scholarship->country : ''}}">
-  <option value="sudan">South Sudan</option>
-  <option value="uganda">Uganda</option>
-  <option value="tanzania">Tanzania</option>
-</select>
-    @error('country')
-        <div class="invalid-feedback text-sm">
-            {{ $message }}
-        </div>
-        @enderror
-</div>
-
-
-<div class="form-group">
-    <label for="instructions" class="control-label">{{ 'Instructions' }}</label>
-    <textarea class="form-control @error('instructions') is-invalid @enderror" rows="5" name="instructions" type="textarea" id="instructions" >{{old('instructions')}}{{ isset($scholarship->instructions) ? $scholarship->instructions : ''}}</textarea>
-    @error('instructions')
+    <label for="description" class="control-label">{{ 'description' }}</label>
+    <textarea class="form-control @error('description') is-invalid @enderror" rows="5" name="description" type="textarea" id="description" >{{old('description')}}{{ isset($profile->description) ? $profile->description : ''}}</textarea>
+    @error('description')
         <div class="invalid-feedback mt-2 text-sm">
             {{ $message }}
         </div>
@@ -87,5 +72,5 @@
 </div>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
-CKEDITOR.replace( 'instructions' );
+CKEDITOR.replace( 'description' );
 </script>

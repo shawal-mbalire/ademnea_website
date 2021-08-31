@@ -9,6 +9,7 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                <li><a class="nav-link scrollto" href="/#about">About</a></li>
                 <li class="dropdown"><a href="/#"><span>Work Packages</span> <i class="bi bi-chevron-down"></i></a>
 
 
@@ -20,10 +21,29 @@
                     </ul>
 
                 </li>
-                <li class="dropdown scrollto dropdown"><a href="/#scholarship" class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a href="#"><span>Research Profile</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                        <li><a href="/mastersscholarship">Masters</a></li>
-                        <li><a href="/phdscholarship">PhD</a></li>
+                    <li><a class="nav-link scrollto" href="/mastersprofile">Masters</a></li>
+                    <li><a class="nav-link scrollto" href="/phdprofile">Phd</a></li>   
+                    </ul>
+                </li>
+                <li class="dropdown scrollto dropdown"><a href="/" class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li class="dropdown scrollto dropdown"><a href="/"><span>Masters</span><i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                        <li><a href="/mastersscholarship-sudan">South Sudan</a></li>
+                        <li><a href="/mastersscholarship-uganda">Uganda</a></li>
+                        <li><a href="/mastersscholarship-tanzania">Tanzania</a></li>
+                    </ul>
+                    </li>
+                    <hr>
+                        <li class="dropdown scrollto dropdown"><a href="/"><span>PhD</span><i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                        <li><a href="/phdscholarship-sudan">South Sudan</a></li>
+                        <li><a href="/phdscholarship-uganda">Uganda</a></li>
+                        <li><a href="/phdscholarship-tanzania">Tanzania</a></li>
+                    </ul>
+                    </li>
                     </ul>
                 </li>
 
@@ -35,7 +55,7 @@
                 </li>
 
                 <li><a class="nav-link scrollto" href="/#gallery">Gallery</a></li>
-                <li><a class="nav-link scrollto" href="/#about">About</a></li>
+                
 
                 <!-- <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li> -->
                 <!-- <li><a class="nav-link scrollto" href="/displaypublication">Publications</a></li> -->
@@ -48,7 +68,6 @@
 {{--                </li>--}}
 
                 <li><a class="nav-link scrollto" href="/#team">Team</a></li>
-                <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
                 <li><a class="nav-link scrollto" href="/login">Login</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>

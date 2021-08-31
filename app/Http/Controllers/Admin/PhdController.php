@@ -11,9 +11,31 @@ use App\Models\Scholarship;
 
 class PhdController extends Controller
 {
-    public function index(){
+    public function sudan(){
         $workpackages = WorkPackage::get();
-        $scholarship = Scholarship::get()->where('category', 'phd');
+        $scholarship = Scholarship::get()->where('category', 'phd')->where('country', 'sudan');
+
+        return view('website.phdlayout',
+        [
+            'workpackages'=>$workpackages,
+            'scholarships'=>$scholarship           
+        ]
+    );
+    }
+    public function uganda(){
+        $workpackages = WorkPackage::get();
+        $scholarship = Scholarship::get()->where('category', 'phd')->where('country', 'uganda');
+
+        return view('website.phdlayout',
+        [
+            'workpackages'=>$workpackages,
+            'scholarships'=>$scholarship           
+        ]
+    );
+    }
+    public function tanzania(){
+        $workpackages = WorkPackage::get();
+        $scholarship = Scholarship::get()->where('category', 'phd')->where('country', 'tanzania');
 
         return view('website.phdlayout',
         [

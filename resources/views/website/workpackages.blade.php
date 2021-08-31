@@ -62,7 +62,7 @@
                    @foreach ($workpackages as $workpackage)
                    <h2 class="animate__animated animate__fadeInDown text-center">{{ $workpackage->name }}</h2>
                    <p class="animate__animated animate__fadeInUp text-center">
-                       {{ $workpackage->description }}
+                       {!! $workpackage->description !!}
                    </p>
                    @endforeach 
                   <!-- <a href="#featured_services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
@@ -80,6 +80,7 @@
                             <thead>
                                 <th>Work Package</th>
                                 <th>Task</th>
+                                <th>Team Leader</th>
                                  <th>Description</th> 
                                 <th>Partners</th>
                                 <th>Delivarables</th>
@@ -94,9 +95,10 @@
                                     @if($task->work_package_id === $item->id)
                                         <tr>
                                             <td>{{ $task->id }}.{{ $task->name }}</td>
-                                            <td>{{ $task->description }}</td>
+                                            <td>{{ $task->team_leader }}</td>
+                                            <td>{!! $task->description !!}</td>
                                             <td>{{ $task->partners }}</td>
-                                            <td>{{ $task->deliverables }}</td>
+                                            <td>{!! $task->deliverables !!}</td>
                                         </tr>
                                         @endif
                                     @endforeach 

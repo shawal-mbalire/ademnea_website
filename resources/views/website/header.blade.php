@@ -27,7 +27,7 @@
                     </ul>
                 </li>
 
-                <li class="dropdown"><a href="/"><span>News & Events</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown"><a href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                     <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li>
                     <li><a class="nav-link scrollto" href="/displaypublication">Publications</a></li>   
@@ -40,7 +40,7 @@
                 <!-- <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li> -->
                 <!-- <li><a class="nav-link scrollto" href="/displaypublication">Publications</a></li> -->
 
-{{--                <li class="dropdown"><a href="/"><span>News & Events</span> <i class="bi bi-chevron-down"></i></a>--}}
+{{--                <li class="dropdown"><a href="#"><span>News & Events</span> <i class="bi bi-chevron-down"></i></a>--}}
 {{--                    <ul>--}}
 {{--                    <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li>--}}
 {{--                    <li><a class="nav-link scrollto" href="/displaypublication">Publications</a></li>   --}}

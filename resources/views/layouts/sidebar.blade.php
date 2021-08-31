@@ -59,6 +59,14 @@
                 <span class="menu-title text-light">Scholarship</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/research-profile">
+                <i class="mdi mdi-school menu-icon text-light"></i>
+                <span class="menu-title text-light">Research Profile</span>
+            </a>
+        </li>
+        
         
         
         {{-- <li class="nav-item nav-category">UI Elements</li> --}}

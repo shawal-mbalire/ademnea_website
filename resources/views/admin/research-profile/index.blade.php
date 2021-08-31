@@ -80,7 +80,7 @@
                                 @foreach($profile as $item)
                                     <tr>
                                         <td class="align-top">{{ $loop->iteration }}</td>
-                                        <td>{{ $item->category }}</td><td>{!! $item->description !!}</td>
+                                        <td class="align-top">{{ $item->category }}</td><td>{!! $item->description !!}</td>
                                         <td>
                                             <a href="{{ url('/admin/research-profile/' . $item->id) }}" title="View research-profile"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/research-profile/' . $item->id . '/edit') }}" title="Edit research-profile"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

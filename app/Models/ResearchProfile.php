@@ -26,7 +26,7 @@ class ResearchProfile extends Model
      *
      * @var array
      */
-    protected $fillable = ['description','category'];
+    protected $fillable = ['description','category', 'country'];
 
     
 }

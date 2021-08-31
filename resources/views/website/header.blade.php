@@ -21,10 +21,23 @@
                     </ul>
 
                 </li>
-                <li class="dropdown"><a href="#"><span>Research Profile</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown scrollto dropdown"><a href="/" class="nav-link scrollto"><span>Research Profile</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
-                    <li><a class="nav-link scrollto" href="/mastersprofile">Masters</a></li>
-                    <li><a class="nav-link scrollto" href="/phdprofile">Phd</a></li>   
+                        <li class="dropdown scrollto dropdown"><a href="/"><span>Masters</span><i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                        <li><a href="/mastersprofile-sudan">South Sudan</a></li>
+                        <li><a href="/mastersprofile-uganda">Uganda</a></li>
+                        <li><a href="/mastersprofile-tanzania">Tanzania</a></li>
+                    </ul>
+                    </li>
+                    <hr>
+                        <li class="dropdown scrollto dropdown"><a href="/"><span>PhD</span><i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                        <li><a href="/phdprofile-sudan">South Sudan</a></li>
+                        <li><a href="/phdprofile-uganda">Uganda</a></li>
+                        <li><a href="/phdprofile-tanzania">Tanzania</a></li>
+                    </ul>
+                    </li>
                     </ul>
                 </li>
                 <li class="dropdown scrollto dropdown"><a href="/" class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>

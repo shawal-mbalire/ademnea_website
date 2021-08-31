@@ -47,8 +47,13 @@ Route::get('/phdscholarship-uganda', [App\Http\Controllers\Admin\PhdController::
 Route::get('/phdscholarship-sudan', [App\Http\Controllers\Admin\PhdController::class, 'sudan'])->name('phdscholarship-sudan');
 Route::get('/phdscholarship-tanzania', [App\Http\Controllers\Admin\PhdController::class, 'tanzania'])->name('phdscholarship-tanzania');
 
-Route::get('/mastersprofile', [App\Http\Controllers\Admin\ResearchProfileController::class, 'masters'])->name('mastersprofile');
-Route::get('/phdprofile', [App\Http\Controllers\Admin\ResearchProfileController::class, 'phd'])->name('phdprofile');
+Route::get('/mastersprofile-uganda', [App\Http\Controllers\Admin\ResearchProfileController::class, 'uganda'])->name('mastersprofile-uganda');
+Route::get('/mastersprofile-sudan', [App\Http\Controllers\Admin\ResearchProfileController::class, 'sudan'])->name('mastersprofile-sudan');
+Route::get('/mastersprofile-tanzania', [App\Http\Controllers\Admin\ResearchProfileController::class, 'tanzania'])->name('mastersprofile-tanzania');
+
+Route::get('/phdprofile-uganda', [App\Http\Controllers\WebsiteController::class, 'uganda'])->name('phdprofile-uganda');
+Route::get('/phdprofile-sudan', [App\Http\Controllers\WebsiteController::class, 'sudan'])->name('phdprofile-sudan');
+Route::get('/phdprofile-tanzania', [App\Http\Controllers\WebsiteController::class, 'tanzania'])->name('phdprofile-tanzania');
 
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
 Route::get('/admin/tasks/create/{id}', [App\Http\Controllers\Admin\TaskController::class, 'create']);

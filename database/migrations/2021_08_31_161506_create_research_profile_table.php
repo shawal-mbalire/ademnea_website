@@ -16,6 +16,7 @@ class CreateResearchProfileTable extends Migration
         Schema::create('research_profile', function (Blueprint $table) {
             $table->id();
             $table->string('category')->nullable();
+            $table->text('country')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

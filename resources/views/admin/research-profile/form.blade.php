@@ -58,6 +58,20 @@
 </div>
 
 <div class="form-group">
+    <label for="country" class="control-label">{{ 'country' }}</label>
+    <select class="form-select @error('country') is-invalid @enderror" value="{{old('country')}}" name="country" id="country" value="{{ isset($scholarship->country) ? $scholarship->country : ''}}">
+  <option value="sudan">South Sudan</option>
+  <option value="uganda">Uganda</option>
+  <option value="tanzania">Tanzania</option>
+</select>
+    @error('country')
+        <div class="invalid-feedback text-sm">
+            {{ $message }}
+        </div>
+        @enderror
+</div>
+
+<div class="form-group">
     <label for="description" class="control-label">{{ 'description' }}</label>
     <textarea class="form-control @error('description') is-invalid @enderror" rows="5" name="description" type="textarea" id="description" >{{old('description')}}{{ isset($profile->description) ? $profile->description : ''}}</textarea>
     @error('description')

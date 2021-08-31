@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\WorkPackage;
-use App\Models\Scholarship;
-
 use App\Models\ResearchProfile;
+
+
 use Illuminate\Http\Request;
 
 class ResearchProfileController extends Controller
@@ -24,7 +24,7 @@ class ResearchProfileController extends Controller
 
         if (!empty($keyword)) {
             $profile = ResearchProfile::where('category', 'LIKE', "%$keyword%")
-                ->orWhere('description', 'LIKE', "%$keyword%")
+                ->orWhere('category', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
             $profile = ResearchProfile::latest()->paginate($perPage);
@@ -128,26 +128,36 @@ class ResearchProfileController extends Controller
     }
 
 
-    public function masters(){
+    public function sudan(){
         $workpackages = WorkPackage::get();
-        $profile = ResearchProfile::get()->where('category', 'masters');
-
-        return view('website.mastersprofile',
-        [
-            'workpackages'=>$workpackages,
-            'profile'=>$profile        
-        ]
-    );
-    }
-
-    public function phd(){
-        $workpackages = WorkPackage::get();
-        $profile = ResearchProfile::get()->where('category', 'phd');
+        $profile = ResearchProfile::get()->where('category', 'phd')->where('country', 'sudan');
 
         return view('website.phdprofile',
         [
             'workpackages'=>$workpackages,
-            'profile'=>$profile            
+            'profile'=>$profile           
+        ]
+    );
+    }
+    public function uganda(){
+        $workpackages = WorkPackage::get();
+        $profile = ResearchProfile::get()->where('category', 'phd')->where('country', 'uganda');
+
+        return view('website.phdprofile',
+        [
+            'workpackages'=>$workpackages,
+            'profile'=>$profile           
+        ]
+    );
+    }
+    public function tanzania(){
+        $workpackages = WorkPackage::get();
+        $profile = ResearchProfile::get()->where('category', 'phd')->where('country', 'tanzania');
+
+        return view('website.phdprofile',
+        [
+            'workpackages'=>$workpackages,
+            'profile'=>$profile           
         ]
     );
     }

@@ -108,3 +108,9 @@
 <div class="form-group">
     <input class="button4" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
 </div>
+
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+CKEDITOR.replace( 'deliverables' );
+CKEDITOR.replace( 'description' );
+</script>

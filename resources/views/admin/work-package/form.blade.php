@@ -57,7 +57,7 @@
 
 <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
     <label for="description" class="control-label">{{ 'Description' }}</label>
-    <textarea class="form-control" rows="5" name="description" type="textarea" id="description" required>{{ isset($workpackage->description) ? $workpackage->description : ''}}</textarea>
+    <textarea class="form-control" id="summary-ckeditor" rows="5" name="description" type="textarea" id="description" required>{{ isset($workpackage->description) ? $workpackage->description : ''}}</textarea>
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
 
@@ -65,3 +65,7 @@
 <div class="form-group">
     <input class="button4" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
 </div>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+CKEDITOR.replace( 'summary-ckeditor' );
+</script>

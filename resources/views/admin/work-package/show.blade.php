@@ -59,7 +59,7 @@
                         <form method="POST" action="{{ url('/admin/work-package' . '/' . $workpackage->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="button3" title="Delete WorkPackage" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                            <button type="submit" class="button3 btn-danger" title="Delete WorkPackage" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                         </form>
                         <br/>
                         <br/>
@@ -70,7 +70,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $workpackage->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $workpackage->name }} </td></tr><tr><th> Abbreviation </th><td> {{ $workpackage->abbreviation }} </td></tr><tr><th> Description </th><td> {{ $workpackage->description }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $workpackage->name }} </td></tr><tr><th> Abbreviation </th><td> {{ $workpackage->abbreviation }} </td></tr><tr><th> Description </th><td> {!! $workpackage->description !!} </td></tr>
                                 </tbody>
                             </table>
                         </div>

@@ -86,9 +86,9 @@
 </div>
 <div class="form-group">
     <label for="competence" class="control-label">{{ 'Competence' }}</label>
-    <input class="form-control @error('competence') is-invalid @enderror" value="{{old('competence')}}" name="competence" type="text" id="competence" value="{{ isset($scholarship->competence) ? $scholarship->competence : ''}}" >
+    <textarea class="form-control @error('competence') is-invalid @enderror" rows="5" name="competence" type="textarea" id="competence" >{{old('competence')}}{{ isset($scholarship->competence) ? $scholarship->competence : ''}}</textarea>
     @error('competence')
-        <div class="invalid-feedback text-sm">
+        <div class="invalid-feedback mt-2 text-sm">
             {{ $message }}
         </div>
         @enderror
@@ -115,3 +115,7 @@
 <div class="form-group">
     <input class="button4" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
 </div>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+CKEDITOR.replace( 'instructions' );
+</script>

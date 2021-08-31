@@ -20,7 +20,7 @@ class CreateScholarshipsTable extends Migration
             $table->string('task')->nullable();
             $table->string('topic')->nullable();
             $table->text('deliverables')->nullable();
-            $table->string('competence')->nullable();
+            $table->text('competence')->nullable();
             $table->text('instructions')->nullable();
             $table->integer('positions')->nullable()->unsigned();
             });

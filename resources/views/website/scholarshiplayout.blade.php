@@ -64,7 +64,7 @@
                     <p class="description"><strong>Scholarship category: </strong> {{$scholarship->category}}</p>
                     <p class="description"><strong>Number of positions: </strong>{{$scholarship->positions}}</p>
                     <p class="description"><strong>Work Package: </strong>{{$scholarship->task}}</p>
-                    <p class="description"><strong>Deliverables: </strong>{{$scholarship->deliverables}}</p>
+                    <p class="description"><strong>Deliverables: </strong>{!! $scholarship->deliverables !!}</p>
                 </div>
             </div>
             @endforeach

@@ -80,7 +80,7 @@
                                 @foreach($scholarship as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->category }}</td><td>{{ $item->task }}</td><td>{{ $item->topic}}</td><td>{{ $item->deliverables}}</td><td>{{ $item->competence}}</td><td>{{ $item->instructions}}</td><td>{{ $item->positions}}</td>
+                                        <td>{{ $item->category }}</td><td>{{ $item->task }}</td><td>{{ $item->topic}}</td><td>{{ $item->deliverables}}</td><td>{{ $item->competence}}</td><td>{!! $item->instructions !!}</td><td>{{ $item->positions}}</td>
                                         <td>
                                             <a href="{{ url('/admin/scholarship/' . $item->id) }}" title="View Scholarship"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/scholarship/' . $item->id . '/edit') }}" title="Edit Scholarship"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

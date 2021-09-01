@@ -52,21 +52,27 @@
     <!-- End Hero -->
 
     <main id="main">
+        <section id="workpackages" class="about">
         <div class="carousel-inner" role="listbox">
         
         
-        <!-- Slide 1 -->
         <div class="carousel-item active">
            <div class="carousel-container">
                <div class="container">
+                @if($workpackages->count())
                    @foreach ($workpackages as $workpackage)
+                   <div class="section-title">
                    <h2 class="animate__animated animate__fadeInDown text-center">{{ $workpackage->name }}</h2>
+                   </div>
                    <p class="animate__animated animate__fadeInUp text-center">
                        {!! $workpackage->description !!}
                    </p>
-                   @endforeach 
-                  <!-- <a href="#featured_services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                       More</a>-->       
+                   @endforeach
+                @else
+                  <p>There are currently no Work package</p>
+                @endif    
+                   <a href="#featured_services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
+                       More</a>       
                </div>
            </div>
        </div>
@@ -74,7 +80,7 @@
        </div>
        <div class="container">
         <div class="card card-default"> 
-                <div class="card-header"><h2 class="text-center">AdeMNEA WORKPACKAGES</h2></div>
+                <div class="card-header"><h2 class="text-center">AdeMNEA WORK PACKAGES AND TASKS</h2></div>
                     <div class="card body">
                         <table class="table">
                             <thead>
@@ -111,7 +117,7 @@
         </div>
         </div>
 
-</section>
+       </section>
 
         <!-- ======= Featured Services Section ======= -->
         @include('website.featured_services')

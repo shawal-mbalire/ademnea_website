@@ -58,7 +58,7 @@
             <h2>call for scholarships</h2>
             </div>
             @foreach($scholarships as $scholarship)
-            <div class="container card card-body bg-success text-white h6">
+            <div class="container card text-justify">
                 <div class="icon-box">
                     <p class="description">{!! $scholarship->instructions !!}</p>
                 </div>

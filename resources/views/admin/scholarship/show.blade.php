@@ -71,14 +71,9 @@
                                         <th>ID</th><td>{{ $scholarship->id }}</td>
                                     </tr>
                                     <tr>
-                                        <th> Category </th><td> {{ $scholarship->category }} </td></tr><tr><th> Task </th><td> {{ $scholarship->task }} </td></tr><tr><th> Topic </th><td> {{ $scholarship->topic }} </td>
+                                        <th> Category </th><td> {{ $scholarship->category }} </td></tr><tr><th> Instructions </th><td> {!! $scholarship->instructions !!} </td></tr><tr>
                                 </tr>
-                                <tr><th> Deliverables </th><td> {{ $scholarship->deliverables }} </td></tr><tr>
-                                        <th> Competence </th><td> {{ $scholarship->competence }} </td></tr>
-                                        <tr>
-                                        <th> Instructions </th><td> {{ $scholarship->instructions }} </td></tr>
-                                        <tr>
-                                        <th> Number Of Postions </th><td> {{ $scholarship->positions }} </td></tr>
+                                
                                 </tbody>
                             </table>
                         </div>

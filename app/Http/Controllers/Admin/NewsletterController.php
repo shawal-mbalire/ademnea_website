@@ -68,7 +68,7 @@ class NewsletterController extends Controller
                         ->withInput();
         }
         
-        // dd($request->all());
+    
         
         $requestData = $request->all();
                 if ($request->hasFile('image')) {

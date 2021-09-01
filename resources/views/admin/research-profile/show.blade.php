@@ -71,8 +71,11 @@
                                         <th>ID</th><td>{{ $profile->id }}</td>
                                     </tr>
                                     <tr>
-                                        <th> Category </th><td> {{ $profile->category }} </td></tr><tr><th> description </th><td> {{ $profile->description }} </td></tr><tr><th> Topic </th><td> {{ $profile->topic }} </td>
-                                </tr>
+                                        <th> Category </th><td> {{ $profile->category }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> description </th><td> {!! $profile->description !!} </td>
+                                    </tr>
                                 
                                 </tbody>
                             </table>

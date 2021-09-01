@@ -1,7 +1,7 @@
 <footer id="footer">
     <div class="container">
         <h3>AdEMNEA</h3>
-        <p>Adaptive Environmental Monitoring Networks for East Africa .</p>
+        <p>Adaptive Environmental Monitoring Networks for East Africa .<a href="#contact">Contact Us</a></p>
         <div class="social-links">
             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>

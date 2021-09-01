@@ -58,14 +58,8 @@
             <h2>call for scholarships</h2>
             </div>
             @foreach($scholarships as $scholarship)
-            <div class="container justify-content-start highlight">
-                <div class="icon-box">
-                <h4 class="title"><strong>Topic: </strong>{{$scholarship->topic}}</h4>
-                    <p class="description"><strong>Scholarship category: </strong> {{$scholarship->category}}</p>
-                    <p class="description"><strong>Number of positions: </strong>{{$scholarship->positions}}</p>
-                    <p class="description"><strong>Work Package: </strong>{{$scholarship->task}}</p>
-                    <p class="description"><strong>Deliverables: </strong>{!! $scholarship->deliverables !!}</p>
-                </div>
+            <div class="container">
+               { $scholarship->description}
             </div>
             @endforeach
         @else

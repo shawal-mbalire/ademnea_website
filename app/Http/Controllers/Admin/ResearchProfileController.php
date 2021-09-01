@@ -127,7 +127,7 @@ class ResearchProfileController extends Controller
         return redirect('admin/research-profile')->with('flash_message', 'research-profile deleted!');
     }
 
-
+//sudan phd layout
     public function sudan(){
         $workpackages = WorkPackage::get();
         $profile = ResearchProfile::get()->where('category', 'phd')->where('country', 'sudan');
@@ -139,6 +139,8 @@ class ResearchProfileController extends Controller
         ]
     );
     }
+
+    //uganda phd layout
     public function uganda(){
         $workpackages = WorkPackage::get();
         $profile = ResearchProfile::get()->where('category', 'phd')->where('country', 'uganda');
@@ -150,6 +152,7 @@ class ResearchProfileController extends Controller
         ]
     );
     }
+    //tanzania phd layout
     public function tanzania(){
         $workpackages = WorkPackage::get();
         $profile = ResearchProfile::get()->where('category', 'phd')->where('country', 'tanzania');

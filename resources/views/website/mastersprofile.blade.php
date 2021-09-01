@@ -55,7 +55,7 @@
     <div class="container">
      @if($profile->count())
         <div class="section-title">
-            <h2>PHD Research Profiles</h2>
+            <h2>MASTERS Research Profiles</h2>
             </div>
             @foreach($profile as $item)
             <div class="container justify-content-start highlight">
@@ -67,8 +67,6 @@
         @else
         <p>There are currently no profiles</p>
         @endif
-
-        <p>hhhhh</p>
     </div>
 </section>
 

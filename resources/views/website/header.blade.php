@@ -40,7 +40,7 @@
                     </li>
                     </ul>
                 </li>
-                <li class="dropdown scrollto dropdown" id="scholarships"><a href="/" class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
+                <li class="dropdown scrollto dropdown"><a href="#scholarships" class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li class="dropdown scrollto dropdown"><a href="/"><span>Masters</span><i class="bi bi-chevron-down"></i></a>
                         <ul>

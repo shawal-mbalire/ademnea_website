@@ -1,4 +1,4 @@
-<section id="scholarship" class="about">
+<section id="scholarships" class="about">
     <div class="container">
             <div class="row no-gutters">
             <div class="col-lg-4 col-md-6">

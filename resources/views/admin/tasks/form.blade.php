@@ -113,4 +113,5 @@
 <script>
 CKEDITOR.replace( 'deliverables' );
 CKEDITOR.replace( 'description' );
+CKEDITOR.replace( 'description' );
 </script>

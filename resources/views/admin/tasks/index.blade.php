@@ -83,8 +83,21 @@
                                 <tbody>
                                 @foreach($task as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->team_leader }}</td><td>{{ $item->duration }}</td><td>{{ $item->descrition }}</td><td>{{ $item->partners }}</td><td>{{ $item->potential_innovetion }}</td><td>{{ $item->deliverebles }}</td><td>{{ $item->interdependence }}</td><td>{{ $item->resource_requirements }}</td>
+                                        <td>{{ $$item->id }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->team_leader }}</td>
+                                        <td>{{ $item->duration }}</td>
+                                        <td>
+                                            <details>
+                                                <summary> Work task</summary>
+                                                {!! $item->descrition !!}
+                                            </details>
+                                        </td>
+                                        <td>{{ $item->partners }}</td>
+                                        <td>{{ $item->potential_innovetion }}</td>
+                                        <td>{{ $item->deliverebles }}</td>
+                                        <td>{{ $item->interdependence }}</td>
+                                        <td>{{ $item->resource_requirements }}</td>
                                         <td>
                                             <a href="{{ url('/admin/tasks/' . $item->id) }}" title="View Task"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/tasks/' . $item->id . '/edit') }}" title="Edit Task"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

@@ -96,7 +96,12 @@
                                         <!--<td>{{ $loop->iteration }}</td>-->
                                         <td class="align-top ps-4"><a href="{{ url('/admin/work-package/' . $item->id) }}" title="View WorkPackage" style="hover: red">{{ $item->name }}</a></td>
                                         <td class="align-top ps-4">{{ $item->abbreviation }}</td>
-                                        <td class="ps-3">{!! $item->description !!}</td>
+                                        <td class="ps-3">
+                                            <details>
+                                                <summary> Work description</summary>
+                                                {!! $item->description !!}
+                                            </details>
+                                        </td>
                                         <td class="align-top">
                                             <div class="dropdown">
                                                 <button class="btn btn-primary dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

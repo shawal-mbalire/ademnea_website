@@ -53,18 +53,17 @@
         <!-- ======= Scholarship Section ======= -->
         <section id="scholarship" class="about">
     <div class="container">
+    <section id="scholarship" class="about">
+
+    <div class="container">
      @if($scholarships->count())
         <div class="section-title">
             <h2>call for scholarships</h2>
             </div>
             @foreach($scholarships as $scholarship)
-            <div class="container justify-content-start highlight">
+            <div class="container card h6">
                 <div class="icon-box">
-                <h4 class="title"><strong>Topic: </strong>{{$scholarship->topic}}</h4>
-                    <p class="description"><strong>Scholarship category: </strong> {{$scholarship->category}}</p>
-                    <p class="description"><strong>Number of positions: </strong>{{$scholarship->positions}}</p>
-                    <p class="description"><strong>Work Package: </strong>{{$scholarship->task}}</p>
-                    <p class="description"><strong>Deliverables: </strong>{{$scholarship->deliverables}}</p>
+                    <p class="description">{!! $scholarship->instructions !!}</p>
                 </div>
             </div>
             @endforeach
@@ -72,6 +71,7 @@
         <p>There are currently no scholarships</p>
         @endif
     </div>
+</section>
 </section>
 
         <!-- End Scholarship Section -->

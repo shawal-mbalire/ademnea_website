@@ -79,8 +79,14 @@
                                 <tbody>
                                 @foreach($scholarship as $item)
                                     <tr>
-                                        <td class="align-top">{{ $loop->iteration }}</td>
-                                        <td class="align-top">{{ $item->category }}</td><td>{{ $item->country}}</td><td>{!! $item->instructions !!}</td>
+                                        <td class="align-top">{{ $item->id }}</td>
+                                        <td class="align-top">{{ $item->category }}</td><td>{{ $item->country}}</td>
+                                        <td>
+                                            <details>
+                                                <summary>Scholarship {{ $item->id }}</summary>
+                                                {!! $item->instructions !!}
+                                            </details>
+                                        </td>
                                         <td class="align-top">
                                             <a href="{{ url('/admin/scholarship/' . $item->id) }}" title="View Scholarship"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/scholarship/' . $item->id . '/edit') }}" title="Edit Scholarship"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

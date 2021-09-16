@@ -11,6 +11,9 @@
                 <li><a class="nav-link scrollto active" href="/">Home</a></li>
                 <li><a class="nav-link scrollto" href="/#about">About</a></li>
                 <li class="dropdown"><a href="/#"><span>Work Packages</span> <i class="bi bi-chevron-down"></i></a>
+
+
+
                     <ul>
                         
                         <li><a href= "/workpackages-wp1">Networks and Resilience(WP1)</a></li>

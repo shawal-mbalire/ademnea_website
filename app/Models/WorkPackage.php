@@ -26,10 +26,9 @@ class WorkPackage extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 
-        'abbreviation',
-        'description', 
+    protected $fillable = [ 
+        'name',
+        'instructions', 
     
 
 
@@ -42,10 +41,7 @@ class WorkPackage extends Model
          *
          * @return \Illuminate\Database\Eloquent\Relations\HasMany
          */
-        public function task()
-        {
-            return $this->hasMany(Task::class);
-        }
+      
     
 
     

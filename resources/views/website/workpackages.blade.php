@@ -47,82 +47,70 @@
     @include('website.header')
     <!-- End Header -->
 
-    <!-- ======= Hero Section ======= -->
-    {{-- @include('website.hero_section') --}}
-    <!-- End Hero -->
+
 
     <main id="main">
-        <section id="workpackages" class="about">
-        <div class="carousel-inner" role="listbox">
+        <!-- ======= Scholarship Section ======= -->
+    <section id="scholarship" class="about pt-0">
+    <div class="container card w-100">
+     @if($workpackages ->count())
+        <div class="section-title">
+            </div>
+            @foreach($workpackages  as $workpackage)
+            <div class="container">
+               {!! $workpackage->instructions !!}
+            </div>
+            @endforeach
+        @else
+        <p>There are currently no work packages</p>
+        @endif
+    </div>
+   
+    <div class="container pt-5">
+    <div class="h5 text-center">
+        Other Work Packages
+    </div>
+        <div class="row no-gutters">
+            <div class="col-lg-4 col-md-6">
+                <div class="icon-box">
+                    <div class="icon"><i class="bi bi-laptop"></i></div>
+                    <h4 class="title"><a href= "/workpackages-wp1">Networks and Resilience(WP1)</a></h4>
+                    <p class="description">VSensor data must be collected from both static and mobile sensors in the
+                        field and then aggregated by nodes which are energy-constrained either because they rely on
+                        batteries or on local power sources such as solar panels. </p>
+                </div>
+            </div>
+           
+            <div class="col-lg-4 col-md-6">
+                <div class="icon-box">
+                    <div class="icon"><i class="bi bi-calendar4-week"></i></div>
+                    <h4 class="title"><a href= "/workpackages-wp2">Sensors and signal processing(WP2) </a></h4>
+                    <p class="description">These data shall be stored and integrated in digital platforms that
+                        facilitate analysis of temporal and spatial species abundance and diversity, improvement of
+                        insect management, reduction of pesticide usage and institution of conservation measures for
+                        pollinating insects</p>
+                </div>
+            </div>
         
-        
-        <div class="carousel-item active">
-           <div class="carousel-container">
-               <div class="container">
-                @if($workpackages->count())
-                   @foreach ($workpackages as $workpackage)
-                   <div class="section-title">
-                   <h2 class="animate__animated animate__fadeInDown text-center">{{ $workpackage->name }}</h2>
-                   </div>
-                   <p class="animate__animated animate__fadeInUp text-center">
-                       {!! $workpackage->description !!}
-                   </p>
-                   @endforeach
-                @else
-                  <p>There are currently no Work package</p>
-                @endif    
-                   <a href="#featured_services" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read
-                       More</a>       
-               </div>
-           </div>
-       </div>
-                  
-       </div>
-       <div class="container">
-        <div class="card card-default"> 
-                <div class="card-header"><h2 class="text-center">AdeMNEA WORK PACKAGES AND TASKS</h2></div>
-                    <div class="card body">
-                        <table class="table">
-                            <thead>
-                                <th>Work Package</th>
-                                <th>Task</th>
-                                <th>Team Leader</th>
-                                 <th>Description</th> 
-                                <th>Partners</th>
-                                <th>Delivarables</th>
-                            </thead>
-                            <tbody>
-                                @foreach($workpackages as $item)
-                                <tr>
-                                    <td rowspan="{{ $tasks->count() }}">{{$item -> abbreviation}}</td>
-                                    
-                                    <td>
-                                    @foreach ($tasks as $task)
-                                    @if($task->work_package_id === $item->id)
-                                        <tr>
-                                            <td>{{ $task->id }}.{{ $task->name }}</td>
-                                            <td>{{ $task->team_leader }}</td>
-                                            <td>{!! $task->description !!}</td>
-                                            <td>{{ $task->partners }}</td>
-                                            <td>{!! $task->deliverables !!}</td>
-                                        </tr>
-                                        @endif
-                                    @endforeach 
-                                </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="icon-box">
+                    <div class="icon"><i class="bi bi-graph-up"></i></div>
+                    <h4 class="title"><a href= "/workpackages-wp3">Data Analytics for Environment Monitoring services(WP3)</a></h4>
+                    <p class="description">Development of automated information collection for insect pollinators and
+                        pests. And also for the first time combined utilization of large weather information data sets
+                        in insect pollinator conservation planning and pest control method design</p>
+                </div> 
+            </div>
+            
         </div>
 
-       </section>
+    </div>
+</section>
 
-        <!-- ======= Featured Services Section ======= -->
-        @include('website.featured_services')
-        <!-- End Featured Services Section -->
- 
+        <!-- End Scholarship Section -->
+
+       
+
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

@@ -15,9 +15,11 @@
 
 
                     <ul>
-                        @foreach ($workpackages as $workpackage)
-                        <li><a href= "/workpackages/{{ $workpackage->id }}">{{ $workpackage->abbreviation }}</a></li>
-                        @endforeach
+                        
+                        <li><a href= "/workpackages-wp1">Networks and Resilience(WP1)</a></li>
+                        <li><a href= "/workpackages-wp2">Sensors and signal processing(WP2)</a></li>
+                        <li><a href= "/workpackages-wp3">Data Analytics for Environment Monitoring services(WP3)</a></li>
+                        <li><a href= "/workpackages-wp4">Project Administration(WP4)</a></li>
                     </ul>
 
                 </li>

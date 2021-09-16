@@ -70,7 +70,7 @@
                                     <tr>
                                         <th>ID</th><td>{{ $workpackage->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $workpackage->name }} </td></tr><tr><th> Abbreviation </th><td> {{ $workpackage->abbreviation }} </td></tr><tr><th> Description </th><td> {!! $workpackage->description !!} </td></tr>
+                                    <tr><th> Name </th><td> {{ $workpackage->name }} </td></tr><tr><th> Work Package Details </th><td> {!! $workpackage->instructions !!} </td></tr>
                                 </tbody>
                             </table>
                         </div>

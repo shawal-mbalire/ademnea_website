@@ -44,21 +44,21 @@
     }
 </style>
 
+
 <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
-    <label for="name" class="control-label">{{ 'Name' }}</label>
-    <input class="form-control" name="name" type="text" id="name" value="{{ isset($workpackage->name) ? $workpackage->name : ''}}" required >
-       {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
-</div>
-<div class="form-group {{ $errors->has('abbreviation') ? 'has-error' : ''}}">
-    <label for="abbreviation" class="control-label">{{ 'Abbreviation' }}</label>
-    <input class="form-control" name="abbreviation" type="text" id="abbreviation" value="{{ isset($workpackage->abbreviation) ? $workpackage->abbreviation : ''}}" required>
-    {!! $errors->first('abbreviation', '<p class="help-block">:message</p>') !!}
+    <label for="name" class="control-label">{{ 'Work Package Name(e.g wp1)' }}</label>
+    <input class="form-control" name="name" type="text" id="name" value="{{ isset($workpackage->name) ? $workpackage->name : ''}}" required>
+    {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
 </div>
 
-<div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
-    <label for="description" class="control-label">{{ 'Description' }}</label>
-    <textarea class="form-control" id="summary-ckeditor" rows="5" name="description" type="textarea" id="description" required>{{ isset($workpackage->description) ? $workpackage->description : ''}}</textarea>
-    {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
+<div class="form-group">
+    <label for="instructions" class="control-label">{{ 'Work Package Details' }}</label>
+    <textarea class="form-control @error('instructions') is-invalid @enderror" rows="5" name="instructions" type="textarea" id="instructions" >{{old('instructions')}}{{ isset($scholarship->instructions) ? $scholarship->instructions : ''}}</textarea>
+    @error('instructions')
+        <div class="invalid-feedback mt-2 text-sm">
+            {{ $message }}
+        </div>
+        @enderror
 </div>
 
 
@@ -67,5 +67,5 @@
 </div>
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
-CKEDITOR.replace( 'summary-ckeditor' );
+CKEDITOR.replace( 'instructions' );
 </script>

@@ -51,7 +51,7 @@
 
     <main id="main">
         <!-- ======= Scholarship Section ======= -->
-        <section id="scholarship" class="about">
+        <section id="scholarship" class="about pt-o">
     <div class="container">
      @if($scholarships->count())
         <div class="section-title">

@@ -36,7 +36,7 @@ Route::middleware('auth:web')->group(function () {
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);
 Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
-Route::get('workpackages/{id}', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
+//Route::get('workpackages/{id}', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
 
 
 Route::get('/mastersscholarship-uganda', [App\Http\Controllers\Admin\MastersController::class, 'uganda'])->name('mastersscholarship-uganda');
@@ -54,6 +54,11 @@ Route::get('/mastersprofile-tanzania', [App\Http\Controllers\WebsiteController::
 Route::get('/phdprofile-uganda', [App\Http\Controllers\Admin\ResearchProfileController::class, 'uganda'])->name('phdprofile-uganda');
 Route::get('/phdprofile-sudan', [App\Http\Controllers\Admin\ResearchProfileController::class, 'sudan'])->name('phdprofile-sudan');
 Route::get('/phdprofile-tanzania', [App\Http\Controllers\Admin\ResearchProfileController::class, 'tanzania'])->name('phdprofile-tanzania');
+// work packages
+Route::get('/workpackages-wp1', [App\Http\Controllers\WebsiteController::class, 'wp1'])->name('workpackages-wp1');
+Route::get('/workpackages-wp2', [App\Http\Controllers\WebsiteController::class, 'wp2'])->name('workpackages-wp2');
+Route::get('/workpackages-wp3', [App\Http\Controllers\WebsiteController::class, 'wp3'])->name('workpackages-wp3');
+Route::get('/workpackages-wp4', [App\Http\Controllers\WebsiteController::class, 'wp4'])->name('workpackages-wp4');
 
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
 Route::get('/admin/tasks/create/{id}', [App\Http\Controllers\Admin\TaskController::class, 'create']);

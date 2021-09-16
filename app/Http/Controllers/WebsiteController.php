@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Team;
-use App\Models\WorkPackage;
 use App\Models\ResearchProfile;
 use App\Models\Gallery;
-use App\Models\Task;
+use App\Models\WorkPackage;
 
 
 class WebsiteController extends Controller
@@ -15,50 +14,79 @@ class WebsiteController extends Controller
     public function index(){
         $gallery = Gallery::get();
         $teams = Team::get();
-        $workpackages = WorkPackage::get();
-        $tasks = Task::get();        
         return view('website.layouts', [
             'teams'=>$teams,
-            'workpackages'=>$workpackages,
-            'gallery' => $gallery,
-            'tasks' => $tasks
+            'gallery' => $gallery
         ]
     ); 
 
     }
     public function sudan(){
-        $workpackages = WorkPackage::get();
         $profile = ResearchProfile::get()->where('category', 'masters')->where('country', 'sudan');
 
         return view('website.mastersprofile',
         [
-            'workpackages'=>$workpackages,
             'profile'=>$profile           
         ]
     );
     }
     public function uganda(){
-        $workpackages = WorkPackage::get();
         $profile = ResearchProfile::get()->where('category', 'masters')->where('country', 'uganda');
 
         return view('website.mastersprofile',
         [
-            'workpackages'=>$workpackages,
             'profile'=>$profile           
         ]
     );
     }
     public function tanzania(){
-        $workpackages = WorkPackage::get();
         $profile = ResearchProfile::get()->where('category', 'masters')->where('country', 'tanzania');
 
-        return view('website.mastersprofile',
+        return view('website.workpackages',
         [
             'workpackages'=>$workpackages,
             'profile'=>$profile           
         ]
     );
     }
-   
 
-}
+    public function wp1(){
+        $workpackages = WorkPackage::get()->where('name', 'wp1');
+
+        return view('website.workpackages',
+        [
+            'workpackages'=>$workpackages          
+        ]
+    );
+    }
+
+    public function wp2(){
+        $workpackages = WorkPackage::get()->where('name', 'wp2');
+
+        return view('website.workpackages',
+        [
+            'workpackages'=>$workpackages          
+        ]
+    );
+    }
+
+    public function wp3(){
+        $workpackages = WorkPackage::get()->where('name', 'wp3');
+
+        return view('website.workpackages',
+        [
+            'workpackages'=>$workpackages          
+        ]
+    );
+    }
+
+    public function wp4(){
+        $workpackages = WorkPackage::get()->where('name', 'wp4');
+
+        return view('website.workpackages',
+        [
+            'workpackages'=>$workpackages          
+        ]
+    );
+    }
+   }

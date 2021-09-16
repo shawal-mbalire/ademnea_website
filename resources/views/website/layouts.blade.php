@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Adaptive Environmental Monitoring Networks for East Africa</title>
     <meta content="" name="description">

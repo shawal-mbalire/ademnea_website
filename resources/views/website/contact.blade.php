@@ -21,7 +21,7 @@
                     <div class="email">
                         <i class="bi bi-envelope"></i>
                         <h4>Email:</h4>
-                        <p>info@wimea.mak.ac.ug</p>
+                        <p>enquiries@ademnea.net</p>
                     </div>
 
                     <div class="phone">

@@ -82,7 +82,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td><details><sumary>description for {{ $item->id }}</sumary>{{ $item->description }}</details></td>
+                                        <td><details><summary>description for {{ $item->id }}</summary>{{ $item->description }}</details></td>
                                         <td>
                                             <a href="{{ url('/admin/team/' . $item->id) }}" title="View Team"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/team/' . $item->id . '/edit') }}" title="Edit Team"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

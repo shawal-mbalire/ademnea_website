@@ -22,7 +22,7 @@ class WebsiteController extends Controller
 
     }
     public function sudan(){
-        $profile = ResearchProfile::get()->where('category', 'masters')->where('country', 'sudan');
+        $profile = ResearchProfile::where('category', 'masters')->where('country', 'sudan')->get();
 
         return view('website.mastersprofile',
         [
@@ -31,7 +31,12 @@ class WebsiteController extends Controller
     );
     }
     public function uganda(){
-        $profile = ResearchProfile::get()->where('category', 'masters')->where('country', 'uganda');
+        $profile = ResearchProfile::where('category', 'masters')->where('country', 'uganda')->get();
+
+        return view('website.mastersprofile', compact("profile"));
+    }
+    public function tanzania(){
+        $profile = ResearchProfile::get()->where('category', 'masters')->where('country', 'tanzania')->get();
 
         return view('website.mastersprofile',
         [
@@ -39,19 +44,9 @@ class WebsiteController extends Controller
         ]
     );
     }
-    public function tanzania(){
-        $profile = ResearchProfile::get()->where('category', 'masters')->where('country', 'tanzania');
-
-        return view('website.workpackages',
-        [
-            'workpackages'=>$workpackages,
-            'profile'=>$profile           
-        ]
-    );
-    }
 
     public function wp1(){
-        $workpackages = WorkPackage::get()->where('name', 'wp1');
+        $workpackages = WorkPackage::where('name', 'wp1')->get();
 
         return view('website.workpackages',
         [
@@ -61,7 +56,7 @@ class WebsiteController extends Controller
     }
 
     public function wp2(){
-        $workpackages = WorkPackage::get()->where('name', 'wp2');
+        $workpackages = WorkPackage::where('name', 'wp2')->get();
 
         return view('website.workpackages',
         [
@@ -71,7 +66,7 @@ class WebsiteController extends Controller
     }
 
     public function wp3(){
-        $workpackages = WorkPackage::get()->where('name', 'wp3');
+        $workpackages = WorkPackage::where('name', 'wp3')->get();
 
         return view('website.workpackages',
         [
@@ -81,7 +76,7 @@ class WebsiteController extends Controller
     }
 
     public function wp4(){
-        $workpackages = WorkPackage::get()->where('name', 'wp4');
+        $workpackages = WorkPackage::where('name', 'wp4')->get();
 
         return view('website.workpackages',
         [

@@ -19,14 +19,15 @@
         rel="stylesheet">
     <style>
         #collapseExample.collapse:not(.show) {
-        display: block;
-        height: 3rem;
-        overflow: hidden;
+            display: block;
+            height: 3rem;
+            overflow: hidden;
         }
 
         #collapseExample.collapsing {
-        height: 3rem;
+            height: 3rem;
         }
+
     </style>
     @include('website.links')
 
@@ -52,27 +53,27 @@
     <main id="main">
         <!-- ======= Scholarship Section ======= -->
         <section id="scholarship" class="about">
-    <div class="container">
-     @if($scholarships->count())
-        <div class="section-title">
-            <h2>call for scholarships</h2>
+            <div class="container">
+                @if ($scholarships->count())
+                    <div class="section-title">
+                        <h2>call for scholarships</h2>
+                    </div>
+                    @foreach ($scholarships as $scholarship)
+                        <div class="container card text-justify">
+                            <div class="icon-box">
+                                <p class="description">{!! $scholarship->instructions !!}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <p>There are currently no scholarships</p>
+                @endif
             </div>
-            @foreach($scholarships as $scholarship)
-            <div class="container card text-justify">
-                <div class="icon-box">
-                    <p class="description">{!! $scholarship->instructions !!}</p>
-                </div>
-            </div>
-            @endforeach
-        @else
-        <p>There are currently no scholarships</p>
-        @endif
-    </div>
-</section>
+        </section>
 
         <!-- End Scholarship Section -->
 
-       
+
 
     </main><!-- End #main -->
 

@@ -29,7 +29,7 @@
         <h2>Gallery</h2>
       </div>
 
-  <div class="container1">
+  <div class="container1 justify-content-center">
   @foreach($gallery as $item)
 
   <div>

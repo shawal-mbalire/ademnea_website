@@ -70,7 +70,7 @@
                                 @foreach($gallery as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->title }}</td><td>{{ $item->description }}</td><td><img src="{{asset('images/' . $item->image)}}" alt=""></td>
+                                        <td>{{ $item->title }}</td><td>{{ $item->description }}</td><td><img src="{{asset('image/' . explode('|', $item->image)[0])}}" alt=""></td>
                                         <td>
                                             <a href="{{ url('/admin/gallery/' . $item->id) }}" title="View Gallery"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/gallery/' . $item->id . '/edit') }}" title="Edit Gallery"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

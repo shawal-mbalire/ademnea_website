@@ -53,7 +53,7 @@
 
 <div class="form-group">
     <label for="instructions" class="control-label">{{ 'Work Package Details' }}</label>
-    <textarea class="form-control @error('instructions') is-invalid @enderror" rows="5" name="instructions" type="textarea" id="instructions" >{{old('instructions')}}{{ isset($scholarship->instructions) ? $scholarship->instructions : ''}}</textarea>
+    <textarea class="form-control @error('instructions') is-invalid @enderror" rows="5" name="instructions" type="textarea" id="instructions" >{{old('instructions')}}{{ isset($workpackage->instructions) ? $workpackage->instructions : ''}}</textarea>
     @error('instructions')
         <div class="invalid-feedback mt-2 text-sm">
             {{ $message }}

@@ -36,7 +36,7 @@ class WebsiteController extends Controller
         return view('website.mastersprofile', compact("profile"));
     }
     public function tanzania(){
-        $profile = ResearchProfile::get()->where('category', 'masters')->where('country', 'tanzania')->get();
+        $profile = ResearchProfile::where('category', 'masters')->where('country', 'tanzania')->get();
 
         return view('website.mastersprofile',
         [

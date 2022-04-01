@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/logo.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -52,7 +52,6 @@
     <!-- End Hero -->
 
     <main id="main">
-
         <!-- ======= Featured Services Section ======= -->
         @include('website.featured_services')
         <!-- End Featured Services Section -->

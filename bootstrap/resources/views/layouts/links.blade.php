@@ -15,4 +15,4 @@
 <!-- inject:css -->
 <link rel="stylesheet" href="{{asset('dash/css/vertical-layout-light/style.css')}}">
 <!-- endinject -->
-<link rel="shortcut icon" href="{{asset('dash/images/favicon.png')}}" />
+<link rel="shortcut icon" href="{{asset('dash/images/logo.png')}}" />

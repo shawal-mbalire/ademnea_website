@@ -1,11 +1,8 @@
 <style>
   .image1{
-    width: 25rem;
-    height: 25rem;
-    border-radius: 5px;
-    border-color: white;
-    border-style: solid;
-      border-width: 10px;
+    width: 15vw;
+    height: 15vh;
+    border-radius: 50px;
   }
 
   /*.box{*/

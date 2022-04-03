@@ -72,7 +72,7 @@
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{asset('image/' . explode('|', $item->image)[0])}}" class="d-block w-100" alt="...">
+      <img src="{{asset('image/' . explode('|', $item->image)[0])}}" class="d-block w-100" height="250px" width="250px">
     </div>
     @foreach(explode("|", $item->image) as $image)
     <div class="carousel-item">

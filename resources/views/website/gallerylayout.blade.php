@@ -38,6 +38,7 @@
    width:100%;
    height:550px;
    object-fit:cover;
+   max-height: 200px;
    object-position:50% 50%;
   }
       </style>

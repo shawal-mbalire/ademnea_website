@@ -27,7 +27,7 @@
       </div>
 
   <div class="container1 justify-content-center">
-  <!-- @foreach($gallery as $item)
+  @foreach($gallery as $item)
 
   <div>
 
@@ -45,7 +45,7 @@
 
   <div class="space"></div>
   <br>
-@endforeach -->
+@endforeach
 
 <!-- close container1 -->
 </div>

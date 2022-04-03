@@ -76,7 +76,7 @@
     </div>
     @foreach(explode("|", $item->image) as $image)
     <div class="carousel-item">
-        <img src="{{asset('image/' . $image)}}" class="d-block w-100" />
+        <img src="{{asset('image/' . $image)}}" class="d-block w-100" height="250px" width="250px" />
         </div>
       @endforeach
   </div>

@@ -77,7 +77,7 @@
   </div>
 
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
+  <div class="carousel-inner" style="height: 500px;">
     <div class="carousel-item active">
       <img src="{{asset('image/' . explode('|', $item->image)[0])}}" class="d-block w-100" />
     </div>

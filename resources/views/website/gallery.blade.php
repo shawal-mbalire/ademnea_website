@@ -118,7 +118,7 @@ close container1 -->
           <h2>Gallery</h2>
         </div>
 
-        @if($teams->count())
+        @if($gallery->count())
         <div class="row gy-5">
 
         @foreach($gallery as $item)

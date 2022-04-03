@@ -34,13 +34,6 @@
   .carousel-inner{
     border-radius: 40px;
   }
-  .d-block w-100 {
-   width:100%;
-   height:4500px;
-   object-fit:cover;
-   max-height: 490px;
-   object-position:50% 50%;
-  }
       </style>
     @include('website.links')
 

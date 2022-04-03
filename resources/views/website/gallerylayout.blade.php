@@ -34,6 +34,12 @@
   .carousel-inner{
     border-radius: 40px;
   }
+  .d-block w-100 {
+   width:100%;
+   height:550px;
+   object-fit:cover;
+   object-position:50% 50%;
+  }
       </style>
     @include('website.links')
 
@@ -72,11 +78,11 @@
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{{asset('image/' . explode('|', $item->image)[0])}}" class="d-block w-100" height="250px" width="250px">
+      <img src="{{asset('image/' . explode('|', $item->image)[0])}}" class="d-block w-100" />
     </div>
     @foreach(explode("|", $item->image) as $image)
     <div class="carousel-item">
-        <img src="{{asset('image/' . $image)}}" class="d-block w-100" height="350px" width="180px" />
+        <img src="{{asset('image/' . $image)}}" class="d-block w-100" />
         </div>
       @endforeach
   </div>

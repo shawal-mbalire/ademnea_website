@@ -17,7 +17,6 @@ class CreateWorkPackagesTable extends Migration
             $table->timestamps();
             $table->string('name')->nullable();
             $table->longText('instructions')->nullable()->default('text');
-           
             });
     }
 

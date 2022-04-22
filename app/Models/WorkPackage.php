@@ -28,11 +28,8 @@ class WorkPackage extends Model
      */
     protected $fillable = [ 
         'name',
-        'instructions', 
-    
-
-
-    ];
+        'instructions'
+        ];
 
 
 

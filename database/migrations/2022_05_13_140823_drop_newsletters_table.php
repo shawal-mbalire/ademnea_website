@@ -13,13 +13,14 @@ class DropNewslettersTable extends Migration
      */
     public function up()
     {
-        Schema::create('newsletters', function (Blueprint $table) { 
-        $table->increments('id');
-            $table->timestamps();
-            $table->string('title')->nullable();
-            $table->longText('description')->nullable();
-            $table->longText('article')->nullable();
-        });
+        Schema::dropIfExists('newsletters');
+        // Schema::create('newsletters', function (Blueprint $table) { 
+        // $table->increments('id');
+        //     $table->timestamps();
+        //     $table->string('title')->nullable();
+        //     $table->longText('description')->nullable();
+        //     $table->longText('article')->nullable();
+        // });
     }
 
     /**

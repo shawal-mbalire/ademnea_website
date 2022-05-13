@@ -35,7 +35,7 @@
             <div class="wrap-login100">
                 <div class="jumbotron">
                     <form class="login100-form validate-form" method="POST" action="{{route('auth.login')}}" >
-                        @csrf
+                    {{ csrf_field() }}
                         <span class="login100-form-logo">
                             <div class="login100-form-logo-img">
                                 <figure>

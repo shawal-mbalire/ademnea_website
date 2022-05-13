@@ -44,26 +44,23 @@
     }
 </style>
 
+
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
-    <label for="title" class="control-label">{{ 'Title' }}</label>
+    <label for="title" class="control-label">{{ 'Article Title' }}</label>
     <input class="form-control" name="title" type="text" id="title" value="{{ isset($newsletter->title) ? $newsletter->title : ''}}" required>
     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
 </div>
+
 <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
-    <label for="description" class="control-label">{{ 'Description' }}</label>
-    <textarea class="form-control" rows="5" name="description" type="textarea" id="description" required>{{ isset($newsletter->description) ? $newsletter->description : ''}}</textarea>
+    <label for="description" class="control-label">{{ 'Article description' }}</label>
+    <input class="form-control" name="description" type="text" id="description" value="{{ isset($newsletter->description) ? $newsletter->description : ''}}" required>
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
-<div class="form-group {{ $errors->has('image') ? 'has-error' : ''}}">
-<label for="image" class="control-label">{{ 'Image' }}( only jpg, peg & png allowed)</label>
-    <input class="form-control image_file"  name="image" type="file" id="image" value="{{ isset($newsletter->image) ? $newsletter->image : ''}}" required>
-    {!! $errors->first('image', '<p class="help-block">:message</p>') !!}
-</div>
-<div class="form-group  {{ $errors->has('attachment') ? 'has-error' : ''}}">
 
-    <label for="attachment" class="control-label">{{ 'Attachment' }}(only pdf allowed)</label>
-    <input class="form-control pdf_file @error('attachment') is-invalid @enderror" name="attachment" type="file" id="attachment" value="{{ isset($newsletter->attachment) ? $newsletter->attachment : ''}}" required>
-    @error('attachment')
+<div class="form-group">
+    <label for="article" class="control-label">{{ 'Work Package Details' }}</label>
+    <textarea class="form-control @error('article') is-invalid @enderror" rows="5" name="article" type="textarea" id="article" >{{old('article')}}{{ isset($newsletter->article) ? $newsletter->article : ''}}</textarea>
+    @error('article')
         <div class="invalid-feedback mt-2 text-sm">
             {{ $message }}
         </div>
@@ -74,5 +71,13 @@
 <div class="form-group">
     <input class="button4" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
 </div>
-
-
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script>
+    
+ CKEDITOR.replace('article', {
+        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form',
+        "extraPlugins" : 'imagebrowser',
+		"imageBrowser_listUrl" : "/images_list.json"
+    })
+</script>

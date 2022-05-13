@@ -68,12 +68,7 @@
                     </ul>
                 </li>
 
-                <li class="dropdown"><a href="#"><span>Downloads</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li>
-                        <li><a class="nav-link scrollto" href="/displaypublication">Publications</a></li>
-                    </ul>
-                </li>
+                <li><a href="/displaynewsletter"><span>Blog</span></a></li>
 
                 <li><a class="nav-link scrollto" href="/#gallery">Gallery</a></li>
 

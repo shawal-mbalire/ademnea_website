@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Validator;
+use Response;
+use File;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
 
@@ -55,34 +57,11 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:newsletters|min:5|max:255',
-            'description' => 'required',
-            'image' => 'required|mimes:jpg,png,jpeg|max:5048',
-           'attachment'=> 'required|mimes:pdf'
-        ]);
-    
-        if ($validator->fails()) {
-            return redirect()->back()
-                        ->withErrors($validator)
-                        ->withInput();
-        }
-        
-    
-        
         $requestData = $request->all();
-                if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')
-                ->store('uploads', 'public');
-        }
-        if ($request->hasFile('attachment')) {
-            $requestData['attachment'] = $request->file('attachment')
-                ->store('uploads', 'public');
-        }
-
+        
         Newsletter::create($requestData);
 
-        return redirect('admin/newsletter')->with('flash_message', 'Newsletter added!');
+        return redirect('admin/newsletter')->with('flash_message', 'Article added!');
     }
 
     /**
@@ -125,15 +104,7 @@ class NewsletterController extends Controller
     {
         
         $requestData = $request->all();
-                if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')
-                ->store('uploads', 'public');
-        }
-        if ($request->hasFile('attachment')) {
-            $requestData['attachment'] = $request->file('attachment')
-                ->store('uploads', 'public');
-        }
-
+        
         $newsletter = Newsletter::findOrFail($id);
         $newsletter->update($requestData);
 
@@ -153,4 +124,33 @@ class NewsletterController extends Controller
 
         return redirect('admin/newsletter')->with('flash_message', 'Newsletter deleted!');
     }
+    public function upload(Request $request)
+    {
+        if($request->hasFile('upload')) {
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName.'_'.time().'.'.$extension;
+        
+            $request->file('upload')->move(public_path('images'), $fileName);
+            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+            $url = asset('images/'.$fileName); 
+            $msg = 'Image uploaded successfully'; 
+            $response = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
+            //append to the json file
+                    $file = file_get_contents('images_list.json', true);
+             $data = json_decode($file,true);
+             unset($file);
+
+             $path="/images/".$fileName;
+             //you need to add new data as next index of data.
+             $data[] = array('image' => $path);
+             $result=json_encode($data);
+             file_put_contents('images_list.json', $result);
+             unset($result);
+
+            @header('Content-type: text/html; charset=utf-8'); 
+            echo $response;
+        }
+}
 }

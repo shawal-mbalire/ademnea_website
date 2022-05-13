@@ -47,48 +47,39 @@
     @include('website.header')
     <!-- End Header -->
 
+
+
     <main id="main">
-
-    <style>
-#displayNewsletter{
-    height: 90px;
-    width: 90px;
-    border-color: white;
-}
-</style>
-
-<div class="container">
-<div class="card card-default"> 
-        <div class="card-header"><h2 class="text-center">AdeMNEA Newsletters</h2></div>
-            <div class="card body">
-                <table class="table">
-                    <thead>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <!-- <th>Image</th> -->
-                        <th>Uploaded On</th>
-                        <th>Download link</th>
-                    </thead>
-                    <tbody>
-                        @foreach($newsletter as $item)
-                        <tr>
-                            <td>{{$item -> title}}</td>
-                            <td>{{$item -> description}}</td>
-                            
-                            <!-- <td><img src="{{asset('storage/' . $item->image)}}" alt="" id="displayNewsletter"></td> -->
-                            <td>{{$item -> updated_at}}</td>
-                            <td><a href="{{asset('storage/' . $item->attachment)}}" target="_blank"><i class="fa fa-download"></i>Download</a></td>
-                            
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+        <!-- ======= Scholarship Section ======= -->
+    <section id="scholarship" class="about pt-0">  
+    <div class="container pt-5">
+    <div class="h5 text-center container">
+        <h1>News about the project</h1>
+        
+    </div>
+    @if($newsletter ->count())
+        <div class="row no-gutters">
+        @foreach($newsletter  as $workpackage)
+            <div class="col-lg-4 col-md-6 col-sm-12 card">
+                <div class="icon-box">
+                    <h4 class="title"><a href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4>
+                    <p class="description">{!! $workpackage->description !!} <a href="{{ url('/article/' . $workpackage->id) }}">More.......</a></p>
+                </div>
             </div>
-</div>
-</div>
- 
+            @endforeach
+        @else        
+          <p>No Articles now</p>
+        @endif
+        </div>
 
-  </main><!-- End #main -->
+    </div>
+</section>
+
+        <!-- End Scholarship Section -->
+
+       
+
+    </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
     @include('website.footer')
@@ -102,27 +93,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

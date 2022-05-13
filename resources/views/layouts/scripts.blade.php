@@ -17,6 +17,8 @@
 <!-- Custom js for this page-->
 <script src="{{asset('dash/js/dashboard.js')}}"></script>
 <script src="{{asset('dash/js/Chart.roundedBarCharts.js')}}"></script>
+
+
 <!-- End custom js for this page-->
 <script>
 

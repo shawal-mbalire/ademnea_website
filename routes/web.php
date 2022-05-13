@@ -62,3 +62,9 @@ Route::get('/workpackages-wp4', [App\Http\Controllers\WebsiteController::class, 
 
 Route::get('/gallery', [App\Http\Controllers\GalleryController::class, 'index'])->name('gallery');
 Route::get('/admin/tasks/create/{id}', [App\Http\Controllers\Admin\TaskController::class, 'create']);
+
+Route::get('/article/{id}', [App\Http\Controllers\ArticleController::class, 'index']);
+
+
+//upload images in the ck editor
+Route::post('ckeditor/upload', 'App\Http\Controllers\Admin\NewsletterController@upload')->name('upload');

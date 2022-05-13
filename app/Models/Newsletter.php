@@ -25,7 +25,7 @@ class Newsletter extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'description', 'image', 'attachment'];
+    protected $fillable = ['title', 'article', 'description'];
 
     
 }

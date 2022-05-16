@@ -13,6 +13,7 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/.env
 welcome.html
 home.html
 login.html

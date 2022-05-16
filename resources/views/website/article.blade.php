@@ -71,7 +71,7 @@
         @foreach($newsletter  as $workpackage)
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="icon-box">
-                    <h4 class="title"><a href= "/article/5">{!! $workpackage->title !!}</a></h4>
+                    <h4 class="title"><a href= "{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4>
                     <p class="description">{!! $workpackage->description !!} </p>
                 </div>
             </div>

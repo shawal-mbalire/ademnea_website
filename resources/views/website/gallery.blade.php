@@ -37,7 +37,7 @@
 
   <div class="box">
   <img
-      src="{{asset('image/' . explode('|', $item->image)[0])}}"  alt="gallery description" class="image1"
+      src="{{asset('image/' . explode('|', $item->image)[0])}}"  alt="gallery description" class="w-100 shadow-1-strong rounded mb-4"
       >
   </div>
   <a href="/gallery">View Album</a>

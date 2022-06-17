@@ -1,8 +1,10 @@
 <style>
   .image1{
-    width: 15vw;
-    height: 15vh;
-    border-radius: 25px;
+    width: 30vw;
+    height: 30vh;
+  }
+  .image2{
+    margin:20px;
   }
 
   /*.box{*/
@@ -24,10 +26,10 @@
         <h2>Gallery</h2>
       </div>
 
-  <div class="container1 d-lg-flex justify-content-center">
+  <div class="row no-gutters">
   @foreach($gallery as $item)
 
-  <div>
+  <div class="col-lg-4 col-md-6 col-sm-12 image2">
 
   <div class="title">
     <h5 class="card-title">{{$item -> title}}</h5>
@@ -40,8 +42,6 @@
   </div>
   <a href="/gallery">View Album</a>
   </div>
-
-  <div class="space"></div>
   <br>
 @endforeach
 

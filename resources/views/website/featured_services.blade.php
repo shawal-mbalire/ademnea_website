@@ -2,7 +2,7 @@
     <div class="container">
 
         <div class="row no-gutters">
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="icon-box">
                     <div class="icon"><i class="bi bi-laptop"></i></div>
                     <h4 class="title"><a href= "/workpackages-wp1">Networks and Resilience(WP1)</a></h4>
@@ -11,7 +11,7 @@
                         batteries or on local power sources such as solar panels. </p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="icon-box">
                     <div class="icon"><i class="bi bi-calendar4-week"></i></div>
                     <h4 class="title"><a href= "/workpackages-wp2">Sensors and signal processing(WP2) </a></h4>
@@ -21,7 +21,7 @@
                         pollinating insects</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="icon-box">
                     <div class="icon"><i class="bi bi-graph-up"></i></div>
                     <h4 class="title"><a href= "/workpackages-wp3">Data Analytics for Environment Monitoring services(WP3)</a></h4>

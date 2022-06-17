@@ -99,7 +99,7 @@
                                 @foreach($newsletter as $item)
                                     <tr>
                                         <td class="align-top">{{ $item->id }}</td>
-                                        <td class="align-top ps-4"><a href="{{ url('/admin/newsletter/' . $item->id) }}" title="View newsletter" style="hover: red">{{ $item->title }}</a></td>
+                                        <td class="align-top ps-4"><a href="{{ url('/admin/newsletter/' . $item->id) }}" title="View newsletter" style="hover: red">{!! $item->title !!}</a></td>
                                         <td class="ps-3">
                                             <details>
                                                 <summary> Article</summary>

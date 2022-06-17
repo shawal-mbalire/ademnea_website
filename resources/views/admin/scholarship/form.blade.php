@@ -59,8 +59,8 @@
 
 <div class="form-group">
     <label for="country" class="control-label">{{ 'country' }}</label>
-    <select class="form-select @error('country') is-invalid @enderror" value="{{old('country')}}" name="country" id="country" value="{{ isset($scholarship->country) ? $scholarship->country : ''}}">
-  <option value="sudan">South Sudan</option>
+    <select class="form-select @error('category') is-invalid @enderror" value="{{old('country')}}" name="country" id="country" value="{{ isset($scholarship->country) ? $scholarship->country : ''}}">
+  <option value="sudan">South sudan</option>
   <option value="uganda">Uganda</option>
   <option value="tanzania">Tanzania</option>
 </select>

@@ -69,7 +69,7 @@
     @if($newsletter ->count())
         <div class="row no-gutters">
         @foreach($newsletter  as $workpackage)
-            <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-6 col-sm-12 card">
                 <div class="icon-box">
                     <h4 class="title"><a href= "{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4>
                     <p class="description">{!! $workpackage->description !!} </p>

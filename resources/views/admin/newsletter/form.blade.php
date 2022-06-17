@@ -46,9 +46,13 @@
 
 
 <div class="form-group {{ $errors->has('title') ? 'has-error' : ''}}">
-    <label for="title" class="control-label">{{ 'Article Title' }}</label>
-    <input class="form-control" name="title" type="text" id="title" value="{{ isset($newsletter->title) ? $newsletter->title : ''}}" required>
-    {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
+    <label for="title" class="control-label">{{ 'Title' }}</label>
+    <textarea class="form-control @error('title') is-invalid @enderror" rows="5" name="title" type="textarea" id="title" >{{old('title')}}{{ isset($newsletter->title) ? $newsletter->title : ''}}</textarea>
+    @error('title')
+        <div class="invalid-feedback mt-2 text-sm">
+            {{ $message }}
+        </div>
+        @enderror
 </div>
 
 <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
@@ -58,7 +62,7 @@
 </div>
 
 <div class="form-group">
-    <label for="article" class="control-label">{{ 'Work Package Details' }}</label>
+    <label for="article" class="control-label">{{ 'Article Details' }}</label>
     <textarea class="form-control @error('article') is-invalid @enderror" rows="5" name="article" type="textarea" id="article" >{{old('article')}}{{ isset($newsletter->article) ? $newsletter->article : ''}}</textarea>
     @error('article')
         <div class="invalid-feedback mt-2 text-sm">
@@ -75,6 +79,13 @@
 <script>
     
  CKEDITOR.replace('article', {
+        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form',
+        "extraPlugins" : 'imagebrowser',
+		"imageBrowser_listUrl" : "/images_list.json"
+    })
+
+    CKEDITOR.replace('title', {
         filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
         filebrowserUploadMethod: 'form',
         "extraPlugins" : 'imagebrowser',

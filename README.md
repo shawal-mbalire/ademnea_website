@@ -35,20 +35,6 @@ Species Monitoring across wild and agricultural landscapes. It is anticipated to
 increasing Agricultural yields in the partner countries.
 
 
-## The planned effects for the target group of the Project (Outcomes) are:
-● Design an energy-efficient and resilient environment monitoring network, tolerant to
-faults or manipulation of its components
-● To develop sensors and data processing methods supporting real-time identification,
-counting and tracking of insects that are key agents in the pollination process or crop
-pests as well as the ambient environment variables where the insects appear.
-● Build up the logistic framework to allow for an efficient analysis and dissemination of
-information relevant for pollination and pest control
-● To design and developed an efficient system for disseminating pollinator and pest
-control relevant information for stakeholders in East Africa
-● To undertake gender balanced capacity development through MSc. and PhD (seven
-Ph.D. and seven MSc. Students) training in relevant disciplines. The relevant disciplines
-include Entomology, communication technologies, artificial intelligence and
-meteorology
 
 
 

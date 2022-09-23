@@ -17,6 +17,21 @@
                 <span class="menu-title">Blog</span>
             </a>
         </li> --}}
+      
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/farm">
+                <i class="mdi mdi-account-multiple-outline menu-icon text-light"></i>
+                <span class="menu-title text-light">Farm & Hives</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/hivedata">
+                <i class="mdi mdi-account-multiple-outline menu-icon text-light"></i>
+                <span class="menu-title text-light">Hive Data</span>
+            </a>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" href="/admin/team">
                 <i class="mdi mdi-account-multiple-outline menu-icon text-light"></i>
@@ -44,7 +59,7 @@
         <li class="nav-item">
             <a class="nav-link" href="/admin/publication">
                 <i class="mdi mdi-newspaper menu-icon text-light"></i>
-                <span class="menu-title text-light">Publicartion</span>
+                <span class="menu-title text-light">Publication</span>
             </a>
         </li>
         <li class="nav-item">

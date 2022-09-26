@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+<?php use Illuminate\Support\Facades\DB;?>
 <style>
     .button1{
         background-color: lightseagreen;
@@ -73,28 +74,38 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Farm Name</th><th>Owner</th><th>Address</th><th>District</th><th>Actions</th>
+                                        <th>Farm ID</th><th>Farm Name</th><th>Farm Owner</th><th>Address</th><th>District</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($farm as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->ownerId }}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->adress }}</td>
+                                        <td> 
+                                             <?php #Displaying the owner's full name for each farm 
+                                              
+                                                    $farmer_names = DB::select('SELECT concat(fname, " " ,lname) AS "full_name"
+                                                                        FROM farms inner join farmers as farmer 
+                                                                        ON farmer.id = farms.ownerId
+                                                                        WHERE farmer.id = ?', [$item->ownerId]);
+
+                                                    echo  $farmer_names[0] -> full_name;
+                                                    
+                                             ?>
+                                
+                                         </td>
+                                        
+                                        <td>{{ $item->address }}</td>
                                         <td>{{ $item->district }}</td>                                        
                                         <td>
                                             <a href="{{ url('/admin/farm/' . $item->id) }}" title="View Farm"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/farm/' . $item->id . '/edit') }}" title="Edit Farm"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/hives/' . $item->id ) }}" title="Display Farm Hives"><button class="button1"><i class="" aria-hidden="true"></i> Hives</button></a>
 
                                             <form method="POST" action="{{ url('/admin/farm' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <a href="{{ url('/admin/hives/' . $item->id ) }}" title="Display Farm Hives"><button class="button1"><i class="" aria-hidden="true"></i> Hives</button></a>
-                                               
-
-
                                                 <button type="submit" class="button3" title="Delete Farm" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                         </td>

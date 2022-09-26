@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Farm;
 use Illuminate\Http\Request;
 
@@ -21,6 +21,11 @@ class FarmController extends Controller
         $perPage = 25;
        
         $farm = Farm::latest()->paginate($perPage);
+
+        $fullnames = DB::select("SELECT concat(fname, ' ' ,lname) 
+                                 FROM farms inner join farmers as farmer 
+                                 ON farmer.id = farms.ownerId");
+        
         return view('admin.farm.index', compact('farm'));
     }
 

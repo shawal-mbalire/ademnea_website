@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Adaptive Environmental Monitoring Networks for East Africa</title>
+    <title>Adaptive Environmental Monitoring Networks for East Africa (AdEMNEA)</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -52,22 +52,25 @@
     <!-- End Hero -->
 
     <main id="main">
-
-        <!-- ======= Featured Services Section ======= -->
+    <!-- ======= About Us Section ======= -->
+         
+    @include('website.about_us')
+    <!-- End About Us Section -->
+       
+    <!-- ======= Featured Services Section ======= -->
         @include('website.featured_services')
         <!-- End Featured Services Section -->
+
+        
 
         <!-- ======= Scholarship Section ======= -->
         @include('website.scholarship')
         <!-- End Scholarship Section -->
-
+         
         <!-- ======= Gallery Section ======= -->
         @include('website.gallery')
         <!-- End Gallery Section -->
 
-        <!-- ======= About Us Section ======= -->
-        @include('website.about_us')
-        <!-- End About Us Section -->
 
         <!-- ======= Why Us Section ======= -->
         @include('website.why_us')

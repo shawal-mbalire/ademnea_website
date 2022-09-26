@@ -13,13 +13,14 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-
+Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('website'); //route for home page, before login 
 Route::get('register', [AuthController::class, 'registerForm'])->name('registerForm');//
 Route::post('register', [AuthController::class, 'register'])->name('auth.register');
 Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('password/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('password/reset', [AuthController::class, 'passwordReset']);
+
 Route::middleware('auth:web')->group(function () {
     Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
@@ -32,12 +33,11 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/newsletter', 'App\Http\Controllers\Admin\NewsletterController');
     Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');   
     Route::resource('admin/research-profile', 'App\Http\Controllers\Admin\ResearchProfileController'); 
+    Route::resource('admin/farm', 'App\Http\Controllers\Admin\FarmController');
 });
+
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);
-Route::get('/',[App\Http\Controllers\WebsiteController::class, 'index'])->name('website');
-//Route::get('workpackages/{id}', [App\Http\Controllers\WorkpackagesController::class, 'workpackages'])->name('workpakages');
-
 
 Route::get('/mastersscholarship-uganda', [App\Http\Controllers\Admin\MastersController::class, 'uganda'])->name('mastersscholarship-uganda');
 Route::get('/mastersscholarship-sudan', [App\Http\Controllers\Admin\MastersController::class, 'sudan'])->name('mastersscholarship-sudan');

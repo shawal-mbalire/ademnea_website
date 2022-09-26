@@ -22,10 +22,6 @@ class FarmController extends Controller
        
         $farm = Farm::latest()->paginate($perPage);
 
-        $fullnames = DB::select("SELECT concat(fname, ' ' ,lname) 
-                                 FROM farms inner join farmers as farmer 
-                                 ON farmer.id = farms.ownerId");
-        
         return view('admin.farm.index', compact('farm'));
     }
 

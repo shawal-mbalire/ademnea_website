@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVideosTable extends Migration
+class CreateHiveTemperaturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,16 @@ class CreateVideosTable extends Migration
      */
     public function up()
     {
-        Schema::create('videos', function (Blueprint $table) {
-
-
-            $table->string('path');
+        Schema::create('hive_temperatures', function (Blueprint $table) {
+            $table->id();
+            $table->float('record');
             $table->unsignedBigInteger('hive_id');
             
             $table->foreign('hive_id')
             ->references('id')->on('hives')
             ->onDelete(null)
             ->nullable();
-            
-            $table->primary('path');
+
             $table->timestamps();
         });
     }
@@ -36,6 +34,6 @@ class CreateVideosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('videos');
+        Schema::dropIfExists('hive_temperatures');
     }
 }

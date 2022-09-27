@@ -24,7 +24,15 @@
                 <span class="menu-title text-light">Farm & Hives</span>
             </a>
         </li>
-
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/farmer">
+                <i class="mdi mdi-account-multiple-outline menu-icon text-light"></i>
+                <span class="menu-title text-light">Farmers</span>
+            </a>
+        </li>
+    
         <li class="nav-item">
             <a class="nav-link" href="/admin/hivedata">
                 <i class="mdi mdi-account-multiple-outline menu-icon text-light"></i>

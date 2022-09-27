@@ -21,6 +21,7 @@ class CreateFarmersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('address');
+            $table->string('telephone');
             $table->timestamps();
         });
     }

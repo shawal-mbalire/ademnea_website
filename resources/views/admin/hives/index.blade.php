@@ -50,7 +50,7 @@
     <div class="row">
       <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Hive</div>
+                    <div class="card-header">Hives</div>
                     <div class="card-body">
                         <a href="{{ url('/admin/hive/create') }}" class="btn btn-success btn-sm" title="Add New Farm">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
@@ -62,7 +62,9 @@
                                 <span class="input-group-append">
                                     <button class="btn btn-secondary" type="submit">
                                         <i class="fa fa-search"></i>
+
                                     </button>
+                                    
                                 </span>
                             </div>
                         </form>
@@ -70,10 +72,11 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
+                        
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Farm Located</th><th>Longitude</th>><th>Latitude</th><th>Actions</th>
+                                        <th>#</th><th>Farm Located</th><th>Longitude</th><th>Latitude</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

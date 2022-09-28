@@ -45,13 +45,6 @@ class HiveController extends Controller
      */
     public function store(Request $request)
     {
-      /*  $this->validate($request, [
-            'ownerid'=>'required|max:255',
-            'name'=>'required|max:255',
-            'district'=>'required',
-            'image'=>'required|mimes:jpg,png,jpeg|max:5048'
-        ]);*/
-
         $requestData = $request->all();
               
         Hive::create($requestData);

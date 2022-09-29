@@ -4,12 +4,7 @@
 /storage/*.key
 /vendor
 /.env
-<<<<<<< HEAD
-/.env.backup
-=======
-/.env
 .env.backup
->>>>>>> 466ea3afbab10b77f8902210b6d49823d06a278d
 .phpunit.result.cache
 docker-compose.override.yml
 Homestead.json

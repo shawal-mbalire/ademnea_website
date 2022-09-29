@@ -68,7 +68,7 @@
 
 <div class="form-group">
     <label for="ownerid" class="control-label">{{ 'Email:' }}</label>
-    <input class="form-control @error('ownerId') is-invalid @enderror" value="{{old('ownerId')}}" name="ownerId" type="text" id="ownerId" value="{{ isset($farm->ownerid) ? $farm->ownerid : ''}}" >
+    <input class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" name="email" type="text" id="email" value="{{ isset($farm->email) ? $farm->email : ''}}" >
   
 </div>
 
@@ -80,11 +80,11 @@
 
 <div class="form-group">
     <label for="ownerid" class="control-label">{{ 'Password:' }}</label>
-    <input class="form-control @error('ownerId') is-invalid @enderror" value="{{old('ownerId')}}" name="ownerId" type="text" id="ownerId" value="{{ isset($farm->ownerid) ? $farm->ownerid : ''}}" >
+    <input class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}" name="ownerId" type="text" id="password" value="{{ isset($farm->ownerid) ? $farm->ownerid : ''}}" >
   
 </div>
 <div class="form-group">
-    <label for="description" class="control-label">{{ 'Adress:' }}</label>
+    <label for="description" class="control-label">{{ 'Address:' }}</label>
     <textarea class="form-control @error('adress') is-invalid @enderror" value="{{old('adress')}}" rows="5" name="address" type="textarea" id="description" >{{ isset($farm->adress) ? $farm->adress : ''}}</textarea>
     @error('adress')
         <div class="invalid-feedback mt-2 text-sm">

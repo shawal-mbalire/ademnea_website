@@ -50,15 +50,15 @@
     <div class="row">
       <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Create New Farm</div>
+                    <div class="card-header">Create New Hive</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/farm') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/hive') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
-                        <form method="POST" action="{{ url('/admin/farm') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('/admin/hive') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            @include ('admin.farm.form', ['formMode' => 'create'])
+                            @include ('admin.hives.form', ['formMode' => 'create'])
 
                         </form>
 

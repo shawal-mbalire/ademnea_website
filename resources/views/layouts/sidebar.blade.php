@@ -34,7 +34,7 @@
         </li>
     
         <li class="nav-item">
-            <a class="nav-link" href="/admin/hivedata">
+            <a class="nav-link" href="">
                 <i class="mdi mdi-account-multiple-outline menu-icon text-light"></i>
                 <span class="menu-title text-light">Hive Data</span>
             </a>

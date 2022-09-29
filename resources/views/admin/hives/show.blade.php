@@ -50,13 +50,13 @@
     <div class="row">
       <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Farm {{ $farm->id }}</div>
+                    <div class="card-header">Hive {{ $hive->id }}</div>
                     <div class="card-body">
 
-                        <a href="{{ url('/admin/farm') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/admin/farm/' . $farm->id . '/edit') }}" title="Edit Farm"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                        <a href="{{ url('/admin/hive') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/hive/' . $hive->id . '/edit') }}" title="Edit Farm"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                        <form method="POST" action="{{ url('admin/farm' . '/' . $farm->id) }}" accept-charset="UTF-8" style="display:inline">
+                        <form method="POST" action="{{ url('admin/hive' . '/' . $hive->id) }}" accept-charset="UTF-8" style="display:inline">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
                             <button type="submit" class="button3" title="Delete Farm" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
@@ -68,9 +68,10 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $farm->id }}</td>
+                                        <th>ID</th><td>{{ $hive->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $farm->name }} </td></tr><tr><th> Title </th><td> {{ $farm->title }} </td></tr><tr><th> Description </th><td> {{ $farm->description }} </td></tr>
+                                    <tr><th> Longitude </th><td> {{ $hive->longitude }} </td></tr><tr><th> Latitude </th><td> {{ $hive->latitude }} </td></tr>
+                                    {{-- <tr><th> Description </th><td> {{ $hive->description }} </td></tr> --}}
                                 </tbody>
                             </table>
                         </div>

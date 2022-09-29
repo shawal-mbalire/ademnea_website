@@ -7,7 +7,7 @@
 <<<<<<< HEAD
 /.env.backup
 =======
-.env
+/.env
 .env.backup
 >>>>>>> 466ea3afbab10b77f8902210b6d49823d06a278d
 .phpunit.result.cache
@@ -28,3 +28,5 @@ login.html
 /public/images/1629193729-ggg.jpg
 /public/images/1629193765-katamba.jpg
 /public/images/1629193794-WP1.jpg
+.env
+

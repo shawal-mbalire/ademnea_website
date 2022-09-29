@@ -47,49 +47,40 @@
     }
 </style>
 @section('content')
-
-<header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center">
-        <nav id="navbar" class="navbar">
-            <ul>
-                <li class="dropdown"><a href="/#"><span>Work Packages</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-
-                        <li><a href="/workpackages-wp1">Networks and Resilience(WP1)</a></li>
-                        <li><a href="/workpackages-wp2">Sensors and signal processing(WP2)</a></li>
-                        <li><a href="/workpackages-wp3">Data Analytics for Environment Monitoring services(WP3)</a></li>
-                        <li><a href="/workpackages-wp4">Project Administration(WP4)</a></li>
-                    </ul>
-
-                </li>
-
-
 <div class="content-wrapper">
     <div class="row">
-      <div class="col-sm-12">
-                <div class="card">
+        <div class="col-sm-12">
+            <div class="card">
+                    <select name="dog-names" id="dog-names">
+                        <option value="rigatoni">Rigatoni</option>
+                      <option value="dave">Dave</option>
+                      <option value="pumpernickel">Pumpernickel</option>
+                      <option value="reeses">Reeses</option>
+                    </select>
                     <div class="card-header">VIDEO DATA</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/videodata') }}" class="btn btn-success btn-sm" title="View Hive Videos">
+
+                        <select name="dog-names" id="dog-names">
+                            <option><a href="{{ url('/admin/videodata') }}" class="btn btn-success btn-sm" title="View Hive Videos">
                             <i class="fa fa-eye" aria-hidden="true"></i> Video Data
-                        </a>
+                        </a> </option>
                 
-                        <a href="{{ url('/admin/audiodata') }}" class="btn btn-success btn-sm" title="View Hive Audios">
+                        <option> <a href="{{ url('/admin/audiodata') }}" class="btn btn-success btn-sm" title="View Hive Audios">
                             <i class="fa fa-eye" aria-hidden="true"></i> Audio Data
-                        </a>
-                        <a href="{{ url('/admin/temperaturedata') }}" class="btn btn-success btn-sm" title="View Hive Temperatures">
+                        </a></option>
+                        <option> <a href="{{ url('/admin/temperaturedata') }}" class="btn btn-success btn-sm" title="View Hive Temperatures">
                             <i class="fa fa-eye" aria-hidden="true"></i> Temperatures
-                        </a>
-                        <a href="{{ url('/admin/humiditydata') }}" class="btn btn-success btn-sm" title="View Hive Humidities">
+                        </a></option>
+                        <option> <a href="{{ url('/admin/humiditydata') }}" class="btn btn-success btn-sm" title="View Hive Humidities">
                             <i class="fa fa-eye" aria-hidden="true"></i> Hive Humidity
-                        </a>
-                        <a href="{{ url('/admin/weightdata') }}" class="btn btn-success btn-sm" title="View Hive Weights">
+                        </a></option>
+                        <option> <a href="{{ url('/admin/weightdata') }}" class="btn btn-success btn-sm" title="View Hive Weights">
                             <i class="fa fa-eye" aria-hidden="true"></i> Hive Weights
-                        </a>
-                        <a href="{{ url('/admin/carbondioxidedata') }}" class="btn btn-success btn-sm" title="View Hive Carbondioxide Levels">
+                        </a></option>
+                        <option> <a href="{{ url('/admin/carbondioxidedata') }}" class="btn btn-success btn-sm" title="View Hive Carbondioxide Levels">
                             <i class="fa fa-eye" aria-hidden="true"></i> Carbiondioxide Levels
-                        </a>  <br> <br>
-                        
+                        </a> </option> <br> <br>
+                        </select>
 
                         <form method="GET" action="{{ url('/admin/farm') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">

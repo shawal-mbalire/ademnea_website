@@ -36,7 +36,7 @@
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: rgb(223, 208, 208);}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
@@ -102,6 +102,7 @@
                             <div class="dropdown">
                                 <button class="dropbtn">More Data</button>
                                 <div class="dropdown-content">
+                                    <a href="{{ url('/admin/photodata') }}">Photos</a>
                                   <a href="{{ url('/admin/videodata') }}">Video Data</a>
                                   <a href="{{ url('/admin/audiodata') }}">Audio Data</a>
                                   <a href="{{ url('/admin/temperaturedata') }}">Temperatures</a>

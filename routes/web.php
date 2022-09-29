@@ -35,6 +35,7 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/research-profile', 'App\Http\Controllers\Admin\ResearchProfileController'); 
     Route::resource('admin/farm', 'App\Http\Controllers\Admin\FarmController');
     Route::resource('admin/farmer', 'App\Http\Controllers\Admin\FarmerController');
+    Route::resource('admin/hive', 'App\Http\Controllers\Admin\HiveController');
     Route::resource('admin/hivedata', 'App\Http\Controllers\Admin\HiveDataController');
 });
 

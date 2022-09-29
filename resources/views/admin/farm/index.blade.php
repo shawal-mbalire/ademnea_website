@@ -73,13 +73,16 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Farm Name</th><th>Owner</th><th>Address</th><th>District</th><th>Actions</th>
+                                        <th>No.</th><th>Farm Name</th><th>Owner</th><th>Address</th><th>District</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $count =  1
+                                @endphp
                                 @foreach($farm as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $count}}</td>
                                         <td>{{ $item->ownerId }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->adress }}</td>
@@ -103,6 +106,9 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @php
+                                    $count = $count + 1
+                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>

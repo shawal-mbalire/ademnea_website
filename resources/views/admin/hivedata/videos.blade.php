@@ -2,6 +2,48 @@
 
 <?php use Illuminate\Support\Facades\DB;?>
 <style>
+    /* Dropdown Button */
+.dropbtn {
+  background-color: hsl(129, 76%, 37%);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
     .button1{
         background-color: lightseagreen;
         color: white;
@@ -57,27 +99,17 @@
                         </div>
 
                         <div class="card-body">
-                            <select name="hive-data" id="hive-data">
-                                <option><a href="{{ url('/admin/videodata') }}" class="btn btn-success btn-sm" title="View Hive Videos">
-                                <i class="fa fa-eye" aria-hidden="true"></i> Video Data
-                            </a> </option>
-                    
-                            <option> <a href="{{ url('/admin/audiodata') }}" class="btn btn-success btn-sm" title="View Hive Audios">
-                                <i class="fa fa-eye" aria-hidden="true"></i> Audio Data
-                            </a></option>
-                            <option> <a href="{{ url('/admin/temperaturedata') }}" class="btn btn-success btn-sm" title="View Hive Temperatures">
-                                <i class="fa fa-eye" aria-hidden="true"></i> Temperatures
-                            </a></option>
-                            <option> <a href="{{ url('/admin/humiditydata') }}" class="btn btn-success btn-sm" title="View Hive Humidities">
-                                <i class="fa fa-eye" aria-hidden="true"></i> Hive Humidity
-                            </a></option>
-                            <option> <a href="{{ url('/admin/weightdata') }}" class="btn btn-success btn-sm" title="View Hive Weights">
-                                <i class="fa fa-eye" aria-hidden="true"></i> Hive Weights
-                            </a></option>
-                            <option> <a href="{{ url('/admin/carbondioxidedata') }}" class="btn btn-success btn-sm" title="View Hive Carbondioxide Levels">
-                                <i class="fa fa-eye" aria-hidden="true"></i> Carbiondioxide Levels
-                            </a> </option> <br> <br>
-                            </select>
+                            <div class="dropdown">
+                                <button class="dropbtn">More Data</button>
+                                <div class="dropdown-content">
+                                  <a href="{{ url('/admin/videodata') }}">Video Data</a>
+                                  <a href="{{ url('/admin/audiodata') }}">Audio Data</a>
+                                  <a href="{{ url('/admin/temperaturedata') }}">Temperatures</a>
+                                  <a href="{{ url('/admin/humiditydata') }}">Hive Humidity</a>
+                                  <a href="{{ url('/admin/weightdata') }}">Hive Weights</a>
+                                  <a href="{{ url('/admin/carbondioxidedata') }}">Carbiondioxide Levels</a>
+                                </div>
+                              </div>
                         <form method="GET" action="{{ url('/admin/farm') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
@@ -94,7 +126,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Path</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>No</th><th>Path</th><th>Hive Id</th><th>Date Created</th>
                                     </tr>
                                 </thead>
                                 <tbody>

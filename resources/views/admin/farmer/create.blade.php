@@ -50,7 +50,7 @@
     <div class="row">
       <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Add New Farmer</div>
+                    <div class="card-header">Add New</div>
                     <div class="card-body">
                         <a href="{{ url('/admin/farmer') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />

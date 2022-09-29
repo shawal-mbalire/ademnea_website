@@ -79,8 +79,13 @@
 </div>
 
 <div class="form-group">
-    <label for="ownerid" class="control-label">{{ 'Password:' }}</label>
-    <input class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}" name="ownerId" type="text" id="password" value="{{ isset($farm->ownerid) ? $farm->ownerid : ''}}" >
+    <label for="password" class="control-label">{{ 'Password:' }}</label>
+    <input class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}" name="password" type="password" id="password" value="{{ isset($farm->ownerid) ? $farm->ownerid : ''}}" >
+  
+</div>
+<div class="form-group">
+    <label for="password" class="control-label">{{ 'Repeat Password:' }}</label>
+    <input class="form-control @error('password') is-invalid @enderror" value="{{old('repeat')}}" name="repeat" type="password" id="password" value="{{ isset($farm->ownerid) ? $farm->ownerid : ''}}" >
   
 </div>
 <div class="form-group">

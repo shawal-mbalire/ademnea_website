@@ -54,7 +54,7 @@
                     <div class="card-header">Farmers</div>
                     <div class="card-body">
                         <a href="{{ url('/admin/farmer/create') }}" class="btn btn-success btn-sm" title="Add New Farmer">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New Farmer
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
                         <form method="GET" action="{{ url('/admin/farm') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
@@ -74,13 +74,17 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Name</th><th>Gender</th><th>Email</th><th>Telephone</th><th>Address</th><th>Actions</th>
+                                        <th>No.</th><th>Name</th><th>Gender</th><th>Email</th><th>Telephone</th><th>Address</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $count = 1
+                                @endphp
+
                                 @foreach($farmer as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td>{{ $count }}</td>
                                         <td>{{ "$item->fname  $item->lname"}}</td>
                                         <td>{{ $item->gender }}</td>
                                         <td>{{ $item->email }}</td>   
@@ -98,6 +102,9 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @php
+                                    $count = $count + 1
+                                @endphp
                                 @endforeach
                                 </tbody>
                             </table>

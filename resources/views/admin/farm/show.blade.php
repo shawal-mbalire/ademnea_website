@@ -68,7 +68,7 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $farm->id }}</td>
+                                        <th>No.</th><td>{{ $farm->id }}</td>
                                     </tr>
                                     <tr><th> Name </th><td> {{ $farm->name }} </td></tr><tr><th> Title </th><td> {{ $farm->title }} </td></tr><tr><th> Description </th><td> {{ $farm->description }} </td></tr>
                                 </tbody>

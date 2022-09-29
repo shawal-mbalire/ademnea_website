@@ -9,5 +9,5 @@ class Farmer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['fname', 'lname', 'gender','email','password','address'];
+    protected $fillable = ['fname', 'lname', 'gender','email','password','address','telephone'];
 }

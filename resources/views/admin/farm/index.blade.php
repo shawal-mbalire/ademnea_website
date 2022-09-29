@@ -95,10 +95,6 @@
                                             <form method="POST" action="{{ url('/admin/farm' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <a href="{{ url('/admin/hives/' . $item->id ) }}" title="Display Farm Hives"><button class="button1"><i class="" aria-hidden="true"></i> Hives</button></a>
-                                               
-
-
                                                 <button type="submit" class="button3" title="Delete Farm" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                         </td>

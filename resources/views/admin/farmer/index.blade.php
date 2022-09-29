@@ -85,16 +85,13 @@
                                 @foreach($farmer as $item)
                                     <tr>
                                         <td>{{ $count }}</td>
-                                        <td>{{ "$item->fname  $item->lname"}}</td>
+                                        <td><a href="{{ url('/admin/farmers/' . $item->id . '/viewfarms') }}">{{ "$item->fname  $item->lname"}}</a></td>
                                         <td>{{ $item->gender }}</td>
                                         <td>{{ $item->email }}</td>   
                                         <td>{{ $item->telephone }}</td>   
                                         <td>{{ $item->address }}</td>                                        
                                         <td>
-                                            <a href="{{ url('/admin/farmers/' . $item->id) }}" title="View Farm"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/farmers/' . $item->id . '/edit') }}" title="Edit Farmer"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                            <a href="{{ url('/admin/farmers/' . $item->id ) }}" title="Display Farmer's Farms"><button class="button1"><i class="" aria-hidden="true"></i> Farms</button></a>
-
                                             <form method="POST" action="{{ url('/admin/farm' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
@@ -104,7 +101,7 @@
                                     </tr>
                                     @php
                                     $count = $count + 1
-                                @endphp
+                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>

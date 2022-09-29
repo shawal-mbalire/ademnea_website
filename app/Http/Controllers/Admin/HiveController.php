@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
-use App\Models\Farm;
+use App\Models\Hive;
 use Illuminate\Http\Request;
 
 
-class FarmController extends Controller
+class HiveController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +20,9 @@ class FarmController extends Controller
     {        
         $perPage = 25;
        
-        $farm = Farm::latest()->paginate($perPage);
+        $hive = Hive::latest()->paginate($perPage);
 
-        return view('admin.farm.index', compact('farm'));
+        return view('admin.hives.index', compact('hive'));
     }
 
     /**
@@ -33,7 +33,7 @@ class FarmController extends Controller
     public function create()
     {
 
-        return view('admin.farm.create');
+        return view('admin.hives.create');
     }
 
     /**
@@ -54,9 +54,9 @@ class FarmController extends Controller
 
         $requestData = $request->all();
               
-        Farm::create($requestData);
+        Hive::create($requestData);
 
-        return redirect('admin/farm')->with('flash_message', 'Farm added!');
+        return redirect('admin/hive')->with('flash_message', 'Hive added!');
     }
 
     /**
@@ -69,9 +69,9 @@ class FarmController extends Controller
     public function show($id)
     {
        
-        $farm = Farm::findOrFail($id);
+        $hive = Hive::findOrFail($id);
 
-        return view('admin.farm.show', compact('farm'));
+        return view('admin.hives.show', compact('hive'));
     }
 
     /**
@@ -83,9 +83,9 @@ class FarmController extends Controller
      */
     public function edit($id)
     {
-        $farm = Farm::findOrFail($id);
+        $hive = Hive::findOrFail($id);
 
-        return view('admin.farm.edit', compact('farm'));
+        return view('admin.hives.edit', compact('hive'));
     }
 
     /**
@@ -101,10 +101,10 @@ class FarmController extends Controller
         
         $requestData = $request->all();
         
-        $farm = Farm::findOrFail($id);
-        $farm->update($requestData);
+        $hive = Hive::findOrFail($id);
+        $hive->update($requestData);
 
-        return redirect('admin/farm')->with('flash_message', 'Farm updated!');
+        return redirect('admin/hive')->with('flash_message', 'Farm updated!');
     }
 
     /**
@@ -116,8 +116,8 @@ class FarmController extends Controller
      */
     public function destroy($id)
     {
-        Farm::destroy($id);
+        Hive::destroy($id);
 
-        return redirect('admin/farm')->with('flash_message', 'Farm deleted!');
+        return redirect('admin/hive')->with('flash_message', 'Farm deleted!');
     }
 }

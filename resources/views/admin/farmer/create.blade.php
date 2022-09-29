@@ -50,25 +50,15 @@
     <div class="row">
       <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Edit Farm #{{ $hive->id }}</div>
+                    <div class="card-header">Add New Farmer</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/hive') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/farmer') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
-
-                        @if ($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
-
-                        <form method="POST" action="{{ url('/admin/farm/' . $hive->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                        <form method="POST" action="{{ url('/admin/farmer') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            @include ('admin.hives.form', ['formMode' => 'edit'])
+                            @include ('admin.farmer.form', ['formMode' => 'create'])
 
                         </form>
 

@@ -13,11 +13,17 @@ class CreateFarmsTable extends Migration
      */
     public function up()
     {
-        Schema::create('farms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('location');
+         Schema::create('farms', function (Blueprint $table) {
+            $table->id();           
+            $table->unsignedBigInteger('ownerId');// the id of the person who owns the farm 
+            $table->string('name');//name of the farm
+            $table->string('district');
+            $table->string('address');
             $table->timestamps();
+
+            $table->foreign('ownerId')
+            ->references('id')->on('farmers')
+            ->onDelete('cascade');
         });
     }
 

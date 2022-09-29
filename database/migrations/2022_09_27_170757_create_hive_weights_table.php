@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFarmersTable extends Migration
+class CreateHiveWeightsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateFarmersTable extends Migration
      */
     public function up()
     {
-        Schema::create('farmers', function (Blueprint $table) {
+        Schema::create('hive_weights', function (Blueprint $table) {
             $table->id();
-            $table->string('fname');
-            $table->string('lname');
-            $table->string('gender');
-            $table->string('email');
-            $table->string('password');
-            $table->string('address');
+
+            $table->float('record');
+            $table->unsignedBigInteger('hive_id');
+            
+            $table->foreign('hive_id')
+            ->references('id')->on('hives')
+            ->onDelete(null)
+            ->nullable();
+
             $table->timestamps();
         });
     }
@@ -32,6 +35,6 @@ class CreateFarmersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('farmers');
+        Schema::dropIfExists('hive_weights');
     }
 }

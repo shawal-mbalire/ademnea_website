@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+<?php use Illuminate\Support\Facades\DB;?>
 <style>
     .button1{
         background-color: lightseagreen;
@@ -50,11 +51,27 @@
     <div class="row">
       <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Farms</div>
+                    <div class="card-header">HIVE DATA</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/farm/create') }}" class="btn btn-success btn-sm" title="Add New Farm">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        <a href="{{ url('/admin/hivedata/videos') }}" class="btn btn-success btn-sm" title="View Hive Videos">
+                            <i class="fa fa-eye" aria-hidden="true"></i> Video Data
                         </a>
+                        <a href="{{ url('/admin/hivedata/videos') }}" class="btn btn-success btn-sm" title="View Hive Videos">
+                            <i class="fa fa-eye" aria-hidden="true"></i> Audio Data
+                        </a>
+                        <a href="{{ url('/admin/hivedata/videos') }}" class="btn btn-success btn-sm" title="View Hive Videos">
+                            <i class="fa fa-eye" aria-hidden="true"></i> Temperatures
+                        </a>
+                        <a href="{{ url('/admin/hivedata/videos') }}" class="btn btn-success btn-sm" title="View Hive Videos">
+                            <i class="fa fa-eye" aria-hidden="true"></i> Hive Humidity
+                        </a>
+                        <a href="{{ url('/admin/hivedata/videos') }}" class="btn btn-success btn-sm" title="View Hive Videos">
+                            <i class="fa fa-eye" aria-hidden="true"></i> Hive Weights
+                        </a>
+                        <a href="{{ url('/admin/hivedata/videos') }}" class="btn btn-success btn-sm" title="View Hive Videos">
+                            <i class="fa fa-eye" aria-hidden="true"></i> Carbiondioxide Levels
+                        </a>  <br> <br>
+                        
 
                         <form method="GET" action="{{ url('/admin/farm') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
@@ -73,32 +90,27 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Farm Name</th><th>Owner</th><th>Address</th><th>District</th><th>Actions</th>
+                                        <th>ID</th><th>Name</th><th>Gender</th><th>Email</th><th>Telephone</th><th>Address</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($farm as $item)
+                                @foreach($farmer as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->ownerId }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->adress }}</td>
-                                        <td>{{ $item->district }}</td>                                        
+                                        <td>{{ "$item->fname  $item->lname"}}</td>
+                                        <td>{{ $item->gender }}</td>
+                                        <td>{{ $item->email }}</td>   
+                                        <td>{{ $item->telephone }}</td>   
+                                        <td>{{ $item->address }}</td>                                        
                                         <td>
-                                            <a href="{{ url('/admin/farm/' . $item->id) }}" title="View Farm"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/farm/' . $item->id . '/edit') }}" title="Edit Farm"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-
-                                            
-                                            <a href="/admin/hive" title="Display Farm Hives"><button class="button1"><i class="" aria-hidden="true"></i> Hives</button></a>
-                        
+                                            <a href="{{ url('/admin/farmers/' . $item->id) }}" title="View Farm"><button class="button2"><i class="fa 
+                                                " aria-hidden="true"></i> View</button></a>
+                                            <a href="{{ url('/admin/farmers/' . $item->id . '/edit') }}" title="Edit Farmer"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/farmers/' . $item->id ) }}" title="Display Farmer's Farms"><button class="button1"><i class="" aria-hidden="true"></i> Farms</button></a>
 
                                             <form method="POST" action="{{ url('/admin/farm' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <a href="{{ url('/admin/hives/' . $item->id ) }}" title="Display Farm Hives"><button class="button1"><i class="" aria-hidden="true"></i> Hives</button></a>
-                                               
-
-
                                                 <button type="submit" class="button3" title="Delete Farm" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                         </td>
@@ -106,7 +118,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <div class="pagination-wrapper"> {!! $farm->appends(['search' => Request::get('search')])->render() !!} </div>
+                            <div class="pagination-wrapper"> {!! $farmer->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
 
                     </div>

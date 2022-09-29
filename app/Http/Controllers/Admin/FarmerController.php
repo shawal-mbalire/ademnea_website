@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
-use App\Models\Farm;
+use App\Models\Farmer;
 use Illuminate\Http\Request;
 
 
-class FarmController extends Controller
+class FarmerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +20,9 @@ class FarmController extends Controller
     {        
         $perPage = 25;
        
-        $farm = Farm::latest()->paginate($perPage);
+        $farmer = Farmer::latest()->paginate($perPage);
 
-        return view('admin.farm.index', compact('farm'));
+        return view('admin.farmer.index', compact('farmer'));
     }
 
     /**
@@ -33,7 +33,7 @@ class FarmController extends Controller
     public function create()
     {
 
-        return view('admin.farm.create');
+        return view('admin.farmer.create');
     }
 
     /**
@@ -54,9 +54,9 @@ class FarmController extends Controller
 
         $requestData = $request->all();
               
-        Farm::create($requestData);
+        Farmer::create($requestData);
 
-        return redirect('admin/farm')->with('flash_message', 'Farm added!');
+        return redirect('admin/farmer')->with('flash_message', 'Farmer added!');
     }
 
     /**
@@ -69,9 +69,9 @@ class FarmController extends Controller
     public function show($id)
     {
        
-        $farm = Farm::findOrFail($id);
+        $farmer = Farmer::findOrFail($id);
 
-        return view('admin.farm.show', compact('farm'));
+        return view('admin.farmer.show', compact('farmer'));
     }
 
     /**
@@ -83,9 +83,9 @@ class FarmController extends Controller
      */
     public function edit($id)
     {
-        $farm = Farm::findOrFail($id);
+        $farmer = Farmer::findOrFail($id);
 
-        return view('admin.farm.edit', compact('farm'));
+        return view('admin.farmer.edit', compact('farmer'));
     }
 
     /**
@@ -101,10 +101,10 @@ class FarmController extends Controller
         
         $requestData = $request->all();
         
-        $farm = Farm::findOrFail($id);
-        $farm->update($requestData);
+        $farmer = Farmer::findOrFail($id);
+        $farmer->update($requestData);
 
-        return redirect('admin/farm')->with('flash_message', 'Farm updated!');
+        return redirect('admin/farmer')->with('flash_message', 'Farmer updated!');
     }
 
     /**
@@ -116,8 +116,8 @@ class FarmController extends Controller
      */
     public function destroy($id)
     {
-        Farm::destroy($id);
+        Farmer::destroy($id);
 
-        return redirect('admin/farm')->with('flash_message', 'Farm deleted!');
+        return redirect('admin/farmer')->with('flash_message', 'Farmer deleted!');
     }
 }

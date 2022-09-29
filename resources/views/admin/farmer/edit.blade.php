@@ -50,9 +50,9 @@
     <div class="row">
       <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">Edit Farm #{{ $hive->id }}</div>
+                    <div class="card-header">Edit Farm #{{ $farm->id }}</div>
                     <div class="card-body">
-                        <a href="{{ url('/admin/hive') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                        <a href="{{ url('/admin/farm') }}" title="Back"><button class="button2"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <br />
                         <br />
 
@@ -64,11 +64,11 @@
                             </ul>
                         @endif
 
-                        <form method="POST" action="{{ url('/admin/farm/' . $hive->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                        <form method="POST" action="{{ url('/admin/farm/' . $farm->id) }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
-                            @include ('admin.hives.form', ['formMode' => 'edit'])
+                            @include ('admin.farm.form', ['formMode' => 'edit'])
 
                         </form>
 

@@ -18,11 +18,7 @@ class CreateHivesTable extends Migration
             $table->string('longitude');
             $table->string('latitude');
             $table->unsignedBigInteger('farm_id');
-
-            $table->foreign('farm_id')
-                  ->references('id')->on('farms')
-                  ->onDelete('cascade');
-
+            $table->foreign('farm_id')->references('id')->on('farms')->onDelete('cascade');
             $table->timestamps();
         });
     }

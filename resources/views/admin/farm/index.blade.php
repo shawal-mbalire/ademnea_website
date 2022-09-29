@@ -90,7 +90,7 @@
                                                                         ON farmer.id = farms.ownerId
                                                                         WHERE farmer.id = ?', [$item->ownerId]);
 
-                                                    echo  $farmer_names[0] -> full_name;
+                                                   // echo  $farmer_names[0] -> full_name;
                                                     
                                              ?>
                                 

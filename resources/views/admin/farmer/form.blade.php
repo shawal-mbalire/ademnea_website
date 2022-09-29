@@ -74,7 +74,7 @@
 
 <div class="form-group">
     <label for="ownerid" class="control-label">{{ 'Telephone:' }}</label>
-    <input class="form-control @error('ownerId') is-invalid @enderror" value="{{old('ownerId')}}" name="ownerId" type="text" id="ownerId" value="{{ isset($farm->ownerid) ? $farm->ownerid : ''}}" >
+    <input class="form-control @error('telephone') is-invalid @enderror" value="{{old('telephone')}}" name="telephone" type="text" id="telephone" value="{{ isset($farm->telephone) ? $farm->telephone : ''}}" >
   
 </div>
 

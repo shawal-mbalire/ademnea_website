@@ -31,13 +31,15 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/team', 'App\Http\Controllers\Admin\TeamController');
     Route::resource('admin/publication', 'App\Http\Controllers\Admin\PublicationController');
     Route::resource('admin/newsletter', 'App\Http\Controllers\Admin\NewsletterController');
-    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');   
-    Route::resource('admin/research-profile', 'App\Http\Controllers\Admin\ResearchProfileController'); 
+    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');
+    Route::resource('admin/research-profile', 'App\Http\Controllers\Admin\ResearchProfileController');
     Route::resource('admin/farm', 'App\Http\Controllers\Admin\FarmController');
     Route::resource('admin/farmer', 'App\Http\Controllers\Admin\FarmerController');
     Route::resource('admin/hive', 'App\Http\Controllers\Admin\HiveController');
     Route::resource('admin/hivedata', 'App\Http\Controllers\Admin\HiveDataController');
-    Route::resource('admin/videodata', 'App\Http\Controllers\Admin\VideoDataController');
+    Route::resource('admin/videodata', 'App\Http\Controllers\Admin\HiveVideoController');
+    Route::resource('admin/photodata', 'App\Http\Controllers\Admin\HivePhotoController');
+    Route::resource('admin/audiodata', 'App\Http\Controllers\Admin\HiveAudioController');
 });
 
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);

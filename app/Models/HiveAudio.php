@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HivePhoto extends Model
+class HiveAudio extends Model
 {
     use HasFactory;
-    
+    protected $table = 'hive_audios';
 }

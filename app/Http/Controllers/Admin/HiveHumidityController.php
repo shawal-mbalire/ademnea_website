@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
-use App\Models\Farmer;
+use App\Models\HiveVideo;
+use Illuminate\Http\Request;
 
-
-class HiveDataController extends Controller
+class VideoDataController extends Controller
 {
-    /**
-     * Display a listing of the resource.
+     /**
+     * Display a listing of the hive videos
      *
      * @return \Illuminate\View\View
      */
@@ -21,8 +19,10 @@ class HiveDataController extends Controller
     {        
         $perPage = 30;
        
-        $farmer = Farmer::latest()->paginate($perPage);
+        $videos = HiveVideo::latest()->paginate($perPage);
 
-        return view('admin.hivedata.index', compact('farmer'));
+        return view('admin.hivedata.videos', compact('videos'));
     }
+
+   
 }

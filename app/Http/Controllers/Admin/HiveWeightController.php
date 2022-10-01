@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
-use App\Models\HiveHumidity;
+use App\Models\HiveWeight;
 use Illuminate\Http\Request;
 
-class HiveHumidityController extends Controller
+class HiveWeightController extends Controller
 {
      /**
      * Display a listing of the hive videos
@@ -19,9 +19,9 @@ class HiveHumidityController extends Controller
     {        
         $perPage = 30;
        
-        $humidity = HiveHumidity::latest()->paginate($perPage);
+        $weights = HiveWeight::latest()->paginate($perPage);
 
-        return view('admin.hivedata.humidity', compact('humidity'));
+        return view('admin.hivedata.weights', compact('weights'));
     }
 
    

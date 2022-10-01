@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
-use App\Models\HiveVideo;
+use App\Models\HiveTemperature;
 use Illuminate\Http\Request;
 
-class VideoDataController extends Controller
+class HiveTemperatureController extends Controller
 {
      /**
      * Display a listing of the hive videos
@@ -19,9 +19,9 @@ class VideoDataController extends Controller
     {        
         $perPage = 30;
        
-        $videos = HiveVideo::latest()->paginate($perPage);
+        $temperatures = HiveTemperature::latest()->paginate($perPage);
 
-        return view('admin.hivedata.videos', compact('videos'));
+        return view('admin.hivedata.temperatures', compact('temperatures'));
     }
 
    

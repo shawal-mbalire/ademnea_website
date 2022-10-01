@@ -127,16 +127,16 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th><th>Path</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>No</th><th>Record</th><th>Hive Id</th><th>Date Created</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($videos as $video)
+                                @foreach($humidity as $humidity)
                                     <tr>
-                                        <td>{{ $video->id }}</td>
-                                        <td>{{ $video->path }}</td>
-                                        <td>{{ $video->hive_id }}</td>   
-                                        <td>{{ $video->created_at }}</td>                                     
+                                        <td>{{ $humidity->id }}</td>
+                                        <td>{{ $humidity->record }}</td>
+                                        <td>{{ $humidity->hive_id }}</td>   
+                                        <td>{{ $humidity->created_at }}</td>                                     
                                     </tr>
                                 @endforeach
                                 </tbody>

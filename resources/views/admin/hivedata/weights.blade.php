@@ -95,7 +95,7 @@
 
             <div class="card">
                         <div class="card-header">
-                            TEMPERATURE LEVELS
+                            WEIGHTS
                         </div>
 
                         <div class="card-body">
@@ -131,12 +131,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($temperatures as $temperature)
+                                @foreach($weights as $weight)
                                     <tr>
-                                        <td>{{ $temperature->id }}</td>
-                                        <td>{{ $temperature->record }}</td>
-                                        <td>{{ $temperature->hive_id }}</td>   
-                                        <td>{{ $temperature->created_at }}</td>                                     
+                                        <td>{{ $weight->id }}</td>
+                                        <td>{{ $weight->record }}</td>
+                                        <td>{{ $weight->hive_id }}</td>   
+                                        <td>{{ $weight->created_at }}</td>                                     
                                     </tr>
                                 @endforeach
                                 </tbody>

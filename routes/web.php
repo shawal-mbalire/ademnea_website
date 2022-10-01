@@ -40,6 +40,10 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/videodata', 'App\Http\Controllers\Admin\HiveVideoController');
     Route::resource('admin/photodata', 'App\Http\Controllers\Admin\HivePhotoController');
     Route::resource('admin/audiodata', 'App\Http\Controllers\Admin\HiveAudioController');
+    Route::resource('admin/temperaturedata', 'App\Http\Controllers\Admin\HiveTemperatureController');
+    Route::resource('admin/humiditydata', 'App\Http\Controllers\Admin\HiveHumidityController');
+    Route::resource('admin/weightdata', 'App\Http\Controllers\Admin\HiveWeightController');
+    Route::resource('admin/carbondioxidedata', 'App\Http\Controllers\Admin\HiveCarbondioxideController');
 });
 
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);

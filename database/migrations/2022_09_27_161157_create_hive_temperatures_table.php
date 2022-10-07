@@ -22,7 +22,7 @@ class CreateHiveTemperaturesTable extends Migration
             ->references('id')->on('hives')
             ->onDelete(null)
             ->nullable();
-            
+
 
             $table->timestamps();
         });

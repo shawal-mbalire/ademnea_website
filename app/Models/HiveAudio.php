@@ -9,4 +9,5 @@ class HiveAudio extends Model
 {
     use HasFactory;
     protected $table = 'hive_audios';
+    protected $fillable = ['path', 'hive_id'];
 }

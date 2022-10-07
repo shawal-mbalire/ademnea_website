@@ -127,14 +127,14 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th><th>Path</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>No</th><th>Photos</th><th>Hive Id</th><th>Date Created</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($photos as $photo)
                                     <tr>
                                         <td>{{ $photo->id }}</td>
-                                        <td>{{ $photo->path }}</td>
+                                        <td><img src="{{ URL("hive_images/"."".$photo->path) }}" alt=""" height="250" width="250"></td>
                                         <td>{{ $photo->hive_id }}</td>   
                                         <td>{{ $photo->created_at }}</td>                                     
                                     </tr>

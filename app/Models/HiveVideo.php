@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class HiveVideo extends Model
 {
     use HasFactory;
+    protected $fillable = ['path', 'hive_id'];
 }

@@ -60,7 +60,7 @@
   
 </div>
 <div class="form-group">
-    <input value="{{old('farm_id')}}" name="farm_id" type="hidden" value="{{ isset($hive->farm_id) ? $hive->farm_id : ''}}" >
+    <input value="{{old('farm_id')}}" name="farm_id" type="hidden" value="1" >
   
 </div>
 

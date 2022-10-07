@@ -17,6 +17,9 @@ class CreateHivesTable extends Migration
             $table->id();
             $table->string('longitude');
             $table->string('latitude');
+            $table->foreign('farm_id')
+            ->references('id')->on('farms')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }

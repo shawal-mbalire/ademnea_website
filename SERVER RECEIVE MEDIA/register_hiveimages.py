@@ -1,35 +1,14 @@
 import os
 import shutil
-import sys
 import time
-import logging
-import mysql.connector
+import register_media
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-#FUNCTION RECONSTRUCTS THE FILE NAME 
-#i.e 2_1986-09-25 174530.006.jpg to 2_1986-09-25 17:45:30.006.jpg
-#THIS ALLOWS US EXTRACT TIMESTAMPS MORE EASILY
-def reconstruct(str):
-    old_str = str.split()[1]
-    new_str = ""
-
-    for i in range(0, len(old_str)):
-        if(i == 2 or i == 4):
-           new_str =  new_str + ":"
-           new_str = new_str + old_str[i]
-        else:
-           new_str =  new_str + old_str[i]
-
-    return str.split()[0] + " " + new_str 
-
-
-
 def insert_photo(photo, filename):
-
-    #CONNECTION TO DB, CORRECT DATABASE DETAILS HAVE TO BE PASSED AT THIS POINT
-    mydb = mysql.connector.connect(host = " ", user = "  ", passwd = " ", database = "ademnea_website")
-    mycursor = mydb.cursor()
+    
+    mydb = register_media.database_connection() #connecting to db
+    mycursor = mydb.cursor() #the cursor helps us execute our queries
 
     #EXTRACTING DB DETAILS FROM NAME
     hive_id = photo.split("_")[0]
@@ -52,34 +31,27 @@ def insert_photo(photo, filename):
     mydb.close()
 
 class Handler(FileSystemEventHandler):
-
     #This function will transfer incoming files to another folder 
     def on_modified(self, event):
-
         for filename in os.listdir(folder_to_track):
             photo = filename
-            filename = reconstruct(filename)
+            filename = register_media.reconstruct(filename) 
+            
+            insert_photo(filename, photo) #first insert photo path into DB 
 
-
-            insert_photo(filename, photo) #1st insert photo path into DB 
-
-            #AFTER DB INSERTION, TRANSFER TO ANOTHER FOLDER
+            #SECOND TRANSFER TO ANOTHER FOLDER 
             src = folder_to_track + '\\' + photo
             new_dest = folder_destination + '\\' + photo
-            # shutil.move(src, new_dest)
-            os.rename(src, new_dest)
+            shutil.move(src, new_dest)
 
+folder_to_track = r" "
+folder_destination = r" "
 
-folder_to_track = r" " #put the source folder here
-folder_destination = r" " #put the destination folder here
 observer = Observer()
 event_handler = Handler()
-observer.schedule(event_handler, folder_to_track, recursive=True)
-observer.start()
-
-
-
+observer.schedule(event_handler, folder_to_track, recursive=True) #handing the observer the folder to track
 try:
+    observer.start()
     while True:
         time.sleep(10)
 except KeyboardInterrupt:

@@ -25,3 +25,5 @@ login.html
 /public/images/1629193794-WP1.jpg
 .env
 
+database/migrations/2022_09_20_154350_create_audios_table.php
+database/migrations/2022_09_20_154350_create_audios_table.php

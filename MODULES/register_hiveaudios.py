@@ -44,8 +44,8 @@ class Handler(FileSystemEventHandler):
             new_dest = folder_destination + '\\' + audio
             shutil.move(src, new_dest)
 
-folder_to_track = r" "
-folder_destination = r" "
+folder_to_track = r" " #Enter the path of the folder that receives hive audios
+folder_destination = r" " #Enter the path of the laravel folder linked to hive audios
 
 observer = Observer()
 event_handler = Handler()

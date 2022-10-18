@@ -37,12 +37,19 @@ increasing Agricultural yields in the partner countries.
 
 # DEPLOYING SCRIPTS THAT RECEIVE MEDIA FROM RASPBERRY PIS ON THE SERVER
 
-1. Install python watchdog using ```pip install watchdog```
-2. Go to MODULES\register_media.py , edit this line ``` mydb = mysql.connector.connect(host = " ", user = " ", passwd = " ", database = " ")``` 
-   in function "database_connection()"  to include the correct details as per the server.
-3. Go to MODULES\register_hiveaudios.py , edit the lines below accordingly;
+1. Install python watchdog using the command below;
+
+      ```pip install watchdog``` 
+      
+3. Go to MODULES\register_media.py , under the function "database_connection()" and  edit this line accordingly;
+
+   ``` mydb = mysql.connector.connect(host = " ", user = " ", passwd = " ", database = " ")``` 
+  
+3. Go to MODULES\register_hiveaudios.py , edit these lines below accordingly;
+
    ```folder_to_track = r" " #Enter the path of the folder that receives hive audios
       folder_destination = r" " #Enter the path of the laravel folder linked to hive audios```
+      
 4. Repeat step 3 for MODULES\register_hiveimages.py, MODULES\register_hivevideos.py and other files registering parameters.
 
 

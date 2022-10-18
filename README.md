@@ -35,7 +35,7 @@ Species Monitoring across wild and agricultural landscapes. It is anticipated to
 increasing Agricultural yields in the partner countries.
 
 
-# DEPLOYING SCRIPTS THAT RECEIVE MEDIA FROM RASPBERRY PIS ON THE SERVER
+# DEPLOYING SCRIPTS THAT RECEIVE MEDIA FROM RASPBERRY PI ON THE SERVER
 
 1. Install python watchdog using the command below;
 

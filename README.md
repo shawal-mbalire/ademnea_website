@@ -48,8 +48,8 @@ increasing Agricultural yields in the partner countries.
 3. Go to MODULES\register_hiveaudios.py , edit these lines below accordingly 
     
     i.e Enter the path of the folder that receives hive audios here.
-   ```folder_to_track = r" " ```  -----
-   Enter the path of the laravel folder linked to hive audios here.
+   ```folder_to_track = r" " ```                                                                                                                                                    
+    i.e Enter the path of the laravel folder linked to hive audios here.
    ```folder_destination = r" " ```
       
 4. Repeat step 3 for register_hiveimages.py, register_hivevideos.py and other files for registering parameters.

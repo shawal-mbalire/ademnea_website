@@ -45,7 +45,7 @@ class Handler(FileSystemEventHandler):
             shutil.move(src, new_dest)
 
 folder_to_track = r" " #Enter the path of the folder that receives hive images
-folder_destination = r" " ##Enter the path of the laravel folder linked to hive images
+folder_destination = r"/var/www/html/ademnea_website/public/hiveimage" ##Enter the path of the laravel folder linked to hive images
 
 observer = Observer()
 event_handler = Handler()

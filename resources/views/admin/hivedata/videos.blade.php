@@ -127,18 +127,30 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th><th>Path</th><th>Video</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>#</th><th>Video</th><th>Hive Id</th><th>Date Created</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $count =  1
+                                    @endphp
                                 @foreach($videos as $video)
                                     <tr>
-                                        <td>{{ $video->id }}</td>
-                                        <td>{{ $video->path }}</td>
-                                        <td><iframe width="300" height="200" src="https://www.youtube.com/embed/-sox9q5XjSU" title="Day Trading Pro Meets WALL STREET'S Most Famous Trader" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>    
+                                        <td>{{ $count }}</td>
+                                        <td>
+                                            <video width="300px" height="200px"
+                                             controls="controls"/>
+                                             
+                                            <source src="{{ URL("hive_videos/"."".$video->path) }}"
+                                                type="video/mp4">
+                                            </video>
+                                       </td>    
                                         <td>{{ $video->hive_id }}</td>   
                                         <td>{{ $video->created_at }}</td>                                     
                                     </tr>
+                                    @php
+                                    $count = $count + 1
+                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>

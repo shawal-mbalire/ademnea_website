@@ -127,17 +127,23 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th><th>Record</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>#</th><th>Record</th><th>Hive Id</th><th>Date Created</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $count =  1
+                                    @endphp
                                 @foreach($humidity as $humidity)
                                     <tr>
-                                        <td>{{ $humidity->id }}</td>
+                                        <td>{{ $count }}</td>
                                         <td>{{ $humidity->record }}</td>
                                         <td>{{ $humidity->hive_id }}</td>   
                                         <td>{{ $humidity->created_at }}</td>                                     
                                     </tr>
+                                    @php
+                                    $count = $count + 1
+                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>

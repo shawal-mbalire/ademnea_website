@@ -73,7 +73,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No.</th><th>Farm Name</th><th>Owner</th><th>Address</th><th>District</th><th>Actions</th>
+                                        <th>#</th><th>Farm Name</th><th>Owner</th><th>Address</th><th>District</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

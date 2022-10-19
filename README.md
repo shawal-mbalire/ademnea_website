@@ -52,7 +52,11 @@ increasing Agricultural yields in the partner countries.
     i.e Enter the path of the laravel folder linked to hive audios here.
    ```folder_destination = r" " ```
       
-4. Repeat step 3 for register_hiveimages.py, register_hivevideos.py and other files for registering parameters.
+4. Repeat step 3 for register_hiveimages.py and register_hivevideos.py
+
+5. Open register_hivetemp_hivehumidity.py , edit line 56 as per the directive in its comment.
+
+6. Finally, run the file register_media.py, it will run all the other scripts in turn.
 
 
 

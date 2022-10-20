@@ -74,7 +74,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>No.</th><th>Name</th><th>Gender</th><th>Email</th><th>Telephone</th><th>Address</th><th>Actions</th>
+                                        <th>#</th><th>Name</th><th>Gender</th><th>Email</th><th>Telephone</th><th>Address</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

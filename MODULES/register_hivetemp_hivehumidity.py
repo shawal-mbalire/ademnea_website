@@ -53,7 +53,7 @@ class Handler(FileSystemEventHandler):
             os.remove(folder_to_track + '\\' + filename)
 
 
-folder_to_track = r" " #Enter the folder that will receive the hive temperatures and humidity on the server
+folder_to_track = r" " #Enter the file path of a folder that will receive hive temperature and hive humidity
 
 observer = Observer()
 event_handler = Handler()

@@ -6,7 +6,6 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 def insert_photo(photo, filename):
-    
     mydb = register_media.database_connection() #connecting to db
     mycursor = mydb.cursor() #the cursor helps us execute our queries
 
@@ -44,7 +43,7 @@ class Handler(FileSystemEventHandler):
             new_dest = folder_destination + '\\' + photo
             shutil.move(src, new_dest)
 
-folder_to_track = r" " #Enter the path of the folder that receives hive images
+folder_to_track = r"/var/www/html/ademnea_website/public/new_hiveimages" #Enter the path of the folder that receives hive images
 folder_destination = r"/var/www/html/ademnea_website/public/hiveimage" ##Enter the path of the laravel folder linked to hive images
 
 observer = Observer()

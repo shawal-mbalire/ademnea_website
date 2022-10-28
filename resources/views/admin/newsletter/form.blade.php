@@ -71,7 +71,7 @@
         @enderror
 </div>
 
-<div class="form-group">
+{{-- <div class="form-group">
     <label for="image" class="control-label">{{ 'Image' }}(jpg, peg & png only allowed)</label>
     <input class="form-control @error('image') is-invalid @enderror" name="image" type="file" id="image">
     @error('image')
@@ -79,7 +79,7 @@
             {{ $message }}
         </div>
         @enderror
-</div>
+</div> --}}
 
 
 <div class="form-group">
@@ -88,17 +88,17 @@
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
     
-//  CKEDITOR.replace('article', {
-//         filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-//         filebrowserUploadMethod: 'form',
-//         "extraPlugins" : 'imagebrowser',
-// 		"imageBrowser_listUrl" : "/images_list.json"
-//     })
+ CKEDITOR.replace('article', {
+        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form',
+        "extraPlugins" : 'imagebrowser',
+		"imageBrowser_listUrl" : "/images_list.json"
+    })
 
-//     CKEDITOR.replace('title', {
-//         filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-//         filebrowserUploadMethod: 'form',
-//         "extraPlugins" : 'imagebrowser',
-// 		"imageBrowser_listUrl" : "/images_list.json"
-//     })
+    CKEDITOR.replace('title', {
+        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form',
+        "extraPlugins" : 'imagebrowser',
+		"imageBrowser_listUrl" : "/images_list.json"
+    })
 </script>

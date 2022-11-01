@@ -137,7 +137,7 @@
                                 @foreach($photos as $photo)
                                     <tr>
                                         <td>{{ $count }}</td>
-                                        <td><img src="{{ URL("hive_images/"."".$photo->path) }}" alt=""" height="250" width="250"></td>
+                                        <td><img src="{{ URL("hiveimage/"."".$photo->path) }}" alt=""" height="250" width="250"></td>
                                         <td>{{ $photo->hive_id }}</td>   
                                         <td>{{ $photo->created_at }}</td>                                     
                                     </tr>

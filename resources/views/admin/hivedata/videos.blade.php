@@ -141,7 +141,7 @@
                                             <video width="300px" height="200px"
                                              controls="controls"/>
                                              
-                                            <source src="{{ URL("hive_videos/"."".$video->path) }}"
+                                            <source src="{{ URL("hivevideo/"."".$video->path) }}"
                                                 type="video/mp4">
                                             </video>
                                        </td>    

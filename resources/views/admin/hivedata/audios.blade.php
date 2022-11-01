@@ -139,7 +139,7 @@
                                         <td>{{ $count }}</td>
                                         <td>
                                             <audio controls>
-                                                <source src="{{ URL("hive_audios/"."".$audio->path) }}" type="audio/mpeg">           
+                                                <source src="{{ URL("hiveaudio/"."".$audio->path) }}" type="audio/mpeg">           
                                             </audio>
                                         </td>
                                         <td>{{ $audio->hive_id }}</td>   

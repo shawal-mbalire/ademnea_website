@@ -19,14 +19,15 @@
         rel="stylesheet">
     <style>
         #collapseExample.collapse:not(.show) {
-        display: block;
-        height: 3rem;
-        overflow: hidden;
+            display: block;
+            height: 3rem;
+            overflow: hidden;
         }
 
         #collapseExample.collapsing {
-        height: 3rem;
+            height: 3rem;
         }
+
     </style>
     @include('website.links')
 
@@ -51,38 +52,39 @@
 
     <main id="main">
         <!-- ======= Scholarship Section ======= -->
-    <section id="scholarship" class="about pt-0">  
-    <div class="container pt-5">
-    <div class="h5 text-center container">
-        {{-- <h1>This is an individual article</h1> --}}
-        <h1>{{ $newsletter->title }}</h1>
-    </div>
-    <div class="container"></div>
-    {{ $newsletter->description }}
-    <br>
-    <br>
-    {{ $newsletter->article }}
-    {{-- @if($newsletter ->count())
-        <div class="row no-gutters">
-        @foreach($newsletter  as $workpackage)
-            <div class="col-lg-4 col-md-6 col-sm-12 card">
-                <div class="icon-box"> --}}
-                    {{-- <h4 class="title"><a href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4> --}}
-                    {{-- <p class="description">{!! $workpackage->description !!} <a href="{{ url('/article/' . $workpackage->id) }}">More.......</a></p> --}}
-                {{-- </div>
-            </div>
-            @endforeach
-        @else        
-          <p>No Articles now</p>
-        @endif
-        </div> --}}
+        <section id="scholarship" class="about">
+            <div class="container">
 
-    </div>
-</section>
+                <div class="h5 text-center container">
+                <h1>{{ $newsletter->title }}</h1>
+                </div>
+
+                <br>
+            
+                <p>{{ $newsletter->description }}</p>
+
+                <br>
+                <br>
+                {{ $newsletter->article }}
+                {{-- @if ($scholarships->count())--}}
+                    {{-- <div class="section-title">
+                    </div> --}}
+                   {{-- @foreach ($scholarships as $scholarship)
+                        <div class="container card text-justify">
+                            <div class="icon-box">
+                                <p class="description">{!! $scholarship->instructions !!}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <p>There are currently no scholarships</p>
+                @endif --}}
+            </div>
+        </section>
 
         <!-- End Scholarship Section -->
 
-       
+
 
     </main><!-- End #main -->
 

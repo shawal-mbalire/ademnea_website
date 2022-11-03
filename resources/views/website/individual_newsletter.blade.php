@@ -54,23 +54,28 @@
     <section id="scholarship" class="about pt-0">  
     <div class="container pt-5">
     <div class="h5 text-center container">
-        <h1>News about the project</h1>
-        
+        {{-- <h1>This is an individual article</h1> --}}
+        <h1>{{ $newsletter->title }}</h1>
     </div>
-    @if($newsletter ->count())
+    <div class="container"></div>
+    {{ $newsletter->description }}
+    <br>
+    <br>
+    {{ $newsletter->article }}
+    {{-- @if($newsletter ->count())
         <div class="row no-gutters">
         @foreach($newsletter  as $workpackage)
             <div class="col-lg-4 col-md-6 col-sm-12 card">
-                <div class="icon-box">
-                    <h4 class="title"><a href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4>
-                    <p class="description">{!! $workpackage->description !!} <a href="{{ url('/article/' . $workpackage->id) }}">More.......</a></p>
-                </div>
+                <div class="icon-box"> --}}
+                    {{-- <h4 class="title"><a href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4> --}}
+                    {{-- <p class="description">{!! $workpackage->description !!} <a href="{{ url('/article/' . $workpackage->id) }}">More.......</a></p> --}}
+                {{-- </div>
             </div>
             @endforeach
         @else        
           <p>No Articles now</p>
         @endif
-        </div>
+        </div> --}}
 
     </div>
 </section>

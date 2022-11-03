@@ -64,6 +64,7 @@
                 <div class="icon-box">
                     <h4 class="title"><a href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4>
                     <p class="description">{!! $workpackage->description !!} <a href="{{ url('/individual_newsletter/' . $workpackage->id) }}">More.......</a></p>
+                {{--. $workpackage->id)--}}
                 </div>
             </div>
             @endforeach

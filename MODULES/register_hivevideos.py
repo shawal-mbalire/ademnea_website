@@ -40,8 +40,8 @@ class Handler(FileSystemEventHandler):
             insert_video(filename, video) #first insert video path into DB 
 
             #SECOND TRANSFER TO ANOTHER FOLDER 
-            src = folder_to_track + '\\' + video
-            new_dest = folder_destination + '\\' + video
+            src = folder_to_track + '/' + video
+            new_dest = folder_destination + '/' + video
             shutil.move(src, new_dest)
 
 folder_to_track = r"/var/www/html/ademnea_website/public/new_hivevideos" #Enter the path of the folder that receives hive videos

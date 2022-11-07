@@ -40,8 +40,8 @@ class Handler(FileSystemEventHandler):
             insert_audio(filename, audio) #first insert audio path into DB 
 
             #SECOND TRANSFER TO ANOTHER FOLDER 
-            src = folder_to_track + '\\' + audio
-            new_dest = folder_destination + '\\' + audio
+            src = folder_to_track + '/' + audio
+            new_dest = folder_destination + '/' + audio
             shutil.move(src, new_dest)
 
 folder_to_track = r"/var/www/html/ademnea_website/public/new_hiveaudios" #Enter the path of the folder that receives hive audios

@@ -39,8 +39,8 @@ class Handler(FileSystemEventHandler):
             insert_photo(filename, photo) #first insert photo path into DB 
 
             #SECOND TRANSFER TO ANOTHER FOLDER 
-            src = folder_to_track + '\\' + photo
-            new_dest = folder_destination + '\\' + photo
+            src = folder_to_track + '/' + photo
+            new_dest = folder_destination + '/' + photo
             shutil.move(src, new_dest)
 
 folder_to_track = r"/var/www/html/ademnea_website/public/new_hiveimages" #Enter the path of the folder that receives hive images

@@ -11,7 +11,7 @@ def insert_parameters(filename, folder_to_track):
 
     #EXTRACTING DB DETAILS FROM NAME(hiveid.csv)
     hive_id = filename.split(".")[0]
-    filepath = folder_to_track + '\\' + filename
+    filepath = folder_to_track + '/' + filename
 
     #DB INSERTION
     with open(filepath) as file_obj:

@@ -1,4 +1,5 @@
 import shutil
+import time
 import register_media
 
 def insert_photo(photo, filename):
@@ -33,6 +34,7 @@ def reg(filename, source_folder):
         insert_photo(filename, photo) #insert image path into DB 
 
         #TRANSFER TO ANOTHER FOLDER 
+        time.sleep(10) #delay for 10 seconds while pi confirms receipt of media
         src = source_folder + '/' + photo
         new_dest = folder_destination + '/' + photo
         shutil.move(src, new_dest)

@@ -1,5 +1,6 @@
 import os
 import csv
+import time
 import register_media
 import traceback
 
@@ -52,6 +53,8 @@ def reg(filename, folder_to_track):
         insert_parameters(filename, folder_to_track) 
     except:
         traceback.print_exc()
+
+    time.sleep(10) #delay for 10 seconds while pi confirms receipt of media
     os.remove(folder_to_track + '/' + filename)  #DELETE THE CSV
 
 

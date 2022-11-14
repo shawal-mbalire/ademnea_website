@@ -1,5 +1,6 @@
 import shutil
 import register_media
+import time
 
 def insert_audio(audio, filename):
 
@@ -34,6 +35,7 @@ def reg(filename, source_folder):
         insert_audio(filename, audio) #insert audio path into DB 
 
         #TRANSFER TO ANOTHER FOLDER 
+        time.sleep(10) #delay for 10 seconds while pi confirms receipt of media
         src = source_folder + '/' + audio
         new_dest = folder_destination + '/' + audio
         shutil.move(src, new_dest)

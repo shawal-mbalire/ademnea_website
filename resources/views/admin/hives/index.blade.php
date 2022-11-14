@@ -105,7 +105,7 @@
                                         <td>
                                             <a href="{{ url('/admin/hive/' . $item->id) }}" title="View Farm"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/hive/' . $item->id . '/edit') }}" title="Edit Farm"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                            <a href="{{ url('/admin/hive/' . $item->id . '/hive') }}" title="Display Farm Hives"><button class="button1"><i class="" aria-hidden="true"></i> Hives</button></a>
+                                            <a href="{{ url('/hive_data/' . $item->id) }}" title="Display Hives Data"><button class="button1"><i class="" aria-hidden="true"></i> Hive Data</button></a>
 
 
 

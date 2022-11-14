@@ -46,7 +46,9 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/carbondioxidedata', 'App\Http\Controllers\Admin\HiveCarbondioxideController');
 });
 
-Route::get('/individual_newsletter/{id}',  [App\Http\Controllers\DisplayIndividualNewsletterController::class, 'show']);
+Route::get('/hive_data/{id}', [App\Http\Controllers\HiveDataController::class, 'hiveData']);
+
+Route::get('/individual_newsletter/{id}', [App\Http\Controllers\DisplayIndividualNewsletterController::class, 'show']);
 
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);

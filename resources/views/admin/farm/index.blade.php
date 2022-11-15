@@ -83,9 +83,9 @@
                                 @foreach($farm as $item)
                                     <tr>
                                         <td>{{ $count}}</td>
-                                        <td>{{ $item->ownerId }}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->adress }}</td>
+                                        <td>{{ $item->ownerId }}</td>
+                                        <td>{{ $item->address }}</td>
                                         <td>{{ $item->district }}</td>                                        
                                         <td>
                                             <a href="{{ url('/admin/farm/' . $item->id) }}" title="View Farm"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

@@ -93,7 +93,8 @@
                                                       ON hives.farm_id = farms.id
                                                       WHERE hives.id = ?", [$item->id]);
 
-                                                   echo  $farm_name[0] -> farm;
+                                                //    echo  $farm_name[0] -> farm;
+                                                   echo  $farm_name;
                                                    
                                             ?>                               
                                         </td>

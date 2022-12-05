@@ -37,6 +37,7 @@ def reconstruct(str):
 #This class will register all incoming media
 class Handler(FileSystemEventHandler):
     def on_modified(self, event):
+        time.sleep(10) #delay for 10 seconds while pi confirms receipt of media
         for filename in os.listdir(folder_to_track):
             media_flag = filename[-3:]
             if media_flag == "wav":

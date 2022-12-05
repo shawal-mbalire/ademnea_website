@@ -34,7 +34,6 @@ def reg(filename, source_folder):
         insert_video(filename, video) #insert video path into DB 
 
         #TRANSFER TO ANOTHER FOLDER 
-        time.sleep(10) #delay for 10 seconds while pi confirms receipt of media
         src = source_folder + '/' + video
         new_dest = folder_destination + '/' + video
         shutil.move(src, new_dest)

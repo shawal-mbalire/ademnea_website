@@ -86,14 +86,14 @@
                                         <td>{{ $item->ownerId }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->adress }}</td>
-                                        <td>{{ $item->district }}</td>                                        
+                                        <td>{{ $item->district }}</td>
                                         <td>
                                             <a href="{{ url('/admin/farm/' . $item->id) }}" title="View Farm"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/farm/' . $item->id . '/edit') }}" title="Edit Farm"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
-                                            
+
                                             <a href="/admin/hive" title="Display Farm Hives"><button class="button1"><i class="" aria-hidden="true"></i> Hives</button></a>
-                        
+
 
                                             <form method="POST" action="{{ url('/admin/farm' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}

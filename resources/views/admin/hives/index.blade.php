@@ -108,6 +108,19 @@
                                             <a href="{{ url('/hive_data/' . $item->id) }}" title="Display Hives Data"><button class="button1"><i class="" aria-hidden="true"></i> Hive Data</button></a>
 
 
+                                            {{-- <div class="dropdown">
+                                                <button class="dropbtn">More Data</button>
+                                                <div class="dropdown-content">
+                                                    <a href="{{ url('/admin/photodata') }}">Photos</a>
+                                                  <a href="{{ url('/admin/videodata') }}">Video Data</a>
+                                                  <a href="{{ url('/admin/audiodata') }}">Audio Data</a>
+                                                  <a href="{{ url('/admin/temperaturedata') }}">Temperatures</a>
+                                                  <a href="{{ url('/admin/humiditydata') }}">Hive Humidity</a>
+                                                  <a href="{{ url('/admin/weightdata') }}">Hive Weights</a>
+                                                  <a href="{{ url('/admin/carbondioxidedata') }}">Carbiondioxide Levels</a>
+                                                </div>
+                                              </div> --}}
+
 
                                             <form method="POST" action="{{ url('/admin/hive' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}

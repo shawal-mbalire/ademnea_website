@@ -127,7 +127,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Record</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>#</th><th>Hive Id</th><th>Honey</th><th>Brood</th><th>Climate</th><th>Date Created</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,8 +137,10 @@
                                 @foreach($temperatures as $temperature)
                                     <tr>
                                         <td>{{ $count }}</td>
-                                        <td>{{ $temperature->record }}</td>
                                         <td>{{ $temperature->hive_id }}</td>   
+                                        <td>{{ explode('*', $temperature->record)[0] }}</td>
+                                        <td>{{ explode('*', $temperature->record)[1] }}</td>
+                                        <td>{{ explode('*', $temperature->record)[2] }}</td>
                                         <td>{{ $temperature->created_at }}</td>                                     
                                     </tr>
                                     @php

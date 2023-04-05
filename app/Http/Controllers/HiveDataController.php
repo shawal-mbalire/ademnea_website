@@ -120,13 +120,13 @@ foreach ($hiveHumidityRecords as $record) {
 $Hchart = new HiveDataChart;
 $Hchart->labels($labels);
 
-$Hchart->dataset('Humidity', 'line', $hiveHumidityHoney)
+$Hchart->dataset('Honey', 'line', $hiveHumidityHoney)
       ->Color('blue')->options(['backgroundColor' => 'transparent']);
 
-$Hchart->dataset('Temperature', 'line', $hiveHumidityBrood)
+$Hchart->dataset('Brood', 'line', $hiveHumidityBrood)
       ->Color('red')->options(['backgroundColor' => 'transparent']);
 
-$Hchart->dataset('Pressure', 'line', $hiveHumidityClimate)
+$Hchart->dataset('Climate', 'line', $hiveHumidityClimate)
       ->Color('green')->options(['backgroundColor' => 'transparent']);
 
 

@@ -34,7 +34,41 @@ class HiveDataController extends Controller
 
     public function hiveData($id) {
 
-    $hiveTemperature = HiveTemperature::pluck('record', 'created_at');
+        $hiveTemperatureRecords = HiveTemperature::select('created_at', 'record')->get();
+
+$hiveTemperatureHoney = [];
+$hiveTemperatureBrood = [];
+$hiveTemperatureClimate = [];
+$labels = [];
+
+foreach ($hiveTemperatureRecords as $record) {
+    $dataArray = explode('*', $record->record);
+
+    // Skip record if any value in $dataArray equals 2
+    if (in_array('2', $dataArray)) {
+        continue;
+    }
+
+    $hiveTemperatureHoney[] = $dataArray[0];
+    $hiveTemperatureBrood[] = $dataArray[1];
+    $hiveTemperatureClimate[] = $dataArray[2];
+    $labels[] = $record->created_at;
+}
+
+$Tchart = new HiveDataChart;
+$Tchart->labels($labels);
+
+$Tchart->dataset('Honey', 'line', $hiveTemperatureHoney)
+      ->Color('blue')->options(['backgroundColor' => 'transparent']);
+
+$Tchart->dataset('Brood', 'line', $hiveTemperatureBrood)
+      ->Color('red')->options(['backgroundColor' => 'transparent']);
+
+$Tchart->dataset('Climate', 'line', $hiveTemperatureClimate)
+      ->Color('green')->options(['backgroundColor' => 'transparent']);
+
+
+//          $hiveTemperature = HiveTemperature::pluck('record', 'created_at');
     // $hiveTemp = HiveTemperature::findorfail($id);
 
     // $hiveTemperature = $hiveTemp::pluck('record', 'created_at');
@@ -45,27 +79,75 @@ class HiveDataController extends Controller
     // return $hiveTemperature->keys();
     // return $hiveTemperature->values();
 
-    $Tchart = new HiveDataChart;
+    //       $Tchart = new HiveDataChart;
 
-    $Tchart->labels($hiveTemperature->keys());
+//           $Tchart->labels($hiveTemperature->keys());
 
     //$Tchart->dataset('Temperature', 'line', $hiveTemperature->values());
 
-    $Tchart->dataset('Temperature', 'line', $hiveTemperature->values())->Color('green')->options(['backgroundColor' => 'transparent']);
+    //      $Tchart->dataset('Temperature', 'line', $hiveTemperature->values())->Color('green')->options(['backgroundColor' => 'transparent']);
 
-    $hiveHumidity = HiveHumidity::pluck('record', 'created_at');
+      $hiveHumidityRecords = HiveHumidity::select('created_at', 'record')->get();
+
+$hiveHumidityHoney = [];
+$hiveHumidityBrood = [];
+$hiveHumidityClimate = [];
+$labels = [];
+
+foreach ($hiveHumidityRecords as $record) {
+    $dataArray = explode('*', $record->record);
+
+    // Skip record if any value in $dataArray equals 2
+    if (in_array('2', $dataArray)) {
+        continue;
+    }
+
+    $hiveHumidityHoney[] = $dataArray[0];
+    $hiveHumidityBrood[] = $dataArray[1];
+    $hiveHumidityClimate[] = $dataArray[2];
+
+    // check if the value in the record is 2, skip the current record if true
+    // if ($hiveHumidityHoney == 2 || $hiveHumidityBrood == 2 || $hiveHumidityClimate == 2) {
+    //     continue;
+    // }
+
+    // $hiveHumidityHoney[] = $hiveHumidityHoney;
+    // $hiveHumidityBrood[] = $hiveHumidityBrood;
+    // $hiveHumidityClimate[] = $hiveHumidityClimate;
+    $labels[] = $record->created_at;
+}
+
+$Hchart = new HiveDataChart;
+$Hchart->labels($labels);
+
+$Hchart->dataset('Humidity', 'line', $hiveHumidityHoney)
+      ->Color('blue')->options(['backgroundColor' => 'transparent']);
+
+$Hchart->dataset('Temperature', 'line', $hiveHumidityBrood)
+      ->Color('red')->options(['backgroundColor' => 'transparent']);
+
+$Hchart->dataset('Pressure', 'line', $hiveHumidityClimate)
+      ->Color('green')->options(['backgroundColor' => 'transparent']);
+
+
+
+
+
+
+    //     $hiveHumidity = HiveHumidity::pluck('record', 'created_at');
     // $hiveHum = HiveTemperature::findorfail($id);
 
     // $hiveHumidity = $hiveHum::pluck('record', 'created_at');
 
 
-    $Hchart = new HiveDataChart;
+    //    $Hchart = new HiveDataChart;
 
-    $Hchart->labels($hiveHumidity->keys());
+    //    $Hchart->labels($hiveHumidity->keys());
 
     //$Hchart->dataset('Humidity', 'line', $hiveHumidity->values());
 
-    $Hchart->dataset('Humidity', 'line', $hiveHumidity->values())->Color('blue')->options(['backgroundColor' => 'transparent']);
+    //     $Hchart->dataset('Humidity', 'line', $hiveHumidity->values())->Color('blue')->options(['backgroundColor' => 'transparent']);
+    //$Hchart->dataset('Humidity', 'line', $hiveHumidity->values())->Color('red')->options(['backgroundColor' => 'transparent']);
 
     //->backgroundColor('red')
 

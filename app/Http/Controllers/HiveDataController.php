@@ -55,17 +55,62 @@ foreach ($hiveTemperatureRecords as $record) {
     $labels[] = $record->created_at;
 }
 
+
 $Tchart = new HiveDataChart;
 $Tchart->labels($labels);
 
 $Tchart->dataset('Honey', 'line', $hiveTemperatureHoney)
-      ->Color('blue')->options(['backgroundColor' => 'transparent']);
+      ->Color('blue')
+      ->options([
+        'backgroundColor' => 'transparent',
+         'lineTension' => 0,
+         'pointRadius' => 2, // Set point radius to 1
+         'pointHitRadius' => 5, // Set point hit radius to 5
+         'scales' => [
+            'yAxes' => [[
+                'beginAtZero' => false,
+                'suggestedMin' => '20',
+                'suggestedMax' => '50',
+                'stepSize' => 5
+            ]]
+        ]
+
+      ]);
 
 $Tchart->dataset('Brood', 'line', $hiveTemperatureBrood)
-      ->Color('red')->options(['backgroundColor' => 'transparent']);
+      ->Color('red')
+      ->options([
+        'backgroundColor' => 'transparent',
+         'lineTension' => 0,
+         'pointRadius' => 2, // Set point radius to 1
+         'scales' => [
+            'yAxes' => [[
+                'beginAtZero' => false,
+                'suggestedMin' => '20',
+                'suggestedMax' => '50',
+                'stepSize' => 5
+            ]]
+        ]
+
+      ]);
 
 $Tchart->dataset('Climate', 'line', $hiveTemperatureClimate)
-      ->Color('green')->options(['backgroundColor' => 'transparent']);
+      ->Color('green')
+      ->options([
+        'backgroundColor' => 'transparent',
+         'lineTension' => 0,
+         'pointRadius' => 2, // Set point radius to 1
+         'pointHitRadius' => 5, // Set point hit radius to 5
+         'scales' => [
+            'yAxes' => [[
+                'beginAtZero' => false,
+                'suggestedMin' => '20',
+                'suggestedMax' => '50',
+                'stepSize' => 5
+            ]]
+        ]
+
+      ]);
 
 
 //          $hiveTemperature = HiveTemperature::pluck('record', 'created_at');
@@ -121,13 +166,58 @@ $Hchart = new HiveDataChart;
 $Hchart->labels($labels);
 
 $Hchart->dataset('Honey', 'line', $hiveHumidityHoney)
-      ->Color('blue')->options(['backgroundColor' => 'transparent']);
+      ->Color('blue')
+      ->options([
+        'backgroundColor' => 'transparent',
+         'lineTension' => 0,
+         'pointRadius' => 2, // Set point radius to 1
+         'pointHitRadius' => 5, // Set point hit radius to 5
+         'scales' => [
+            'yAxes' => [[
+                'beginAtZero' => false,
+                'suggestedMin' => '20',
+                'suggestedMax' => '50',
+                'stepSize' => 5
+            ]]
+        ]
+
+      ]);
 
 $Hchart->dataset('Brood', 'line', $hiveHumidityBrood)
-      ->Color('red')->options(['backgroundColor' => 'transparent']);
+      ->Color('red')
+      ->options([
+        'backgroundColor' => 'transparent',
+         'lineTension' => 0,
+         'pointRadius' => 2, // Set point radius to 1
+         'pointHitRadius' => 5, // Set point hit radius to 5
+         'scales' => [
+            'yAxes' => [[
+                'beginAtZero' => false,
+                'suggestedMin' => '20',
+                'suggestedMax' => '50',
+                'stepSize' => 5
+            ]]
+        ]
+
+      ]);
 
 $Hchart->dataset('Climate', 'line', $hiveHumidityClimate)
-      ->Color('green')->options(['backgroundColor' => 'transparent']);
+      ->Color('green')
+      ->options([
+        'backgroundColor' => 'transparent',
+         'lineTension' => 0,
+         'pointRadius' => 2, // Set point radius to 1
+         'pointHitRadius' => 5, // Set point hit radius to 5
+         'scales' => [
+            'yAxes' => [[
+                'beginAtZero' => false,
+                'suggestedMin' => '20',
+                'suggestedMax' => '50',
+                'stepSize' => 5
+            ]]
+        ]
+
+      ]);
 
 
 

@@ -17,6 +17,7 @@ class CreateHivesTable extends Migration
             $table->id();
             $table->string('longitude');
             $table->string('latitude');
+            $table->unsignedBigInteger('farm_id'); //shows the farm on which hive is 
             $table->foreign('farm_id')
             ->references('id')->on('farms')
             ->onDelete('cascade');

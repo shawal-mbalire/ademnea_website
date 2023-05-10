@@ -127,7 +127,10 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Video</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>#</th>
+                                        <th>Hive Id</th>
+                                        <th>Video</th>
+                                        <th>Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,6 +140,7 @@
                                 @foreach($videos as $video)
                                     <tr>
                                         <td>{{ $count }}</td>
+                                        <td>{{ $video->hive_id }}</td>   
                                         <td>
                                             <video width="300px" height="200px"
                                              controls="controls"/>
@@ -145,7 +149,6 @@
                                                 type="video/mp4">
                                             </video>
                                        </td>    
-                                        <td>{{ $video->hive_id }}</td>   
                                         <td>{{ $video->created_at }}</td>                                     
                                     </tr>
                                     @php

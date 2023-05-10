@@ -127,7 +127,10 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Photos</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>#</th>
+                                        <th>Hive Id</th>
+                                        <th>Photo</th>
+                                        <th>Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,8 +140,8 @@
                                 @foreach($photos as $photo)
                                     <tr>
                                         <td>{{ $count }}</td>
-                                        <td><a href="{{ URL("hiveimage/"."".$photo->path) }}" target="_blank"><img src="{{ URL("hiveimage/"."".$photo->path) }}" alt=""" height="250" width="500"></a></td>
                                         <td>{{ $photo->hive_id }}</td>   
+                                        <td><a href="{{ URL("hiveimage/"."".$photo->path) }}" target="_blank"><img src="{{ URL("hiveimage/"."".$photo->path) }}" alt=""" height="250" width="500"></a></td>
                                         <td>{{ $photo->created_at }}</td>                                     
                                     </tr>
                                     @php

@@ -127,7 +127,10 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Path</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>#</th>
+                                        <th>Hive Id</th>
+                                        <th>Audio</th>
+                                        <th>Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,12 +140,12 @@
                                 @foreach($audios as $audio)
                                     <tr>
                                         <td>{{ $count }}</td>
+                                        <td>{{ $audio->hive_id }}</td>   
                                         <td>
                                             <audio controls>
                                                 <source src="{{ URL("hiveaudio/"."".$audio->path) }}" type="audio/mpeg">           
                                             </audio>
                                         </td>
-                                        <td>{{ $audio->hive_id }}</td>   
                                         <td>{{ $audio->created_at }}</td>                                     
                                     </tr>
                                     @php

@@ -140,7 +140,7 @@
                                     @endphp
                                 @foreach($carbondioxide as $carbondioxide)
                                     <tr>
-                                        <td>{{ $carbondioxide->id }}</td>
+                                        <td>{{ $count }}</td>
                                         <td>{{ $carbondioxide->hive_id }}</td>   
                                         <td>{{ $carbondioxide->record }}</td>
                                         <td>{{ $carbondioxide->created_at }}</td>                                     

@@ -127,7 +127,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Hive Id</th><th>Honey</th><th>Brood</th><th>Climate</th><th>Date Created</th>
+                                        <th>#</th><th>Hive Id</th><th>Honey Section</th><th>Brood Section</th><th>Exterior</th><th>Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>

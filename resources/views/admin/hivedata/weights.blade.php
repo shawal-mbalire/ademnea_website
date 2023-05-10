@@ -127,7 +127,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Record</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>#</th>
+                                        <th>Hive Id</th>
+                                        <th>Weight (kg)</th>
+                                        <th>Date</th>
+                                        </tr>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,8 +141,8 @@
                                 @foreach($weights as $weight)
                                     <tr>
                                         <td>{{ $count }}</td>
-                                        <td>{{ $weight->record }}</td>
                                         <td>{{ $weight->hive_id }}</td>   
+                                        <td>{{ $weight->record }}</td>
                                         <td>{{ $weight->created_at }}</td>                                     
                                     </tr>
                                     @php

@@ -127,7 +127,11 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Record</th><th>Hive Id</th><th>Date Created</th>
+                                        <th>#</th>
+                                        <th>Hive Id</th>
+                                        <th>CO<sub>2</sub> (ppm)</th>
+                                        <th>Date</th>
+                                    </tr>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,8 +141,8 @@
                                 @foreach($carbondioxide as $carbondioxide)
                                     <tr>
                                         <td>{{ $carbondioxide->id }}</td>
-                                        <td>{{ $carbondioxide->record }}</td>
                                         <td>{{ $carbondioxide->hive_id }}</td>   
+                                        <td>{{ $carbondioxide->record }}</td>
                                         <td>{{ $carbondioxide->created_at }}</td>                                     
                                     </tr>
                                     @php

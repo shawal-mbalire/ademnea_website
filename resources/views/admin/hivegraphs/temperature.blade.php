@@ -100,7 +100,7 @@
 <script type="text/javascript">
 $(function() {
 
-  var start = moment().subtract(29, 'days'); //by default , just display data for the last 30 days
+  var start = moment().subtract(14, 'days'); //by default , just display data for the last 30 days
   var end = moment();
   var hiveId = {{ $hive_id }}; 
   var myChart = echarts.init(document.getElementById('chart'));

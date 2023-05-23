@@ -13,7 +13,6 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-/.env
 welcome.html
 home.html
 login.html
@@ -23,7 +22,6 @@ login.html
 /public/images/1629193729-ggg.jpg
 /public/images/1629193765-katamba.jpg
 /public/images/1629193794-WP1.jpg
-.env
 
 database/migrations/2022_09_20_154350_create_audios_table.php
 database/migrations/2022_09_20_154350_create_audios_table.php

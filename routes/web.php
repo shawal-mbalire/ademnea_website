@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\HiveData\HiveDataController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,7 +51,17 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/carbondioxidedata', 'App\Http\Controllers\Admin\HiveCarbondioxideController');
 });
 
-Route::get('/hive_data/{id}', [App\Http\Controllers\HiveDataController::class, 'hiveData']);
+                /* ------------HIVE DATA------------------*/
+                
+/* ------------TEMPERATURE------------------*/
+Route::get('/hive_data/{id}', [App\Http\Controllers\HiveData\HiveDataController::class, 'temperatureDefault']);
+Route::get('hive_data/temperature_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getTemperatureData']);
+Route::get('/hive_data/temperature_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'temperatureDefault']);
+
+/* ------------HUMIDITY------------------*/
+Route::get('/hive_data/humidity_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'humidityDefault']);
+Route::get('/hive_data/humidity_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getTemperatureData']);
+
 
 Route::get('/individual_newsletter/{id}', [App\Http\Controllers\DisplayIndividualNewsletterController::class, 'show']);
 

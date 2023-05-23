@@ -87,6 +87,9 @@
         shadow: none;
         font-weight: bold
     }
+
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" >
+
 </style>
 @section('content')
 <div class="content-wrapper">
@@ -124,10 +127,10 @@
 
                         <br/>
                         <br/>
-                            <table class="table">
+                            <table class="table" id="temperature-table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th> # </th>
                                         <th>Hive Id</th>
                                         <th>Honey Section (°C)</th>
                                         <th>Brood Section (°C)</th>
@@ -161,4 +164,15 @@
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script  type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    <script>
+    // let table = new DataTable('#myTable');
+    $(document).ready(function(){
+        $('temperature-table').DataTable();
+    });
+    </script>
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
 @endsection
+

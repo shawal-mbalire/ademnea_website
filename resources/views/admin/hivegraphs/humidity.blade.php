@@ -154,11 +154,12 @@ $(function() {
                       },
                 yAxis: {
                           type: 'value',
-                          min: 10,
+                          min: 20,
                           max: 100,
                           axisLabel: {
                           formatter: '{value} %'
-                          }
+                          },
+                          splitNumber: 10
                       },
                 series: [
                     {

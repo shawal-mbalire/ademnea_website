@@ -157,7 +157,8 @@ $(function() {
                           max: 40,
                           axisLabel: {
                           formatter: '{value} °C'
-                          }
+                          },
+                          splitNumber: 10
                       },
                 series: [
                     {

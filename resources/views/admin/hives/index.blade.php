@@ -76,7 +76,6 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
                                         <th>Farm</th>
                                         <th>Hive No.</th>
                                         <th>Longitude</th>
@@ -85,12 +84,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
-                                    $count = 1
-                                    @endphp
                                 @foreach($hive as $item)
                                     <tr>
-                                        <td>{{ $count}}</td> 
                                         <td> 
                                             <?php #Displaying the owner's full name for each farm 
                                              
@@ -138,9 +133,6 @@
                                             </form>
                                         </td>
                                     </tr>
-                                    @php
-                                    $count = $count + 1
-                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>

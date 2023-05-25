@@ -129,7 +129,7 @@ $(function() {
         success: function(response) {
             // handle the response data
             myChart.setOption({
-              chart configuration options here
+              // chart configuration options here
                 title: {
                             text: 'Temperatures'
                         },

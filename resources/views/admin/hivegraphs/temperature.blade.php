@@ -165,6 +165,21 @@ $(function() {
                           splitNumber: 10
                       },
                 series: [
+                  {
+                        name: 'Brood Section',
+                        type: 'line',
+                        data: response.broodSection,
+                        markPoint: {
+                                    data: [
+                                          { type: 'max', name: 'Max' },
+                                          { type: 'min', name: 'Min' }
+                                          ]
+                                    },
+                        markLine: {
+                                    data: [{ type: 'average', name: 'Avg' }]
+                                   },
+                                  //  color: 'red' 
+                      },
                     {
                         name: 'Exterior',
                         type: 'line',
@@ -182,35 +197,21 @@ $(function() {
                         // color: 'green' 
                        
                     },
-                    {
-                        name: 'Brood Section',
+                   
+                      {
+                        name: 'Honey Section',
                         type: 'line',
-                        data: response.broodSection,
+                        data: response.honeySection,
                         markPoint: {
-                                    data: [
-                                          { type: 'max', name: 'Max' },
-                                          { type: 'min', name: 'Min' }
-                                          ]
-                                    },
-                        markLine: {
-                                    data: [{ type: 'average', name: 'Avg' }]
-                                   },
-                                  //  color: 'red' 
-                                  },
-                                  {
-                                    name: 'Honey Section',
-                                    type: 'line',
-                                    data: response.honeySection,
-                                    markPoint: {
-                                    data: [
-                                          { type: 'max', name: 'Max' },
-                                          { type: 'min', name: 'Min' }
-                                        ]
-                                      },
-                                      markLine: {
-                                        data: [{ type: 'average', name: 'Avg' }]
-                                      },
-                                      // color: 'blue' 
+                        data: [
+                              { type: 'max', name: 'Max' },
+                              { type: 'min', name: 'Min' }
+                            ]
+                          },
+                          markLine: {
+                            data: [{ type: 'average', name: 'Avg' }]
+                          },
+                          // color: 'blue' 
                     },
                 ]
             });

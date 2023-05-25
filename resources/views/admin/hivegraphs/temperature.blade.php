@@ -69,8 +69,6 @@
             Hive  : <span class="font-extrabold">{{ $hive_id }}</span>
         </h1>
       </div>
-    
-    
 
           <div>
             <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
@@ -131,10 +129,10 @@ $(function() {
         success: function(response) {
             // handle the response data
             myChart.setOption({
-              // chart configuration options here
-                // title: {
-                //             text: 'Temperatures'
-                //         },
+              chart configuration options here
+                title: {
+                            text: 'Temperatures'
+                        },
                 tooltip: {
                           trigger: 'axis'
                       },

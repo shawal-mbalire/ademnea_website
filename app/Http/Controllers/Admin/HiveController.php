@@ -20,7 +20,7 @@ class HiveController extends Controller
     {        
         $perPage = 25;
        
-        $hive = Hive::latest()->paginate($perPage);
+        $hive = Hive::orderBy('id', 'asc')->paginate($perPage);
 
         return view('admin.hives.index', compact('hive'));
     }

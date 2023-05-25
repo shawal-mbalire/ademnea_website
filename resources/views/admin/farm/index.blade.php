@@ -73,7 +73,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Farm Name</th><th>Owner</th><th>Address</th><th>District</th><th>Actions</th>
+                                        <th>#</th><th>Farm Name</th><th>Address</th><th>District</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -84,7 +84,6 @@
                                     <tr>
                                         <td>{{ $count}}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->ownerId }}</td>
                                         <td>{{ $item->address }}</td>
                                         <td>{{ $item->district }}</td>
                                         <td>

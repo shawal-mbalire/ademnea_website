@@ -15,7 +15,13 @@ class HiveDataController extends Controller
     //default view for the graphs page and temperature graphs page
     public function temperatureDefault($id)
     {
-        return view('admin.hivegraphs.temperature', ['hive_id' => $id]); 
+
+        // Get the hive data and also the related farm data.
+        $hive = DB::table('hives')->where('id', $id)->first();
+        $farm = DB::table('farms')->where('id', $hive->farm_id)->first();
+
+        // Pass the hive id and the farm name to the view.
+        return view('admin.hivegraphs.temperature', ['hive_id' => $id, 'farm_name' => $farm->name]);
     }
     
     public function getTemperatureData(Request $request, $hive)
@@ -69,7 +75,12 @@ class HiveDataController extends Controller
      //default view for the  humidity graphs page
      public function humidityDefault($id)
      {
-         return view('admin.hivegraphs.humidity', ['hive_id' => $id]);
+        // Get the hive data and also the related farm data.
+        $hive = DB::table('hives')->where('id', $id)->first();
+        $farm = DB::table('farms')->where('id', $hive->farm_id)->first();
+
+        // Pass the hive id and the farm name to the view.
+        return view('admin.hivegraphs.humidity', ['hive_id' => $id, 'farm_name' => $farm->name]);
      }
 
     public function getHumidityData(Request $request, $hive)

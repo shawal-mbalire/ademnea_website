@@ -76,15 +76,21 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Farm Located</th><th>Longitude</th><th>Latitude</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Farm</th>
+                                        <th>Hive No.</th>
+                                        <th>Longitude</th>
+                                        <th>Latitude</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $count = 1
+                                    @endphp
                                 @foreach($hive as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-
-
+                                        <td>{{ $count}}</td> 
                                         <td> 
                                             <?php #Displaying the owner's full name for each farm 
                                              
@@ -95,8 +101,9 @@
 
                                                    echo  $farm_name[0] -> farm;
                                                    
-                                            ?>                               
+                                            ?>        
                                         </td>
+                                        <td>{{ $item->id }}</td>                       
 
 
                                         <td>{{ $item->longitude }}</td>
@@ -131,6 +138,9 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @php
+                                    $count = $count + 1
+                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>

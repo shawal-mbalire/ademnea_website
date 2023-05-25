@@ -61,10 +61,16 @@
     <main id="main">
 
     <div class='flex flex-row mx-3 space-x-4  items-center justify-between bg-white mt-2'>
-          <div>
-              <h1 class="text-4xl ml-3 font-extrabold leading-none tracking-tight text-gray-200 md:text-5xl lg:text-3xl dark:text-black">
-                Hive {{ $hive_id }} </h1>
-          </div>
+      <div>
+        <h1 class="text-xl ml-3 font-bold leading-none tracking-tight text-gray-200 md:text-2xl lg:text-xl dark:text-black">
+            Farm: <span class="font-extrabold">{{ $farm_name }}</span>
+        </h1>
+        <h1 class="text-xl ml-3 font-bold leading-none tracking-tight text-gray-200 md:text-2xl lg:text-xl dark:text-black mt-2">
+            Hive  : <span class="font-extrabold">{{ $hive_id }}</span>
+        </h1>
+      </div>
+    
+    
 
           <div>
             <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
@@ -95,7 +101,7 @@
             <span></span> <i class="fa fa-caret-down"></i>
             </div>
           </div>
-        </div>
+    </div>
       
 <script type="text/javascript">
 $(function() {
@@ -126,9 +132,9 @@ $(function() {
             // handle the response data
             myChart.setOption({
               // chart configuration options here
-                title: {
-                            text: 'Temperatures'
-                        },
+                // title: {
+                //             text: 'Temperatures'
+                //         },
                 tooltip: {
                           trigger: 'axis'
                       },

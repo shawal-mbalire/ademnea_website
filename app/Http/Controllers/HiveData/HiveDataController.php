@@ -42,23 +42,23 @@ class HiveDataController extends Controller
 
         // Process the data into the format expected by the chart
         $dates = [];
-        $exterior = [];
-        $broodSection = [];
         $honeySection = [];
+        $broodSection = [];
+        $exterior = [];
         
         foreach ($temperatureData as $record) {
             // Assuming the temperature data is stored as 'exterior,brood,honey'
-            list($exteriorTemp, $broodTemp, $honeyTemp) = explode('*', $record->record);
+            list($honeyTemp, $broodTemp, $exteriorTemp) = explode('*', $record->record);
             
             // Turn the "2" values into null
-            $exteriorTemp = $exteriorTemp == 2 ? null : $exteriorTemp;
-            $broodTemp = $broodTemp == 2 ? null : $broodTemp;
             $honeyTemp = $honeyTemp == 2 ? null : $honeyTemp;
+            $broodTemp = $broodTemp == 2 ? null : $broodTemp;
+            $exteriorTemp = $exteriorTemp == 2 ? null : $exteriorTemp;
             
             $dates[] = $record->created_at; // add this line to collect the dates
-            $exterior[] = $exteriorTemp;
-            $broodSection[] = $broodTemp;
             $honeySection[] = $honeyTemp;
+            $broodSection[] = $broodTemp;
+            $exterior[] = $exteriorTemp;
         }
         
         // Return the data as a JSON response

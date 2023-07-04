@@ -96,6 +96,7 @@
     {{-- <div class="row"> --}}
         {{-- <div class="col-sm-12"> --}}
 
+            @include('datanavbar')
             <div class="card">
                         <div class="card-header">
                             TEMPERATURE LEVELS

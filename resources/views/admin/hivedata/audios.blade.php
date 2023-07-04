@@ -1,171 +1,73 @@
 @extends('layouts.app')
+@section('content')
 
-<?php use Illuminate\Support\Facades\DB;?>
-<style>
-    /* Dropdown Button */
-.dropbtn {
-  background-color: hsl(129, 76%, 37%);
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: rgb(223, 208, 208);}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-    .button1{
-        background-color: lightseagreen;
-        color: white;
-        height: 34px;
-        width: 75px;
-        border-radius: 15px;
-        border-color: green;
-        shadow: none;
-        font-weight: bold;
-    }
-
-    .button2{
-        background-color: mediumseagreen;
-        color: white;
-        height: 34px;
-        width: 75px;
-        border-radius: 15px;
-        border-color: green;
-        shadow: none;
-        font-weight: bold;
-    }
-
-    .button3{
-        background-color: seagreen;
-        color: white;
-        height: 34px;
-        width: 85px;
-        border-radius: 15px;
-        border-color: green;
-        shadow: none;
-        font-weight: bold;
-    }
-
-    .button4{
-        background-color: lightseagreen;
-        color: white;
-        height: 40px;
-        width: 100px;
-        border-radius: 5px;
-        border-color: lightseagreen;
-        shadow: none;
-        font-weight: bold
-    }
-</style>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
+@include('datanavbar')
 
-@section('content')
-<div class="content-wrapper">
-    {{-- <div class="row"> --}}
-        {{-- <div class="col-sm-12"> --}}
-
-            @include('datanavbar')
-            <div class="card">
-                        <div class="card-header">
-                            AUDIOS
-                        </div>
-
-                        <div class="card-body">
-                            <div class="dropdown">
-                                <button class="dropbtn">More Data</button>
-                                <div class="dropdown-content">
-                                    <a href="{{ url('/admin/photodata') }}">Photos</a>
-                                  <a href="{{ url('/admin/videodata') }}">Video Data</a>
-                                  <a href="{{ url('/admin/audiodata') }}">Audio Data</a>
-                                  <a href="{{ url('/admin/temperaturedata') }}">Temperatures</a>
-                                  <a href="{{ url('/admin/humiditydata') }}">Hive Humidity</a>
-                                  <a href="{{ url('/admin/weightdata') }}">Hive Weights</a>
-                                  <a href="{{ url('/admin/carbondioxidedata') }}">Carbiondioxide Levels</a>
-                                </div>
-                              </div>
-                        <form method="GET" action="{{ url('/admin/farm') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
-                                <span class="input-group-append">
-                                    <button class="btn btn-secondary" type="submit">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </form>
-
-                        <br/>
-                        <br/>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Hive Id</th>
-                                        <th>Audio</th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php
-                                    $count =  1
-                                    @endphp
-                                @foreach($audios as $audio)
-                                    <tr>
-                                        <td>{{ $count }}</td>
-                                        <td>{{ $audio->hive_id }}</td>   
-                                        <td>
-                                            <audio controls>
-                                                <source src="{{ URL("hiveaudio/"."".$audio->path) }}" type="audio/mpeg">           
-                                            </audio>
-                                        </td>
-                                        <td>{{ $audio->created_at }}</td>                                     
-                                    </tr>
-                                    @php
-                                    $count = $count + 1
-                                    @endphp
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        
+           
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <!-- <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                </th> -->
+                <th scope="col" class="px-6 py-3">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Hive ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Audio
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @php
+            $count =  1
+            @endphp
+        @foreach($audios as $audio)
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <!-- <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{ $count }}
+                </th>
+                <td class="px-6 py-4">
+                {{ $audio->hive_id }}
+                </td>
+                <td class="px-6 py-4">
+                <audio controls>
+                    <source src="{{ URL("hiveaudio/"."".$audio->path) }}" type="audio/mpeg">           
+                </audio>
+                </td>
+                <td class="px-6 py-4">
+                {{ $audio->created_at }}
+                </td>
+                
+            </tr>
+            @php
+                $count = $count + 1
+            @endphp
+            @endforeach 
+        </tbody>
+    </table>
+</div>
+
 @endsection

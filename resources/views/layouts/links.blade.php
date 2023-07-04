@@ -16,3 +16,8 @@
 <link rel="stylesheet" href="{{asset('dash/css/vertical-layout-light/style.css')}}">
 <!-- endinject -->
 <link rel="shortcut icon" href="{{asset('dash/images/logo.png')}}" />
+
+<!-- New Achuka flowbite styles -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />

@@ -1,177 +1,120 @@
-@extends(config('laravelusers.laravelUsersBladeExtended'))
 
-@section('template_title')
-    {!! trans('laravelusers::laravelusers.showing-all-users') !!}
-@endsection
-
-@section('template_linked_css')
-    @if(config('laravelusers.enabledDatatablesJs'))
-        <link rel="stylesheet" type="text/css" href="{{ config('laravelusers.datatablesCssCDN') }}">
-    @endif
-    @if(config('laravelusers.fontAwesomeEnabled'))
-        <link rel="stylesheet" type="text/css" href="{{ config('laravelusers.fontAwesomeCdn') }}">
-    @endif
-    @include('laravelusers::partials.styles')
-    @include('laravelusers::partials.bs-visibility-css')
-@endsection
-
+@extends('layouts.app')
 @section('content')
-    <div class="container">
-        @if(config('laravelusers.enablePackageBootstapAlerts'))
-            <div class="row">
-                <div class="col-sm-12">
-                    @include('laravelusers::partials.form-status')
-                </div>
-            </div>
-        @endif
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {!! trans('laravelusers::laravelusers.showing-all-users') !!}
-                            </span>
 
-                            <div class="btn-group pull-right btn-group-xs">
-                                @if(config('laravelusers.softDeletedEnabled'))
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
-                                        <span class="sr-only">
-                                            {!! trans('laravelusers::laravelusers.users-menu-alt') !!}
-                                        </span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="{{ route('users.create') }}">
-                                                @if(config('laravelusers.fontAwesomeEnabled'))
-                                                    <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
-                                                @endif
-                                                {!! trans('laravelusers::laravelusers.buttons.create-new') !!}
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/users/deleted">
-                                                @if(config('laravelusers.fontAwesomeEnabled'))
-                                                    <i class="fa fa-fw fa-group" aria-hidden="true"></i>
-                                                @endif
-                                                {!! trans('laravelusers::laravelusers.show-deleted-users') !!}
-                                            </a>
-                                        </li>
-                                    </ul>
-                                @else
-                                    <a href="{{ route('users.create') }}" class="btn btn-default btn-sm pull-right" data-toggle="tooltip" data-placement="left" title="{!! trans('laravelusers::laravelusers.tooltips.create-new') !!}">
-                                        @if(config('laravelusers.fontAwesomeEnabled'))
-                                            <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
-                                        @endif
-                                        {!! trans('laravelusers::laravelusers.buttons.create-new') !!}
-                                    </a>
-                                @endif
-                            </div>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="flex items-center justify-between pb-4">
+        <div>
+            <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                <svg class="w-4 h-4 mr-2 text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                Last 30 days
+                <svg class="w-3 h-3 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownRadio" class="z-10 hidden w-48 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="top" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(522.5px, 3847.5px, 0px);">
+                <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownRadioButton">
+                    <li>
+                        <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                            <input id="filter-radio-example-1" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="filter-radio-example-1" class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last day</label>
                         </div>
-                    </div>
-                    <div class="card-body">
-
-                        @if(config('laravelusers.enableSearchUsers'))
-                            @include('laravelusers::partials.search-users-form')
-                        @endif
-
-                        <div class="table-responsive users-table">
-                            <table class="table table-striped table-sm data-table">
-                                <caption id="user_count">
-                                    {!! trans_choice('laravelusers::laravelusers.users-table.caption', 1, ['userscount' => $users->count()]) !!}
-                                </caption>
-                                <thead class="thead">
-                                    <tr>
-                                        <th>{!! trans('laravelusers::laravelusers.users-table.id') !!}</th>
-                                        <th>{!! trans('laravelusers::laravelusers.users-table.name') !!}</th>
-                                        <th class="hidden-xs">{!! trans('laravelusers::laravelusers.users-table.email') !!}</th>
-                                        @if(config('laravelusers.rolesEnabled'))
-                                            <th class="hidden-sm hidden-xs">{!! trans('laravelusers::laravelusers.users-table.role') !!}</th>
-                                        @endif
-                                        <th class="hidden-sm hidden-xs hidden-md">{!! trans('laravelusers::laravelusers.users-table.created') !!}</th>
-                                        <th class="hidden-sm hidden-xs hidden-md">{!! trans('laravelusers::laravelusers.users-table.updated') !!}</th>
-                                        <th class="no-search no-sort">{!! trans('laravelusers::laravelusers.users-table.actions') !!}</th>
-                                        <th class="no-search no-sort"></th>
-                                        <th class="no-search no-sort"></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="users_table">
-                                    @foreach($users as $user)
-                                        <tr>
-                                            <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td class="hidden-xs">{{$user->email}}</td>
-                                            @if(config('laravelusers.rolesEnabled'))
-                                                <td class="hidden-sm hidden-xs">
-                                                    @foreach ($user->roles as $user_role)
-                                                        @if ($user_role->name == 'User')
-                                                            @php $badgeClass = 'primary' @endphp
-                                                        @elseif ($user_role->name == 'Admin')
-                                                            @php $badgeClass = 'warning' @endphp
-                                                        @elseif ($user_role->name == 'Unverified')
-                                                            @php $badgeClass = 'danger' @endphp
-                                                        @else
-                                                            @php $badgeClass = 'dark' @endphp
-                                                        @endif
-                                                        <span class="badge badge-{{$badgeClass}}">{{ $user_role->name }}</span>
-                                                    @endforeach
-                                                </td>
-                                            @endif
-                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->created_at}}</td>
-                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->updated_at}}</td>
-                                            <td>
-                                                {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => trans('laravelusers::laravelusers.tooltips.delete'))) !!}
-                                                    {!! Form::hidden('_method', 'DELETE') !!}
-                                                    {!! Form::button(trans('laravelusers::laravelusers.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => trans('laravelusers::modals.delete_user_title'), 'data-message' => trans('laravelusers::modals.delete_user_message', ['user' => $user->name]))) !!}
-                                                {!! Form::close() !!}
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip" title="{!! trans('laravelusers::laravelusers.tooltips.show') !!}">
-                                                    {!! trans('laravelusers::laravelusers.buttons.show') !!}
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="{!! trans('laravelusers::laravelusers.tooltips.edit') !!}">
-                                                    {!! trans('laravelusers::laravelusers.buttons.edit') !!}
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                                @if(config('laravelusers.enableSearchUsers'))
-                                    <tbody id="search_results"></tbody>
-                                @endif
-                            </table>
-
-                            @if($pagintaionEnabled)
-                                {{ $users->links() }}
-                            @endif
-
+                    </li>
+                    <li>
+                        <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                            <input checked="" id="filter-radio-example-2" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="filter-radio-example-2" class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last 7 days</label>
                         </div>
-                    </div>
-
-                </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                            <input id="filter-radio-example-3" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="filter-radio-example-3" class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last 30 days</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                            <input id="filter-radio-example-4" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="filter-radio-example-4" class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last month</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                            <input id="filter-radio-example-5" type="radio" value="" name="filter-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="filter-radio-example-5" class="w-full ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Last year</label>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
+        <label for="table-search" class="sr-only">Search</label>
+        <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+            </div>
+            <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
+        </div>
     </div>
-
-    @include('laravelusers::modals.modal-delete')
-
-@endsection
-
-@section('template_scripts')
-    @if ((count($users) > config('laravelusers.datatablesJsStartCount')) && config('laravelusers.enabledDatatablesJs'))
-        @include('laravelusers::scripts.datatables')
-    @endif
-    @include('laravelusers::scripts.delete-modal-script')
-    @include('laravelusers::scripts.save-modal-script')
-    @if(config('laravelusers.tooltipsEnabled'))
-        @include('laravelusers::scripts.tooltips')
-    @endif
-    @if(config('laravelusers.enableSearchUsers'))
-        @include('laravelusers::scripts.search-users')
-    @endif
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <!-- <th scope="col" class="p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                    </div>
+                </th> -->
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Created
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Updated
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach($users as $user)
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <!-- <td class="w-4 p-4">
+                    <div class="flex items-center">
+                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                    </div>
+                </td> -->
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{$user->id}}
+                </th>
+                <td class="px-6 py-4">
+                {{$user->name}}
+                </td>
+                <td class="px-6 py-4">
+                {{$user->email}}
+                </td>
+                <td class="px-6 py-4">
+                {{$user->created_at}}
+                </td>
+                <td class="px-6 py-4">
+                {{$user->updated_at}}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 @endsection

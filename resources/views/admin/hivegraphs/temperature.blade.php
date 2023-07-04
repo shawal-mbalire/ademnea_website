@@ -1,66 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
+@section('content')
 
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Adaptive Environmental Monitoring Networks for East Africa</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+<div class="relative ">
 
-    <!-- Favicons -->
-    <link href="assets/img/logo.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
-
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
-   
-    <style>
-        #collapseExample.collapse:not(.show) {
-            display: block;
-            height: 3rem;
-            overflow: hidden;
-        }
-
-        #collapseExample.collapsing {
-            height: 3rem;
-        }
-
-    </style>
-    
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
-    @include('website.links')
-
-    <!-- =======================================================
-  * Template Name: Green - v4.3.0
-  * Template URL: https://bootstrapmade.com/green-free-one-page-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-  
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="
-    https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js
-    "></script>
-
-    
-  
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
+<body>
 
-<body class='bg-gray-200'>
 
-    <main id="main">
+ <div class="flex flex-row space-x-4 mt-10 items-center justify-center h-16 mb-4 rounded bg-gray-200 dark:bg-gray-800">
+         
+         <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Graphs <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+<!-- Dropdown menu -->
+<div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Temperature</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Humidity</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Carbondioxide</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Weight</a>
+      </li>
+    </ul>
+</div>
 
-    <div class='flex flex-row mx-3 space-x-4  items-center justify-between bg-white mt-2'>
+<button id="dropdownHoverButton2" data-dropdown-toggle="dropdownHover2" data-dropdown-trigger="hover" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Raw Data<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+<!-- Dropdown menu -->
+<div id="dropdownHover2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton2">
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Temperature</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Humidity</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Carbondioxide</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Weight</a>
+      </li>
+    </ul>
+</div>
+
+<button id="dropdownHoverButton3" data-dropdown-toggle="dropdownHover3" data-dropdown-trigger="hover" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Media<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+<!-- Dropdown menu -->
+<div id="dropdownHover3" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton3">
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Audio</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Video</a>
+      </li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Images</a>
+      </li>
+    </ul>
+</div>
+
+
+  </div>
+ 
+
+
+<!-- Date range picker -->
+ <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+    <i class="fa fa-calendar"></i>&nbsp;
+    <span></span> <i class="fa fa-caret-down"></i>
+</div>
+
+<script type="text/javascript">
+$(function() {
+
+    var start = moment().subtract(29, 'days');
+    var end = moment();
+
+    function cb(start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    }
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+           'Today': [moment(), moment()],
+           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+           'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+           'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+           'This Month': [moment().startOf('month'), moment().endOf('month')],
+           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, cb);
+
+    cb(start, end);
+
+});
+</script>
+</body>
+
+    
+  <div class='flex flex-row mx-3 space-x-4  items-center justify-between bg-red-200 mt-2'>
       <div>
         <h1 class="text-xl ml-3 font-bold leading-none tracking-tight text-gray-200 md:text-2xl lg:text-xl dark:text-black">
             Farm: <span class="font-extrabold">{{ $farm_name }}</span>
@@ -94,14 +143,15 @@
           <div class='mb-2'>
             <h3 class='mx-3 font-bold py-2'>Select a date-range</h3>
                 <!-- Date picker -->
-            <div id="reportrange" style="background: #ffffff; cursor: pointer; padding: 5px 10px; border: 1px solid #0fc90f; width: 260px" class='mx-3'>
+            <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #0fc90f; width: 260px" class='mx-3'>
             <i class="fa fa-calendar"></i>&nbsp;
             <span></span> <i class="fa fa-caret-down"></i>
             </div>
           </div>
     </div>
-      
-<script type="text/javascript">
+
+    <!-- Display the temperature graph -->
+    <script type="text/javascript">
 $(function() {
 
   var start = moment().subtract(1, 'days'); //by default , just display data for the last 30 days
@@ -236,200 +286,15 @@ cb(start, end);
 </script>
 
 
-        <div class='bg-white mx-3 p-1 mt-2'>
+        <div class='bg-blue-400 mx-3 p-1 mt-2'>
               <div id="chart" style="width: 100%; height: 480px;" class='p-2'></div>
                 <script>
                 // JavaScript code to create and configure the chart
                 var myChart = echarts.init(document.getElementById('chart'));
                 </script>
         </div>
-     
-
-    <!-- <div class='bg-white mx-3 p-1'>
-    <div id="chart2" style="width: 100%; height: 400px;" class='p-3'></div>
-    <script>
-      // JavaScript code to create and configure the chart
-      var myChart = echarts.init(document.getElementById('chart2'));
-      myChart.setOption({
-        title: {
-        text: 'Temperature-Humidity change graph'
-    },
-        tooltip: {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'cross',
-      crossStyle: {
-        color: '#999'
-      }
-    }
-  },
-  toolbox: {
-    feature: {
-      dataView: { show: false, readOnly: false },
-      magicType: { show: false, type: ['line', 'line'] },
-      restore: { show: false },
-      saveAsImage: { show: false }
-    }
-  },
-  legend: {
-    data: [ 'Humidy', 'Temperature']
-  },
-  xAxis: [
-    {
-      type: 'category',
-      data: ['Aug 5', 'Aug 6', 'Aug 7', 'Aug 8', 'Aug 9', 'Aug 10', 'Aug 11', 'Aug 12', 'Aug 13', 'Aug 14', 'Aug 15', 'Aug 16', 'Aug 17', 'Aug 18', 'Aug 19'],
-      axisPointer: {
-        type: 'shadow'
-      }
-    }
-  ],
-  yAxis: [
-        {
-      type: 'value',
-      name: 'Humidity',
-      min: 50,
-      max: 100,
-      interval: 10,
-      axisLabel: {
-        formatter: '{value}%'
-      }
-    },
-    {
-      type: 'value',
-      name: 'Temperature',
-      min: 15,
-      max: 40,
-      axisLabel: {
-        formatter: '{value} °C'
-      }
-    }
-  ],
-  series: [
-    {
-      name: 'Humidity',
-      type: 'line',
-      showSymbol: false,
-      tooltip: {
-        valueFormatter: function (value) {
-          return value + '%';
-        }
-      },
-      data: [
-        60, 65, 70, 75, 80, 85, 80, 75, 70, 65, 60, 55,60, 65, 70, 75, 80, 85, 80, 75, 70,
-      ]
-    },
-    {
-      name: 'Temperature',
-      type: 'line',
-      showSymbol: false,
-      yAxisIndex: 1,
-      tooltip: {
-        valueFormatter: function (value) {
-          return value + ' °C';
-        }
-      },
-      data: [25, 28, 27, 26, 24,25, 28, 27, 26, 24,25, 28, 27, 26, 24,25, 28, 27, 26, 24,23,25]
-    }
-  ]
-      });
-    </script>
-  </div>
-            
-
-  <div class='bg-white mx-3 p-1 my-2'>
-  <div id="chart3" style="width: 100%; height: 400px;" class='p-3'></div>
-    <script>
-      // JavaScript code to create and configure the chart
-      var myChart = echarts.init(document.getElementById('chart3'));
-
-      // Sample data for weight of bee hive over time
-    const weightData = [
-    { time: '2022-01-01 12:00:00', weight: 20.5 },
-    { time: '2022-01-01 12:15:00', weight: 20.2 },
-    { time: '2022-01-01 12:30:00', weight: 21.0 },
-    { time: '2022-01-01 12:45:00', weight: 21.2 },
-    { time: '2022-01-01 13:00:00', weight: 21.5 },
-    { time: '2022-01-01 13:15:00', weight: 20.8 },
-    { time: '2022-01-01 13:30:00', weight: 20.2 },
-    { time: '2022-01-01 13:45:00', weight: 19.7 },
-    { time: '2022-01-01 14:00:00', weight: 19.5 },
-    { time: '2022-01-01 14:15:00', weight: 19.3 }
-    ];
-
-    // Extract time and weight data
-    const timeData = weightData.map(data => data.time);
-    const weightValues = weightData.map(data => data.weight);
-
-      myChart.setOption({
-        title: {
-        text: 'Bee Hive weight (kg)  graph'
-    },
-        xAxis: {
-        type: 'category',
-        data: timeData
-    },
-    yAxis: {
-        type: 'value',
-        min: 15,
-        max: 25,
-        interval: 1,
-    },
-    series: [
-        {
-        data: weightValues,
-        type: 'line'
-        }
-    ]
-      });
-    </script>
-  </div>
-
-  <div class='bg-white mx-3 p-1 my-2'>
-  <div id="chart4" style="width: 100%; height: 400px;" class='p-3'></div>
-    <script>
-      // JavaScript code to create and configure the chart
-      var myChart = echarts.init(document.getElementById('chart4'));
-        
-      myChart.setOption({
-        title: {
-        text: 'CO2 Concentration Over Time'
-    },
-    xAxis: {
-        type: 'time'
-    },
-    yAxis: {
-        type: 'value',
-        name: 'CO2 Concentration (ppm)'
-    },
-    series: [{
-        type: 'line',
-        data: [
-            ['2022-05-01 00:00:00', 400],
-            ['2022-05-01 01:00:00', 420],
-            ['2022-05-01 02:00:00', 450],
-            ['2022-05-01 03:00:00', 480],
-            ['2022-05-01 04:00:00', 500],
-            ['2022-05-01 05:00:00', 490],
-            ['2022-05-01 06:00:00', 470]
-        ]
-    }]
-      });
-    </script>
-  </div>
-    
- -->
 
 
-    <!-- ======= Footer ======= -->
-    @include('website.footer')
-    <!-- End Footer -->
+</div>
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    @include('website.scripts')
-
-
-</body>
-
-</html>
+@endsection

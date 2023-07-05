@@ -8,6 +8,10 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+<script src="
+https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js
+"></script>
+
 </head>
 <body>
 
@@ -153,7 +157,7 @@ cb(start, end);
 </script>
 
 
-        <div class='bg-red-100 mx-3 p-1 mt-2'>
+        <div class='bg-white mx-3 p-1 mt-2'>
               <div id="chart" style="width: 100%; height: 480px;" class='p-2'></div>
                 <script>
                 // JavaScript code to create and configure the chart

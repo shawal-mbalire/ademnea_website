@@ -11,7 +11,7 @@
                   <a href="{{ url('/hive_data/temperature_data_default/' . $hive_id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Temperature</a>
                 </li>
                 <li>
-                  <a href="{{ url('/hive_data/humidity_data_default/' . $hive_id) }}"" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Humidity</a>
+                  <a href="{{ url('/hive_data/humidity_data_default/' . $hive_id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Humidity</a>
                 </li>
                 <li>
                   <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Carbondioxide</a>
@@ -68,7 +68,7 @@
  <!-- Choose date range -->
 <div class="flex flex-row space-x-4 mt-10 items-center justify-between h-16 mb-4 rounded bg-gray-200 dark:bg-gray-800">
     <div>
-            <h3 class='mx-2 font-bold py-1'>Farm: <span class="font-extrabold">{{ $farm_name }}</span></h3>
+            
             <h3 class='mx-2 font-bold py-1'>Hive  : <span class="font-extrabold">{{ $hive_id }}</span></h3>
     </div>
 

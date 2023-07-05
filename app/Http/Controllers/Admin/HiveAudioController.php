@@ -17,9 +17,13 @@ class HiveAudioController extends Controller
      */
     public function index(Request $request)
     {        
-        $perPage = 30;
+        $hiveId = $request->query('hive_id');
+
+        // return $hiveId;
        
-        $audios = HiveAudio::latest()->paginate($perPage);
+        $audios = HiveAudio::where('hive_id', $hiveId)->get();
+       
+       // $audios = HiveAudio::latest()->paginate($perPage);
 
         return view('admin.hivedata.audios', compact('audios'));
     }

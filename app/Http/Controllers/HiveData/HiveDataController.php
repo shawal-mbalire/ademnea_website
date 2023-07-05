@@ -189,5 +189,14 @@ class HiveDataController extends Controller
              // 'honeySection' => $honeySection,
          ]);
      }
+
+     public function tempHumidity_default($id){
+                // Get the hive data and also the related farm data.
+                $hive = DB::table('hives')->where('id', $id)->first();
+                $farm = DB::table('farms')->where('id', $hive->farm_id)->first();
+        
+                // Pass the hive id and the farm name to the view.
+                return view('admin.hivegraphs.weight', ['hive_id' => $id, 'farm_name' => $farm->name]);
+     }
    
 }

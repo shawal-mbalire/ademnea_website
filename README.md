@@ -35,6 +35,29 @@ Species Monitoring across wild and agricultural landscapes. It is anticipated to
 increasing Agricultural yields in the partner countries.
 
 
+# DEPLOYING SCRIPTS THAT RECEIVE MEDIA FROM RASPBERRY PI ON THE SERVER
+
+1. Install python watchdog using the command below;
+
+      ```pip install watchdog``` 
+      
+3. Go to MODULES\register_media.py , under the function "database_connection()" and  edit this line accordingly;
+
+   ``` mydb = mysql.connector.connect(host = " ", user = " ", passwd = " ", database = " ")``` 
+  
+3. Go to MODULES\register_hiveaudios.py , edit these lines below accordingly 
+    
+    i.e Enter the path of the folder that receives hive audios here.
+   ```folder_to_track = r" " ```                                                                                                                                                    
+    i.e Enter the path of the laravel folder linked to hive audios here.
+   ```folder_destination = r" " ```
+      
+4. Repeat step 3 for register_hiveimages.py and register_hivevideos.py
+
+5. Open register_hivetemp_hivehumidity.py , edit line 56 as per the directive in its comment.
+
+6. Finally, run the file register_media.py, it will run all the other scripts in turn.
+
 
 
 

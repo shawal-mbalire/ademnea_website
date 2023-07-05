@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\HiveData\HiveDataController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,12 +36,34 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/team', 'App\Http\Controllers\Admin\TeamController');
     Route::resource('admin/publication', 'App\Http\Controllers\Admin\PublicationController');
     Route::resource('admin/newsletter', 'App\Http\Controllers\Admin\NewsletterController');
-    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');   
-    Route::resource('admin/research-profile', 'App\Http\Controllers\Admin\ResearchProfileController'); 
+    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');
+    Route::resource('admin/research-profile', 'App\Http\Controllers\Admin\ResearchProfileController');
     Route::resource('admin/farm', 'App\Http\Controllers\Admin\FarmController');
     Route::resource('admin/farmer', 'App\Http\Controllers\Admin\FarmerController');
+    Route::resource('admin/hive', 'App\Http\Controllers\Admin\HiveController');
     Route::resource('admin/hivedata', 'App\Http\Controllers\Admin\HiveDataController');
+    Route::resource('admin/videodata', 'App\Http\Controllers\Admin\HiveVideoController');
+    Route::resource('admin/photodata', 'App\Http\Controllers\Admin\HivePhotoController');
+    Route::resource('admin/audiodata', 'App\Http\Controllers\Admin\HiveAudioController');
+    Route::resource('admin/temperaturedata', 'App\Http\Controllers\Admin\HiveTemperatureController');
+    Route::resource('admin/humiditydata', 'App\Http\Controllers\Admin\HiveHumidityController');
+    Route::resource('admin/weightdata', 'App\Http\Controllers\Admin\HiveWeightController');
+    Route::resource('admin/carbondioxidedata', 'App\Http\Controllers\Admin\HiveCarbondioxideController');
 });
+
+                /* ------------HIVE DATA------------------*/
+                
+/* ------------TEMPERATURE------------------*/
+Route::get('/hive_data/{id}', [App\Http\Controllers\HiveData\HiveDataController::class, 'temperatureDefault']);
+Route::get('hive_data/temperature_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getTemperatureData']);
+Route::get('/hive_data/temperature_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'temperatureDefault']);
+
+/* ------------HUMIDITY------------------*/
+Route::get('/hive_data/humidity_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'humidityDefault']);
+Route::get('/hive_data/humidity_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getTemperatureData']);
+
+
+Route::get('/individual_newsletter/{id}', [App\Http\Controllers\DisplayIndividualNewsletterController::class, 'show']);
 
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);

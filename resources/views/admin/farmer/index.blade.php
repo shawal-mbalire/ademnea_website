@@ -54,7 +54,7 @@
                     <div class="card-header">Farmers</div>
                     <div class="card-body">
                         <a href="{{ url('/admin/farmer/create') }}" class="btn btn-success btn-sm" title="Add New Farmer">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New Farmer
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
                         <form method="GET" action="{{ url('/admin/farm') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
@@ -74,30 +74,34 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Name</th><th>Gender</th><th>Email</th><th>Telephone</th><th>Address</th><th>Actions</th>
+                                        <th>#</th><th>Name</th><th>Gender</th><th>Email</th><th>Telephone</th><th>Address</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $count = 1
+                                @endphp
+
                                 @foreach($farmer as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ "$item->fname  $item->lname"}}</td>
+                                        <td>{{ $count }}</td>
+                                        <td><a href="{{ url('/admin/farmers/' . $item->id . '/viewfarms') }}">{{ "$item->fname  $item->lname"}}</a></td>
                                         <td>{{ $item->gender }}</td>
                                         <td>{{ $item->email }}</td>   
                                         <td>{{ $item->telephone }}</td>   
                                         <td>{{ $item->address }}</td>                                        
                                         <td>
-                                            <a href="{{ url('/admin/farmers/' . $item->id) }}" title="View Farm"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/farmers/' . $item->id . '/edit') }}" title="Edit Farmer"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                            <a href="{{ url('/admin/farmers/' . $item->id ) }}" title="Display Farmer's Farms"><button class="button1"><i class="" aria-hidden="true"></i> Farms</button></a>
-
                                             <form method="POST" action="{{ url('/admin/farm' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="button3" title="Delete Farm" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="button3 bg-danger" title="Delete Farm" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                         </td>
                                     </tr>
+                                    @php
+                                    $count = $count + 1
+                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>

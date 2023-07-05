@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class HivePhoto extends Model
 {
     use HasFactory;
+    protected $fillable = ['path', 'hive_id'];
+    
 }

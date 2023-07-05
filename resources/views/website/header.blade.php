@@ -17,8 +17,8 @@
                         <li><a href="/workpackages-wp3">Data Analytics for Environment Monitoring services(WP3)</a></li>
                         <li><a href="/workpackages-wp4">Project Administration(WP4)</a></li>
                     </ul>
-
                 </li>
+                
                 <li class="dropdown scrollto dropdown"><a href="/" class="nav-link scrollto"><span>Research
                             Profile</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -44,6 +44,7 @@
                 <li class="dropdown"><a href="/#"><span>Bee Monitor</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
 
+                        {{-- <li><a href="/hive_data">Farm Hives</a></li>                         --}}
                         <li><a href="/admin/farm">Farm Hives</a></li>                        
                         <li><a href="/">Map</a></li>                       
                     </ul>

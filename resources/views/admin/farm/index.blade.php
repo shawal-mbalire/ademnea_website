@@ -73,32 +73,37 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Farm Name</th><th>Owner</th><th>Address</th><th>District</th><th>Actions</th>
+                                        <th>#</th><th>Farm Name</th><th>Address</th><th>District</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                @php
+                                    $count =  1
+                                @endphp
                                 @foreach($farm as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->ownerId }}</td>
+                                        <td>{{ $count}}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->adress }}</td>
-                                        <td>{{ $item->district }}</td>                                        
+                                        <td>{{ $item->address }}</td>
+                                        <td>{{ $item->district }}</td>
                                         <td>
                                             <a href="{{ url('/admin/farm/' . $item->id) }}" title="View Farm"><button class="button2"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/farm/' . $item->id . '/edit') }}" title="Edit Farm"><button class="button1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
+
+                                            <a href="/admin/hive" title="Display Farm Hives"><button class="button1"><i class="" aria-hidden="true"></i> Hives</button></a>
+
+
                                             <form method="POST" action="{{ url('/admin/farm' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <a href="{{ url('/admin/hives/' . $item->id ) }}" title="Display Farm Hives"><button class="button1"><i class="" aria-hidden="true"></i> Hives</button></a>
-                                               
-
-
-                                                <button type="submit" class="button3" title="Delete Farm" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <button type="submit" class="btn btn-danger" title="Delete Farm" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                             </form>
                                         </td>
                                     </tr>
+                                    @php
+                                    $count = $count + 1
+                                    @endphp
                                 @endforeach
                                 </tbody>
                             </table>

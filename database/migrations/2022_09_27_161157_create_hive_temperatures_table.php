@@ -23,6 +23,7 @@ class CreateHiveTemperaturesTable extends Migration
             ->onDelete(null)
             ->nullable();
 
+
             $table->timestamps();
         });
     }

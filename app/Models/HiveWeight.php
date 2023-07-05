@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class HiveWeight extends Model
 {
     use HasFactory;
+    protected $fillable = ['record', 'hive_id'];
 }

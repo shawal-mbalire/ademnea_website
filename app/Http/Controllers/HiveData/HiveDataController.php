@@ -16,6 +16,9 @@ class HiveDataController extends Controller
     public function temperatureDefault($id)
     {
 
+        //lets put this variable on a session.
+        session(['hive_id' => $id]);
+
         // Get the hive data and also the related farm data.
         $hive = DB::table('hives')->where('id', $id)->first();
         $farm = DB::table('farms')->where('id', $hive->farm_id)->first();
@@ -82,6 +85,7 @@ class HiveDataController extends Controller
         // Pass the hive id and the farm name to the view.
         return view('admin.hivegraphs.humidity', ['hive_id' => $id, 'farm_name' => $farm->name]);
      }
+
 
     public function getHumidityData(Request $request, $hive)
     {

@@ -1,6 +1,11 @@
 
 
+<<<<<<< HEAD
 <div class="flex flex-row space-x-4 items-center justify-center h-16 mb-2 px-10 bg-gray-400 dark:bg-gray-800">
+=======
+
+<div class="flex flex-row space-x-4 items-center justify-center h-16 mb-2 bg-gray-400 dark:bg-gray-800">
+>>>>>>> 252534a6f4b9f2199566d735a94a6a561d7e8a26
 
     
     {{-- graphs dropdown start --}}
@@ -9,10 +14,10 @@
               <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
               <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                 <li>
-                  <a href="{{ url('/hive_data/temperature_data_default/' . $hive_id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Temperature</a>
+                  <a href="{{ url('/hive_data/temperature_data_default/' . $hive_id ) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Temperature</a>
                 </li>
                 <li>
-                  <a href="{{ url('/hive_data/humidity_data_default/' . $hive_id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Humidity</a>
+                  <a href="{{ url('/hive_data/humidity_data_default/' . $hive_id ) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Humidity</a>
                 </li>
                 <li>
                   <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Carbondioxide</a>
@@ -29,7 +34,7 @@
             <div id="dropdownHover2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
               <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton2">
                 <li>
-                  <a href="{{ url('/admin/temperaturedata/' . $hive_id) }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Temperature</a>
+                  <a href="{{ url('/admin/temperaturedata?$hive_id') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Temperature</a>
                 </li>
                 <li>
                   <a href="{{ url('/admin/humiditydata') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Humidity</a>
@@ -70,7 +75,11 @@
 <div class="flex flex-row space-x-4 items-center justify-between h-16 mb-4 bg-gray-400 dark:bg-gray-800">
     <div>
             
+<<<<<<< HEAD
             <h3 class='mx-2 font-bold py-1 text-gray-800'>Hive  : <span class="font-extrabold">{{ $hive_id }}</span></h3>
+=======
+            <h3 class='mx-2 font-bold py-1 text-white'>Hive  : <span class="font-extrabold">{{ $hive_id ?? '' ?? '' ?? '' }}</span></h3>
+>>>>>>> 252534a6f4b9f2199566d735a94a6a561d7e8a26
     </div>
 
       <div>

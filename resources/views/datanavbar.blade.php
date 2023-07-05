@@ -1,6 +1,6 @@
 
 
-<div class="flex flex-row space-x-4 items-center justify-center h-16 mb-2 bg-gray-400 dark:bg-gray-800">
+<div class="flex flex-row space-x-4 items-center justify-center h-16 mb-2 px-10 bg-gray-400 dark:bg-gray-800">
 
     
     {{-- graphs dropdown start --}}
@@ -70,11 +70,11 @@
 <div class="flex flex-row space-x-4 items-center justify-between h-16 mb-4 bg-gray-400 dark:bg-gray-800">
     <div>
             
-            <h3 class='mx-2 font-bold py-1 text-white'>Hive  : <span class="font-extrabold">{{ $hive_id }}</span></h3>
+            <h3 class='mx-2 font-bold py-1 text-gray-800'>Hive  : <span class="font-extrabold">{{ $hive_id }}</span></h3>
     </div>
 
       <div>
-          <h3 class='mx-2 font-bold py-1 text-white'>Select a date-range</h3>
+          <h3 class='mx-2 font-bold py-1 text-gray-800'>Select a date-range</h3>
                 <!-- Date range picker -->
               <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 250px">
                   <i class="fa fa-calendar"></i>&nbsp;

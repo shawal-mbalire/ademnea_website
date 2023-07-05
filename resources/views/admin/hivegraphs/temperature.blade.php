@@ -163,15 +163,16 @@ cb(start, end);
 });
 </script>
 
+      
 
-        <div class='bg-white mx-3 p-1 mt-2'>
-              <div id="chart" style="width: 100%; height: 480px;" class='p-2'></div>
-                <script>
-                // JavaScript code to create and configure the chart
-                var myChart = echarts.init(document.getElementById('chart'));
-                </script>
-        </div>
-
+              <div class='bg-white'>
+                    <div id="chart" style="width: 100%; height: 480px;" class='p-1'></div>
+                      <script>
+                      // JavaScript code to create and configure the chart
+                      var myChart = echarts.init(document.getElementById('chart'));
+                      </script>
+              </div>
+      
 
 </div>
 

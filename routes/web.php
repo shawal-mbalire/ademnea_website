@@ -62,6 +62,10 @@ Route::get('/hive_data/temperature_data_default/{hive}', [App\Http\Controllers\H
 Route::get('/hive_data/humidity_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'humidityDefault']);
 Route::get('/hive_data/humidity_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getTemperatureData']);
 
+/* ------------WEIGTHT------------------*/
+Route::get('/hive_data/weight_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'weightDefault']);
+Route::get('/hive_data/weight_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getWeightData']);
+
 
 Route::get('/individual_newsletter/{id}', [App\Http\Controllers\DisplayIndividualNewsletterController::class, 'show']);
 

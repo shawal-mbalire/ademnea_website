@@ -1,11 +1,6 @@
 
 
-<<<<<<< HEAD
 <div class="flex flex-row space-x-4 items-center justify-center h-16 mb-2 px-10 bg-gray-400 dark:bg-gray-800">
-=======
-
-<div class="flex flex-row space-x-4 items-center justify-center h-16 mb-2 bg-gray-400 dark:bg-gray-800">
->>>>>>> 252534a6f4b9f2199566d735a94a6a561d7e8a26
 
     
     {{-- graphs dropdown start --}}
@@ -75,11 +70,7 @@
 <div class="flex flex-row space-x-4 items-center justify-between h-16 mb-4 bg-gray-400 dark:bg-gray-800">
     <div>
             
-<<<<<<< HEAD
             <h3 class='mx-2 font-bold py-1 text-gray-800'>Hive  : <span class="font-extrabold">{{ $hive_id }}</span></h3>
-=======
-            <h3 class='mx-2 font-bold py-1 text-white'>Hive  : <span class="font-extrabold">{{ $hive_id ?? '' ?? '' ?? '' }}</span></h3>
->>>>>>> 252534a6f4b9f2199566d735a94a6a561d7e8a26
     </div>
 
       <div>

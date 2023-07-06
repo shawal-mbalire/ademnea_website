@@ -8,8 +8,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
         <script src="
-                https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js
-                "></script>
+                        https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js
+                        "></script>
 
         </head>
 
@@ -52,8 +52,8 @@
                         data: {
                             start: startDate,
                             end: endDate,
-                            table1: 'hive_humidity' // name of the table you want to fetch data from
-                            table2: 'hive_temperatures'
+                            tables: 'hive_humidity,hive_temperatures' // name of the table you want to fetch data from
+                            
                         },
                         success: function(response) {
                             // handle the response data
@@ -104,56 +104,71 @@
                                     },
                                     splitNumber: 10
                                 },
-                                series: [
-                  {
-                        name: 'Humidity Exterior Section',
-                        type: 'line',
-                        data: response.humidExteriorSection,
-                        markPoint: {
-                                    data: [
-                                          { type: 'max', name: 'Max' },
-                                          { type: 'min', name: 'Min' }
-                                          ]
+                                series: [{
+                                        name: 'Humidity Exterior Section',
+                                        type: 'line',
+                                        data: response.humidExteriorSection,
+                                        markPoint: {
+                                            data: [{
+                                                    type: 'max',
+                                                    name: 'Max'
+                                                },
+                                                {
+                                                    type: 'min',
+                                                    name: 'Min'
+                                                }
+                                            ]
+                                        },
+                                        markLine: {
+                                            data: [{
+                                                type: 'average',
+                                                name: 'Avg'
+                                            }]
+                                        },
+                                        //  color: 'red' 
                                     },
-                        markLine: {
-                                    data: [{ type: 'average', name: 'Avg' }]
-                                   },
-                                  //  color: 'red' 
-                      },
-                    {
-                        name: 'Temperature Exterior Section',
-                        type: 'line',
-                        data: response.tempExteriorSection,
-                        markPoint: {
-                                    data: [
-                                          { type: 'max', name: 'Max' },
-                                          { type: 'min', name: 'Min' }
-                                          ]
+                                    {
+                                        name: 'Temperature Exterior Section',
+                                        type: 'line',
+                                        data: response.tempExteriorSection,
+                                        markPoint: {
+                                            data: [{
+                                                    type: 'max',
+                                                    name: 'Max'
+                                                },
+                                                {
+                                                    type: 'min',
+                                                    name: 'Min'
+                                                }
+                                            ]
+                                        },
+                                        markLine: {
+                                            data: [{
+                                                type: 'average',
+                                                name: 'Avg'
+                                            }]
+                                        },
+
+                                        // color: 'green' 
+
                                     },
-                        markLine: {
-                                    data: [{ type: 'average', name: 'Avg' }]
-                                   },
-                        
-                        // color: 'green' 
-                       
-                    },
-                   
-                    //   {
-                    //     name: 'Honey Section',
-                    //     type: 'line',
-                    //     data: response.honeySection,
-                    //     markPoint: {
-                    //     data: [
-                    //           { type: 'max', name: 'Max' },
-                    //           { type: 'min', name: 'Min' }
-                    //         ]
-                    //       },
-                    //       markLine: {
-                    //         data: [{ type: 'average', name: 'Avg' }]
-                    //       },
-                    //       // color: 'blue' 
-                    // },
-                ]
+
+                                    //   {
+                                    //     name: 'Honey Section',
+                                    //     type: 'line',
+                                    //     data: response.honeySection,
+                                    //     markPoint: {
+                                    //     data: [
+                                    //           { type: 'max', name: 'Max' },
+                                    //           { type: 'min', name: 'Min' }
+                                    //         ]
+                                    //       },
+                                    //       markLine: {
+                                    //         data: [{ type: 'average', name: 'Avg' }]
+                                    //       },
+                                    //       // color: 'blue' 
+                                    // },
+                                ]
                             });
                         }
 

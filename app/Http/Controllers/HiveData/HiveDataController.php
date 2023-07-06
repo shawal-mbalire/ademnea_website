@@ -197,9 +197,12 @@ class HiveDataController extends Controller
         $start = $request->query('start');
         $end = $request->query('end');
 
+        $tables = request('tables');
+    
+        // Split the table string and assign the name to variables
+        list($humidityTable, $temperatureTable) = explode(',', $tables); 
+        
          // Fetch the data from the database
-        $humidityTable= $request->query('table1');
-        $temperatureTable= $request->query('table2');
 
         $humidityData = DB::table($humidityTable)
              ->where('hive_id', $hive)
@@ -222,7 +225,7 @@ class HiveDataController extends Controller
 
 // For humidity data
         foreach ($humidityData as $record) {
-            // Assuming the temperature data is stored as 'honey, brood, exterior'
+            // Assuming the humidity data is stored as 'honey, brood, exterior'
             list($honeyHumid, $broodHumid,$exteriorHumid ) = explode('*', $record->record);
            
             // Turn the "2" values into null
@@ -246,7 +249,7 @@ class HiveDataController extends Controller
             $broodTemp = $broodTemp == 2 ? null : $broodTemp;
             $honeyTemp = $honeyTemp == 2 ? null : $honeyTemp;
             
-            // $dates[] = $record->created_at; // add this line to collect the dates
+            $dates[] = $record->created_at; // add this line to collect the dates
             $tempExt[] =  $exteriorTemp;
             $tempBrood[] = $broodTemp;
             $tempHoney[] = $honeyTemp;

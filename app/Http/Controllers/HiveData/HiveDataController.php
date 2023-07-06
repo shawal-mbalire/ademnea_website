@@ -160,35 +160,29 @@ class HiveDataController extends Controller
          // Process the data into the format expected by the chart
          $dates = [];
          $overall = [];
-         // $broodSection = [];
-         // $honeySection = [];
+
          
          foreach ($weightData as $record) {
-             // Assuming the temperature data is stored as 'exterior,brood,honey'
-             list($overallWeight) = explode('*', $record->record);
-             // list($overallWeight, $broodHumid, $honeyHumid) = explode('*', $record->record);
-             
- 
-             
+             //Store the weight value as overallWeight'
+             $overallWeight =  $record->record;
+           
              // Turn the "2" values into null
              $overallWeight =  $overallWeight == 2 ? null :  $overallWeight;
-             // $broodHumid = $broodHumid == 2 ? null : $broodHumid;
-             // $honeyHumid = $honeyHumid == 2 ? null : $honeyHumid;
+
              
              $dates[] = $record->created_at; // add this line to collect the dates
              $overall[] =  $overallWeight;
-             // $broodSection[] = $broodHumid;
-             // $honeySection[] = $honeyHumid;
+ 
          }
          
          // Return the data as a JSON response
          return response()->json([
              'dates' => $dates,
              'overall' => $overall,
-             // 'broodSection' => $broodSection,
-             // 'honeySection' => $honeySection,
+
          ]);
      }
+    /* ----------------------------------------------------------------TEMPERATURE VERSUS HUMIDITY-----------------------------------------------------------*/
 
      public function tempHumidity_default($id){
                 // Get the hive data and also the related farm data.
@@ -196,7 +190,78 @@ class HiveDataController extends Controller
                 $farm = DB::table('farms')->where('id', $hive->farm_id)->first();
         
                 // Pass the hive id and the farm name to the view.
-                return view('admin.hivegraphs.weight', ['hive_id' => $id, 'farm_name' => $farm->name]);
+                return view('admin.hivegraphs.tempHumidity', ['hive_id' => $id, 'farm_name' => $farm->name]);
+     }
+
+     public function getTempHumidity(Request $request, $hive ){
+        $start = $request->query('start');
+        $end = $request->query('end');
+
+         // Fetch the data from the database
+        $humidityTable= $request->query('table1');
+        $temperatureTable= $request->query('table2');
+
+        $humidityData = DB::table($humidityTable)
+             ->where('hive_id', $hive)
+             ->whereBetween('created_at', [$start, $end])
+             ->get();
+
+        $tempData = DB::table($temperatureTable)
+            ->where('hive_id', $hive)
+            ->whereBetween('created_at', [$start, $end])
+            ->get();
+        // Process the data into the format expected by the chart
+        $dates = [];
+        $humidExt= [];
+        $tempExt = [];
+        $humidBrood= [];
+        $tempBrood= [];
+        $humidHoney  = [];
+        $tempHoney= [];
+
+
+// For humidity data
+        foreach ($humidityData as $record) {
+            // Assuming the temperature data is stored as 'honey, brood, exterior'
+            list($honeyHumid, $broodHumid,$exteriorHumid ) = explode('*', $record->record);
+           
+            // Turn the "2" values into null
+            $exteriorHumid =  $exteriorHumid == 2 ? null :  $exteriorHumid;
+            $broodHumid = $broodHumid == 2 ? null : $broodHumid;
+            $honeyHumid = $honeyHumid == 2 ? null : $honeyHumid;
+            
+            $dates[] = $record->created_at; // add this line to collect the dates
+            $humidExt[] =  $exteriorHumid;
+            $humidBrood[] = $broodHumid;
+            $humidHoney[] = $honeyHumid;
+        }
+
+// Temperature data
+        foreach ($tempData as $record) {
+            // Assuming the temperature data is stored as 'exterior,brood,honey'
+            list($honeyTemp, $broodTemp,$exteriorTemp ) = explode('*', $record->record);
+           
+            // Turn the "2" values into null
+            $exteriorTemp =  $exteriorTemp == 2 ? null :  $exteriorTemp;
+            $broodTemp = $broodTemp == 2 ? null : $broodTemp;
+            $honeyTemp = $honeyTemp == 2 ? null : $honeyTemp;
+            
+            // $dates[] = $record->created_at; // add this line to collect the dates
+            $tempExt[] =  $exteriorTemp;
+            $tempBrood[] = $broodTemp;
+            $tempHoney[] = $honeyTemp;
+        }
+
+                    // Return the data as a JSON response
+        return response()->json([
+            'dates' => $dates,
+            'humidExteriorSection' => $humidExt,
+            'humidBroodSection' => $humidBrood,
+            'humidHoneySection' => $humidHoney,
+            'tempExteriorSection' => $tempExt,
+            'tempBroodSection' => $tempBrood,
+            'tempHoneySection' => $tempHoney,
+        ]);
      }
    
 }

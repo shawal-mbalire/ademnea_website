@@ -28,6 +28,10 @@
                 <a href="{{ url('/hive_data/weight_data_default/' . $hive_id) }}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Weight</a>
             </li>
+            <li>
+                <a href="{{ url('/hive_data/tempHumidity_data_default/' . $hive_id) }}"
+                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">TemperatureHumidity</a>
+            </li>
         </ul>
     </div>
 
@@ -58,6 +62,7 @@
                 <a href="{{ url('/admin/weightdata') }}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Weight</a>
             </li>
+
         </ul>
     </div>
 

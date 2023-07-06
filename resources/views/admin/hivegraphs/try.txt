@@ -8,8 +8,8 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
         <script src="
-        https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js
-        "></script>
+                https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js
+                "></script>
 
         </head>
 
@@ -47,19 +47,20 @@
 
                     // Send AJAX request to server
                     $.ajax({
-                        url: '/hive_data/weight_data/' + hiveId,
+                        url: '/hive_data/tempHumidity_data/' + hiveId,
                         method: 'GET',
                         data: {
                             start: startDate,
                             end: endDate,
-                            table: 'hive_weights' // name of the table you want to fetch data from
+                            table1: 'hive_humidity' // name of the table you want to fetch data from
+                            table2: 'hive_temperatures'
                         },
                         success: function(response) {
                             // handle the response data
                             myChart.setOption({
                                 // chart configuration options here
                                 title: {
-                                    text: 'Weight'
+                                    text: 'Temperature Vs Humidity'
                                 },
                                 tooltip: {
                                     trigger: 'axis'
@@ -104,33 +105,55 @@
                                     splitNumber: 10
                                 },
                                 series: [
-                                
-                                  
-
-                                    {
-                                        name: 'Overall',
-                                        type: 'line',
-                                        data: response.overall,
-                                        markPoint: {
-                                            data: [{
-                                                    type: 'max',
-                                                    name: 'Max'
-                                                },
-                                                {
-                                                    type: 'min',
-                                                    name: 'Min'
-                                                }
-                                            ]
-                                        },
-                                        markLine: {
-                                            data: [{
-                                                type: 'average',
-                                                name: 'Avg'
-                                            }]
-                                        },
-                                        // color: 'blue' 
+                  {
+                        name: 'Humidity Exterior Section',
+                        type: 'line',
+                        data: response.humidExteriorSection,
+                        markPoint: {
+                                    data: [
+                                          { type: 'max', name: 'Max' },
+                                          { type: 'min', name: 'Min' }
+                                          ]
                                     },
-                                ]
+                        markLine: {
+                                    data: [{ type: 'average', name: 'Avg' }]
+                                   },
+                                  //  color: 'red' 
+                      },
+                    {
+                        name: 'Temperature Exterior Section',
+                        type: 'line',
+                        data: response.tempExteriorSection,
+                        markPoint: {
+                                    data: [
+                                          { type: 'max', name: 'Max' },
+                                          { type: 'min', name: 'Min' }
+                                          ]
+                                    },
+                        markLine: {
+                                    data: [{ type: 'average', name: 'Avg' }]
+                                   },
+                        
+                        // color: 'green' 
+                       
+                    },
+                   
+                    //   {
+                    //     name: 'Honey Section',
+                    //     type: 'line',
+                    //     data: response.honeySection,
+                    //     markPoint: {
+                    //     data: [
+                    //           { type: 'max', name: 'Max' },
+                    //           { type: 'min', name: 'Min' }
+                    //         ]
+                    //       },
+                    //       markLine: {
+                    //         data: [{ type: 'average', name: 'Avg' }]
+                    //       },
+                    //       // color: 'blue' 
+                    // },
+                ]
                             });
                         }
 
@@ -162,7 +185,7 @@
                 // JavaScript code to create and configure the chart
                 var myChart = echarts.init(document.getElementById('chart'));
             </script>
-            
+
         </div>
 
 

@@ -81,11 +81,13 @@ class FarmController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Request $req, $id)
     {
+        return $req->input();
+
         $farm = Farm::findOrFail($id);
 
-        return view('admin.farm.edit', compact('farm'));
+        return view('admin.farm.index', compact('farm'));
     }
 
     /**

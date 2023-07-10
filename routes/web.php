@@ -51,6 +51,8 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/carbondioxidedata', 'App\Http\Controllers\Admin\HiveCarbondioxideController');
 });
 
+
+
                 /* ------------HIVE DATA------------------*/
                 
 /* ------------TEMPERATURE------------------*/

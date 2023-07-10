@@ -60,7 +60,7 @@
                             myChart.setOption({
                                 // chart configuration options here
                                 title: {
-                                    text: 'Temperature Vs Humidity'
+                                    text: 'Temperature and Humidity'
                                 },
                                 tooltip: {
                                     trigger: 'axis'
@@ -98,9 +98,9 @@
                                 yAxis: {
                                     type: 'value',
                                     min: 10,
-                                    max: 40,
+                                    max: 60,
                                     axisLabel: {
-                                        formatter: '{value} kg'
+                                        formatter: '{value} '
                                     },
                                     splitNumber: 10
                                 },

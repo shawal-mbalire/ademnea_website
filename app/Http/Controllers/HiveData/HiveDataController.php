@@ -266,5 +266,56 @@ class HiveDataController extends Controller
             'tempHoneySection' => $tempHoney,
         ]);
      }
+
+    /* ----------------------------------------------------------------CARBONDIOXIDE-----------------------------------------------------------*/
+    public function carbondioxide_default($id){
+        // Get the hive data and also the related farm data.
+        $hive = DB::table('hives')->where('id', $id)->first();
+        $farm = DB::table('farms')->where('id', $hive->farm_id)->first();
+
+        // Pass the hive id and the farm name to the view.
+        return view('admin.hivegraphs.carbondioxide', ['hive_id' => $id, 'farm_name' => $farm->name]);
+    }
+
+    public function getCarbondioxide_data(Request $request, $hive){
+        $start = $request->query('start');
+        $end = $request->query('end');
+
+        // Ensure the dates are in a valid format
+        $start = Carbon::parse($start);
+        $end = Carbon::parse($end);
+        $tableName = $request->query('table');
+
+        // Fetch the data from the database
+        $carbonData = DB::table($tableName)
+            ->where('hive_id', $hive)
+            ->whereBetween('created_at', [$start, $end])
+            ->get();
+
+        // Process the data into the format expected by the chart
+        $dates = [];
+        $carbonLevels = [];
+
+        
+        foreach ($carbonData as $record) {
+            //Store the weight value as overallWeight'
+            $carbon =  $record->record;
+          
+            // Turn the "2" values into null
+            $carbon =  $carbon == 2 ? null :  $carbon;
+
+            
+            $dates[] = $record->created_at; // add this line to collect the dates
+            $carbonLevels[] =  $carbon;
+
+        }
+        
+        // Return the data as a JSON response
+        return response()->json([
+            'dates' => $dates,
+            'carbonLevels' => $carbonLevels,
+
+        ]);
+    }
    
 }

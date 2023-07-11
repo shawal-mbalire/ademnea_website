@@ -47,7 +47,7 @@
                      <!-- Modal toggle -->
                    <a href="#" type="button" data-modal-target="large-modal" data-modal-toggle="large-modal" class="font-medium text-green-600 dark:text-blue-500 hover:underline">View</a>
                    <a href="#" type="button" data-modal-target="{{ $item->id }}" data-modal-show="{{ $item->id }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit Farm</a>
-                   <a href="/admin/hive" type="button" data-modal-target="class="font-medium text-gray-600 dark:text-gray-500 hover:underline">Hives</a>
+                   <a href="/admin/hive?farm_id={{$item->id}}" type="button" data-modal-target="" class="font-medium text-gray-600 dark:text-gray-500 hover:underline">Hives</a>
                    <a href="#" type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</a>
                    
                 </td>

@@ -51,7 +51,7 @@
                     <!-- Modal toggle -->
                    <a href="#" type="button" data-modal-target="large-modal" data-modal-toggle="large-modal" class="font-medium text-green-600 dark:text-blue-500 hover:underline">View</a>
                    <a href="#" type="button" data-modal-target="editUserModal" data-modal-show="editUserModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                   <a href="{{ url('/hive_data/' . $item->id) }}" type="button" data-modal-target="class="font-medium text-gray-600 dark:text-gray-500 hover:underline">Hive Data</a>
+                   <a href="{{ url('/hive_data/' . $item->id) }}" type="button" data-modal-target="" class="font-medium text-gray-600 dark:text-gray-500 hover:underline">Hive Data</a>
                    <a href="#" type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</a>
                    
                 </td>

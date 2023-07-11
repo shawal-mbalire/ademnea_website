@@ -61,7 +61,6 @@
                             @include ('admin.farm.form', ['formMode' => 'create'])
 
                         </form>
-
                     </div>
                 </div>
             </div>

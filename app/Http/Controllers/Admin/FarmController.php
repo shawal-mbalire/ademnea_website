@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use App\Models\Farm;
+use App\Models\Farmer;
 use Illuminate\Http\Request;
 
 
@@ -20,9 +21,12 @@ class FarmController extends Controller
     {        
         $perPage = 25;
        
+        $farmers = Farmer::all();
+
+        //return $farmers;
         $farm = Farm::latest()->paginate($perPage);
 
-        return view('admin.farm.index', compact('farm'));
+        return view('admin.farm.index', compact('farm','farmers'));
     }
 
     /**
@@ -32,8 +36,9 @@ class FarmController extends Controller
      */
     public function create()
     {
+        $farmers = Farmer::all();
 
-        return view('admin.farm.create');
+        return view('admin.farm.create',compact('farmers'));
     }
 
     /**

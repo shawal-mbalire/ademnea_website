@@ -99,8 +99,13 @@
                            <input  name="lname" type="text" id="lname"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                        </div>
                        <div class="col-span-6 sm:col-span-3">
-                           <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Gender' }}</label>
-                           <input type="text"  name="gender" id="gender"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  required="">
+
+                            <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Male' }}</label>
+                            <input type="radio" value="male" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+    
+                            <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Female' }}</label>
+                            <input type="radio" value="female" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2">
+                        
                        </div>
                        <div class="col-span-6 sm:col-span-3">
                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Email' }}</label>

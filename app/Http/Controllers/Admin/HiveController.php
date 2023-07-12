@@ -18,9 +18,12 @@ class HiveController extends Controller
      */
     public function index(Request $request)
     {        
-        $perPage = 25;
-       
-        $hive = Hive::orderBy('id', 'asc')->paginate($perPage);
+       // $perPage = 25;
+       // this is supposed to show only hives for the selected farm.
+
+       $farmId = $request->query('farm_id');
+       //return $farmId;
+       $hive = Hive::where('farm_id', $farmId)->get();
 
         return view('admin.hives.index', compact('hive'));
     }

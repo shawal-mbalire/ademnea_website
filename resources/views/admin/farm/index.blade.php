@@ -322,7 +322,7 @@
                            <input  name="name" type="text" id="name"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required="">
                        </div>
                        <div class="col-span-6 sm:col-span-3">
-                           {{-- farmer selection dropdown starts here --}}
+                {{-- farmer selection dropdown starts here --}}
                     <div class="form-group">
                         <label for="ownerid" class="control-label">{{ 'Farm Owner:' }}</label>
                         <select name="ownerId" id="farmer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
@@ -332,7 +332,7 @@
                             @endforeach
                         </select>
                     </div>
-                    {{-- farm owner dropdown stops here. --}}
+                {{-- farm owner dropdown stops here. --}}
                        </div>
                        <div class="col-span-6 sm:col-span-3">
                            <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Address' }}</label>

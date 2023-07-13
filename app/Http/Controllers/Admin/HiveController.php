@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Models\Farm;
 use Illuminate\Support\Facades\DB;
 use App\Models\Hive;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class HiveController extends Controller
        //return $farmId;
        $hive = Hive::where('farm_id', $farmId)->get();
 
-        return view('admin.hives.index', compact('hive'));
+       $farms = Farm::all();
+        return view('admin.hives.index', compact('hive','farms'));
     }
 
     /**

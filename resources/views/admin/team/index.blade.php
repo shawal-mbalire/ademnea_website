@@ -51,8 +51,10 @@
            </tr>
            @endforeach
        </tbody>
-      <button type="button" data-modal-target="addTeam" data-modal-show="addTeam" class="text-white ml-4 mt-4 bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add New Team Member</button>
-   </table>
+       <div class="">
+      <button type="button" data-modal-target="addTeam" data-modal-show="addTeam" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add New Team Member</button>
+       </div>
+    </table>
 
       <!-- Add New team member modal -->
       <div id="addTeam" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">

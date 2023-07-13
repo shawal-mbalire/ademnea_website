@@ -73,9 +73,9 @@ $(function() {
                               yAxisIndex: 'none'
                           },
                           dataView: { show: false, readOnly: false },
-                          magicType: { show: false, type: ['line', 'bar'] },
-                          restore: { show: false },
-                          saveAsImage: { show: false }
+                          magicType: { show: true, type: ['line', 'bar'] },
+                          restore: { show: true },
+                          saveAsImage: { show: true }
                           }
                       },
                 xAxis: {

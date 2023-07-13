@@ -67,7 +67,7 @@
 
 
 
-     <!-- Add new Hive modal -->
+     <!-- Edit Hive modal -->
      @foreach($hive as $item)
    <div id="{{ $item->id }}" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
        <div class="relative w-full max-w-2xl max-h-full">
@@ -96,8 +96,19 @@
                            <input  name="longitude" value="{{ old('longitude', $item->longitude) }}"    type="text" id="longitude"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required="">
                        </div>
                        <div class="form-group">
-                            <input  name="farm_id" type="hidden" value="1" >
-                        
+                            {{-- <input  name="farm_id" type="hidden" value="1" > --}}
+                            
+                                {{-- farmer selection dropdown starts here --}}
+                                    <div class="form-group">
+                                        <label for="ownerid" class="control-label">{{ 'Farm:' }}</label>
+                                        <select name="farm_id" id="farmer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+                                            {{-- we will use a loop from the database here --}}
+                                            @foreach ($farms as $farmer )  
+                                            <option value= "{{ $farmer->id }}"> {{ $farmer->name }} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                {{-- farm owner dropdown stops here. --}}
                         </div>
                    </div>
                </div>

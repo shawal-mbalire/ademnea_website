@@ -118,7 +118,7 @@
         </div>
     </div>
  </div>
- 
+ @endforeach
     <!-- Edit team member modal -->
     @foreach($hive as $item)
     <div id="{{ $item->id}}" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">

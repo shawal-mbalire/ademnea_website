@@ -53,8 +53,6 @@
                     <!-- Modal toggle -->
                    <a href="#" type="button" data-modal-target="large-modal" data-modal-toggle="large-modal" class="font-medium text-green-600 dark:text-green-500 hover:underline">View</a>
                    <a href="#" type="button" data-modal-target="{{ $item->id }}" data-modal-show="{{ $item->id }}" class="font-medium text-green-600 dark:text-green-500 hover:underline">Edit</a>
-                   <a href="{{ url('/hive_data/' . $item->id) }}" type="button" data-modal-target="class="font-medium text-gray-600 dark:text-gray-500 hover:underline">Hive Data</a>
-                   <a href="#" type="button" data-modal-target="editUserModal" data-modal-show="editUserModal" class="font-medium text-green-600 dark:text-green-500 hover:underline">Edit</a>
                    <a href="{{ url('/hive_data/' . $item->id) }}" type="button" data-modal-target="" class="font-medium text-gray-600 dark:text-gray-500 hover:underline">Hive Data</a>
                    <a href="#" type="button" data-modal-target="{{ $item->description }}" data-modal-toggle="{{ $item->description}}" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</a>
 
@@ -67,39 +65,48 @@
     </table>
 
 
-      <!-- Add New team member modal -->
-      <div id="addTeam" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative w-full max-w-2xl max-h-full">
-            <!-- Modal content -->
-            <form id="addTeamForm" action="{{ url('/admin/team') }}"  accept-charset="UTF-8" enctype="multipart/form-data" method="POST" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-            {{ csrf_field() }}
-                <!-- Modal header -->
-                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                        Add New Team Member
-                    </h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="addTeam">
-                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
-                    </button>
-                </div>
-                <!-- Modal body -->
-                <div class="p-6 space-y-6">
-                    <div class="grid grid-cols-6 gap-6">
-                        <div class="col-span-6 sm:col-span-3">
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="name" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Bonnie" required="">
-                        </div>
-                        <div class="col-span-6 sm:col-span-3">
-                            <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                            <input type="text" name="title" id="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Green" required="">
-                        </div>
-                        <div class="col-span-6 sm:col-span-6">
-                            <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Research Interests</label>
-                            <textarea id="description" name="description" rows="4" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Write your thoughts here..."></textarea>
-                        </div>
-                        <div class="col-span-6 sm:col-span-6">
-                            <label for="image" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image(jpg, peg & png only allowed)</label>
-                            <input name="image"  class="block w-full text-sm text-gray-900 border shadow-sm bg-gray-50 border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="image" type="file" multiple>
+     <!-- Edit Hive modal -->
+     @foreach($hive as $item)
+   <div id="{{ $item->id }}" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+       <div class="relative w-full max-w-2xl max-h-full">
+           <!-- Modal content -->
+           <form action="{{ url('/admin/hive') }}" method="POST" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                            {{ csrf_field() }}
+
+               <!-- Modal header -->
+               <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                   <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                       Edit Hive
+                   </h3>
+                   <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="{{ $item->id }}">
+                       <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                   </button>
+               </div>
+               <!-- Modal body -->
+               <div class="p-6 space-y-6">
+                   <div class="grid grid-cols-6 gap-6">
+                       <div class="col-span-6 sm:col-span-3">
+                           <label for="latitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Latitude' }}</label>
+                           <input  name="latitude" value="{{ old('latitude', $item->latitude) }}"    type="text" id="latitude"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required="">
+                       </div>
+                       <div class="col-span-6 sm:col-span-3">
+                           <label for="longitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Longitude' }}</label>
+                           <input  name="longitude" value="{{ old('longitude', $item->longitude) }}"    type="text" id="longitude"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required="">
+                       </div>
+                       <div class="form-group">
+                            {{-- <input  name="farm_id" type="hidden" value="1" > --}}
+                            
+                                {{-- farmer selection dropdown starts here --}}
+                                    <div class="form-group">
+                                        <label for="ownerid" class="control-label">{{ 'Farm:' }}</label>
+                                        <select name="farm_id" id="farmer" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+                                            {{-- we will use a loop from the database here --}}
+                                            @foreach ($farms as $farmer )  
+                                            <option value= "{{ $farmer->id }}"> {{ $farmer->name }} </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                {{-- farm owner dropdown stops here. --}}
                         </div>
                         
                     </div>

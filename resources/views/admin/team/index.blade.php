@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-         
 
+<div id="myTableContainer" class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="">
+        <button type="button" data-modal-target="addTeam" data-modal-show="addTeam" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add New Team Member</button>
+    </div> <hr>    
    <table id="myTable" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
            <tr>        
@@ -51,16 +53,14 @@
            </tr>
            @endforeach
        </tbody>
-       <div class="">
-      <button type="button" data-modal-target="addTeam" data-modal-show="addTeam" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Add New Team Member</button>
-       </div>
+    
     </table>
 
       <!-- Add New team member modal -->
       <div id="addTeam" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
        <div class="relative w-full max-w-2xl max-h-full">
            <!-- Modal content -->
-           <form action="{{ url('/admin/team') }}"  accept-charset="UTF-8" enctype="multipart/form-data" method="POST" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+           <form id="addTeamForm" action="{{ url('/admin/team') }}"  accept-charset="UTF-8" enctype="multipart/form-data" method="POST" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
            {{ csrf_field() }}
                <!-- Modal header -->
                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
@@ -92,11 +92,12 @@
                        </div>
                        
                    </div>
-               </div>
+               </div> 
                <!-- Modal footer -->
                <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                   <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save all</button>
-               </div>
+                <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save all</button>
+            </div>
+        
            </form>
        </div>
    </div>
@@ -107,7 +108,7 @@
    <div id="{{ $item->id}}" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
        <div class="relative w-full max-w-2xl max-h-full">
            <!-- Modal content -->
-           <form action="#" accept-charset="UTF-8" enctype="multipart/form-data"   class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+           <form action="/admin/team" accept-charset="UTF-8" enctype="multipart/form-data"   class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                <!-- Modal header -->
                <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
@@ -178,9 +179,13 @@
                       </div>
                    <!-- Modal footer -->
                    <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-                       <button data-modal-hide="{{ $item->name }}"type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-greeb-700 dark:focus:ring-green-800">Back</button>
-                       {{-- <button data-modal-hide="{{ $item->name }}"type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button> --}}
-                   </div>
+                    <div class="flex justify-center">
+                        <button type="submit" id="back-button" onclick="window.location.href = '/admin/team'" data-modal-hide="{{ $item->name }}" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-greeb-700 dark:focus:ring-green-800">
+                            Back
+                        </button>
+                    </div>
+                </div>
+                 </div>
                </div>
            </div>
        </div>
@@ -210,9 +215,10 @@
                         Yes, I'm sure
                     </button>
                 </form>
-                <button id="cancel-button" data-modal-hide="{{ $item->description }}" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+                <button id="cancel-button" onclick="window.location.href = '/admin/team'" data-modal-hide="{{ $item->description }}" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
                     No, cancel
                 </button>
+                
             </div>
         </div>
     </div>
@@ -230,30 +236,76 @@
 <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable({
-            // paging: true, // Enable pagination
-            // lengthMenu: [-1, 2, 10, 20, 50, 100], // Set entries per page to 6
-            // pageLength: -1,
-            // responsive: true
-        });
+  $(document).ready(function() {
+   $('#myTable').DataTable({
+      responsive: true
+   });
+});
+
+      // Event listener for delete button
+      $(".delete-user-btn").on("click", function() {
+        var confirmDelete = confirm("Confirm delete?");
+        if (confirmDelete) {
+            var form = $(this).closest('form');
+            form.submit();
+        }
     });
-    
-             // Event listener for delete button
-        $("#delete-user-btn").on("click", function() {
-            var confirmDelete = confirm("Confirm delete?");
-            if (confirmDelete) {
-                var form = $(this).closest('form');
-                form.submit();
+
+ // Event listener for back button click
+ $(".back-button").on("click", function() {
+        // Redirect to the team page
+        window.location.href = "{{ url('admin/team') }}";
+    });
+
+   // Event listener for back button click
+document.getElementById("back-button").addEventListener("click", function() {
+   // Redirect to the team page
+   window.location.href = "{{ url('admin/team') }}"; // Replace with the actual URL of the team page
+});
+  // Handle form submission
+  $('#addTeamForm').on('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        // Perform an AJAX request to save the data
+        $.ajax({
+            url: $(this).attr('action'), // Form action URL
+            method: $(this).attr('method'), // Form method (e.g., POST)
+            data: new FormData(this), // Form data
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                // Handle the successful response
+                // Update the table with the new row
+                var table = $('#myTable').DataTable(); // Use the updated ID for the table
+                table.row.add([
+                    // Add the data to the new row in the table
+                    response.name,
+                    response.position,
+                    response.description,
+                    '<a href="#" type="button" data-modal-target="'+ response.id + '" data-modal-toggle="'+ response.id + '" class="font-medium text-green-600 dark:text-green-500 hover:underline">View</a>' +
+                    ' | <a href="#" type="button" data-modal-target="'+ response.id + '" data-modal-show="'+ response.id + '" class="font-medium text-green-600 dark:text-green-500 hover:underline">Edit</a>' +
+                    ' | <a href="#" type="button" data-modal-target="'+ response.id + '" data-modal-toggle="'+ response.id + '" class="font-medium text-red-600 dark:text-blue-500 hover:underline">Delete</a>'
+                ]).draw(false);
+
+                // Reset the form
+                $('#addTeamForm')[0].reset();
+
+                // Close the modal or perform any other necessary actions
+                // ...
+
+                // Display a success message
+                $('#addTeamForm').append('<div class="text-green-600">Successfully added a new member.</div>');
+
+                // Remove the success message after a few seconds
+                setTimeout(function() {
+                    $('.text-green-600').remove();
+                }, 3000);
+
+                // Redirect to the team page
+                window.location.href = "/admin/team";
             }
         });
-
-            // Event listener for cancel button click
-    document.getElementById("cancel-button").addEventListener("click", function() {
-        // Redirect to the table page
-        window.location.href = "{{ url('admin/team') }}"; // Replace with the actual URL of the table page
     });
-
 </script>
 @endsection
 

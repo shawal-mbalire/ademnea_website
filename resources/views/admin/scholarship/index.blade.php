@@ -132,7 +132,7 @@
 
 
 
-@endsection 
+
    
 <!-- Edit scholarships -->
 @foreach($scholarship as $item)

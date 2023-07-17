@@ -40,7 +40,7 @@
                 </td>
               
                 <td class="px-6 py-4">
-                    <a href="#" data-modal-target="{{ $item->id }}" data-modal-toggle="{{ $item->id }}" class="font-medium text-green-600 dark:text-green-500 hover:underline">Edit</a>
+                    <a href="#" data-modal-target="{{ $item->id }}" data-modal-show="{{ $item->id }}" class="font-medium text-green-600 dark:text-green-500 hover:underline">Edit</a>
                 </td>
             </tr>
             @endforeach 

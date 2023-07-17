@@ -47,19 +47,19 @@ $(function() {
 
     // Send AJAX request to server
     $.ajax({
-        url: '/hive_data/temperature_data/' + hiveId,
+        url: '/hive_data/carbondioxide_data/' + hiveId,
         method: 'GET',
         data: {
             start: startDate,
             end: endDate,
-            table: 'hive_temperatures' // name of the table you want to fetch data from
+            table: 'hive_carbondioxide' // name of the table you want to fetch data from
         },
         success: function(response) {
             // handle the response data
             myChart.setOption({
               // chart configuration options here
                 title: {
-                            text: 'Temperatures'
+                            text: 'Carbondioxide'
                         },
                 tooltip: {
                           trigger: 'axis'
@@ -73,9 +73,9 @@ $(function() {
                               yAxisIndex: 'none'
                           },
                           dataView: { show: false, readOnly: false },
-                          magicType: { show: true, type: ['line', 'bar'] },
-                          restore: { show: true },
-                          saveAsImage: { show: true }
+                          magicType: { show: false, type: ['line', 'bar'] },
+                          restore: { show: false },
+                          saveAsImage: { show: false }
                           }
                       },
                 xAxis: {
@@ -88,15 +88,15 @@ $(function() {
                           min: 10,
                           max: 40,
                           axisLabel: {
-                          formatter: '{value} °C'
+                          formatter: '{value} ppm'
                           },
                           splitNumber: 10
                       },
                 series: [
                   {
-                        name: 'Brood Section',
+                        name: 'carbondioxide Levels',
                         type: 'line',
-                        data: response.broodSection,
+                        data: response.carbonLevels,
                         markPoint: {
                                     data: [
                                           { type: 'max', name: 'Max' },
@@ -108,39 +108,39 @@ $(function() {
                                    },
                                   //  color: 'red' 
                       },
-                    {
-                        name: 'Exterior',
-                        type: 'line',
-                        data: response.exterior,
-                        markPoint: {
-                                    data: [
-                                          { type: 'max', name: 'Max' },
-                                          { type: 'min', name: 'Min' }
-                                          ]
-                                    },
-                        markLine: {
-                                    data: [{ type: 'average', name: 'Avg' }]
-                                   },
+                    // {
+                    //     name: 'Exterior',
+                    //     type: 'line',
+                    //     data: response.exterior,
+                    //     markPoint: {
+                    //                 data: [
+                    //                       { type: 'max', name: 'Max' },
+                    //                       { type: 'min', name: 'Min' }
+                    //                       ]
+                    //                 },
+                    //     markLine: {
+                    //                 data: [{ type: 'average', name: 'Avg' }]
+                    //                },
                         
-                        // color: 'green' 
+                    //     // color: 'green' 
                        
-                    },
+                    // },
                    
-                      {
-                        name: 'Honey Section',
-                        type: 'line',
-                        data: response.honeySection,
-                        markPoint: {
-                        data: [
-                              { type: 'max', name: 'Max' },
-                              { type: 'min', name: 'Min' }
-                            ]
-                          },
-                          markLine: {
-                            data: [{ type: 'average', name: 'Avg' }]
-                          },
-                          // color: 'blue' 
-                    },
+                    //   {
+                    //     name: 'Honey Section',
+                    //     type: 'line',
+                    //     data: response.honeySection,
+                    //     markPoint: {
+                    //     data: [
+                    //           { type: 'max', name: 'Max' },
+                    //           { type: 'min', name: 'Min' }
+                    //         ]
+                    //       },
+                    //       markLine: {
+                    //         data: [{ type: 'average', name: 'Avg' }]
+                    //       },
+                    //       // color: 'blue' 
+                    // },
                 ]
             });
         }
@@ -163,16 +163,15 @@ cb(start, end);
 });
 </script>
 
-      
 
-              <div class='bg-white'>
-                    <div id="chart" style="width: 100%; height: 480px;" class='p-1'></div>
-                      <script>
-                      // JavaScript code to create and configure the chart
-                      var myChart = echarts.init(document.getElementById('chart'));
-                      </script>
-              </div>
-      
+        <div class='bg-white mx-3 p-1 mt-2'>
+              <div id="chart" style="width: 100%; height: 480px;" class='p-2'></div>
+                <script>
+                // JavaScript code to create and configure the chart
+                var myChart = echarts.init(document.getElementById('chart'));
+                </script>
+        </div>
+
 
 </div>
 

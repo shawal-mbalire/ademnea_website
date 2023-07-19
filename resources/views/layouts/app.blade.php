@@ -43,6 +43,7 @@
    <script  type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
     @yield("page_scripts")
     <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>   -->
+    
    </body>
    </html>
 

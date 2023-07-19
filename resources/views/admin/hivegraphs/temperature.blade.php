@@ -24,7 +24,7 @@
         <h3 class='mx-2 font-bold py-1 text-green-600'>Select a date-range</h3>
         <!-- Date range picker -->
         <div id="reportrange" class="border-2 border-green-800 rounded-lg hover:bg-green-800"
-            style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 260px">
+            style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 260px; ">
             <i class="fa fa-calendar"></i>&nbsp;
             <span></span> <i class="fa fa-caret-down"></i>
         </div>

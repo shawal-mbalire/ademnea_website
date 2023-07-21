@@ -49,6 +49,8 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/humiditydata', 'App\Http\Controllers\Admin\HiveHumidityController');
     Route::resource('admin/weightdata', 'App\Http\Controllers\Admin\HiveWeightController');
     Route::resource('admin/carbondioxidedata', 'App\Http\Controllers\Admin\HiveCarbondioxideController');
+
+    Route::post('/edithive','App\Http\Controllers\Admin\HiveController@update');
 });
 
 

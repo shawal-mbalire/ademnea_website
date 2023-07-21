@@ -48,19 +48,19 @@
         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton2">
             <li>
-                <a href="{{ url('/admin/temperaturedata') }}"
+                <a href="{{ url('/admin/temperaturedata') }}?hive_id={{$hive_id}}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Temperature</a>
             </li>
             <li>
-                <a href="{{ url('/admin/humiditydata') }}"
+                <a href="{{ url('/admin/humiditydata') }}?hive_id={{$hive_id}}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Humidity</a>
             </li>
             <li>
-                <a href="{{ url('/admin/carbondioxidedata') }}"
+                <a href="{{ url('/admin/carbondioxidedata') }}?hive_id={{$hive_id}}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Carbondioxide</a>
             </li>
             <li>
-                <a href="{{ url('/admin/weightdata') }}"
+                <a href="{{ url('/admin/weightdata') }}?hive_id={{$hive_id}}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Weight</a>
             </li>
 
@@ -81,15 +81,15 @@
         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton3">
             <li>
-                <a href="{{ url('/admin/audiodata') }}"
+                <a href="{{ url('/admin/audiodata') }}?hive_id={{$hive_id}}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Audio</a>
             </li>
             <li>
-                <a href="{{ url('/admin/videodata') }}"
+                <a href="{{ url('/admin/videodata') }}?hive_id={{$hive_id}}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Video</a>
             </li>
             <li>
-                <a href="{{ url('/admin/photodata') }}"
+                <a href="{{ url('/admin/photodata') }}?hive_id={{$hive_id}}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Images</a>
             </li>
         </ul>

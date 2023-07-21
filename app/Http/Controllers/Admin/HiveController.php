@@ -94,13 +94,19 @@ class HiveController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        
-        $requestData = $request->all();
-        
-        $hive = Hive::findOrFail($id);
-        $hive->update($requestData);
+       // return $request->input();
+       $latitude = $request->input('latitude');
+       $longitude = $request->input('longitude');
+       $hive_id = $request->input('hive_id');
+
+      DB::table('hives')
+        ->where('id',$hive_id)
+        ->update([
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+        ]);
 
         return redirect('admin/hive')->with('flash_message', 'Farm updated!');
     }

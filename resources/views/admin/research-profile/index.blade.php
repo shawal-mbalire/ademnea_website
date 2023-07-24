@@ -224,7 +224,7 @@
                         {{-- <div class="row"> <!--<h4 class="col-4">NAME</h4>--><h4 class="col-4">TITLE</h4></div> --}}
                         <div class="row"> <!--<h4 class="col-4">{{ $item->id }}</h4>--> <h4 class="col-4">{{ $item->category }} </h4> <h4 class="col-4">{{ $item->country }} </h4>
                         <p>
-                       {{ $item->description }} 
+                       {!! $item->description !!} 
                            </p> 
                        </div>
                     <!-- Modal footer -->

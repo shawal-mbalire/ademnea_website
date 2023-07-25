@@ -36,10 +36,11 @@
                 <td class="px-6 py-4">
                 {{ $item->article }}
                 </td>
-                <td class="px-6 py-4">        
-                
-                    {{ $item->description }}
-        
+                <td class="px-6 py-4">  
+                   <details >
+                    <summary> newsletter description </summary>
+                    {!! $item->description !!}
+                </details>    
                 </td>
                 <td class="px-6 py-4">
                     <a href="#" type="button" data-modal-target="{{ $item->title }}" data-modal-show="{{ $item->title }}" class="font-medium text-green-600 dark:text-green-500 hover:underline">View</a>

@@ -260,10 +260,10 @@
                 <!-- Modal body -->
                 <div class="p-6 space-y-6">
                     <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                      This is the farm name:{{ $farm->name}}
+                      Farm name:{{ $farm->name}}
                     </p>
                     <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                     {{ $farm->description}}
+                    It is found in {{ $farm->address}} which is in {{ $farm->district}} district.
                     </p>
                 </div>
                 <!-- Modal footer -->

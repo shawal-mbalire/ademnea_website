@@ -13,7 +13,7 @@
 
 @include('datanavbar')
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+<div class="relative p-3 mt-10 overflow-x-auto shadow-md sm:rounded-lg">
         
            
     <table id="myTable" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

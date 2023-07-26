@@ -16,10 +16,13 @@ class HiveTemperatureController extends Controller
      * @return \Illuminate\View\View
      */
     public function index(Request $request)
-    {        
-        $perPage = 30;
+    {      
+        
+        $hiveId = $request->query('hive_id');
+
+        // return $hiveId;
        
-        $temperatures = HiveTemperature::latest()->paginate($perPage);
+        $temperatures = HiveTemperature::where('hive_id', $hiveId)->get();
 
         return view('admin.hivedata.temperatures', compact('temperatures'));
     }

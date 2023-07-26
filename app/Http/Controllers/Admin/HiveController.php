@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Models\Farm;
 use Illuminate\Support\Facades\DB;
 use App\Models\Hive;
 use Illuminate\Http\Request;
@@ -18,11 +19,15 @@ class HiveController extends Controller
      */
     public function index(Request $request)
     {        
-        $perPage = 25;
-       
-        $hive = Hive::orderBy('id', 'asc')->paginate($perPage);
+       // $perPage = 25;
+       // this is supposed to show only hives for the selected farm.
 
-        return view('admin.hives.index', compact('hive'));
+       $farmId = $request->query('farm_id');
+       //return $farmId;
+       $hive = Hive::where('farm_id', $farmId)->get();
+
+       $farms = Farm::all();
+        return view('admin.hives.index', compact('hive','farms'));
     }
 
     /**
@@ -89,13 +94,19 @@ class HiveController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        
-        $requestData = $request->all();
-        
-        $hive = Hive::findOrFail($id);
-        $hive->update($requestData);
+       // return $request->input();
+       $latitude = $request->input('latitude');
+       $longitude = $request->input('longitude');
+       $hive_id = $request->input('hive_id');
+
+      DB::table('hives')
+        ->where('id',$hive_id)
+        ->update([
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+        ]);
 
         return redirect('admin/hive')->with('flash_message', 'Farm updated!');
     }

@@ -49,6 +49,9 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/humiditydata', 'App\Http\Controllers\Admin\HiveHumidityController');
     Route::resource('admin/weightdata', 'App\Http\Controllers\Admin\HiveWeightController');
     Route::resource('admin/carbondioxidedata', 'App\Http\Controllers\Admin\HiveCarbondioxideController');
+
+
+    Route::post('/edithive','App\Http\Controllers\Admin\HiveController@update');
 });
 
                 /* ------------HIVE DATA------------------*/
@@ -109,3 +112,8 @@ Route::get('/article/{id}', [App\Http\Controllers\ArticleController::class, 'ind
 
 //upload images in the ck editor
 Route::post('ckeditor/upload', 'App\Http\Controllers\Admin\NewsletterController@upload')->name('upload');
+
+
+Route::get('/map', [App\Http\Controllers\MapController::class, 'displayMap']);
+Route::get('/sensor-monitoring', [App\Http\Controllers\SensorMonitoringController::class, 'sensorMonitor']);
+Route::get('/power-monitoring', [App\Http\Controllers\PowerMonitoringController::class, 'powerMonitor']);

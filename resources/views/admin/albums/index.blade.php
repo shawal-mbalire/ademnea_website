@@ -77,7 +77,7 @@
                         <br/>
                         <br/>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table id="myTable"class="table">
                                 <thead>
                                 <tr>
                                     <th>ID</th>

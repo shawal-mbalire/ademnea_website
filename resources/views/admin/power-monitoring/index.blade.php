@@ -3,7 +3,7 @@
 
 
 <div>
-    <h1>Sensor Fault monitoring will be here</h1>
+    <h1>Power monitoring will be here</h1>
 </div>
 
 

@@ -2,8 +2,8 @@
 @section('content')
 
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-
+<div >
+    <h1>Map will be here</h1>
 </div>
 
 

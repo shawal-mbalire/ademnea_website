@@ -23,6 +23,15 @@
             <script src="
          https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js
          "></script>
+
+         <!--Map Scripts-->
+             <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <script
+    src="https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario&key=AvvQV4ch_5cSpbgNw94ftFt3Xsy41cLVIBmOuhrd3WRvTFzKW2kLP09WeNPSfgrg"
+    async defer></script>
       
    </head>
    <body>

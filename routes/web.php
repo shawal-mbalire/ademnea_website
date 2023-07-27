@@ -113,7 +113,9 @@ Route::get('/article/{id}', [App\Http\Controllers\ArticleController::class, 'ind
 //upload images in the ck editor
 Route::post('ckeditor/upload', 'App\Http\Controllers\Admin\NewsletterController@upload')->name('upload');
 
+// ...........................MAP...............................
+Route::get('/farms/map/{id}', [App\Http\Controllers\MapController::class, 'displayMap'])->name('farms.hives');
 
-Route::get('/map', [App\Http\Controllers\MapController::class, 'displayMap']);
+
 Route::get('/sensor-monitoring', [App\Http\Controllers\SensorMonitoringController::class, 'sensorMonitor']);
 Route::get('/power-monitoring', [App\Http\Controllers\PowerMonitoringController::class, 'powerMonitor']);

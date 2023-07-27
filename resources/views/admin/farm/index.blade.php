@@ -49,7 +49,7 @@
                    <a href="#" type="button" data-modal-target="{{ $item->id }}" data-modal-show="{{ $item->id }}" class="font-medium text-green-600 dark:text-green-500 hover:underline">Edit Farm</a>
                    <a href="/admin/hive?farm_id={{$item->id}}" type="button"  class="font-medium text-gray-600 dark:text-gray-500 hover:underline">Hives</a>
                    <a href="#" type="button" data-modal-target="popup-modal" data-modal-show="popup-modal" class="font-medium text-red-600 dark:text-green-500 hover:underline">Delete</a>
-                   <a href="/map" type="button"  class="font-medium text-black dark:text-black hover:underline">Map</a>
+                   <a href="{{ url('/farms/map/' . $item->id) }}" type="button"  class="font-medium text-black dark:text-black hover:underline">Map</a>
                    
                 </td>
             </tr>

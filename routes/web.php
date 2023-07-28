@@ -118,4 +118,4 @@ Route::get('/farms/map/{id}', [App\Http\Controllers\MapController::class, 'displ
 
 
 Route::get('/sensor-monitoring', [App\Http\Controllers\SensorMonitoringController::class, 'sensorMonitor']);
-Route::get('/power-monitoring', [App\Http\Controllers\PowerMonitoringController::class, 'powerMonitor']);
+Route::get('/admin/power-monitoring/{hive_id}', [App\Http\Controllers\PowerMonitoringController::class, 'powerMonitor']);

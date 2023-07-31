@@ -43,14 +43,16 @@
 <div class="container">
     <br><br><br>
     <p>
-        <h3>
-            Its not bad to be curious! </h3> <br> The admin side has no gallery.
-            The gallery pictures are picked from all the tables that exist on this site, 
-             <br>so these do not need 
-            special management. you can delete, add edit from their respective tables. <br>
-            <h4>
-                click <a href="/galleries"> here </a>to go to the gallery.
-            </h4>
+        <h3>select a category whose gallery to view.</h3>
+
+        <div class="list-group list-group-flush">
+            <a href="/albums_gallery" class="list-group-item list-group-item-action">Albums</a>
+            <a href="/teams_gallery" class="list-group-item list-group-item-action">Teams</a>
+            <a href="/photos_gallery" class="list-group-item list-group-item-action">Photos</a>
+            <a href="/galleries_gallery" class="list-group-item list-group-item-action">Galleries</a>
+            <a class="list-group-item list-group-item-action disabled" aria-disabled="true">Others</a>
+          </div>
+        
     </p>
 </div>
 

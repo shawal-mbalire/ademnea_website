@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\WorkPackage;
 use App\Models\Gallery;
+use App\Models\Team;
 use App\Models\Scholarship;
 
 use Illuminate\Http\Request;
@@ -24,7 +25,13 @@ class GalleryController extends Controller
     //routes to fetch the gallery photos for all the categories will appear here.
     public function teams(){
 
-        return view('admin.gallery.teams_gallery');
+
+        // lets pick the team pictures and send them to the frontend
+
+        $teams = Team::all();
+       // dd($teams);
+
+        return view('admin.gallery.teams_gallery',compact('teams'));
     }
 
     public function photos(){

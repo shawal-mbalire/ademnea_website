@@ -17,11 +17,9 @@ welcome.html
 home.html
 login.html
 login.html
-/public/images/1629193592-WP1.jpg
-/public/images/1629193636-katamba.jpg
-/public/images/1629193729-ggg.jpg
-/public/images/1629193765-katamba.jpg
-/public/images/1629193794-WP1.jpg
+/public/images/
+/public/image/
+
 
 database/migrations/2022_09_20_154350_create_audios_table.php
 database/migrations/2022_09_20_154350_create_audios_table.php

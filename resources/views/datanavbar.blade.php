@@ -120,7 +120,7 @@
             <li>
                 
                 
-                <a href="{{ url('/admin/power-monitoring/' . $hive_id ) }}"
+                <a href="{{ url('/admin/power-monitoring-default/' . $hive_id ) }}"
                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Power Monitoring</a>
             </li>
         </ul>

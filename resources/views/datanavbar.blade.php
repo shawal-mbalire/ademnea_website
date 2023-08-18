@@ -1,8 +1,9 @@
 
 <div class="flex flex-row mt-10 space-x-4 items-center justify-center h-16 mb-2 px-10 bg-white">
 
+    {{-- we need to add this hive id to session to pick it once back is pressed. --}}
         <div>
-        <a href="{{ url('admin/hive') }}" class="inline-block px-2 py-2 rounded-sm text-white bg-gray-700 hover:bg-gray-500">Back</a>
+        <a href="{{ url('admin/hive?farm_id=' . session('farm_id')) }}" class="inline-block px-2 py-2 rounded-sm text-white bg-gray-700 hover:bg-gray-500">Back</a>
         </div>
 
 

@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Validator;
 use App\Models\Publication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PublicationController extends Controller
 {
@@ -53,29 +54,30 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:publications|min:5|max:255',
-            'title' => 'required|unique:publications|min:5|max:255',
-            'publisher' => 'required',
-            'year' => 'required',
-           'attachment'=> 'required|mimes:pdf'
+        
+        //dd($request->all());
+     
+        $request->validate([
+            'attachment' => 'required|mimes:csv,pdf,doc,docx,xls,xlsx|max:11000',
         ]);
-    
-        if ($validator->fails()) {
-            return redirect()->back()
-                        ->withErrors($validator)
-                        ->withInput();
-        }
-        
-        // dd($request->all());
-        
-        $requestData = $request->all();
-        if ($request->hasFile('attachment')) {
-            $requestData['attachment'] = $request->file('attachment')
-                ->store('uploads', 'public');
-        }
+        $filename = $request->file('attachment')->getClientOriginalName();
+        $request->file('attachment')->move(public_path('documents/publications'), $filename);
 
-        Publication::create($requestData);
+
+        DB::table('publications')->insert([
+
+            'name' => $request->name,
+            'title' => $request->title,
+            'publisher' => $request->publisher,
+            'year' => $request->year,
+            'attachment' => $filename,
+            'created_at' => now(),
+            'updated_at' => now(),
+              
+        ]);
+
+         
+       // Publication::create($requestData);
 
         return redirect('admin/publication')->with('flash_message', 'Publication added!');
     }

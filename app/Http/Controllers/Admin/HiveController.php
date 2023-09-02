@@ -23,7 +23,9 @@ class HiveController extends Controller
        // this is supposed to show only hives for the selected farm.
 
        $farmId = $request->query('farm_id');
-       //return $farmId;
+
+       session(['farm_id' => $farmId]);
+      
        $hive = Hive::where('farm_id', $farmId)->get();
 
        $farms = Farm::all();

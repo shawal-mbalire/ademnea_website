@@ -19,6 +19,7 @@ login.html
 login.html
 /public/images/
 /public/image/
+/public/documents/
 
 
 database/migrations/2022_09_20_154350_create_audios_table.php

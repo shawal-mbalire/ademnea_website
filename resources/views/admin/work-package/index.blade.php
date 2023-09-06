@@ -14,6 +14,12 @@
                     Name
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    Partners
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Duration
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Workpackage Details
                 </th>
                 <th scope="col" class="px-6 py-3">
@@ -30,6 +36,12 @@
                 </th>
                 <td class="px-6 py-4">
                 {{ $item->name }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $item->partners }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $item->duration }}
                 </td>
                 <td class="px-6 py-4">
                 <details>
@@ -71,6 +83,18 @@
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Work Package Name(e.g wp1)</label>
                         <input type="text" name="name" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Bonnie" required="">
                     </div>
+                    
+                    <div class="col-span-6 sm:col-span-6">
+                        <label for="partners" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Partners</label>
+                        <input type="text" name="partners" id="partners" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="NBU" required="">
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-6">
+                        <label for="duration" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Duration</label>
+                        <input type="text" name="duration" id="duration" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="M1-M60" required="">
+                    </div>
+
+
                     <div class="col-span-6 sm:col-span-6">
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Research Interests</label>
                         <textarea class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"  rows="5" name="instructions" type="textarea" id="instructions" ></textarea>

@@ -58,7 +58,13 @@
             </div>
             @foreach($workpackages  as $workpackage)
             <div class="container">
-               {!! $workpackage->instructions !!}
+               {{-- {!! $workpackage->instructions !!} --}}
+              <b>Name:</b> {{$workpackage->name}} <br>
+              <b>Partners:</b>{{$workpackage->partners}}<br>
+             <b> Duration: </b>{{$workpackage->duration}}<br><br>
+              <b>Description</b> <br> 
+               {!! preg_replace('/\r\n|\r|\n/', '<br>', $workpackage->instructions) !!}
+
             </div>
             @endforeach
         @else

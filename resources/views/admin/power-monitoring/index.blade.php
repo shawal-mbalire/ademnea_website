@@ -4,35 +4,31 @@
         $hive_id = session('hive_id');
         $hive_battery_data = $hive_battery->pluck('battery_level')->toJson();
     @endphp
-
     <div>
         @include('datanavbar')
 
-        <div>
-            <p>Battery for Hives</p>
-            <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.1/dist/echarts.min.js"></script>
-
-            @foreach ($hive_battery as $battery)
-                <div class="text-center bold">
-                    <b>BATTERY FOR HIVE: {{ $battery->hive_id }}</b>
-                </div>
-
-                <div class="row">
-                    <div class="col-4 m-1 liquid-fill" style="background-color: aquamarine">
-                        Liquid Battery goes here
-                        // View
-                     <div id="battery-chart"></div>
-                        {{-- <div id="batteryChart-{{ $battery->hive_id }}" style="width: 200px; height: 200px;"></div> --}}
-                    </div>
-                    <div class="col-4 m-1 graph">
-                        Graph goes here
-                    </div>
-                </div>
-            @endforeach
-        </div>
 
     </div>
 
+    <div>
+        <p>Battery for Hives</p>
+
+
+        @foreach ($hive_battery as $battery)
+            <div class="text-center bold">
+                <b>BATTERY FOR HIVE: {{ $battery->hive_id }}</b>
+            </div>
+
+            <div class="row">
+                <div class="col-4 m-1 donut" style="background-color: aquamarine">
+                    Liquid Battery goes here
+                </div>
+                <div class="col-4 m-1 graph">
+                    Graph goes here
+                </div>
+            </div>
+        @endforeach
+    </div>
 @endsection
 
 <!-- Add this in your <head> section or at the end of the <body> -->

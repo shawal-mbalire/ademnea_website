@@ -67,14 +67,14 @@
                    </svg>
                  <span class="ml-3">Gallery</span>
              </a>
-          </li> <li>
+          <!-- </li> <li>
              <a href="/admin/scholarship" class="flex items-center p-2 text-white rounded-lg dark:text-black hover:bg-green-800 dark:hover:bg-white">
                  <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 18">
                      <path d="M8 18A18.55 18.55 0 0 1 0 3l8-3 8 3a18.549 18.549 0 0 1-8 15Z"/>
                    </svg>
                  <span class="ml-3">Scholarship</span>
              </a>
-          </li> <li>
+          </li> <li> -->
              <a href="/admin/research-profile" class="flex items-center p-2 text-white rounded-lg dark:text-black hover:bg-green-800 dark:hover:bg-white">
                  <svg class="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.656 12.115a3 3 0 0 1 5.682-.015M13 5h3m-3 3h3m-3 3h3M2 1h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Zm6.5 4.5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"/>

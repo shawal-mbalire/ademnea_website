@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateWorkPackagesTable extends Migration
 {
@@ -16,8 +17,10 @@ class CreateWorkPackagesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name')->nullable();
+            $table->string('partners')->nullable();
+            $table->string('duration')->nullable();
             $table->longText('instructions')->nullable();
-            });
+        });
     }
 
     /**
@@ -27,6 +30,6 @@ class CreateWorkPackagesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('work_packages');
+        Schema::dropIfExists('work_packages');
     }
 }

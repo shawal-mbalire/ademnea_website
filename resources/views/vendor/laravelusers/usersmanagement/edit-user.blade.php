@@ -51,7 +51,7 @@
                             {!! csrf_field() !!}
                             <div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
                                 @if(config('laravelusers.fontAwesomeEnabled'))
-                                    {!! Form::label('name', trans('laravelusers::forms.create_user_label_username'), array('class' => 'col-md-3 control-label')); !!}
+                                    {!! Form::label('name', trans('laravelusers::forms.create_user_label_username'), array('class' => 'col-md-3 control-label')) !!}
                                 @endif
                                 <div class="col-md-9">
                                     <div class="input-group">
@@ -75,7 +75,7 @@
                             </div>
                             <div class="form-group has-feedback row {{ $errors->has('email') ? ' has-error ' : '' }}">
                                 @if(config('laravelusers.fontAwesomeEnabled'))
-                                    {!! Form::label('email', trans('laravelusers::forms.create_user_label_email'), array('class' => 'col-md-3 control-label')); !!}
+                                    {!! Form::label('email', trans('laravelusers::forms.create_user_label_email'), array('class' => 'col-md-3 control-label')) !!}
                                 @endif
                                 <div class="col-md-9">
                                     <div class="input-group">
@@ -100,7 +100,7 @@
                             @if($rolesEnabled)
                                 <div class="form-group has-feedback row {{ $errors->has('role') ? ' has-error ' : '' }}">
                                     @if(config('laravelusers.fontAwesomeEnabled'))
-                                        {!! Form::label('role', trans('laravelusers::forms.create_user_label_role'), array('class' => 'col-md-3 control-label')); !!}
+                                        {!! Form::label('role', trans('laravelusers::forms.create_user_label_role'), array('class' => 'col-md-3 control-label')) !!}
                                     @endif
                                     <div class="col-md-9">
                                     <div class="input-group">
@@ -137,7 +137,7 @@
                             <div class="pw-change-container">
                                 <div class="form-group has-feedback row {{ $errors->has('password') ? ' has-error ' : '' }}">
                                     @if(config('laravelusers.fontAwesomeEnabled'))
-                                        {!! Form::label('password', trans('laravelusers::forms.create_user_label_password'), array('class' => 'col-md-3 control-label')); !!}
+                                        {!! Form::label('password', trans('laravelusers::forms.create_user_label_password'), array('class' => 'col-md-3 control-label')) !!}
                                     @endif
                                     <div class="col-md-9">
                                         <div class="input-group">
@@ -161,7 +161,7 @@
                                 </div>
                                 <div class="form-group has-feedback row {{ $errors->has('password_confirmation') ? ' has-error ' : '' }}">
                                     @if(config('laravelusers.fontAwesomeEnabled'))
-                                        {!! Form::label('password_confirmation', trans('laravelusers::forms.create_user_label_pw_confirmation'), array('class' => 'col-md-3 control-label')); !!}
+                                        {!! Form::label('password_confirmation', trans('laravelusers::forms.create_user_label_pw_confirmation'), array('class' => 'col-md-3 control-label')) !!}
                                     @endif
                                     <div class="col-md-9">
                                         <div class="input-group">

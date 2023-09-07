@@ -141,7 +141,7 @@
           <div class="col-xl-4 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
             <div class="team-member">
               <div class="member-img">
-                <img src="{{asset('images/' . $item->image_path)}}" class="img-fluid" alt="image">
+                <img src="images/publications/{{ $item->image }}" class="img-fluid" alt="image">
               </div>
               <div class="member-info">
                 <h4>{{$item->name}}</h4>

@@ -51,6 +51,18 @@
     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
 </div>
 
+<div class="form-group {{ $errors->has('partners') ? 'has-error' : ''}}">
+    <label for="partners" class="control-label">{{ 'Partners' }}</label>
+    <input class="form-control" name="partners" type="text" id="partners" value="{{ isset($workpackage->partners) ? $workpackage->partners : ''}}" required>
+    {!! $errors->first('partners', '<p class="help-block">:message</p>') !!}
+</div>
+
+<div class="form-group {{ $errors->has('duration') ? 'has-error' : ''}}">
+    <label for="duration" class="control-label">{{ 'duration' }}</label>
+    <input class="form-control" name="duration" type="text" id="duration" value="{{ isset($workpackage->duration) ? $workpackage->duration : ''}}" required>
+    {!! $errors->first('duration', '<p class="help-block">:message</p>') !!}
+</div>
+
 <div class="form-group">
     <label for="instructions" class="control-label">{{ 'Work Package Details' }}</label>
     <textarea class="form-control @error('instructions') is-invalid @enderror" rows="5" name="instructions" type="textarea" id="instructions" >{{old('instructions')}}{{ isset($workpackage->instructions) ? $workpackage->instructions : ''}}</textarea>

@@ -15,19 +15,19 @@
                     <div class="address">
                         <i class="bi bi-geo-alt"></i>
                         <h4>Location:</h4>
-                        <p>Makerere University, Wimea Lab</p>
+                        <p>Level 3, Block B - College of Computing & Information Sciences (CoCIS), Makerere University, Kampala Uganda.</p>
                     </div>
 
                     <div class="email">
                         <i class="bi bi-envelope"></i>
                         <h4>Email:</h4>
-                        <p>enquiries@ademnea.net</p>
+                        <p>iotra.lab@gmail.com</p>
                     </div>
 
                     <div class="phone">
                         <i class="bi bi-phone"></i>
                         <h4>Call:</h4>
-                        <p>+256 701909833</p>
+                        <p>+256-789-625-432</p>
                     </div>
 
 

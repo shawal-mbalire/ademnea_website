@@ -21,13 +21,13 @@
                     <div class="email">
                         <i class="bi bi-envelope"></i>
                         <h4>Email:</h4>
-                        <p>iotra.lab@gmail.com</p>
+                        <p>ademnea@cit.ac.ug</p>
                     </div>
 
                     <div class="phone">
                         <i class="bi bi-phone"></i>
                         <h4>Call:</h4>
-                        <p>+256-789-625-432</p>
+                        <p>+256-772-310-038</p>
                     </div>
 
 

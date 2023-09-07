@@ -20,7 +20,6 @@ class CreatePublicationsTable extends Migration
             $table->string('publisher')->nullable();
             $table->string('year')->nullable();
             $table->string('attachment')->nullable();
-            $table->string('image')->nullable();
             });
     }
 

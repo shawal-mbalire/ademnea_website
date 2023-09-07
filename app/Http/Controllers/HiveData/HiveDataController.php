@@ -111,7 +111,7 @@ class HiveDataController extends Controller
         
         foreach ($humidityData as $record) {
             // Assuming the temperature data is stored as 'exterior,brood,honey'
-            list($exteriorHumid, $broodHumid, $honeyHumid) = explode('*', $record->record);
+            list($honeyHumid,  $broodHumid, $exteriorHumid) = explode('*', $record->record);
             
             // Turn the "2" values into null
             $exteriorHumid =  $exteriorHumid == 2 ? null :  $exteriorHumid;

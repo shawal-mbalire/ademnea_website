@@ -26,11 +26,11 @@
                     Hive ID
                 </th>
                 <th scope="col" class="px-6 py-3">
-                 Honey Section (°C)
+                 Interior (°C)
                 </th>
-                <th scope="col" class="px-6 py-3">
+                {{-- <th scope="col" class="px-6 py-3">
                  Brood Section (°C)
-                </th>
+                </th> --}}
                 <th scope="col" class="px-6 py-3">
                  Exterior (°C)
                 </th>
@@ -54,9 +54,9 @@
                 <td class="px-6 py-4">
                 {{ explode('*', $temperature->record)[0] }}
                 </td>
-                <td class="px-6 py-4">
+                {{-- <td class="px-6 py-4">
                 {{ explode('*', $temperature->record)[1] }}
-                </td>
+                </td> --}}
                 <td class="px-6 py-4">
                 {{ explode('*', $temperature->record)[2] }}
                 </td>

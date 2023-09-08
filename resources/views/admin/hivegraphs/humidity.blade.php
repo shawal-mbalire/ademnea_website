@@ -115,8 +115,8 @@ $(function() {
                               yAxisIndex: 'none'
                           },
                           dataView: { show: false, readOnly: false },
-                          magicType: { show: true, type: ['line', 'bar'] },
-                          restore: { show: true },
+                          magicType: { show: false, type: ['line', 'bar'] },
+                          restore: { show: false },
                           saveAsImage: { show: true }
                           }
                       },

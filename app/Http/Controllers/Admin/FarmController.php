@@ -74,6 +74,7 @@ class FarmController extends Controller
     public function show($id)
     {
        
+       
         $farm = Farm::findOrFail($id);
 
         return view('admin.farm.show', compact('farm'));

@@ -24,7 +24,13 @@ class HiveCarbondioxideController extends Controller
 
         // return $hiveId;
        
-        $carbondioxide = HiveCarbondioxide::where('hive_id', $hiveId)->get();
+       // $carbondioxide = HiveCarbondioxide::where('hive_id', $hiveId)->get();
+
+        $carbondioxide = HiveCarbondioxide::where('hive_id', $hiveId)
+        ->latest() // This orders the records by the created_at column in descending order (latest first).
+        ->limit(100) // This limits the result to the latest 100 entries.
+        ->get();
+
 
         return view('admin.hivedata.carbondioxide', compact('carbondioxide'));
     }

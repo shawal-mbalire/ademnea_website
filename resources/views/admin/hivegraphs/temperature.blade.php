@@ -6,10 +6,6 @@
 
 <body>
 
-<!-- <div>
-<a href="{{ url('admin/hive') }}" class="inline-block px-2 py-2 rounded-sm text-white bg-blue-700 hover:bg-blue-500">Back</a>
-</div> -->
-
   {{-- data nav bar goes here --}}
   @include('datanavbar')
 
@@ -111,8 +107,8 @@ $(function() {
                               yAxisIndex: 'none'
                           },
                           dataView: { show: false, readOnly: false },
-                          magicType: { show: true, type: ['line', 'bar'] },
-                          restore: { show: true },
+                          magicType: { show: false, type: ['line', 'bar'] },
+                          restore: { show: false },
                           saveAsImage: { show: true }
                           }
                       },

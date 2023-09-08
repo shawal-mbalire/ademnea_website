@@ -50,9 +50,8 @@
                     </ul>
 
                 </li>
-                <li class="dropdown scrollto dropdown"><a href="#scholarships"
-                        class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
+                <li><a href="/displaypublication" class="nav-link scrollto"><span>Publications</span> </a>
+                    {{-- <ul>
                         <li class="dropdown scrollto dropdown"><a href="/"><span>Masters</span><i
                                     class="bi bi-chevron-down"></i></a>
                             <ul>
@@ -70,7 +69,7 @@
                                 <li><a href="/phdscholarship-tanzania">Tanzania</a></li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </li>
 
                 <li><a href="/displaynewsletter"><span>Blog</span></a></li>

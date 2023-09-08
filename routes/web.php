@@ -25,6 +25,14 @@ Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('password/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('password/reset', [AuthController::class, 'passwordReset']);
+Route::view('/galleries', 'gallery');
+
+//the following routes handle the galleries.
+Route::get('/albums_gallery','App\Http\Controllers\GalleryController@albums');
+Route::get('/teams_gallery','App\Http\Controllers\GalleryController@teams');
+Route::get('/galleries_gallery','App\Http\Controllers\GalleryController@galleries');
+Route::get('/photos_gallery','App\Http\Controllers\GalleryController@photos');
+
 
 Route::middleware('auth:web')->group(function () {
     Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');

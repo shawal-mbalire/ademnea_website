@@ -23,7 +23,13 @@ class HiveHumidityController extends Controller
 
        $hiveId = $request->query('hive_id');
        // return $hiveId;
-       $humidity = HiveHumidity::where('hive_id', $hiveId)->get();
+       //$humidity = HiveHumidity::where('hive_id', $hiveId)->get();
+
+        $humidity = HiveHumidity::where('hive_id', $hiveId)
+        ->latest() // This orders the records by the created_at column in descending order (latest first).
+        ->limit(100) // This limits the result to the latest 100 entries.
+        ->get();
+
        
 
         return view('admin.hivedata.humidity', compact('humidity'));

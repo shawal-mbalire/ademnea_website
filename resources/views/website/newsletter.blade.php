@@ -55,7 +55,7 @@
     <section id="scholarship" class="about pt-0">  
     <div class="container pt-5">
         <div class="card mb-4 custom-card" style="background-color:red, border-radius=50px" >
-            <div class="card-body" style="background-color: rgb(4, 138, 4)" >
+            <div class="card-body" style="background-color: #5cb874" >
     {{-- <div class="h5 text-center container">
         <h1>News about the project</h1>
         
@@ -82,11 +82,11 @@
             <div class="row">
                 @foreach ($newsletter as $workpackage)
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card mb-4 custom-card" style="background-color:red, border-radius=20px" >
+                        <div class="card mb-4 custom-card" style="background-color:red; border-radius=20px; height:300px" >
                             <div class="card-body" style="background-color: white" >
                                 <h4 class="card-title"><a href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4>
                                 <p class="card-text">{!! $workpackage->description !!}</p>
-                                <a href="{{ url('/individual_newsletter/' . $workpackage->id) }}" class="btn btn-primary" style="background-color:  #13ce45">More...</a>
+                                <a href="{{ url('/individual_newsletter/' . $workpackage->id) }}" class="btn btn-primary" style="background-color:  #5cb874">More...</a>
                             </div>
                         </div>
                     </div>

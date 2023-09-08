@@ -27,6 +27,7 @@
         #collapseExample.collapsing {
         height: 3rem;
         }
+   
     </style>
     @include('website.links')
 
@@ -53,26 +54,53 @@
         <!-- ======= Scholarship Section ======= -->
     <section id="scholarship" class="about pt-0">  
     <div class="container pt-5">
-    <div class="h5 text-center container">
+        <div class="card mb-4 custom-card" style="background-color:red, border-radius=50px" >
+            <div class="card-body" style="background-color: rgb(4, 138, 4)" >
+    {{-- <div class="h5 text-center container">
         <h1>News about the project</h1>
         
-    </div>
-    @if($newsletter ->count())
+    </div> --}}
+        {{-- @if($newsletter ->count())
         <div class="row no-gutters">
         @foreach($newsletter  as $workpackage)
             <div class="col-lg-4 col-md-6 col-sm-12 card">
                 <div class="icon-box">
                     <h4 class="title"><a href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4>
                     <p class="description">{!! $workpackage->description !!} <a href="{{ url('/individual_newsletter/' . $workpackage->id) }}">More.......</a></p>
-                {{--. $workpackage->id)--}}
+                {{--. $workpackage->id)--
                 </div>
             </div>
             @endforeach
         @else        
           <p>No Articles now</p>
-        @endif
+        @endif --}}
+        @if ($newsletter->count())
+        <div class="container pt-5">
+            <div class="h5 text-center container">
+                <h1 style="color:white">News about the project</h1>
+            </div>
+            <div class="row">
+                @foreach ($newsletter as $workpackage)
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card mb-4 custom-card" style="background-color:red, border-radius=20px" >
+                            <div class="card-body" style="background-color: white" >
+                                <h4 class="card-title"><a href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4>
+                                <p class="card-text">{!! $workpackage->description !!}</p>
+                                <a href="{{ url('/individual_newsletter/' . $workpackage->id) }}" class="btn btn-primary" style="background-color:  #13ce45">More...</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
+        @else
+            <p>No Articles now</p>
+        @endif
+        
 
+        </div>
+            </div>
+        </div>
     </div>
 </section>
 

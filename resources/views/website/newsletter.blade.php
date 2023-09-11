@@ -82,7 +82,7 @@
             <div class="row">
                 @foreach ($newsletter as $workpackage)
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card mb-4 custom-card" style="background-color:red; border-radius=20px; height:300px" >
+                        <div class="card mb-4 custom-card" style="background-color:rgb(71, 75, 201); border-radius=30px; height:300px" >
                             <div class="card-body" style="background-color: white" >
                                 <h4 class="card-title"><a href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a></h4>
                                 <p class="card-text">{!! $workpackage->description !!}</p>

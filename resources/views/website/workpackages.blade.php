@@ -99,6 +99,8 @@
             </div>
         
             <div class="col-lg-4 col-md-6">
+                <div class="card mb-4 custom-card" style="background-color:green; border-radius=20px; height:300px" >
+                <div class="card-body" style="background-color: white" >
                 <div class="icon-box">
                     <div class="icon"><i class="bi bi-graph-up"></i></div>
                     <h4 class="title"><a href= "/workpackages-wp3">Data Analytics for Environment Monitoring services(WP3)</a></h4>
@@ -106,7 +108,10 @@
                         pests. And also for the first time combined utilization of large weather information data sets
                         in insect pollinator conservation planning and pest control method design</p>
                 </div> 
+                    </div>
+                </div>
             </div>
+            
             
         </div>
 

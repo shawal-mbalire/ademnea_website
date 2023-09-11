@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="btn-dark text-center mt-1 pt-1" style="width:150px; height:50px; border-radius:10px;">
-        <a href="{{ url('/admin/farm') }}"  {{-- class="inline-block px-2 py-2 rounded-sm text-white bg-blue-700 hover:bg-blue-500">Back --}} <i class="fas fa-arrow-left"></i> Back to Farms
-        </a>
+        <a href="{{ url('/admin/farm') }}"  {{-- class="inline-block px-2 py-2 rounded-sm text-white bg-blue-700 hover:bg-blue-500">Back --}} <i class="fas fa-arrow-left"></i> Back         </a>
     </div>
 
     {{-- <h2>Hive Locations</h2> --}}

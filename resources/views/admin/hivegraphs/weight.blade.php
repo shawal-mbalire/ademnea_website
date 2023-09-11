@@ -125,11 +125,11 @@
                                             readOnly: false
                                         },
                                         magicType: {
-                                            show: true,
+                                            show: false,
                                             type: ['line', 'bar']
                                         },
                                         restore: {
-                                            show: true
+                                            show: false
                                         },
                                         saveAsImage: {
                                             show: true

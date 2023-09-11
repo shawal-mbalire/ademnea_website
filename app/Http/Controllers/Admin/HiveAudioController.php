@@ -28,7 +28,6 @@ class HiveAudioController extends Controller
         ->get();
 
 
-
        // $audios = HiveAudio::latest()->paginate($perPage);
 
         return view('admin.hivedata.audios', compact('audios'));

@@ -52,7 +52,7 @@
     <main id="main">
         <!-- ======= Scholarship Section ======= -->
         <section id="scholarship" class="about pt-0">
-            <div class="container pt-5">
+            <div class="container pt-5" style=" max-height: 400px;overflow-y: auto;">
 
                 {{-- <div class="h5 text-center container">
         <h1>News about the project</h1>

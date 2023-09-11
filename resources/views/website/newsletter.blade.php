@@ -55,8 +55,7 @@
         <!-- ======= Scholarship Section ======= -->
         <section id="scholarship" class="about pt-0">
             <div class="container pt-5">
-                <div class="card mb-4 custom-card" style="background-color:red, border-radius=50px">
-                    <div class="card-body" style="background-color: #5cb874">
+               
                         {{-- <div class="h5 text-center container">
         <h1>News about the project</h1>
         
@@ -107,8 +106,7 @@
 
 
                     </div>
-                </div>
-            </div>
+              
             </div>
         </section>
 

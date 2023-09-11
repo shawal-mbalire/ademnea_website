@@ -90,7 +90,7 @@
                                                     <h4 class="card-title"><a
                                                             href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a>
                                                     </h4>
-                                                    <p class="card-text" style="max-lines:3">{!! $workpackage->description !!}</p>
+                                                    <p class="card-text" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{!! $workpackage->description !!}</p>
                                                     <a href="{{ url('/individual_newsletter/' . $workpackage->id) }}"
                                                         class="btn btn-primary"
                                                         style="background-color:  #5cb874">More...</a>

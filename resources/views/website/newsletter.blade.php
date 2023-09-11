@@ -27,8 +27,6 @@
         #collapseExample.collapsing {
             height: 3rem;
         }
-
-
     </style>
     @include('website.links')
 
@@ -55,12 +53,12 @@
         <!-- ======= Scholarship Section ======= -->
         <section id="scholarship" class="about pt-0">
             <div class="container pt-5">
-               
-                        {{-- <div class="h5 text-center container">
+
+                {{-- <div class="h5 text-center container">
         <h1>News about the project</h1>
         
     </div> --}}
-                        {{-- @if ($newsletter->count())
+                {{-- @if ($newsletter->count())
         <div class="row no-gutters">
         @foreach ($newsletter as $workpackage)
             <div class="col-lg-4 col-md-6 col-sm-12 card">
@@ -74,39 +72,41 @@
         @else        
           <p>No Articles now</p>
         @endif --}}
-                        @if ($newsletter->count())
-                            <div class="container pt-5">
-                                <div class="h5 text-center container">
-                                    <h1 style="color:white">News about the project</h1>
-                                </div>
-                                <div class="row">
-                                    @foreach ($newsletter as $workpackage)
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
-                                            {{-- <div class="image">
+                @if ($newsletter->count())
+                    <div class="container pt-5">
+                        <div class="h5 text-center container">
+                            <h1 style="color:white">News about the project</h1>
+                        </div>
+                        <div class="row">
+                            @foreach ($newsletter as $workpackage)
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    {{-- <div class="image">
                                                 <img src="C/Users/A/Desktop/my pic.jpg" alt="Image">
                                               </div> --}}
-                                            <div class="card mb-4 custom-card"style="background-color: white; border-radius=30px;height:300px">
-                                                <div class="card-body" style="background-color:white;max-height:150px;max-lines:3;overflow:ellipsis">
-                                                    <h4 class="card-title"><a
-                                                            href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a>
-                                                    </h4>
-                                                    <p class="card-text" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{!! $workpackage->description !!}</p>
-                                                    <a href="{{ url('/individual_newsletter/' . $workpackage->id) }}"
-                                                        class="btn btn-primary"
-                                                        style="background-color:  #5cb874">More...</a>
-                                                </div>
-                                            </div>
+                                    <div
+                                        class="card mb-4 custom-card"style="background-color: white; border-radius=30px;height:300px">
+                                        <div class="card-body" style="background-color:white;">
+                                            <h4 class="card-title"><a
+                                                    href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a>
+                                            </h4>
+                                            <p class="card-text"
+                                                style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                                                {!! $workpackage->description !!}</p>
+                                            <a href="{{ url('/individual_newsletter/' . $workpackage->id) }}"
+                                                class="btn btn-primary" style="background-color:  #5cb874">More...</a>
                                         </div>
-                                    @endforeach
+                                    </div>
                                 </div>
-                            </div>
-                        @else
-                            <p>No Articles now</p>
-                        @endif
-
-
+                            @endforeach
+                        </div>
                     </div>
-              
+                @else
+                    <p>No Articles now</p>
+                @endif
+
+
+            </div>
+
             </div>
         </section>
 

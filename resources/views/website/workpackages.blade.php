@@ -99,7 +99,7 @@
             </div>
         
             <div class="col-lg-4 col-md-6">
-                <div class="card mb-4 custom-card" style="background-color:green; border-radius=20px; height:300px" >
+                <div class="card mb-4 custom-card" style="background-color:red; border-radius=20px; height:300px" >
                 <div class="card-body" style="background-color: white" >
                 <div class="icon-box">
                     <div class="icon"><i class="bi bi-graph-up"></i></div>

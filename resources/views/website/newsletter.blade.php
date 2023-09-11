@@ -27,6 +27,8 @@
         #collapseExample.collapsing {
             height: 3rem;
         }
+
+
     </style>
     @include('website.links')
 
@@ -81,9 +83,11 @@
                                 <div class="row">
                                     @foreach ($newsletter as $workpackage)
                                         <div class="col-lg-4 col-md-6 col-sm-12">
-                                            <div class="card mb-4 custom-card"
-                                                style="background-color:rgb(71, 75, 201); border-radius=30px; height:300px">
-                                                <div class="card-body" style="background-color: white">
+                                            {{-- <div class="image">
+                                                <img src="C/Users/A/Desktop/my pic.jpg" alt="Image">
+                                              </div> --}}
+                                            <div class="card mb-4 custom-card"style="background-color: white; border-radius=30px;height:300px">
+                                                <div class="card-body" style="background-color:white;max-height:150px;max-lines:3;overflow:ellipsis">
                                                     <h4 class="card-title"><a
                                                             href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a>
                                                     </h4>

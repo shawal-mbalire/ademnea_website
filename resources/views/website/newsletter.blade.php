@@ -62,7 +62,7 @@
   ======================================================== -->
 </head>
 
-<body>
+<body >
 
     <!-- ======= Top Bar ======= -->
     @include('website.top_bar')
@@ -75,8 +75,8 @@
     <main id="main">
         <!-- ======= Scholarship Section ======= -->
         <section id="scholarship" class="about pt-0">
-            <div class="container pt-5" style=" max-height: 400px;overflow-y: auto; ">
-                
+            <div class="container pt-5" style=" max-height: 400px;overflow-y: auto; background-color: #5cb874; color: rgb(51, 33, 157);">
+                            
                 {{-- <div class="h5 text-center container">
         <h1>News about the project</h1>
         

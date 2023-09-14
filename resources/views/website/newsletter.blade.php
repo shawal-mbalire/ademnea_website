@@ -27,6 +27,30 @@
         #collapseExample.collapsing {
             height: 3rem;
         }
+
+        .custom-card {
+  background-color: white;
+  border-radius: 30px;
+  height: auto;
+}
+
+.custom-card .card-body {
+  background-color: white;
+}
+
+.custom-card .card-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.custom-card .card-text {
+  font-size: 16px;
+}
+
+.custom-card .btn {
+  background-color: #5cb874;
+  border-color: #5cb874;
+}
     </style>
     @include('website.links')
 
@@ -48,12 +72,11 @@
     <!-- End Header -->
 
 
-
     <main id="main">
         <!-- ======= Scholarship Section ======= -->
         <section id="scholarship" class="about pt-0">
-            <div class="container pt-5" style=" max-height: 400px;overflow-y: auto;">
-
+            <div class="container pt-5" style=" max-height: 400px;overflow-y: auto; ">
+                
                 {{-- <div class="h5 text-center container">
         <h1>News about the project</h1>
         
@@ -84,13 +107,12 @@
                                                 <img src="C/Users/A/Desktop/my pic.jpg" alt="Image">
                                               </div> --}}
                                     <div
-                                        class="card mb-4 custom-card"style="background-color: white; border-radius=30px;height:300px">
+                                        class="card mb-4 custom-card"style="background-color: white; border-radius=30px;height:auto">
                                         <div class="card-body" style="background-color:white;">
                                             <h4 class="card-title"><a
                                                     href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a>
                                             </h4>
-                                            <p class="card-text"
-                                                style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                                            <p class="card-text">
                                                 {!! $workpackage->description !!}</p>
                                             <a href="{{ url('/individual_newsletter/' . $workpackage->id) }}"
                                                 class="btn btn-primary" style="background-color:  #5cb874">More...</a>

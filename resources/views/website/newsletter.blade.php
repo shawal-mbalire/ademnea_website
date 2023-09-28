@@ -107,8 +107,7 @@
                                     {{-- <div class="image">
                                                 <img src="C/Users/A/Desktop/my pic.jpg" alt="Image">
                                               </div> --}}
-                                    <div
-                                        class="card mb-4 custom-card"style="background-color: white; border-radius=30px;height:auto">
+                                    <div class="card mb-4 custom-card"style="background-color: white; border-radius=30px;height:auto">
                                         <div class="card-body" style="background-color:white;">
                                             <h4 class="card-title"><a
                                                     href="{{ url('/article/' . $workpackage->id) }}">{!! $workpackage->title !!}</a>

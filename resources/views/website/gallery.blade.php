@@ -18,6 +18,31 @@
   .space{
     width: 10px;
   }
+  
+  .card {
+  background-color: white;
+  border-radius: 30px;
+  height: auto;
+}
+
+.card .card-body {
+  background-color: white;
+}
+
+.card .card-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card .card-text {
+  font-size: 16px;
+}
+
+.card .btn {
+  background-color: #5cb874;
+  border-color: #5cb874;
+}
+
 </style>
 
 <section id="gallery" class="gallery">
@@ -26,7 +51,7 @@
         <h2>Gallery</h2>
       </div>
 
-  <div class="row no-gutters">
+  {{-- <div class="row no-gutters"><!-- changed to cards-->
   @foreach($gallery as $item)
 
   <div class="col-lg-4 col-md-6 col-sm-12 image2">
@@ -46,6 +71,20 @@
 @endforeach
 
 <!-- close container1 -->
+</div> --}}
+<div class="row no-gutters">
+  @foreach($gallery as $item)
+      <div class="col-lg-4 col-md-6 col-sm-12 image2">
+          <div class="card">
+              <img src="{{ asset('image/' . explode('|', $item->image)[0]) }}" alt="gallery description" class="card-img-top">
+              <div class="card-body">
+                  <h5 class="card-title">{{ $item->title }}</h5>
+                  <a href="/gallery" class="btn btn-primary">View Album</a>
+              </div>
+          </div>
+      </div>
+  @endforeach
 </div>
+
 </div>
 </section>

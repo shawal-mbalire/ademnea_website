@@ -13,8 +13,13 @@ class AddImageToPublicationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('publications', function (Blueprint $table) {
-            $table->string('image')->nullable();
+        Schema::create('event_photos', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('event_id');
+            $table->string('photo_url');
+            $table->timestamps();
+    
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 

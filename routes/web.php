@@ -25,9 +25,11 @@ Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('password/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('password/reset', [AuthController::class, 'passwordReset']);
-Route::view('/galleries', 'gallery');
+//Route::view('/galleries', 'gallery');
 
-//the following routes handle the galleries.
+//the following routes handle the event-galleries.
+Route::post('/post_events','App\Http\Controllers\Admin\GalleryController@insert');
+
 Route::get('/albums_gallery','App\Http\Controllers\GalleryController@albums');
 Route::get('/teams_gallery','App\Http\Controllers\GalleryController@teams');
 Route::get('/galleries_gallery','App\Http\Controllers\GalleryController@galleries');
@@ -44,7 +46,6 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/team', 'App\Http\Controllers\Admin\TeamController');
     Route::resource('admin/publication', 'App\Http\Controllers\Admin\PublicationController');
     Route::resource('admin/newsletter', 'App\Http\Controllers\Admin\NewsletterController');
-    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');
     Route::resource('admin/research-profile', 'App\Http\Controllers\Admin\ResearchProfileController');
     Route::resource('admin/farm', 'App\Http\Controllers\Admin\FarmController');
     Route::resource('admin/farmer', 'App\Http\Controllers\Admin\FarmerController');
@@ -58,7 +59,11 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/weightdata', 'App\Http\Controllers\Admin\HiveWeightController');
     Route::resource('admin/carbondioxidedata', 'App\Http\Controllers\Admin\HiveCarbondioxideController');
 
+//gallery route for the admin side 
+    Route::get('/admin/gallery', 'App\Http\Controllers\Admin\GalleryController@index');
+    Route::post('/admin/event','App\Http\Controllers\Admin\GalleryController@update');
 
+ //hive controllers   
     Route::post('/edithive','App\Http\Controllers\Admin\HiveController@update');
 });
 
@@ -90,6 +95,7 @@ Route::get('/individual_newsletter/{id}', [App\Http\Controllers\DisplayIndividua
 
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);
+Route::get('/displayevent', [App\Http\Controllers\DisplayEventController::class, 'displayEvent']);
 
 Route::get('/mastersscholarship-uganda', [App\Http\Controllers\Admin\MastersController::class, 'uganda'])->name('mastersscholarship-uganda');
 Route::get('/mastersscholarship-sudan', [App\Http\Controllers\Admin\MastersController::class, 'sudan'])->name('mastersscholarship-sudan');

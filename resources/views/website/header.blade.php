@@ -75,7 +75,7 @@
 
                 <li><a href="/displaynewsletter"><span>Blog</span></a></li>
 
-                <li><a class="nav-link scrollto" href="/#gallery">Gallery</a></li>
+                <li><a  href="/displayevent">Gallery</a></li>
 
 
                 <!-- <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li> -->

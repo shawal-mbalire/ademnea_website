@@ -65,7 +65,7 @@
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 1H2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM7.565 7.423 4.5 14h11.518l-2.516-3.71L11 13 7.565 7.423Z"/>
                    </svg>
-                 <span class="ml-3">Gallery</span>
+                 <span class="ml-3">Events | Gallery</span>
              </a>
           <!-- </li> <li>
              <a href="/admin/scholarship" class="flex items-center p-2 text-white rounded-lg dark:text-black hover:bg-green-800 dark:hover:bg-white">

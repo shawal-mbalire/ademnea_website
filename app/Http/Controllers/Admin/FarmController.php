@@ -89,7 +89,7 @@ class FarmController extends Controller
      */
     public function edit(Request $req, $id)
     {
-        return $req->input();
+       // return $req->input();
 
         $farm = Farm::findOrFail($id);
 

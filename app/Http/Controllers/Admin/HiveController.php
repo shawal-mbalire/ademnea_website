@@ -53,10 +53,14 @@ class HiveController extends Controller
     public function store(Request $request)
     {
         $requestData = $request->all();
+
+        $farm = $request->input("farm_id");
               
         Hive::create($requestData);
 
-        return redirect('admin/hive')->with('flash_message', 'Hive added!');
+       // hive?farm_id=2
+
+        return redirect('admin/hive?farm_id='.$farm)->with('flash_message', 'Hive added!');
     }
 
     /**

@@ -30,11 +30,14 @@ Route::post('password/reset', [AuthController::class, 'passwordReset']);
 //the following routes handle the event-galleries.
 Route::post('/post_events','App\Http\Controllers\Admin\GalleryController@insert');
 
-Route::get('/albums_gallery','App\Http\Controllers\GalleryController@albums');
-Route::get('/teams_gallery','App\Http\Controllers\GalleryController@teams');
-Route::get('/galleries_gallery','App\Http\Controllers\GalleryController@galleries');
-Route::get('/photos_gallery','App\Http\Controllers\GalleryController@photos');
+// Route::get('/albums_gallery','App\Http\Controllers\GalleryController@albums');
+// Route::get('/teams_gallery','App\Http\Controllers\GalleryController@teams');
+// Route::get('/galleries_gallery','App\Http\Controllers\GalleryController@galleries');
+// Route::get('/photos_gallery','App\Http\Controllers\GalleryController@photos');
 
+//gallery view page
+ //Route::view('/galleryview','galleryview');
+ Route::get('/gallery_view','App\Http\Controllers\DisplayEventController@view_gallery');
 
 Route::middleware('auth:web')->group(function () {
     Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');

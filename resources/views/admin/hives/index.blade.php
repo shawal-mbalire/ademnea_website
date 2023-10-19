@@ -86,7 +86,7 @@
                 <!-- Modal content -->
                 <form action="{{ url('/admin/farm/') }}" method="POST"
                     class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    {{ method_field('PATCH') }}
+                   
                     {{ csrf_field() }}
 
                     <!-- Modal header -->

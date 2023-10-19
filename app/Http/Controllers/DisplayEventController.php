@@ -21,4 +21,29 @@ $events = DB::table('events')
    return view('gallery',compact('events'));
 
     }
+
+    // lets put a one that checks for the id received and sends this event to be viewed in fullscreen.
+
+
+    public function view_gallery(Request $request){
+
+       $id = $request->query('id');
+
+       $names = DB::table('events')
+       ->where('id',$id)
+       ->select('*')
+       ->get();
+
+        $events = DB::table('event_photos')
+        ->where('event_id',$id)
+        ->select('*')
+        ->get();
+
+       // dd($events);
+
+        return view('galleryview',compact('events','names'));
+
+    }
+
+
 }

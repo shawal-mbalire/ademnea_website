@@ -63,7 +63,7 @@
   
 
     <!-- Display the temperature graph -->
-    <script type="text/javascript">
+<script type="text/javascript">
 $(function() {
 
   var start = moment().subtract(1, 'days'); //by default , just display data for the previous day or 24 hours
@@ -89,6 +89,7 @@ $(function() {
             table: 'hive_temperatures' // name of the table you want to fetch data from
         },
         success: function(response) {
+
             // handle the response data
             myChart.setOption({
               // chart configuration options here

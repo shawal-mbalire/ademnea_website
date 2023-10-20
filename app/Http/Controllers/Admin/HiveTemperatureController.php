@@ -21,27 +21,30 @@ class HiveTemperatureController extends Controller
 
         $hiveId = $request->query('hive_id');
 
-
+        //ajax to be used by the graphs. we need one more condition, 
+        //to see that the temperture data page sent the request instead
+        
         if($request->ajax())
         {
-            $data = HiveTemperature::select('*');
 
+            $data = HiveTemperature::select('*');
             if($request->filled('from_date') && $request->filled('to_date'))
             {
                 $data = $data->whereBetween('created_at', [$request->from_date, $request->to_date]);
+                $temperatures = $data->whereBetween('created_at', [$request->from_date, $request->to_date]);
             }
 
             return DataTables::of($data)->addIndexColumn()->make(true);
         }
-       // return view('users');
-    
+
+    else{
 
     $temperatures = HiveTemperature::where('hive_id', $hiveId)
     ->latest() // This orders the records by the created_at column in descending order (latest first).
     ->limit(100) // This limits the result to the latest 100 entries.
     ->get();
 
- 
+    }
 
         return view('admin.hivedata.temperatures', compact('temperatures'));
     }

@@ -16,21 +16,55 @@
 
 @include('datanavbar')
 
-
 <div class="relative p-3 mt-10 overflow-x-auto shadow-md sm:rounded-lg">
 
     <div class="card-header">
         <div class="row">
             <div class="col col-9"><b>Pick Date Range</b></div>
             <div class="col col-3">
-                <div id="daterange"  class="float-end" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%; text-align:center">
-                    <i class="fa fa-calendar"></i>&nbsp;
-                    <span></span> 
-                    <i class="fa fa-caret-down"></i>
+                <div>
+                <h3 class='mx-2 font-bold py-1 text-green-600'>Select a date-range</h3>
+                <!-- Date range picker -->
+                    <div id="reportrange" class="border-2 border-green-800 rounded-lg hover:bg-green-800"
+                        style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 260px; ">
+                        <i class="fa fa-calendar"></i>&nbsp;
+                        <span></span> <i class="fa fa-caret-down"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </div> <br>
+    </div> 
+    {{-- javascript for the date range picker --}}
+    <script type="text/javascript">
+        $(function() {
+
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1,
+                        'month').endOf('month')]
+                }
+            }, cb);
+
+            cb(start, end);
+        });
+    </script>
+    
+    <br>
+    {{-- table begins here  --}}
 
     <table id="myTable" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -97,49 +131,62 @@
 
 <script>
 
-  $(document).ready(function() {
-  $('#myTable').DataTable({
-     responsive: true,
-  });
-});
-
-$(function () {
-
-var start_date = moment().subtract(1, 'M');
-
-var end_date = moment();
-
-$('#daterange span').html(start_date.format('MMMM D, YYYY') + ' - ' + end_date.format('MMMM D, YYYY'));
-
-$('#daterange').daterangepicker({
-    startDate : start_date,
-    endDate : end_date
-}, function(start_date, end_date){
-    $('#daterange span').html(start_date.format('MMMM D, YYYY') + ' - ' + end_date.format('MMMM D, YYYY'));
-
-    table.draw();
-});
-
-var table = $('#myTable').DataTable({
-    processing : true,
-    serverSide : true,
-    ajax : {
-        url : "{{ 'admin/temperaturedata' }}",
-        data : function(data){
-            data.from_date = $('#daterange').data('daterangepicker').startDate.format('YYYY-MM-DD');
-            data.to_date = $('#daterange').data('daterangepicker').endDate.format('YYYY-MM-DD');
-        }
-    },
-    columns : [
-        {data : 'id', name : 'id'},
-        {data : 'honey', name : 'honey'},
-        {data : 'brood', name : 'brood'},
-        {data : 'exterior', name : 'exterior'}
-    ]
-});
-
-});
-
+//   $(document).ready(function() {
+//   $('#myTable').DataTable({
+//      responsive: true,
+//   });
+// });
 
 </script>
+
+    <!-- Display the temperature table from date range picked using this code -->
+   <script type="text/javascript">
+        $(function() {
+        
+          var start = moment().subtract(1, 'days'); //by default , just display data for the previous day or 24 hours
+          var end = moment();
+          var hiveId = {{ $hive_id }}; 
+        
+          function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); 
+        
+            // Format dates for the server
+            var startDate = start.format('YYYY-MM-DD HH:mm:ss');
+            var endDate = end.format('YYYY-MM-DD HH:mm:ss');
+         
+            // Send AJAX request to server
+
+            $.ajax({
+                url: '/hive_data/temperature_data/' + hiveId,
+                method: 'GET',
+                data: {
+                    start: startDate,
+                    end: endDate,
+                },
+
+                success: function(response) {
+                console.log(response);
+
+                // Refresh the page after the AJAX request completes
+                location.reload();
+            }
+        
+            });
+        }
+
+        
+        $('#reportrange').daterangepicker({
+            ranges: {
+               'Today': [moment().startOf('day'), moment().endOf('day')],
+               'Yesterday': [moment().subtract(1, 'days').startOf('day'), moment().subtract(1, 'days').endOf('day')],
+               'Last 7 Days': [moment().subtract(6, 'days').startOf('day'), moment()],
+               'Last 30 Days': [moment().subtract(29, 'days').startOf('day'), moment()],
+               'This Month': [moment().startOf('month'), moment().endOf('month')],
+               'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+        
+        cb(start, end);
+        });
+        </script>
 @endsection

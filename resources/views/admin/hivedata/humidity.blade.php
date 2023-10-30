@@ -26,11 +26,11 @@
                     Hive ID
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Honey Section (%)
+                    Interior (%)
                 </th>
-                <th scope="col" class="px-6 py-3">
+                {{-- <th scope="col" class="px-6 py-3">
                     Brood Section (%)
-                </th>
+                </th> --}}
                 <th scope="col" class="px-6 py-3">
                     Exterior (%)
                 </th>
@@ -54,9 +54,9 @@
                 <td class="px-6 py-4">
                 {{ explode('*', $humidity->record)[0] }}
                 </td>
-                <td class="px-6 py-4">
+                {{-- <td class="px-6 py-4">
                 {{ explode('*', $humidity->record)[1] }}
-                </td>
+                </td> --}}
                 <td class="px-6 py-4">
                 {{ explode('*', $humidity->record)[2] }}
                 </td>

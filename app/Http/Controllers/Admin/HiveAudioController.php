@@ -24,7 +24,7 @@ class HiveAudioController extends Controller
         //$audios = HiveAudio::where('hive_id', $hiveId)->get();
         $audios = HiveAudio::where('hive_id', $hiveId)
         ->latest() // This orders the records by the created_at column in descending order (latest first).
-        ->limit(100) // This limits the result to the latest 100 entries.
+        ->limit(20) // This limits the result to the latest 100 entries.
         ->get();
 
 

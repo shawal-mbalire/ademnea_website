@@ -17,15 +17,16 @@ welcome.html
 home.html
 login.html
 login.html
-/public/images/
-/public/image/
-/public/documents/
 
+public/images/
+public/image/
+public/hiveimage/
+public/hivevideo/
+public/hiveaudio/
 
 database/migrations/2022_09_20_154350_create_audios_table.php
 database/migrations/2022_09_20_154350_create_audios_table.php
-public/hive_videos/bees2.mp4
-public/hive_audios/bee_swarming.mp3
+
 MODULES/__pycache__/register_media.cpython-310.pyc
 MODULES/register_media.py
 public/hivevideo/bees2.mp4

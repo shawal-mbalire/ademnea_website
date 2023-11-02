@@ -30,3 +30,4 @@ database/migrations/2022_09_20_154350_create_audios_table.php
 MODULES/__pycache__/register_media.cpython-310.pyc
 MODULES/register_media.py
 public/hivevideo/bees2.mp4
+composer.lock

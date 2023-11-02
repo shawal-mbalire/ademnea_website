@@ -133,8 +133,8 @@ $(function() {
                       },
                 yAxis: {
                           type: 'value',
-                          min: 10,
-                          max: 40,
+                          min: 100,
+                          max: 1500,
                           axisLabel: {
                           formatter: '{value} ppm'
                           },
@@ -156,39 +156,7 @@ $(function() {
                                    },
                                   //  color: 'red' 
                       },
-                    // {
-                    //     name: 'Exterior',
-                    //     type: 'line',
-                    //     data: response.exterior,
-                    //     markPoint: {
-                    //                 data: [
-                    //                       { type: 'max', name: 'Max' },
-                    //                       { type: 'min', name: 'Min' }
-                    //                       ]
-                    //                 },
-                    //     markLine: {
-                    //                 data: [{ type: 'average', name: 'Avg' }]
-                    //                },
-                        
-                    //     // color: 'green' 
-                       
-                    // },
-                   
-                    //   {
-                    //     name: 'Honey Section',
-                    //     type: 'line',
-                    //     data: response.honeySection,
-                    //     markPoint: {
-                    //     data: [
-                    //           { type: 'max', name: 'Max' },
-                    //           { type: 'min', name: 'Min' }
-                    //         ]
-                    //       },
-                    //       markLine: {
-                    //         data: [{ type: 'average', name: 'Avg' }]
-                    //       },
-                    //       // color: 'blue' 
-                    // },
+ 
                 ]
             });
         }

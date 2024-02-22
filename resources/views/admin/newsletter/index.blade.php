@@ -34,12 +34,13 @@
                 {{ $item->title }}
                 </td>
                 <td class="px-6 py-4">
-                {{ $item->article }}
+                    <p>{!! $item->article !!}</p>
+               <!-- {{ $item->article }} -->
                 </td>
                 <td class="px-6 py-4">  
                    <details >
                     <summary> newsletter description </summary>
-                    {!! $item->description !!}
+                  <p>{!! $item->description !!}</p>
                 </details>    
                 </td>
                 <td class="px-6 py-4">

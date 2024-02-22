@@ -26,7 +26,16 @@ class GalleryController extends Controller
     public function insert(Request $request){
 
        // return $request->input();
-
+       //validate the incoming request
+        $validatedData = $request->validate([
+        'title' => 'required|string',
+        'date' => 'required|date',
+        'description' => 'required|string',
+        'venue' => 'required|string',
+        'article_link' => 'nullable|url',
+        'images.*' => 'required|image|max:102400', // Maximum size is 100 MB (102400 KB)
+    ]);
+    
        DB::table('events')->insert([
 
         'title' => $request->title,

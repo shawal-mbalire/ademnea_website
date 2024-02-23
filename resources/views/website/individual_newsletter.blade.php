@@ -56,7 +56,7 @@
 
                 <div
                     class="h5 text-center container"style="background-color:#5cb874; width:auto; height: auto; border-radius: 20px; padding:30px 20px; ">
-                    <h3> <b>{{ $newsletter->title }}</b></h3>
+                    <h3> <b><p>{!! $newsletter->title !!}</p></b></h3>
 
                     <hr>
                     <br>
@@ -68,10 +68,10 @@
                 <br>
 
                 <div class="h5 text-center container ">
-                    <h1>News Article</h1>
+                    <h1>News Article 1</h1>
                 </div>
 
-                {!! $newsletter->article !!}
+               {!! $newsletter->article !!}
 
                 {{-- @if ($scholarships->count()) --}}
                 {{-- <div class="section-title">

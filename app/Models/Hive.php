@@ -28,4 +28,5 @@ class Hive extends Model
      * @var array
      */
     protected $fillable = ['id', 'longitude', 'latitude','farm_id'];
+
 }

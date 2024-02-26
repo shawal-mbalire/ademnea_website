@@ -17,17 +17,17 @@ welcome.html
 home.html
 login.html
 login.html
-*/debugbar
-/public/images/1629193592-WP1.jpg
-/public/images/1629193636-katamba.jpg
-/public/images/1629193729-ggg.jpg
-/public/images/1629193765-katamba.jpg
-/public/images/1629193794-WP1.jpg
+
+public/images/
+public/image/
+public/hiveimage/
+public/hivevideo/
+public/hiveaudio/
 
 database/migrations/2022_09_20_154350_create_audios_table.php
 database/migrations/2022_09_20_154350_create_audios_table.php
-public/hive_videos/bees2.mp4
-public/hive_audios/bee_swarming.mp3
+
 MODULES/__pycache__/register_media.cpython-310.pyc
 MODULES/register_media.py
 public/hivevideo/bees2.mp4
+composer.lock

@@ -1,177 +1,111 @@
-@extends(config('laravelusers.laravelUsersBladeExtended'))
 
-@section('template_title')
-    {!! trans('laravelusers::laravelusers.showing-all-users') !!}
-@endsection
-
-@section('template_linked_css')
-    @if(config('laravelusers.enabledDatatablesJs'))
-        <link rel="stylesheet" type="text/css" href="{{ config('laravelusers.datatablesCssCDN') }}">
-    @endif
-    @if(config('laravelusers.fontAwesomeEnabled'))
-        <link rel="stylesheet" type="text/css" href="{{ config('laravelusers.fontAwesomeCdn') }}">
-    @endif
-    @include('laravelusers::partials.styles')
-    @include('laravelusers::partials.bs-visibility-css')
-@endsection
-
+@extends('layouts.app')
 @section('content')
-    <div class="container">
-        @if(config('laravelusers.enablePackageBootstapAlerts'))
-            <div class="row">
-                <div class="col-sm-12">
-                    @include('laravelusers::partials.form-status')
-                </div>
-            </div>
-        @endif
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {!! trans('laravelusers::laravelusers.showing-all-users') !!}
-                            </span>
 
-                            <div class="btn-group pull-right btn-group-xs">
-                                @if(config('laravelusers.softDeletedEnabled'))
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
-                                        <span class="sr-only">
-                                            {!! trans('laravelusers::laravelusers.users-menu-alt') !!}
-                                        </span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="{{ route('users.create') }}">
-                                                @if(config('laravelusers.fontAwesomeEnabled'))
-                                                    <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
-                                                @endif
-                                                {!! trans('laravelusers::laravelusers.buttons.create-new') !!}
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/users/deleted">
-                                                @if(config('laravelusers.fontAwesomeEnabled'))
-                                                    <i class="fa fa-fw fa-group" aria-hidden="true"></i>
-                                                @endif
-                                                {!! trans('laravelusers::laravelusers.show-deleted-users') !!}
-                                            </a>
-                                        </li>
-                                    </ul>
-                                @else
-                                    <a href="{{ route('users.create') }}" class="btn btn-default btn-sm pull-right" data-toggle="tooltip" data-placement="left" title="{!! trans('laravelusers::laravelusers.tooltips.create-new') !!}">
-                                        @if(config('laravelusers.fontAwesomeEnabled'))
-                                            <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
-                                        @endif
-                                        {!! trans('laravelusers::laravelusers.buttons.create-new') !!}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Created
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Updated
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach($users as $user)
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{$user->id}}
+                </th>
+                <td class="px-6 py-4">
+                {{$user->name}}
+                </td>
+                <td class="px-6 py-4">
+                {{$user->email}}
+                </td>
+                <td class="px-6 py-4">
+                {{$user->created_at}}
+                </td>
+                <td class="px-6 py-4">
+                {{$user->updated_at}}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" data-modal-target="{{$user->id}}" data-modal-toggle="{{$user->id}}" class="font-medium text-green-600 dark:text-green-500 hover:underline">Edit</a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
-                        @if(config('laravelusers.enableSearchUsers'))
-                            @include('laravelusers::partials.search-users-form')
-                        @endif
+ <!-- Edit User modal -->
+ @foreach($users as $user)
+ <div id="{{$user->id}}" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+       <div class="relative w-full max-w-2xl max-h-full">
+           <!-- Modal content -->
+           <form action="{{ url('/admin/farm') }}" method="POST" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                            {{ csrf_field() }}
 
-                        <div class="table-responsive users-table">
-                            <table class="table table-striped table-sm data-table">
-                                <caption id="user_count">
-                                    {!! trans_choice('laravelusers::laravelusers.users-table.caption', 1, ['userscount' => $users->count()]) !!}
-                                </caption>
-                                <thead class="thead">
-                                    <tr>
-                                        <th>{!! trans('laravelusers::laravelusers.users-table.id') !!}</th>
-                                        <th>{!! trans('laravelusers::laravelusers.users-table.name') !!}</th>
-                                        <th class="hidden-xs">{!! trans('laravelusers::laravelusers.users-table.email') !!}</th>
-                                        @if(config('laravelusers.rolesEnabled'))
-                                            <th class="hidden-sm hidden-xs">{!! trans('laravelusers::laravelusers.users-table.role') !!}</th>
-                                        @endif
-                                        <th class="hidden-sm hidden-xs hidden-md">{!! trans('laravelusers::laravelusers.users-table.created') !!}</th>
-                                        <th class="hidden-sm hidden-xs hidden-md">{!! trans('laravelusers::laravelusers.users-table.updated') !!}</th>
-                                        <th class="no-search no-sort">{!! trans('laravelusers::laravelusers.users-table.actions') !!}</th>
-                                        <th class="no-search no-sort"></th>
-                                        <th class="no-search no-sort"></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="users_table">
-                                    @foreach($users as $user)
-                                        <tr>
-                                            <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td class="hidden-xs">{{$user->email}}</td>
-                                            @if(config('laravelusers.rolesEnabled'))
-                                                <td class="hidden-sm hidden-xs">
-                                                    @foreach ($user->roles as $user_role)
-                                                        @if ($user_role->name == 'User')
-                                                            @php $badgeClass = 'primary' @endphp
-                                                        @elseif ($user_role->name == 'Admin')
-                                                            @php $badgeClass = 'warning' @endphp
-                                                        @elseif ($user_role->name == 'Unverified')
-                                                            @php $badgeClass = 'danger' @endphp
-                                                        @else
-                                                            @php $badgeClass = 'dark' @endphp
-                                                        @endif
-                                                        <span class="badge badge-{{$badgeClass}}">{{ $user_role->name }}</span>
-                                                    @endforeach
-                                                </td>
-                                            @endif
-                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->created_at}}</td>
-                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->updated_at}}</td>
-                                            <td>
-                                                {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => trans('laravelusers::laravelusers.tooltips.delete'))) !!}
-                                                    {!! Form::hidden('_method', 'DELETE') !!}
-                                                    {!! Form::button(trans('laravelusers::laravelusers.buttons.delete'), array('class' => 'btn btn-danger btn-sm','type' => 'button', 'style' =>'width: 100%;' ,'data-toggle' => 'modal', 'data-target' => '#confirmDelete', 'data-title' => trans('laravelusers::modals.delete_user_title'), 'data-message' => trans('laravelusers::modals.delete_user_message', ['user' => $user->name]))) !!}
-                                                {!! Form::close() !!}
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-success btn-block" href="{{ URL::to('users/' . $user->id) }}" data-toggle="tooltip" title="{!! trans('laravelusers::laravelusers.tooltips.show') !!}">
-                                                    {!! trans('laravelusers::laravelusers.buttons.show') !!}
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-sm btn-info btn-block" href="{{ URL::to('users/' . $user->id . '/edit') }}" data-toggle="tooltip" title="{!! trans('laravelusers::laravelusers.tooltips.edit') !!}">
-                                                    {!! trans('laravelusers::laravelusers.buttons.edit') !!}
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                                @if(config('laravelusers.enableSearchUsers'))
-                                    <tbody id="search_results"></tbody>
-                                @endif
-                            </table>
+               <!-- Modal header -->
+               <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                   <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                       Edit User
+                   </h3>
+                   <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="{{$user->id}}">
+                       <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                   </button>
+               </div>
+               <!-- Modal body -->
+               <div class="p-6 space-y-6">
+                   <div class="grid grid-cols-6 gap-6">
+                       <div class="col-span-6 sm:col-span-3">
+                           <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Name' }}</label>
+                           <input  name="name" type="text" id="name" value="{{ old('name', $user->name) }}  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required="">
+                       </div>
+                       <div class="col-span-6 sm:col-span-3">
+                           <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Email' }}</label>
+                           <input  name="email" type="text" id="email" value="{{ old('email', $user->email) }} class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required="">
+                       </div>
 
-                            @if($pagintaionEnabled)
-                                {{ $users->links() }}
-                            @endif
+                       <div class="col-span-6 sm:col-span-3">
+                           <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Password' }}</label>
+                           <input  name="password" type="password" id="password" value="{{ old('password', $user->password) }}  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required="">
+                       </div>
 
-                        </div>
-                    </div>
+                       <div class="col-span-6 sm:col-span-3">
+                           <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Confirm Password' }}</label>
+                           <input  name="confirm_password" type="password" id="confirm_password"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" required="">
+                       </div>
+                     
 
-                </div>
-            </div>
-        </div>
-    </div>
+                   </div>
+               </div>
+               <!-- Modal footer -->
+               <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                   <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Save all</button>
+               </div>
+           </form>
+       </div>
+   </div>
+</div>
+@endforeach
 
-    @include('laravelusers::modals.modal-delete')
 
-@endsection
-
-@section('template_scripts')
-    @if ((count($users) > config('laravelusers.datatablesJsStartCount')) && config('laravelusers.enabledDatatablesJs'))
-        @include('laravelusers::scripts.datatables')
-    @endif
-    @include('laravelusers::scripts.delete-modal-script')
-    @include('laravelusers::scripts.save-modal-script')
-    @if(config('laravelusers.tooltipsEnabled'))
-        @include('laravelusers::scripts.tooltips')
-    @endif
-    @if(config('laravelusers.enableSearchUsers'))
-        @include('laravelusers::scripts.search-users')
-    @endif
 
 @endsection

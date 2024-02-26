@@ -16,7 +16,7 @@
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/green-free-one-page-bootstrap-template/ -->
-            Designed by <a href="https://wimea-ict.net/">Wimea Lab</a>
+            Designed by <a href="https://iot-ra.net/">IoT-ra Lab</a>
         </div>
     </div>
 </footer>

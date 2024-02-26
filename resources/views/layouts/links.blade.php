@@ -16,3 +16,26 @@
 <link rel="stylesheet" href="{{asset('dash/css/vertical-layout-light/style.css')}}">
 <!-- endinject -->
 <link rel="shortcut icon" href="{{asset('dash/images/logo.png')}}" />
+
+<!-- New Achuka flowbite styles -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
+
+<!-- Date range picker links -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
+  <!-- Add DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">
+
+  <!-- Add jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Add DataTables JS -->
+  <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>

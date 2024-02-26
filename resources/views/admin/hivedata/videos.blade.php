@@ -1,167 +1,80 @@
 @extends('layouts.app')
-
-<?php use Illuminate\Support\Facades\DB;?>
-<style>
-    /* Dropdown Button */
-.dropbtn {
-  background-color: hsl(129, 76%, 37%);
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: rgb(223, 208, 208);}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-    .button1{
-        background-color: lightseagreen;
-        color: white;
-        height: 34px;
-        width: 75px;
-        border-radius: 15px;
-        border-color: green;
-        shadow: none;
-        font-weight: bold;
-    }
-
-    .button2{
-        background-color: mediumseagreen;
-        color: white;
-        height: 34px;
-        width: 75px;
-        border-radius: 15px;
-        border-color: green;
-        shadow: none;
-        font-weight: bold;
-    }
-
-    .button3{
-        background-color: seagreen;
-        color: white;
-        height: 34px;
-        width: 85px;
-        border-radius: 15px;
-        border-color: green;
-        shadow: none;
-        font-weight: bold;
-    }
-
-    .button4{
-        background-color: lightseagreen;
-        color: white;
-        height: 40px;
-        width: 100px;
-        border-radius: 5px;
-        border-color: lightseagreen;
-        shadow: none;
-        font-weight: bold
-    }
-</style>
 @section('content')
-<div class="content-wrapper">
-    {{-- <div class="row"> --}}
-        {{-- <div class="col-sm-12"> --}}
 
-            <div class="card">
-                        <div class="card-header">
-                            VIDEOS
-                        </div>
 
-                        <div class="card-body">
-                            <div class="dropdown">
-                                <button class="dropbtn">More Data</button>
-                                <div class="dropdown-content">
-                                    <a href="{{ url('/admin/photodata') }}">Photos</a>
-                                  <a href="{{ url('/admin/videodata') }}">Video Data</a>
-                                  <a href="{{ url('/admin/audiodata') }}">Audio Data</a>
-                                  <a href="{{ url('/admin/temperaturedata') }}">Temperatures</a>
-                                  <a href="{{ url('/admin/humiditydata') }}">Hive Humidity</a>
-                                  <a href="{{ url('/admin/weightdata') }}">Hive Weights</a>
-                                  <a href="{{ url('/admin/carbondioxidedata') }}">Carbiondioxide Levels</a>
-                                </div>
-                              </div>
-                        <form method="GET" action="{{ url('/admin/farm') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
-                                <span class="input-group-append">
-                                    <button class="btn btn-secondary" type="submit">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </form>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
-                        <br/>
-                        <br/>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Hive Id</th>
-                                        <th>Video</th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php
-                                    $count =  1
-                                    @endphp
-                                @foreach($videos as $video)
-                                    <tr>
-                                        <td>{{ $count }}</td>
-                                        <td>{{ $video->hive_id }}</td>   
-                                        <td>
-                                            <video width="300px" height="200px"
-                                             controls="controls"/>
-                                             
-                                            <source src="{{ URL("hivevideo/"."".$video->path) }}"
-                                                type="video/mp4">
-                                            </video>
-                                       </td>    
-                                        <td>{{ $video->created_at }}</td>                                     
-                                    </tr>
-                                    @php
-                                    $count = $count + 1
-                                    @endphp
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+@php
+    $hive_id = session('hive_id');
+@endphp
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+@include('datanavbar')
+
+<div class="relative p-3 mt-10 overflow-x-auto shadow-md sm:rounded-lg">
+    <table id="myTable" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Hive ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Videos
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Date
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @php
+            $count =  1
+            @endphp
+        @foreach($videos as $video)
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                {{ $count }}
+                </th>
+                <td class="px-6 py-4">
+                {{ $video->hive_id }}
+                </td>
+                <td class="px-6 py-4">
+                <video width="100px" height="100px"
+                    controls="controls"/>
+                    
+                <source src="{{ URL("hivevideo/"."".$video->path) }}"
+                    type="video/mp4">
+                </video>
+                </td>
+                <td class="px-6 py-4">
+                {{ $video->created_at }}
+                </td>
+            </tr>
+            @php
+                $count = $count + 1
+                @endphp
+            @endforeach  
+        </tbody>
+    </table>
+</div>
+
+@endsection
+<!-- added pagination and search-->
+@section('page_scripts')
+<!-- Include DataTables JS file -->
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+   $('#myTable').DataTable({
+      responsive: true
+   });
+});
+</script>
 @endsection

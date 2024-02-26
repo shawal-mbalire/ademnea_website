@@ -17,9 +17,18 @@ class HiveAudioController extends Controller
      */
     public function index(Request $request)
     {        
-        $perPage = 30;
+        $hiveId = $request->query('hive_id');
+
+        // return $hiveId;
        
-        $audios = HiveAudio::latest()->paginate($perPage);
+        //$audios = HiveAudio::where('hive_id', $hiveId)->get();
+        $audios = HiveAudio::where('hive_id', $hiveId)
+        ->latest() // This orders the records by the created_at column in descending order (latest first).
+        ->limit(20) // This limits the result to the latest 100 entries.
+        ->get();
+
+
+       // $audios = HiveAudio::latest()->paginate($perPage);
 
         return view('admin.hivedata.audios', compact('audios'));
     }

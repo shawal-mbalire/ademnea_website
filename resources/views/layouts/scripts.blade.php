@@ -18,6 +18,16 @@
 <script src="{{asset('dash/js/dashboard.js')}}"></script>
 <script src="{{asset('dash/js/Chart.roundedBarCharts.js')}}"></script>
 
+<!-- Achuka flowbite -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
+
+
+
+<!-- Date range picker -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
 
 <!-- End custom js for this page-->
 <script>

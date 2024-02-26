@@ -54,11 +54,18 @@
         @enderror
 </div>
 
+{{-- farmer selection dropdown starts here --}}
 <div class="form-group">
     <label for="ownerid" class="control-label">{{ 'Farm Owner:' }}</label>
-    <input class="form-control @error('ownerId') is-invalid @enderror" value="{{old('ownerId')}}" name="ownerId" type="text" id="ownerId" value="{{ isset($farm->ownerid) ? $farm->ownerid : ''}}" >
-  
+       <select name="farmer" id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
+        {{-- we will use a loop from the database here --}}
+        @foreach ($farmers as $farmer )  
+        <option value= "{{ $farmer->id }}"> {{ $farmer->fname }} </option>
+        @endforeach
+       </select>
 </div>
+{{-- farm owner dropdown stops here. --}}
+
 <div class="form-group">
     <label for="description" class="control-label">{{ 'Adress:' }}</label>
     <textarea class="form-control @error('adress') is-invalid @enderror" value="{{old('adress')}}" rows="5" name="address" type="textarea" id="description" >{{ isset($farm->adress) ? $farm->adress : ''}}</textarea>

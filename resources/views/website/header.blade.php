@@ -18,7 +18,7 @@
                         <li><a href="/workpackages-wp4">Project Administration(WP4)</a></li>
                     </ul>
                 </li>
-                
+
                 <li class="dropdown scrollto dropdown"><a href="/" class="nav-link scrollto"><span>Research
                             Profile</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
@@ -41,18 +41,17 @@
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="/#"><span>Bee Monitor</span> <i class="bi bi-chevron-down"></i></a>
+               <!--Commented ou the Bee monitor so as to remove it from our tab -->
+                {{-- {{-- <li class="dropdown"><a href="/#"><span>Bee Monitor</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
 
-                        {{-- <li><a href="/hive_data">Farm Hives</a></li>                         --}}
                         <li><a href="/admin/farm">Farm Hives</a></li>                        
                         <li><a href="/">Map</a></li>                       
                     </ul>
 
-                </li>
-                <li class="dropdown scrollto dropdown"><a href="#scholarships"
-                        class="nav-link scrollto"><span>Scholarships</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
+                </li> --}}
+                <li><a href="/displaypublication" class="nav-link scrollto"><span>Publications</span> </a>
+                    {{-- <ul>
                         <li class="dropdown scrollto dropdown"><a href="/"><span>Masters</span><i
                                     class="bi bi-chevron-down"></i></a>
                             <ul>
@@ -70,12 +69,12 @@
                                 <li><a href="/phdscholarship-tanzania">Tanzania</a></li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </li>
 
                 <li><a href="/displaynewsletter"><span>Blog</span></a></li>
 
-                <li><a class="nav-link scrollto" href="/#gallery">Gallery</a></li>
+                <li><a  href="/displayevent">Gallery</a></li>
 
 
                 <!-- <li><a class="nav-link scrollto" href="/displaynewsletter">Newsletters</a></li> -->

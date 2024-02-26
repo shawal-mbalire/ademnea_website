@@ -25,6 +25,19 @@ Route::get('/login', [AuthController::class, 'loginForm'])->name('loginForm');
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('password/forgot-password', [AuthController::class, 'forgotPassword']);
 Route::post('password/reset', [AuthController::class, 'passwordReset']);
+//Route::view('/galleries', 'gallery');
+
+//the following routes handle the event-galleries.
+Route::post('/post_events','App\Http\Controllers\Admin\GalleryController@insert');
+
+// Route::get('/albums_gallery','App\Http\Controllers\GalleryController@albums');
+// Route::get('/teams_gallery','App\Http\Controllers\GalleryController@teams');
+// Route::get('/galleries_gallery','App\Http\Controllers\GalleryController@galleries');
+// Route::get('/photos_gallery','App\Http\Controllers\GalleryController@photos');
+
+//gallery view page
+ //Route::view('/galleryview','galleryview');
+ Route::get('/gallery_view','App\Http\Controllers\DisplayEventController@view_gallery');
 
 Route::middleware('auth:web')->group(function () {
     Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
@@ -36,7 +49,6 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/team', 'App\Http\Controllers\Admin\TeamController');
     Route::resource('admin/publication', 'App\Http\Controllers\Admin\PublicationController');
     Route::resource('admin/newsletter', 'App\Http\Controllers\Admin\NewsletterController');
-    Route::resource('admin/gallery', 'App\Http\Controllers\Admin\GalleryController');
     Route::resource('admin/research-profile', 'App\Http\Controllers\Admin\ResearchProfileController');
     Route::resource('admin/farm', 'App\Http\Controllers\Admin\FarmController');
     Route::resource('admin/farmer', 'App\Http\Controllers\Admin\FarmerController');
@@ -49,6 +61,13 @@ Route::middleware('auth:web')->group(function () {
     Route::resource('admin/humiditydata', 'App\Http\Controllers\Admin\HiveHumidityController');
     Route::resource('admin/weightdata', 'App\Http\Controllers\Admin\HiveWeightController');
     Route::resource('admin/carbondioxidedata', 'App\Http\Controllers\Admin\HiveCarbondioxideController');
+
+//gallery route for the admin side 
+    Route::get('/admin/gallery', 'App\Http\Controllers\Admin\GalleryController@index');
+    Route::post('/admin/event','App\Http\Controllers\Admin\GalleryController@update');
+
+ //hive controllers   
+    Route::post('/edithive','App\Http\Controllers\Admin\HiveController@update');
 });
 
                 /* ------------HIVE DATA------------------*/
@@ -60,13 +79,26 @@ Route::get('/hive_data/temperature_data_default/{hive}', [App\Http\Controllers\H
 
 /* ------------HUMIDITY------------------*/
 Route::get('/hive_data/humidity_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'humidityDefault']);
-Route::get('/hive_data/humidity_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getTemperatureData']);
+Route::get('/hive_data/humidity_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getHumidityData']);
+
+/* ------------CARBONDIOXIDE------------------*/
+Route::get('/hive_data/carbondioxide_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'carbondioxide_default']);
+Route::get('/hive_data/carbondioxide_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getCarbondioxide_data']);
+
+/* ------------WEIGTHT------------------*/
+Route::get('/hive_data/weight_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'weightDefault']);
+Route::get('/hive_data/weight_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getWeightData']);
+
+/* ------------TEMPERATURE Vs HUMIDITY------------------*/
+Route::get('/hive_data/tempHumidity_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'tempHumidity_default']);
+Route::get('/hive_data/tempHumidity_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getTempHumidity']);
 
 
 Route::get('/individual_newsletter/{id}', [App\Http\Controllers\DisplayIndividualNewsletterController::class, 'show']);
 
 Route::get('displaynewsletter', [App\Http\Controllers\DisplayNewsletterController::class, 'displayNewsletter']);
 Route::get('displaypublication', [App\Http\Controllers\DisplayPublicationController::class, 'displayPublication']);
+Route::get('/displayevent', [App\Http\Controllers\DisplayEventController::class, 'displayEvent']);
 
 Route::get('/mastersscholarship-uganda', [App\Http\Controllers\Admin\MastersController::class, 'uganda'])->name('mastersscholarship-uganda');
 Route::get('/mastersscholarship-sudan', [App\Http\Controllers\Admin\MastersController::class, 'sudan'])->name('mastersscholarship-sudan');
@@ -97,3 +129,16 @@ Route::get('/article/{id}', [App\Http\Controllers\ArticleController::class, 'ind
 
 //upload images in the ck editor
 Route::post('ckeditor/upload', 'App\Http\Controllers\Admin\NewsletterController@upload')->name('upload');
+
+// ...........................MAP...............................
+Route::get('/farms/map/{id}', [App\Http\Controllers\MapController::class, 'displayMap'])->name('farms.hives');
+
+
+Route::get('/sensor-monitoring', [App\Http\Controllers\SensorMonitoringController::class, 'sensorMonitor']);
+
+// .........................POWER MONITORING...................................
+Route::get('/admin/power-monitoring-default/{hive_id}', [App\Http\Controllers\PowerMonitoringController::class, 'batteryDefault']);
+Route::get('/admin/power-monitoring/{hive_id}', [App\Http\Controllers\PowerMonitoringController::class, 'getBatteryData']);
+// Route::get('/battery', [App\Http\Controllers\PowerMonitoringController::class, 'batteryLevel']);
+
+

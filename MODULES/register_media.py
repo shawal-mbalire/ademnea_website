@@ -13,7 +13,7 @@ import register_hivetemp_hivehumidity
 
 #CONNECTION TO DB, CORRECT DATABASE DETAILS HAVE TO BE PASSED AT THIS POINT
 def database_connection():
-    mydb = mysql.connector.connect(host = " ", user = " ", passwd = " ", database = " ")
+    mydb = mysql.connector.connect(host='localhost', user='root', password='', db='')
     return mydb
 
 #FUNCTION RECONSTRUCTS THE FILE NAME
@@ -34,23 +34,45 @@ def reconstruct(str):
 
 
 
-#This class will register all incoming media
+# FILE SYSTEM EVENT HANDLER
 class Handler(FileSystemEventHandler):
     def on_modified(self, event):
-        time.sleep(20) #delay for 20 seconds while pi confirms receipt of media
+        time.sleep(20)  # Delay for 20 seconds while pi confirms receipt of media
         for filename in os.listdir(folder_to_track):
+            print()
+            print()
+            print(f"Received {filename}")  # Print received filename
             media_flag = filename[-3:]
             if media_flag == "wav":
-                register_hiveaudios.reg(filename, folder_to_track)
+                print(f"Handling audio: {filename}")
+                try:
+                    register_hiveaudios.reg(filename, folder_to_track)
+                    print(f"Transferred {filename} to hiveaudio folder")
+                except Exception as e:
+                    print(f"Error registering audio {filename}: {e}")
             elif media_flag == "mp4":
-                register_hivevideos.reg(filename, folder_to_track)
+                print(f"Handling video: {filename}")
+                try:
+                    register_hivevideos.reg(filename, folder_to_track)
+                    print(f"Transferred {filename} to hivevideo folder")
+                except Exception as e:
+                    print(f"Error registering video {filename}: {e}")
             elif media_flag == "jpg":
-                register_hiveimages.reg(filename, folder_to_track)
+                print(f"Handling image: {filename}")
+                try:
+                    register_hiveimages.reg(filename, folder_to_track)
+                    print(f"Transferred {filename} to hiveimage folder")
+                except Exception as e:
+                    print(f"Error registering image {filename}: {e}")
             elif media_flag == "csv":
-                register_hivetemp_hivehumidity.reg(filename, folder_to_track)
+                print(f"Handling CSV: {filename}")
+                try:
+                    register_hivetemp_hivehumidity.reg(filename, folder_to_track)
+                    print(f"Inserted CSV {filename} into DB")
+                except Exception as e:
+                    print(f"Error registering CSV {filename}: {e}")
             else:
-                print("INVALID MEDIA NAME")
-                continue
+                print(f"INVALID MEDIA NAME: {filename}")
 
 
 if __name__ == '__main__':

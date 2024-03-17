@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\HiveTemperature;
 use Carbon\Carbon;
 use App\Models\HiveHumidity;
+use App\Models\HiveWeight;
+use App\Models\HiveCarbondioxide;
 
 class HiveParameterDataController extends Controller
 {
@@ -100,6 +102,69 @@ class HiveParameterDataController extends Controller
             'dates' => $dates, 
             'interiorHumidities' => $interiorHumidities,
             'exteriorHumidities' => $exteriorHumidities,
+        ]);
+    }
+
+    public function getWeightForDateRange($hive_id, $from_date, $to_date)
+    {
+        // Ensure the dates are in a valid format
+        $from_date = Carbon::parse($from_date);
+        $to_date = Carbon::parse($to_date);
+
+        $weightData = HiveWeight::where('hive_id', $hive_id)
+            ->whereBetween('created_at', [$from_date, $to_date])
+            ->select('record', 'created_at')
+            ->get();
+
+        $dates = [];
+        $weights = [];
+
+        foreach ($weightData as $record) {
+            // Since weight is a single record, no need to split it
+            $weight = $record->record;
+
+            // Turn the "2" values into null
+            $weight = $weight == 2 ? null : $weight;
+
+            $dates[] = $record->created_at;
+            $weights[] = $weight;
+        }
+
+        // Return the data as a JSON response
+        return response()->json([
+            'dates' => $dates,
+            'weights' => $weights,
+        ]);
+    }
+
+    public function getCarbondioxideForDateRange($hive_id, $from_date, $to_date){
+        // Ensure the dates are in a valid format
+        $from_date = Carbon::parse($from_date);
+        $to_date = Carbon::parse($to_date);
+
+        $carbondioxideData = HiveCarbondioxide::where('hive_id', $hive_id)
+            ->whereBetween('created_at', [$from_date, $to_date])
+            ->select('record', 'created_at')
+            ->get();
+
+        $dates = [];
+        $carbondioxideValues = [];
+
+        foreach ($carbondioxideData as $record) {
+            // Since carbondioxide is a single record, no need to split it
+            $carbondioxide = $record->record;
+
+            // Turn the "2" values into null
+            $carbondioxide = $carbondioxide == 2 ? null : $carbondioxide;
+
+            $dates[] = $record->created_at;
+            $carbondioxideValues[] = $carbondioxide;
+        }
+
+        // Return the data as a JSON response
+        return response()->json([
+            'dates' => $dates,
+            'carbondioxideValues' => $carbondioxideValues,
         ]);
     }
  

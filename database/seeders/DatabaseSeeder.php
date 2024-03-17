@@ -21,5 +21,12 @@ class DatabaseSeeder extends Seeder
             // 'phoneNumber' => '0755555555',
             'password'=>bcrypt("admin..123")
         ]);
+
+        $this->call([
+            FarmerSeeder::class,
+            FarmSeeder::class,
+            HiveSeeder::class,
+            HiveTemperatureSeeder::class,
+        ]);
     }
 }

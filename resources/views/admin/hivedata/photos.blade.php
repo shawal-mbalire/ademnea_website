@@ -1,77 +1,56 @@
 @extends('layouts.app')
+
 @section('content')
 
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
-
 @php
-    $hive_id = session('hive_id');
+  $hive_id = session('hive_id');
 @endphp
+
 
 @include('datanavbar')
 
-<div class="relative p-3 mt-10 overflow-x-auto shadow-md sm:rounded-lg">
+<link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
+<div class="container mx-auto px-4 relative">
+    <div class="alime-portfolio-area">
+        <div class="container mx-auto px-10 md:px-5 lg:px-5 sm:px-5">
+            <div class="row alime-portfolio relative">
+                @foreach($photos as $photo)
+                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item {{$photo->category}} mb-30 wow fadeInUp" data-wow-delay="{{$loop->index * 200}}ms">
+                    <div class="single-portfolio-content relative">
+                        <a href="{{ URL("hiveimage/" . $photo->path) }}" data-lightbox="hive-images" data-title="{{ $photo->name ?? 'Hive Image' }}">
+                            <img class="w-full transition-transform duration-500 transform hover:scale-125" src="{{ URL("hiveimage/" . $photo->path) }}" alt="{{ $photo->name ?? 'Hive Image' }}">
+                            <button title="Previous" type="button" class="mfp-arrow mfp-arrow-left mfp-prevent-close absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-4 py-2 rounded-l-md focus:outline-none"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
+    <button title="Next" type="button" class="mfp-arrow mfp-arrow-right mfp-prevent-close absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white px-4 py-2 rounded-r-md focus:outline-none"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 
-    <table id="myTable"class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    #
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Hive ID
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Photo
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Date
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        @php
-            $count =  1
-            @endphp
-        @foreach($photos as $photo)
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-           
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                {{ $count }}
-                </th>
-                <td class="px-6 py-4">
-                {{ $photo->hive_id }}
-                </td>
-                <td class="px-6 py-4">
-                    <a href="{{ URL("hiveimage/"."".$photo->path) }}" target="_blank"><img src="{{ URL("hiveimage/"."".$photo->path) }}" alt=""" height="100" width="100"></a>
-                </td>
-                <td class="px-6 py-4">
-                {{ $photo->created_at }}
-                </td>
-            </tr>
-            @php
-                $count = $count + 1
-                @endphp
-            @endforeach 
-        </tbody>
-    </table>
+    
 </div>
-@endsection
-<!-- added pagination and search-->
-@section('page_scripts')
-<!-- Include DataTables JS file -->
-<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 
+{{-- <script src="{{ asset('js/lightbox-plus-jquery.js') }}"></script> --}}
 <script>
-  $(document).ready(function() {
-   $('#myTable').DataTable({
-      responsive: true
-   });
-});
+    
+    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+    });
+
+    
+    document.querySelector('.mfp-arrow-left').addEventListener('click', function() {
+        lightbox.prev(); 
+    });
+
+    document.querySelector('.mfp-arrow-right').addEventListener('click', function() {
+        lightbox.next();   
+    });
 </script>
+@endsection
+@section('page_scripts')
+
 @endsection

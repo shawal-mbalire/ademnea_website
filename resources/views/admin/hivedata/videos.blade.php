@@ -12,8 +12,9 @@
     <div class="w-2/3">
         <div class="play-video">
             <video id="mainVideo" class="w-full" controls>
-                <source src="{{ URL("hivevideo/" . $videos[0]->path) }}" type="video/mp4">
                 
+                <source src="{{ URL("hivevideo/" . $videos[0]->path) }}" type="video/mp4">
+                    
             </video>
         </div>
     </div>
@@ -39,6 +40,9 @@
             
 
             </ul>
+            {{ $videos->links() }}
+
+            
         </div>
     </div>
 </div>

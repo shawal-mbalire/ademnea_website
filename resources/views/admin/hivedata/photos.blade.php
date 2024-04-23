@@ -4,6 +4,7 @@
 
 @php
   $hive_id = session('hive_id');
+  
 @endphp
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
@@ -28,6 +29,7 @@
                 </div>
                 @endforeach
             </div>
+            {{ $photos->links() }}
         </div>
     </div>
 </div>

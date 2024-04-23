@@ -27,8 +27,8 @@ class HivePhotoController extends Controller
 
        $photos = HivePhoto::where('hive_id', $hiveId)
         ->latest() // This orders the records by the created_at column in descending order (latest first).
-        ->limit(50) // This limits the result to the latest 100 entries.
-        ->get();
+        ->paginate(8) ;// This limits the result to the latest 100 entries.
+        // ->get();
 
 
         return view('admin.hivedata.photos', compact('photos'));

@@ -20,6 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group(['namespace' => 'App\Http\Controllers\Api\V1', 'prefix' => 'v1'], function () {
+
+    /*Routes for user authentication */
+    Route::post('login', 'UserController@login');
     
     /*Routes for fetching hive parameter data given a certain date range */
     Route::get('hives/{hive_id}/temperature/{from_date}/{to_date}', 'HiveParameterDataController@getTemperatureForDateRange');

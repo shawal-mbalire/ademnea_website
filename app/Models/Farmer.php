@@ -9,5 +9,13 @@ class Farmer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['fname', 'lname', 'gender','email','password','address','telephone'];
+    protected $fillable = ['user_id', 'fname', 'lname', 'gender', 'address', 'telephone'];
+
+    /**
+     * Get the user that owns the farmer.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

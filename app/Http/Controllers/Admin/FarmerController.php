@@ -15,7 +15,7 @@ class FarmerController extends Controller
     public function index(Request $request)
     {        
         $perPage = 25;
-        $farmer = Farmer::latest()->paginate($perPage);
+        $farmer = Farmer::with('user')->latest()->paginate($perPage);
         return view('admin.farmer.index', compact('farmer'));
     }
 
@@ -51,13 +51,13 @@ class FarmerController extends Controller
 
     public function show($id)
     {
-        $farmer = Farmer::findOrFail($id);
+        $farmer = Farmer::with('user')->findOrFail($id);
         return view('admin.farmer.show', compact('farmer'));
     }
 
     public function edit($id)
     {
-        $farmer = Farmer::findOrFail($id);
+        $farmer = Farmer::with('user')->findOrFail($id);
         return view('admin.farmer.edit', compact('farmer'));
     }
 
@@ -65,16 +65,17 @@ class FarmerController extends Controller
     {
         $requestData = $request->all();
         
-        $farmer = Farmer::findOrFail($id);
+        $farmer = Farmer::with('user')->findOrFail($id);
         $farmer->update($requestData);
-
+    
         // Update the associated user
         $farmer->user->update([
             'name' => $requestData['fname'] . ' ' . $requestData['lname'],
             'email' => $requestData['email'],
-            'password' => Hash::make($requestData['password']),
+            // Only update the password if a new one is set
+            'password' => $requestData['password'] ? Hash::make($requestData['password']) : $farmer->user->password,
         ]);
-
+    
         return redirect('admin/farmer')->with('flash_message', 'Farmer updated!');
     }
 

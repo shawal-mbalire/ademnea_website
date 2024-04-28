@@ -48,13 +48,13 @@
                 {{ $item->gender }}
                 </td>
                 <td class="px-6 py-4">
-                {{ $item->email }}
+                    {{ $item->user->email }}
                 </td>
                 <td class="px-6 py-4">
                 {{ $item->telephone }}
                 </td>
                 <td class="px-6 py-4">
-                {{ $item->email }}
+                {{ $item->address }}
                 </td>
                 <td class="px-6 py-4">
                     <a href="#" type="button" data-modal-target="large-modal" data-modal-show="large-modal" class="font-medium text-green-600 dark:text-green-500 hover:underline">View</a>
@@ -311,7 +311,7 @@
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Email' }}</label>
-                        <input type="email" name="email" id="email"  value="{{ old('email', $item->email) }}"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="" required="">
+                        <input type="email" name="email" id="email"  value="{{ old('email',  $item->user->email) }}"  class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="" required="">
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <label for="telephone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Telephone' }}</label>
@@ -319,7 +319,7 @@
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Password' }}</label>
-                        <input type="password" name="password" id="password"  value="{{ old('ownerid', $item->ownerid) }}"   class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="" required="">
+                        <input type="password" name="password" id="password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-600 focus:border-green-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Enter new password to update or leave blank to keep current password">
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <label for="repeat" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ 'Repeat Password' }}</label>

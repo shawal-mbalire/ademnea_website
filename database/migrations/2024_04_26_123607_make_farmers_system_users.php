@@ -15,21 +15,6 @@ class MakeFarmersSystemUsers extends Migration
      */
     public function up()
     {
-        // First, create a new user for each existing farmer
-        $farmers = Farmer::all();
-        foreach ($farmers as $farmer) {
-            $user = User::create([
-                'name' => "$farmer->fname $farmer->lname",
-                'email' => $farmer->email,
-                'password' => $farmer->password,
-                'role' => 'farmer',
-            ]);
-
-            // Set the farmer's user_id to the newly created user's id
-            $farmer->user_id = $user->id;
-            $farmer->save();
-        }
-
         Schema::table('farmers', function (Blueprint $table) {
             $table->dropColumn('password');
             $table->dropColumn('email');

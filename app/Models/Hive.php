@@ -8,25 +8,33 @@ use Illuminate\Database\Eloquent\Model;
 class Hive extends Model
 {
     use HasFactory;
-     /**
+
+    /**
      * The database table used by the model.
      *
      * @var string
      */
     protected $table = 'hives';
 
-      /**
+    /**
     * The database primary key value.
     *
     * @var string
     */
     protected $primaryKey = 'id';
 
-     /**
+    /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
     protected $fillable = ['id', 'longitude', 'latitude','farm_id'];
 
+    /**
+     * Get the farm that owns the hive.
+     */
+    public function farm()
+    {
+        return $this->belongsTo(Farm::class);
+    }
 }

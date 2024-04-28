@@ -14,12 +14,13 @@ Route::group(['namespace' => 'App\Http\Controllers\Api\V1', 'prefix' => 'v1'], f
 
     /*Routes for farm related information */
     Route::middleware('auth:sanctum')->group(function () {
-        Route::get('/farms', 'FarmController@index');
+        Route::post('logout', 'UserController@logout');
+        Route::get('farms', 'FarmController@index');
+        Route::get('farms/{farm_id}/hives', 'HiveController@index');
     });
 
     /*Routes for fetching hive parameter data given a certain date range */
     Route::group(['middleware' => 'auth:sanctum'], function () {
-        Route::post('logout', 'UserController@logout');
         Route::get('hives/{hive_id}/temperature/{from_date}/{to_date}', 'HiveParameterDataController@getTemperatureForDateRange');
         Route::get('hives/{hive_id}/humidity/{from_date}/{to_date}', 'HiveParameterDataController@getHumidityForDateRange');
         Route::get('hives/{hive_id}/weight/{from_date}/{to_date}', 'HiveParameterDataController@getWeightForDateRange');

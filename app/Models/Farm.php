@@ -28,4 +28,9 @@ class Farm extends Model
      * @var array
      */
     protected $fillable = ['ownerId', 'name', 'district','address'];
+
+    public function farmer()
+    {
+        return $this->belongsTo(Farmer::class, 'ownerId');
+    }
 }

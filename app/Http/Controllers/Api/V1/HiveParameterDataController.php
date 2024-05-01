@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HiveTemperature;
 use Carbon\Carbon;
+use App\Models\Hive;
 use App\Models\HiveHumidity;
 use App\Models\HiveWeight;
 use App\Models\HiveCarbondioxide;
@@ -33,17 +34,23 @@ class HiveParameterDataController extends Controller
         return HiveTemperature::find($id);
     }
 
-    public function getTemperatureForDateRange($hive_id, $from_date, $to_date)
+    public function getTemperatureForDateRange(Request $request, $hive_id, $from_date, $to_date)
     {
+        $hive = $this->checkHiveOwnership($request, $hive_id);
+    
+        if ($hive instanceof Response) {
+            return $hive;
+        }
+    
         // Ensure the dates are in a valid format
         $from_date = Carbon::parse($from_date);
         $to_date = Carbon::parse($to_date);
-
+    
         $temperatureData = HiveTemperature::where('hive_id', $hive_id)
             ->whereBetween('created_at', [$from_date, $to_date])
             ->select('record', 'created_at')
             ->get();
-
+    
         $dates = [];
         $interiorTemperatures = [];
         $exteriorTemperatures = [];
@@ -69,8 +76,14 @@ class HiveParameterDataController extends Controller
         ]);
     }
 
-    public function getHumidityForDateRange($hive_id, $from_date, $to_date)
+    public function getHumidityForDateRange(Request $request, $hive_id, $from_date, $to_date)
     {
+        $hive = $this->checkHiveOwnership($request, $hive_id);
+    
+        if ($hive instanceof Response) {
+            return $hive;
+        }
+
         // Ensure the dates are in a valid format
         $from_date = Carbon::parse($from_date);
         $to_date = Carbon::parse($to_date);
@@ -105,8 +118,14 @@ class HiveParameterDataController extends Controller
         ]);
     }
 
-    public function getWeightForDateRange($hive_id, $from_date, $to_date)
+    public function getWeightForDateRange(Request $request, $hive_id, $from_date, $to_date)
     {
+        $hive = $this->checkHiveOwnership($request, $hive_id);
+    
+        if ($hive instanceof Response) {
+            return $hive;
+        }
+
         // Ensure the dates are in a valid format
         $from_date = Carbon::parse($from_date);
         $to_date = Carbon::parse($to_date);
@@ -137,7 +156,14 @@ class HiveParameterDataController extends Controller
         ]);
     }
 
-    public function getCarbondioxideForDateRange($hive_id, $from_date, $to_date){
+    public function getCarbondioxideForDateRange(Request $request, $hive_id, $from_date, $to_date){
+
+        $hive = $this->checkHiveOwnership($request, $hive_id);
+    
+        if ($hive instanceof Response) {
+            return $hive;
+        }
+
         // Ensure the dates are in a valid format
         $from_date = Carbon::parse($from_date);
         $to_date = Carbon::parse($to_date);
@@ -166,6 +192,25 @@ class HiveParameterDataController extends Controller
             'dates' => $dates,
             'carbondioxideValues' => $carbondioxideValues,
         ]);
+    }
+
+
+    private function checkHiveOwnership(Request $request, $hive_id)
+    {
+        $hive = Hive::find($hive_id);
+
+        if (!$hive) {
+            return response()->json(['error' => 'Hive not found'], 404);
+        }
+
+        $user = $request->user();
+        $farmer = $user->farmer;
+
+        if ($farmer->id !== $hive->farm->ownerId) {
+            return response()->json(['error' => 'Access denied'], 403);
+        }
+
+        return $hive;
     }
  
 }

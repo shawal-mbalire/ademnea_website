@@ -40,7 +40,7 @@
             
 
             </ul>
-            {{ $videos->links() }}
+            {{ $videos->appends(['hive_id' => $hive_id])->links() }}
 
             
         </div>

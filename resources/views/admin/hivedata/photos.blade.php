@@ -21,7 +21,7 @@
                         <a href="{{ URL("hiveimage/" . $photo->path) }}" data-lightbox="hive-images" data-title="{{ $photo->name ?? 'Hive Image' }}" class="relative inline-block">
                             <img class="w-full transition-transform duration-500 transform hover:scale-125" src="{{ URL("hiveimage/" . $photo->path) }}" alt="{{ $photo->name ?? 'Hive Image' }}">
                         </a>
-                        <div>ID: {{ $photo->id }}</div>
+                        {{-- <div>ID: {{ $photo->id }}</div> --}}
                         <div>Created at: {{ $photo->created_at }}</div>
                     </div>
                 </div>

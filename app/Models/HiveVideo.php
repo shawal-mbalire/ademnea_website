@@ -9,4 +9,12 @@ class HiveVideo extends Model
 {
     use HasFactory;
     protected $fillable = ['path', 'hive_id'];
+
+    /**
+     * Get the hive that owns the video.
+     */
+    public function hive()
+    {
+        return $this->belongsTo(Hive::class);
+    }
 }

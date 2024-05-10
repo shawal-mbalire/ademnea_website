@@ -37,4 +37,28 @@ class Hive extends Model
     {
         return $this->belongsTo(Farm::class);
     }
+
+    /**
+     * Get the photos for the hive.
+     */
+    public function photos()
+    {
+        return $this->hasMany(HivePhoto::class);
+    }
+
+    /**
+     * Get the audios for the hive.
+     */
+    public function audios()
+    {
+        return $this->hasMany(HiveAudio::class);
+    }
+
+    /**
+     * Get the videos for the hive.
+     */
+    public function videos()
+    {
+        return $this->hasMany(HiveVideo::class);
+    }
 }

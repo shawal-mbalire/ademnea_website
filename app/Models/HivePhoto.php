@@ -9,5 +9,12 @@ class HivePhoto extends Model
 {
     use HasFactory;
     protected $fillable = ['path', 'hive_id'];
-    
+
+    /**
+     * Get the hive that owns the photo.
+     */
+    public function hive()
+    {
+        return $this->belongsTo(Hive::class);
+    }
 }

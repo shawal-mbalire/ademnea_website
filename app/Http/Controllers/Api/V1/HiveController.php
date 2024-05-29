@@ -37,4 +37,51 @@ class HiveController extends Controller
 
         return response()->json($hives);
     }
+
+    
+    /**
+     * Get the most recent weight of a hive.
+     *
+     * @param  Request  $request
+     * @param  int  $hive_id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getLatestWeight(Request $request, $hive_id){
+        $hive = $this->checkHiveOwnership($request, $hive_id);
+
+        if ($hive instanceof Response) {
+            return $hive;
+        }
+
+        $latestWeight = HiveWeight::where('hive_id', $hive_id)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        return response()->json($latestWeight);
+    }
+
+    /**
+     * Display the specified hive.
+     *
+     * @param  int  $farm_id
+     * @param  int  $hive_id
+     * @return \Illuminate\Http\Response
+     */
+    private function checkHiveOwnership(Request $request, $hive_id)
+    {
+        $hive = Hive::find($hive_id);
+
+        if (!$hive) {
+            return response()->json(['error' => 'Hive not found'], 404);
+        }
+
+        $user = $request->user();
+        $farmer = $user->farmer;
+
+        if ($farmer->id !== $hive->farm->ownerId) {
+            return response()->json(['error' => 'Access denied'], 403);
+        }
+
+        return $hive;
+    }
 }

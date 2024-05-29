@@ -51,35 +51,32 @@ class HiveParameterDataController extends Controller
             ->select('record', 'created_at')
             ->get();
     
-        $dates = [];
-        $interiorTemperatures = [];
-        $exteriorTemperatures = [];
-        
+        $data = [];
+    
         foreach ($temperatureData as $record) {
             // Assuming the temperature data is stored as 'exterior,brood,honey'
             list($interiorTemp, $broodTemp, $exteriorTemp) = explode('*', $record->record);
-            
+    
             // Turn the "2" values into null
             $interiorTemp = $interiorTemp == 2 ? null : $interiorTemp;
             $exteriorTemp = $exteriorTemp == 2 ? null : $exteriorTemp;
-            
-            $dates[] = $record->created_at; 
-            $interiorTemperatures[] = $interiorTemp;
-            $exteriorTemperatures[] = $exteriorTemp;
+    
+            $data[] = [
+                'date' => $record->created_at,
+                'interiorTemperature' => $interiorTemp,
+                'exteriorTemperature' => $exteriorTemp,
+            ];
         }
-        
+    
         // Return the data as a JSON response
-        return response()->json([
-            'dates' => $dates, 
-            'interiorTemperatures' => $interiorTemperatures,
-            'exteriorTemperatures' => $exteriorTemperatures,
-        ]);
+        return response()->json($data);
     }
+
 
     public function getHumidityForDateRange(Request $request, $hive_id, $from_date, $to_date)
     {
         $hive = $this->checkHiveOwnership($request, $hive_id);
-    
+
         if ($hive instanceof Response) {
             return $hive;
         }
@@ -93,35 +90,31 @@ class HiveParameterDataController extends Controller
             ->select('record', 'created_at')
             ->get();
 
-        $dates = [];
-        $interiorHumidities = [];
-        $exteriorHumidities = [];
-        
+        $data = [];
+
         foreach ($humidityData as $record) {
             // Assuming the humidity data is stored as 'exterior,brood,honey'
             list($interiorHumidity, $broodHumidity, $exteriorHumidity) = explode('*', $record->record);
-            
+
             // Turn the "2" values into null
             $interiorHumidity = $interiorHumidity == 2 ? null : $interiorHumidity;
             $exteriorHumidity = $exteriorHumidity == 2 ? null : $exteriorHumidity;
-            
-            $dates[] = $record->created_at; 
-            $interiorHumidities[] = $interiorHumidity;
-            $exteriorHumidities[] = $exteriorHumidity;
+
+            $data[] = [
+                'date' => $record->created_at,
+                'interiorHumidity' => $interiorHumidity,
+                'exteriorHumidity' => $exteriorHumidity,
+            ];
         }
-        
+
         // Return the data as a JSON response
-        return response()->json([
-            'dates' => $dates, 
-            'interiorHumidities' => $interiorHumidities,
-            'exteriorHumidities' => $exteriorHumidities,
-        ]);
+        return response()->json($data);
     }
 
     public function getWeightForDateRange(Request $request, $hive_id, $from_date, $to_date)
     {
         $hive = $this->checkHiveOwnership($request, $hive_id);
-    
+
         if ($hive instanceof Response) {
             return $hive;
         }
@@ -135,8 +128,7 @@ class HiveParameterDataController extends Controller
             ->select('record', 'created_at')
             ->get();
 
-        $dates = [];
-        $weights = [];
+        $data = [];
 
         foreach ($weightData as $record) {
             // Since weight is a single record, no need to split it
@@ -145,21 +137,20 @@ class HiveParameterDataController extends Controller
             // Turn the "2" values into null
             $weight = $weight == 2 ? null : $weight;
 
-            $dates[] = $record->created_at;
-            $weights[] = $weight;
+            $data[] = [
+                'date' => $record->created_at,
+                'weight' => $weight,
+            ];
         }
 
         // Return the data as a JSON response
-        return response()->json([
-            'dates' => $dates,
-            'weights' => $weights,
-        ]);
+        return response()->json($data);
     }
 
-    public function getCarbondioxideForDateRange(Request $request, $hive_id, $from_date, $to_date){
-
+    public function getCarbondioxideForDateRange(Request $request, $hive_id, $from_date, $to_date)
+    {
         $hive = $this->checkHiveOwnership($request, $hive_id);
-    
+
         if ($hive instanceof Response) {
             return $hive;
         }
@@ -173,8 +164,7 @@ class HiveParameterDataController extends Controller
             ->select('record', 'created_at')
             ->get();
 
-        $dates = [];
-        $carbondioxideValues = [];
+        $data = [];
 
         foreach ($carbondioxideData as $record) {
             // Since carbondioxide is a single record, no need to split it
@@ -183,15 +173,14 @@ class HiveParameterDataController extends Controller
             // Turn the "2" values into null
             $carbondioxide = $carbondioxide == 2 ? null : $carbondioxide;
 
-            $dates[] = $record->created_at;
-            $carbondioxideValues[] = $carbondioxide;
+            $data[] = [
+                'date' => $record->created_at,
+                'carbondioxide' => $carbondioxide,
+            ];
         }
 
         // Return the data as a JSON response
-        return response()->json([
-            'dates' => $dates,
-            'carbondioxideValues' => $carbondioxideValues,
-        ]);
+        return response()->json($data);
     }
 
 

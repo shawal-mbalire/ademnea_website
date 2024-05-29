@@ -20,6 +20,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Api\V1', 'prefix' => 'v1'], f
         Route::get('farms/time-until-harvest', 'FarmController@timeUntilHarvestSeason');
     });
 
+    /*Routes for hive related information */
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::get('hives/{hive_id}/latest-weight', 'HiveController@getLatestWeight');
+        Route::get('hives/{hive_id}/latest-temperature', 'HiveController@getLatestTemperature');
+    });
+
     /*Routes for fetching hive parameter data given a certain date range */
     Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::get('hives/{hive_id}/temperature/{from_date}/{to_date}', 'HiveParameterDataController@getTemperatureForDateRange');

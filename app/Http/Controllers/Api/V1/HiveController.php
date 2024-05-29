@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Farm;
+use App\Models\Hive;
+use App\Models\HiveTemperature;
+use App\Models\HiveWeight;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -38,7 +41,6 @@ class HiveController extends Controller
         return response()->json($hives);
     }
 
-    
     /**
      * Get the most recent weight of a hive.
      *
@@ -58,6 +60,28 @@ class HiveController extends Controller
             ->first();
 
         return response()->json($latestWeight);
+    }
+
+    /**
+     * Get the most recent temperature of a hive.
+     * 
+     * @param Request $request
+     * @param int $hive_id
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     */
+    public function getLatestTemperature(Request $request, $hive_id){
+        $hive = $this->checkHiveOwnership($request, $hive_id);
+
+        if ($hive instanceof Response) {
+            return $hive;
+        }
+
+        $latestTemperature = HiveTemperature::where('hive_id', $hive_id)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        return response()->json($latestTemperature);
     }
 
     /**

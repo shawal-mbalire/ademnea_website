@@ -18,6 +18,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api\V1', 'prefix' => 'v1'], f
         Route::get('farms', 'FarmController@index');
         Route::get('farms/{farm_id}/hives', 'HiveController@index');
         Route::get('farms/time-until-harvest', 'FarmController@timeUntilHarvestSeason');
+        Route::get('farms/{farm_id}/temperature-stats', 'FarmController@getFarmTemperatureStats');
     });
 
     /*Routes for hive related information */

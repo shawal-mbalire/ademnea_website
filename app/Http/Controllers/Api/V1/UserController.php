@@ -40,5 +40,18 @@ class UserController extends Controller
 
         return response(['message' => 'Logged out successfully'], 200);
     }
+
+    /**
+     * Display the total number of farms of the authenticated user.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function totalFarms(Request $request){
+        $user = $request->user();
+        $farms = $user->farms;
+
+        return response()->json(['total_farms' => count($farms)]);
+    }
 }
 

@@ -25,6 +25,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api\V1', 'prefix' => 'v1'], f
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('hives/{hive_id}/latest-weight', 'HiveController@getLatestWeight');
         Route::get('hives/{hive_id}/latest-temperature', 'HiveController@getLatestTemperature');
+        Route::get('hives/{hive_id}/state', 'HiveController@getCurrentHiveState');
     });
 
     /*Routes for fetching hive parameter data given a certain date range */

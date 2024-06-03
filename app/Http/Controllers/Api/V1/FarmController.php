@@ -255,10 +255,32 @@ class FarmController extends Controller
             'lowestExteriorTempHive' => $lowestExteriorTempHive,
         ] : ['error' => 'No exterior temperature records found for the given date range'];
     
+
+        // Get the latest 10 temperature records for the hive with the highest interior temperature
+        $latestTenRecords = HiveTemperature::where('hive_id', $highestInteriorTempHive)
+            ->orderBy('created_at', 'desc')
+            ->select('record', 'created_at')
+            ->take(10)
+            ->get();
+
+        // Extract the interior temperatures from the records
+        $latestTenInteriorTemps = [];
+        foreach ($latestTenRecords as $record) {
+            $tempData = explode('*', $record->record);
+            if (count($tempData) !== 3) {
+                continue; // Skip if the record format is incorrect
+            }
+            $interiorTemp = $tempData[0] == 2 ? null : (float) $tempData[0];
+            if ($interiorTemp !== null) {
+                $latestTenInteriorTemps[] = ['temperature' => $interiorTemp, 'date' => $record->created_at];
+            }
+        }
+
         // Return the data as a JSON response
         return response()->json([
             'interiorTemperatureStats' => $interiorTempStats,
             'exteriorTemperatureStats' => $exteriorTempStats,
+            'latestTenInteriorTemps' => $latestTenInteriorTemps,
         ]);
     }
     

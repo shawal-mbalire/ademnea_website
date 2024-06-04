@@ -30,6 +30,28 @@ class FarmController extends Controller
         return $farmer;
     }
 
+    /**
+     * Display the total number of farms owned by the authenticated farmer.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function totalFarmsAndHives(Request $request){
+        $farmer = $this->getAuthenticatedFarmer($request);
+    
+        if ($farmer instanceof \Illuminate\Http\JsonResponse) {
+            return $farmer;
+        }
+    
+        $totalFarms = $farmer->farms->count();
+    
+        $totalHives = 0;
+        foreach ($farmer->farms as $farm) {
+            $totalHives += $farm->hives->count();
+        }
+    
+        return response()->json(['total_farms' => $totalFarms, 'total_hives' => $totalHives]);
+    }
 
     /**
      * Check if the authenticated farmer owns the farm.

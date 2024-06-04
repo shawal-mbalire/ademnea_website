@@ -41,7 +41,16 @@ class HiveController extends Controller
 
         $hives = $farm->hives;
 
-        return response()->json($hives);
+        $hivesWithState = [];
+        foreach ($hives as $hive) {
+            $hiveState = $this->getCurrentHiveState($request, $hive->id);
+            if ($hiveState instanceof Response) {
+                continue;
+            }
+            $hivesWithState[] = ['hive' => $hive, 'state' => $hiveState->original];
+        }
+
+        return response()->json($hivesWithState);
     }
 
 

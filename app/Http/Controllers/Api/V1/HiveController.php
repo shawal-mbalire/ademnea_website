@@ -23,36 +23,34 @@ class HiveController extends Controller
     public function index(Request $request, $farm_id)
     {
         $farm = Farm::find($farm_id);
-
+    
         if (!$farm) {
             return response()->json(['error' => 'Farm not found'], 404);
         }
-
+    
         // Get the currently authenticated user
         $user = $request->user();
-
+    
         // Get the farmer associated with the user
         $farmer = $user->farmer;
-
+    
         // Check if the farmer is the owner of the farm
         if ($farmer->id !== $farm->ownerId) {
             return response()->json(['error' => 'Access denied'], 403);
         }
-
+    
         $hives = $farm->hives;
-
-        $hivesWithState = [];
+    
         foreach ($hives as $hive) {
             $hiveState = $this->getCurrentHiveState($request, $hive->id);
             if ($hiveState instanceof Response) {
                 continue;
             }
-            $hivesWithState[] = ['hive' => $hive, 'state' => $hiveState->original];
+            $hive->state = $hiveState->original;
         }
-
-        return response()->json($hivesWithState);
+    
+        return response()->json($hives);
     }
-
 
     /**
      * Display the specified hive.

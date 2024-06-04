@@ -12,6 +12,89 @@ use App\Http\Controllers\Controller;
 
 class FarmController extends Controller
 {
+
+    /**
+     * Display a listing of the farms of the authenticated farmer.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $farmer = $this->getAuthenticatedFarmer($request);
+
+        if ($farmer instanceof \Illuminate\Http\JsonResponse) {
+            return $farmer;
+        }
+
+        $farms = $farmer->farms;
+
+        return response()->json($farms);
+    }
+
+    /**
+     * Display the current average temperature of all hives in a farm
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function getFarmAverageTemperature(Request $request, $farm_id)
+    {
+        $farm = Farm::find($farm_id);
+    
+        if (!$farm) {
+            return response()->json(['error' => 'Farm not found'], 404);
+        }
+    
+        // Get the currently authenticated user
+        $user = $request->user();
+    
+        // Get the farmer associated with the user
+        $farmer = $user->farmer;
+    
+        // Check if the farmer is the owner of the farm
+        if ($farmer->id !== $farm->ownerId) {
+            return response()->json(['error' => 'Access denied'], 403);
+        }
+    
+        $hives = $farm->hives;
+    
+        $totalTemperature = 0;
+        $hiveCount = 0;
+    
+        foreach ($hives as $hive) {
+            $latestTemperatureRecord = HiveTemperature::where('hive_id', $hive->id)->orderBy('created_at', 'desc')->first();
+    
+            if (!$latestTemperatureRecord) {
+                continue;
+            }
+    
+            $tempData = explode('*', $latestTemperatureRecord->record);
+            if (count($tempData) !== 3) {
+                continue; // Skip if the record format is incorrect
+            }
+    
+            list($interiorTemp, $broodTemp, $exteriorTemp) = $tempData;
+            $interiorTemp = $interiorTemp == 2 ? null : (float) $interiorTemp;
+            $exteriorTemp = $exteriorTemp == 2 ? null : (float) $exteriorTemp;
+    
+            if ($interiorTemp !== null && $exteriorTemp !== null) {
+                $averageTemperature = ($interiorTemp + $exteriorTemp) / 2;
+                $totalTemperature += $averageTemperature;
+                $hiveCount++;
+            }
+        }
+    
+        if ($hiveCount === 0) {
+            return response()->json(['error' => 'No temperature data available'], 404);
+        }
+    
+        $averageFarmTemperature = $totalTemperature / $hiveCount;
+    
+        return response()->json(['average_temperature' => $averageFarmTemperature]);
+    }
+
+
     /**
      * Get the authenticated farmer.
      *
@@ -36,20 +119,21 @@ class FarmController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function totalFarmsAndHives(Request $request){
+    public function totalFarmsAndHives(Request $request)
+    {
         $farmer = $this->getAuthenticatedFarmer($request);
-    
+
         if ($farmer instanceof \Illuminate\Http\JsonResponse) {
             return $farmer;
         }
-    
+
         $totalFarms = $farmer->farms->count();
-    
+
         $totalHives = 0;
         foreach ($farmer->farms as $farm) {
             $totalHives += $farm->hives->count();
         }
-    
+
         return response()->json(['total_farms' => $totalFarms, 'total_hives' => $totalHives]);
     }
 
@@ -63,38 +147,20 @@ class FarmController extends Controller
     private function checkFarmOwnership(Request $request, $farm_id)
     {
         $farmer = $this->getAuthenticatedFarmer($request);
-    
+
         if ($farmer instanceof Response) {
             return $farmer;
         }
-    
+
         $farm = Farm::where('id', $farm_id)->where('ownerId', $farmer->id)->first();
-    
+
         if (!$farm) {
             return response()->json(['error' => 'Farm not found or not owned by the authenticated farmer'], 404);
         }
-    
+
         return $farm;
     }
 
-    /**
-     * Display a listing of the farms of the authenticated farmer.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        $farmer = $this->getAuthenticatedFarmer($request);
-
-        if ($farmer instanceof \Illuminate\Http\JsonResponse) {
-            return $farmer;
-        }
-
-        $farms = $farmer->farms;
-
-        return response()->json($farms);
-    }
 
     /**
      * Calculate the months until the start of the harvest season.
@@ -130,10 +196,12 @@ class FarmController extends Controller
 
             // Check if the current date is within the harvest season
             if ($currentDate >= $startOfSeason && $currentDate <= $endOfSeason) {
-                return response()->json(['time_until_harvest' => [
-                    'months' => 0,
-                    'days' => 0,
-                ]]);
+                return response()->json([
+                    'time_until_harvest' => [
+                        'months' => 0,
+                        'days' => 0,
+                    ]
+                ]);
             }
 
             // Adjust the start of the season to the next year if it has already passed this year
@@ -150,10 +218,12 @@ class FarmController extends Controller
             }
         }
 
-        return response()->json(['time_until_harvest' => [
-            'months' => $timeUntilHarvest->m,
-            'days' => $timeUntilHarvest->d,
-        ]]);
+        return response()->json([
+            'time_until_harvest' => [
+                'months' => $timeUntilHarvest->m,
+                'days' => $timeUntilHarvest->d,
+            ]
+        ]);
     }
 
     /**
@@ -163,7 +233,8 @@ class FarmController extends Controller
      * @param  int  $farm_id
      * @return \Illuminate\Http\Response
      */
-    public function totalHives(Request $request, $farm_id){
+    public function totalHives(Request $request, $farm_id)
+    {
         $farmer = $this->getAuthenticatedFarmer($request);
 
         if ($farmer instanceof \Illuminate\Http\JsonResponse) {
@@ -181,7 +252,7 @@ class FarmController extends Controller
         return response()->json(['total_hives' => $totalHives]);
     }
 
-   /**
+    /**
      * Display temperature stats of a farm given the start date and end date.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -193,73 +264,73 @@ class FarmController extends Controller
     public function getFarmTemperatureStats(Request $request, $farm_id)
     {
         $farm = $this->checkFarmOwnership($request, $farm_id);
-    
+
         if ($farm instanceof Response) {
             return $farm;
         }
-    
+
         $request->validate([
             'from_date' => 'required|date',
             'to_date' => 'required|date|after_or_equal:from_date',
         ]);
-    
+
         $from_date = Carbon::parse($request->query('from_date'));
         $to_date = Carbon::parse($request->query('to_date'));
-    
+
         $interiorTemps = [];
         $exteriorTemps = [];
         $highestInteriorTempHive = null;
         $lowestInteriorTempHive = null;
         $highestExteriorTempHive = null;
         $lowestExteriorTempHive = null;
-    
+
         foreach ($farm->hives as $hive) {
             $temperatureData = HiveTemperature::where('hive_id', $hive->id)
                 ->whereBetween('created_at', [$from_date, $to_date])
                 ->select('record', 'created_at')
                 ->get();
-    
+
             if ($temperatureData->isEmpty()) {
                 continue; // Skip hives with no data
             }
-    
+
             foreach ($temperatureData as $record) {
                 $tempData = explode('*', $record->record);
-    
+
                 if (count($tempData) !== 3) {
                     continue; // Skip if the record format is incorrect
                 }
-    
+
                 list($interiorTemp, $broodTemp, $exteriorTemp) = $tempData;
                 $interiorTemp = $interiorTemp == 2 ? null : (float) $interiorTemp;
                 $exteriorTemp = $exteriorTemp == 2 ? null : (float) $exteriorTemp;
-    
+
                 if ($interiorTemp !== null) {
                     $interiorTemps[] = $interiorTemp;
-    
+
                     if ($highestInteriorTempHive === null || $interiorTemp > $highestInteriorTempHive['temperature']) {
                         $highestInteriorTempHive = ['hive' => $hive->id, 'temperature' => $interiorTemp];
                     }
-    
+
                     if ($lowestInteriorTempHive === null || $interiorTemp < $lowestInteriorTempHive['temperature']) {
                         $lowestInteriorTempHive = ['hive' => $hive->id, 'temperature' => $interiorTemp];
                     }
                 }
-    
+
                 if ($exteriorTemp !== null) {
                     $exteriorTemps[] = $exteriorTemp;
-    
+
                     if ($highestExteriorTempHive === null || $exteriorTemp > $highestExteriorTempHive['temperature']) {
                         $highestExteriorTempHive = ['hive' => $hive->id, 'temperature' => $exteriorTemp];
                     }
-    
+
                     if ($lowestExteriorTempHive === null || $exteriorTemp < $lowestExteriorTempHive['temperature']) {
                         $lowestExteriorTempHive = ['hive' => $hive->id, 'temperature' => $exteriorTemp];
                     }
                 }
             }
         }
-    
+
         // Calculate the highest, lowest, and average temperatures
         $interiorTempStats = !empty($interiorTemps) ? [
             'highest' => max($interiorTemps),
@@ -268,7 +339,7 @@ class FarmController extends Controller
             'highestInteriorTempHive' => $highestInteriorTempHive,
             'lowestInteriorTempHive' => $lowestInteriorTempHive,
         ] : ['error' => 'No interior temperature records found for the given date range'];
-    
+
         $exteriorTempStats = !empty($exteriorTemps) ? [
             'highest' => max($exteriorTemps),
             'lowest' => min($exteriorTemps),
@@ -276,7 +347,7 @@ class FarmController extends Controller
             'highestExteriorTempHive' => $highestExteriorTempHive,
             'lowestExteriorTempHive' => $lowestExteriorTempHive,
         ] : ['error' => 'No exterior temperature records found for the given date range'];
-    
+
 
         // Get the latest 10 temperature records for the hive with the highest interior temperature
         $latestTenRecords = HiveTemperature::where('hive_id', $highestInteriorTempHive)
@@ -305,7 +376,7 @@ class FarmController extends Controller
             'latestTenInteriorTemps' => $latestTenInteriorTemps,
         ]);
     }
-    
+
 
     /**
      * Display humidity stats of a farm given the start date and end date.
@@ -316,11 +387,12 @@ class FarmController extends Controller
      * @param  string  $to_date
      * @return \Illuminate\Http\Response
      */
-    public function getHumidityStatsForFarm(Request $request, $farm_id, $from_date, $to_date){
+    public function getHumidityStatsForFarm(Request $request, $farm_id, $from_date, $to_date)
+    {
 
     }
-    
-    
 
-    
+
+
+
 }

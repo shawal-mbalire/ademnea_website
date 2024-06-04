@@ -23,24 +23,24 @@ class HiveController extends Controller
     public function index(Request $request, $farm_id)
     {
         $farm = Farm::find($farm_id);
-    
+
         if (!$farm) {
             return response()->json(['error' => 'Farm not found'], 404);
         }
-    
+
         // Get the currently authenticated user
         $user = $request->user();
-    
+
         // Get the farmer associated with the user
         $farmer = $user->farmer;
-    
+
         // Check if the farmer is the owner of the farm
         if ($farmer->id !== $farm->ownerId) {
             return response()->json(['error' => 'Access denied'], 403);
         }
-    
+
         $hives = $farm->hives;
-    
+
         foreach ($hives as $hive) {
             $hiveState = $this->getCurrentHiveState($request, $hive->id);
             if ($hiveState instanceof Response) {
@@ -48,7 +48,7 @@ class HiveController extends Controller
             }
             $hive->state = $hiveState->original;
         }
-    
+
         return response()->json($hives);
     }
 
@@ -90,18 +90,18 @@ class HiveController extends Controller
         $emptyHiveWeight = 18.0;
         $hiveWithColonyWeight = 30.0;
         $maxHiveWeight = 50.0;
-    
+
         if ($hiveWeight < $hiveWithColonyWeight) {
             return 0.0;
         }
-    
+
         $maxHoneyWeight = $maxHiveWeight - $hiveWithColonyWeight;
         $currentHoneyWeight = $hiveWeight - $hiveWithColonyWeight;
         $honeyPercentage = ($currentHoneyWeight / $maxHoneyWeight) * 100;
-    
+
         return min($honeyPercentage, 100.0);
     }
-    
+
 
 
     /**
@@ -113,25 +113,71 @@ class HiveController extends Controller
     public function getLatestWeight($hive_id)
     {
         $hive = Hive::find($hive_id);
-    
+
         if (!$hive) {
             return response()->json(['error' => 'Hive not found'], 404);
         }
-    
+
         $latestWeight = HiveWeight::where('hive_id', $hive_id)
             ->orderBy('created_at', 'desc')
             ->first();
-    
+
         if ($latestWeight) {
+            if ($latestWeight->record == 2) {
+                $latestWeight->record = null;
+            }
             $honeyPercentage = $this->getHiveHoneyPercentage($latestWeight->weight);
             $latestWeight->honey_percentage = $honeyPercentage;
             $latestWeight->date_collected = $latestWeight->created_at->format('Y-m-d H:i:s');
         }
-    
+
         return response()->json([
             'record' => $latestWeight->record ?? null,
             'honey_percentage' => $latestWeight->honey_percentage ?? null,
             'date_collected' => $latestWeight->date_collected ?? null,
+        ]);
+    }
+
+    /**
+     * Get the current average weight of a farm
+     *
+     * @param  int  $farm_id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getFarmAverageWeight($farm_id)
+    {
+        $farm = Farm::find($farm_id);
+
+        if (!$farm) {
+            return response()->json(['error' => 'Farm not found'], 404);
+        }
+
+        $hives = $farm->hives;
+
+        $totalWeight = 0;
+        $totalHoneyPercentage = 0;
+        $hiveCount = 0;
+
+        foreach ($hives as $hive) {
+            $latestWeight = $this->getLatestWeight($hive->id)->original;
+
+            if ($latestWeight['record'] !== null && $latestWeight['honey_percentage'] !== null) {
+                $totalWeight += $latestWeight['record'];
+                $totalHoneyPercentage += $latestWeight['honey_percentage'];
+                $hiveCount++;
+            }
+        }
+
+        if ($hiveCount === 0) {
+            return response()->json(['error' => 'No weight data available'], 404);
+        }
+
+        $averageWeight = $totalWeight / $hiveCount;
+        $averageHoneyPercentage = $totalHoneyPercentage / $hiveCount;
+
+        return response()->json([
+            'average_weight' => $averageWeight,
+            'average_honey_percentage' => $averageHoneyPercentage,
         ]);
     }
 
@@ -183,28 +229,28 @@ class HiveController extends Controller
     public function getLatestHumidity($hive_id)
     {
         $hive = Hive::find($hive_id);
-    
+
         if (!$hive) {
             return response()->json(['error' => 'Hive not found'], 404);
         }
-    
+
         $latestHumidity = HiveHumidity::where('hive_id', $hive_id)
             ->orderBy('created_at', 'desc')
             ->first();
-    
+
         if ($latestHumidity) {
             if (substr_count($latestHumidity->record, '*') == 2) {
                 list($interiorHumidity, $broodHumidity, $exteriorHumidity) = explode('*', $latestHumidity->record);
                 $interiorHumidity = $interiorHumidity == 2 ? null : (float) $interiorHumidity;
                 $exteriorHumidity = $exteriorHumidity == 2 ? null : (float) $exteriorHumidity;
-    
+
                 $latestHumidity->interior_humidity = $interiorHumidity;
                 $latestHumidity->exterior_humidity = $exteriorHumidity;
             }
-    
+
             $latestHumidity->date_collected = $latestHumidity->created_at->format('Y-m-d H:i:s');
         }
-    
+
         return response()->json([
             'interior_humidity' => $latestHumidity->interior_humidity ?? null,
             'exterior_humidity' => $latestHumidity->exterior_humidity ?? null,
@@ -221,19 +267,19 @@ class HiveController extends Controller
     public function getLatestCarbonDioxide($hive_id)
     {
         $hive = Hive::find($hive_id);
-    
+
         if (!$hive) {
             return response()->json(['error' => 'Hive not found'], 404);
         }
-    
+
         $latestCarbonDioxide = HiveCarbonDioxide::where('hive_id', $hive_id)
             ->orderBy('created_at', 'desc')
             ->first();
-    
+
         if ($latestCarbonDioxide) {
             $latestCarbonDioxide->date_collected = $latestCarbonDioxide->created_at->format('Y-m-d H:i:s');
         }
-    
+
         return response()->json([
             'record' => $latestCarbonDioxide->record ?? null,
             'date_collected' => $latestCarbonDioxide->date_collected ?? null,

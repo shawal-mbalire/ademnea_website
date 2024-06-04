@@ -32,68 +32,6 @@ class FarmController extends Controller
         return response()->json($farms);
     }
 
-    /**
-     * Display the current average temperature of all hives in a farm
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function getFarmAverageTemperature(Request $request, $farm_id)
-    {
-        $farm = Farm::find($farm_id);
-    
-        if (!$farm) {
-            return response()->json(['error' => 'Farm not found'], 404);
-        }
-    
-        // Get the currently authenticated user
-        $user = $request->user();
-    
-        // Get the farmer associated with the user
-        $farmer = $user->farmer;
-    
-        // Check if the farmer is the owner of the farm
-        if ($farmer->id !== $farm->ownerId) {
-            return response()->json(['error' => 'Access denied'], 403);
-        }
-    
-        $hives = $farm->hives;
-    
-        $totalTemperature = 0;
-        $hiveCount = 0;
-    
-        foreach ($hives as $hive) {
-            $latestTemperatureRecord = HiveTemperature::where('hive_id', $hive->id)->orderBy('created_at', 'desc')->first();
-    
-            if (!$latestTemperatureRecord) {
-                continue;
-            }
-    
-            $tempData = explode('*', $latestTemperatureRecord->record);
-            if (count($tempData) !== 3) {
-                continue; // Skip if the record format is incorrect
-            }
-    
-            list($interiorTemp, $broodTemp, $exteriorTemp) = $tempData;
-            $interiorTemp = $interiorTemp == 2 ? null : (float) $interiorTemp;
-            $exteriorTemp = $exteriorTemp == 2 ? null : (float) $exteriorTemp;
-    
-            if ($interiorTemp !== null && $exteriorTemp !== null) {
-                $averageTemperature = ($interiorTemp + $exteriorTemp) / 2;
-                $totalTemperature += $averageTemperature;
-                $hiveCount++;
-            }
-        }
-    
-        if ($hiveCount === 0) {
-            return response()->json(['error' => 'No temperature data available'], 404);
-        }
-    
-        $averageFarmTemperature = $totalTemperature / $hiveCount;
-    
-        return response()->json(['average_temperature' => $averageFarmTemperature]);
-    }
-
 
     /**
      * Get the authenticated farmer.
@@ -112,6 +50,69 @@ class FarmController extends Controller
 
         return $farmer;
     }
+
+    /**
+     * Display the current average temperature of all hives in a farm
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function getFarmAverageTemperature(Request $request, $farm_id)
+    {
+        $farm = Farm::find($farm_id);
+
+        if (!$farm) {
+            return response()->json(['error' => 'Farm not found'], 404);
+        }
+
+        // Get the currently authenticated user
+        $user = $request->user();
+
+        // Get the farmer associated with the user
+        $farmer = $user->farmer;
+
+        // Check if the farmer is the owner of the farm
+        if ($farmer->id !== $farm->ownerId) {
+            return response()->json(['error' => 'Access denied'], 403);
+        }
+
+        $hives = $farm->hives;
+
+        $totalTemperature = 0;
+        $hiveCount = 0;
+
+        foreach ($hives as $hive) {
+            $latestTemperatureRecord = HiveTemperature::where('hive_id', $hive->id)->orderBy('created_at', 'desc')->first();
+
+            if (!$latestTemperatureRecord) {
+                continue;
+            }
+
+            $tempData = explode('*', $latestTemperatureRecord->record);
+            if (count($tempData) !== 3) {
+                continue; // Skip if the record format is incorrect
+            }
+
+            list($interiorTemp, $broodTemp, $exteriorTemp) = $tempData;
+            $interiorTemp = $interiorTemp == 2 ? null : (float) $interiorTemp;
+            $exteriorTemp = $exteriorTemp == 2 ? null : (float) $exteriorTemp;
+
+            if ($interiorTemp !== null && $exteriorTemp !== null) {
+                $averageTemperature = ($interiorTemp + $exteriorTemp) / 2;
+                $totalTemperature += $averageTemperature;
+                $hiveCount++;
+            }
+        }
+
+        if ($hiveCount === 0) {
+            return response()->json(['error' => 'No temperature data available'], 404);
+        }
+
+        $averageFarmTemperature = $totalTemperature / $hiveCount;
+
+        return response()->json(['average_temperature' => $averageFarmTemperature]);
+    }
+
 
     /**
      * Display the total number of farms owned by the authenticated farmer.

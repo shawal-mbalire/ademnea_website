@@ -93,6 +93,12 @@ Route::get('/hive_data/weight_data/{hive}', [App\Http\Controllers\HiveData\HiveD
 Route::get('/hive_data/tempHumidity_data_default/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'tempHumidity_default']);
 Route::get('/hive_data/tempHumidity_data/{hive}', [App\Http\Controllers\HiveData\HiveDataController::class, 'getTempHumidity']);
 
+/* ------------Power Records------------------*/
+Route::get('/hive_data/PowerRecord_data_default/{hive}', [App\Http\Controllers\PowerRecordController::class, 'PowerRecord_default']);
+Route::get('/hive_data/PowerRecord_data/{hive}', [App\Http\Controllers\PowerRecordController::class, 'getPowerRecord']);
+Route::post('/hive_data/PowerRecord_data/{hive}', [App\Http\Controllers\PowerRecordController::class, 'postPowerRecord']);
+
+
 
 Route::get('/individual_newsletter/{id}', [App\Http\Controllers\DisplayIndividualNewsletterController::class, 'show']);
 
